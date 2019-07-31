@@ -25,7 +25,7 @@ class ZhiLian(object):
         self.base_url = 'https://www.zhaopin.com/'
         self.goal_url = 'https://rd5.zhaopin.com/job/manage'
         self.test_url = 'https://blog.csdn.net/'
-        self.proxies = ''
+        # self.proxies = ''
         self.session = requests.Session()
 
     def get_post_page(self):
@@ -37,25 +37,24 @@ class ZhiLian(object):
         # cook = driver.get_cookies()
         # print(cook)
         driver.delete_all_cookies()
-        for cook in cookies:
+        for cook in cookies:                     # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< error
             new = dict(cook, **{
                 "domain": ".zhaopin.com",
                 "expires": "2019-08-07T03:19:00.679Z",
                 "path": "/",
                 "httpOnly": False,
             })
-            print('1')
             driver.add_cookie(cookie_dict=new)
         driver.refresh()
         # 以下为打开新窗口，加载页面
-        # driver.execute_script('window.open();')
-        # driver.switch_to_window(driver.window_handles[1])
-        # driver.get(self.goal_url)
-        # time.sleep(2)
+        driver.execute_script('window.open();')
+        driver.switch_to_window(driver.window_handles[1])
+        driver.get(self.goal_url)
+        time.sleep(2)
         # 以下为关闭前一个窗口，不过没有必要
         # driver.switch_to_window(driver.window_handles[0])
-        # driver.close()
-        self.do_task()
+        driver.close()
+        # self.do_task()
         driver.quit()
 
     # 判断当前是否为平年，闰年
@@ -150,6 +149,7 @@ class ZhiLian(object):
         info = driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[3]/div/p/span').text
         # info的每个信息格式为： 刷新时间：07-27 09:15（4天前）
         for i in info:
+            i = i.strip()
             month = int(i[5:7])  # 07
             day = int(i[8:10])   # 27
             # hour = int(i[11:13])  # 09
@@ -159,27 +159,71 @@ class ZhiLian(object):
 
         # 以下print转换为msg信息发送给关注人
         print(f'您在第{page}页有{num}条简历信息超过2天没有刷新了')
+        return int(page)
 
-        # 检测是否有下一页，进行翻页处理
+    def do_task(self):
+        while True:
+            # page 为总共有多少页
+            page = self.ipage()
+            # 搜索该页面的刷新信息
+            nowpage = self.fresh_recruit()    # 返回当前所在的页面
+            # 搜索该页面的发布信息
+            self.release_date()
+            # 此页面处理完毕后，判断页面是否有下一页，然后处理是否翻页
+            # self.Have_next()  # 暂时可以不管这个方式
+            if nowpage < page:
+                # 有下一页，点击下一页
+                driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button[2]').click()
+
+    def ipage(self):
+        # 返回共有多少页
+        page = driver.find_elements_by_xpath('//div/ul[@class="k-pager"]/li')
+        num = len(page)
+        return num
+
+    def Have_next(self):
+        # 检测是否有下一页，进行翻页处理                     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< problem
         try:
             # 不清楚这里的返回值是啥
             Is_Next = driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button/@disabled')
         except:
+            # 以下的STATUS 都为 测试信息
+            STATUS = True
             print('出错了但是问题不大')
         else:
             if Is_Next == 'true':
                 # 已经没有下一页了
+                STATUS = False
                 pass
+            else:
+                STATUS = True
+                print('测试信息：', Is_Next)
+        # 处理是否有下一页
+        finally:
+            Bool = STATUS
 
-    def do_task(self):
-        # 搜索该页面的刷新信息
-        self.fresh_recruit()
-        # 搜索该页面的发布信息
-        self.release_date()
+        return Bool
 
     def release_date(self):
+        num = 0
         # 任务需求： 发布日期大于30天的提醒
         # xpath: //tr[@class="k-table__row"]/td[4]
+        info = driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[4]').text
+        page = driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
+        for i in info:
+            # i = " 2019-07-27 "
+            i = i.strip()
+            month = int(i[5:7])
+            day = int(i[-2:])
+            nums = self.dayBetweenDates(month, day)
+            if nums > 30:
+                num += 1  # 统计有几个信息超过30天没有 重新发布/上线
+        # 以下print转换为msg信息发送给关注人
+        print(f'您在第{page}页有{num}个信息超过30天没有 重新发布/上线')
+
+    def case_rate(self):
+        # https://sou.zhaopin.com/?p=3&jl=763&sf=0&st=0&kw=python&kt=3
+        # 解决关键职位页面太后问题
         pass
 
     def fresh_cookie(self):
@@ -202,9 +246,9 @@ class ZhiLian(object):
         self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
     def test(self):
-        self.dayBetweenDates(1, 25)  # 直接返回天数
+        # self.dayBetweenDates(1, 25)  # 直接返回天数
         # test01: 测试携带cookie登录
-        # self.get_post_page()
+        self.get_post_page()
         # self.send_msg()
 
     def run(self):
