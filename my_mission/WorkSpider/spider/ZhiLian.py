@@ -18,6 +18,7 @@ from helper.cookie2 import cookies
 path = "chromedriver.exe"
 driver = webdriver.Chrome(executable_path=path)
 options = webdriver.ChromeOptions()
+cookies2 = None
 
 
 class ZhiLian(object):
@@ -52,8 +53,11 @@ class ZhiLian(object):
         driver.get(self.goal_url)
         time.sleep(2)
         # 以下为关闭前一个窗口，不过没有必要
-        # driver.switch_to_window(driver.window_handles[0])
-        driver.close()
+        driver.switch_to_window(driver.window_handles[0])
+        time.sleep(5)
+        # driver.close()
+        coo = driver.get_cookies()
+        cookies2 = coo
         # self.do_task()
         driver.quit()
 
