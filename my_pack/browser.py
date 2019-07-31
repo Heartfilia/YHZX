@@ -11,4 +11,4 @@ options = webdriver.ChromeOptions(prefs)
     
 # options.add_experimental_option('prefs', self.prefs)
 # options.add_argument('user-agent="%s"' % self.User_Agent)
-        
+ 
