@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 # 智联招聘的信息爬取
 # import time
-from datetime import datetime
+import json
+# from datetime import datetime
 import re
+from threading import Thread
 import requests
 from utils.logger import *    # includes logging infos
 from helper.js_downpage import jd    # js to page bottom
@@ -14,49 +16,98 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
 
-from helper.cookie2 import cookies
+# 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
+# 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
+
+with open('cookies.json', 'r') as f:
+    cookies = json.loads(f.read())['cookies']
 
 # 开启基本的信息
 path = "chromedriver.exe"
 driver = webdriver.Chrome(executable_path=path)
 options = webdriver.ChromeOptions()
-cookies2 = None
 
 
 class ZhiLian(object):
     def __init__(self):
         self.base_url = 'https://www.zhaopin.com/'
         self.goal_url = 'https://rd5.zhaopin.com/job/manage'
-        # self.test_url = 'https://blog.csdn.net/'
         # self.proxies = ''
         self.session = requests.Session()
-        self.base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__))) + r'\utils'
+        self.base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__)))
         self.refresh_queue = Queue()   # 刷新消息的队列
         self.output_queue = Queue()    # 发布时间的队列
+        # self.cookies_queue = Queue()
 
-    def get_post_page(self):
-        # 获取招聘信息页面  ####  先从接口获取cookie
-        cke = self.get_
-        driver.get(self.base_url)
-        # 以下为测试信息
-        # driver.get(self.test_url)
-        driver.delete_all_cookies()
-        for cook in cookies:                     #
+    @staticmethod
+    def get_api_cookie(cook):
+        """
+        从接口获取cookie
+        :return: selenium 可用的 cookies 格式
+        """
+        cookie = []
+        for key in cook:
+            dic = dict()
+            dic['domain'] = 'zhaopin.com'
+            dic['path'] = '/'
+            dic['name'] = key
+            dic['value'] = cook[key]
+            cookie.append(dic)
+
+        return cookie
+
+    @staticmethod
+    def do_cookies(cooki):
+        for cook in cooki:  # 这里是cookies的信息
             if len(cook) < 6:
                 new = dict(cook, **{
-                    "domain": ".zhaopin.com",
-                    "expires": "2019-08-07T03:19:00.679Z",
+                    "domain": "zhaopin.com",
+                    # "expires": "2019-08-07T03:19:00.679Z",
                     "path": "/",
-                    "httpOnly": False,
+                    # "httpOnly": False,
                 })
             else:
                 new = cook
-            driver.add_cookie(cookie_dict=new)
+            driver.add_cookie(new)
+
+    def get_post_page(self):
+        # 获取招聘信息页面
+        driver.get(self.base_url)    # 打开最基本页面注入cookies
+        driver.delete_all_cookies()
+
+        if type(cookies) == dict:
+            cooki = self.get_api_cookie(cookies)
+            self.do_cookies(cooki)
+        elif type(cookies) == list:
+            self.do_cookies(cookies)
+
+        time.sleep(3)
         driver.refresh()
         # 以下为打开新窗口，加载页面
         driver.execute_script('window.open();')
         driver.switch_to_window(driver.window_handles[1])
-        driver.get(self.goal_url)
+
+        driver.get(self.goal_url)   # 访问目标网站
+        time.sleep(2)
+        try:
+            # 判断是否登录成功还是在登录页面
+            # 1.寻找元素在不在 >>> 2.1.不在的话异常，然后异常里面进行阻塞,处理了后接着运行 2.2.存在表明登录成功
+            WebDriverWait(driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, '//div[@class="rd55-header__inner"]/ul/li[6]/a[@class="rd55-header__base-button"]'))
+            )
+        except Exception as e:
+            LOG.error('*=*=*=* 没有找到元素，可能是页面元素信息变更 *=*=*=*=*')
+            LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
+            # from spider import Message
+            # receivers = '朱建坤'
+            # msg = '智联招聘自动追踪程序::24小时内重新登录来继续抓取信息'
+            # Message.send_rtx_msg(receivers, msg)
+            WebDriverWait(driver, 86400, poll_frequency=60).until(
+                EC.presence_of_element_located((By.XPATH, '//div[@class="rd55-header__inner"]/ul/li[6]/a[@class="rd55-header__base-button"]'))
+            )
+        except KeyboardInterrupt:
+            LOG.warning('》》》》》》程序中断，需要维护信息了《《《《《《')
+
         time.sleep(2)
         # 以下为关闭前一个窗口，不过没有必要
         # driver.switch_to_window(driver.window_handles[0])
@@ -64,28 +115,46 @@ class ZhiLian(object):
 
         # 此处是存cookie操作 暂时不管 也没有完成    《《《《《《《《《《《《《《《《《
         coo = driver.get_cookies()
-        self.save_cookies(coo)
+        cook = list()
+        for i in coo:
+            if 'expiry' in i:
+                del i['expiry']
+            cook.append(i)
+        # print('cook:::', cook)
+        self.save_cookies(cook)
 
-        driver.execute_script(jd)
-        time.sleep(10)
-        self.do_task()
+        # driver.execute_script(jd)
+        # time.sleep(7)
+        # self.do_task()
 
-    def save_cookies(self, coo):
-        fna = self.base_dir + r'\cookies.py'
-        print(type(coo))   # list
-        print(coo)
-        # with open(fna, 'w') as f:
-        #     f.write()
+    def save_cookies(self, cook):
+        dic = {
+            'fresh_time': time.ctime(time.time()),
+            'cookies': cook
+        }
+        jsn = json.dumps(dic)
+        with open(self.base_dir + '\cookies.json', 'w') as f:
+            f.write(jsn)
 
-    # 判断当前是否为平年，闰年
     def isLeapYear(self, year):
+        """
+        判断当前是否为平年，闰年
+        :param year:
+        :return:
+        """
         if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
             return True
         else:
             return False
 
-    # 1：为起始日期，2：为终止日期 、判断year1是否为闰年，选择year1当年每月的天数列表
     def dayBetweenDates(self, month1, day1):
+        """
+        1：为起始日期，2：为终止日期
+        判断year1是否为闰年，选择year1当年每月的天数列表
+        :param month1: 终止日期的月份
+        :param day1: 终止日期的天数
+        :return: int类型的天数信息(两个时间节点相减的信息)
+        """
         # 先设置了默认为2019年
         year1 = 2019
         year2 = 2019
@@ -161,63 +230,56 @@ class ZhiLian(object):
         return days    # 返回天数 int 类型
 
     def fresh_recruit(self):
-        WebDriverWait(driver, 30).until(
-            EC.element_to_be_clickable((By.XPATH, '//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]'))
-        )
-        time.sleep(5)
-        num = 0
-        # 任务需求：检测到数据是2天没有刷新的就提醒
-        # xpath: //tr[@class="k-table__row"]/td[3]/div/p/span
-        # WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.XPATH, '')))
-        page = driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
-        # print('fresh_recruit:page:', page)
-        info = driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[3]/div/p/span')
-        # print('fresh_recruit:info:', info)
-        # info的每个信息格式为： 刷新时间：07-27 09:15（4天前）
-        for i in info:
-            # print('fresh_i', i.text.strip())
-            i = i.text.strip()
-            if i:
-                # print("简历刷新信息:", i)
-                month = int(i[5:7])  # 07
-                day = int(i[8:10])   # 27
-                # hour = int(i[11:13])  # 09
-                nums = self.dayBetweenDates(month, day)
-                if nums > 2:
-                    num += 1  # 统计有几个信息超过两天没有刷新，有一个就加1
-            else:
-                continue
+        """
+        2天前的刷新信息
+        :return:
+        """
+        try:
+            WebDriverWait(driver, 1800).until(
+                EC.element_to_be_clickable((By.XPATH, '//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]'))
+            )
+        except Exception as e:
+            LOG.error('*=*=*=* 没有找到元素，可能是页面元素信息变更 *=*=*=*=*')
+            LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
+            from spider import Message
+            receivers = '朱建坤'
+            msg = '智联招聘自动追踪程序::半小时内可以登录信息来继续抓取信息'
+            Message.send_rtx_msg(receivers, msg)
+            # 《《《《《《《《《《《《《《 阻塞问题处理等待中
+        else:
+            time.sleep(5)
+            num = 0
+            # 任务需求：检测到数据是2天没有刷新的就提醒
+            # xpath: //tr[@class="k-table__row"]/td[3]/div/p/span
+            # WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.XPATH, '')))
+            company = driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
+            page = driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
+            # print('fresh_recruit:page:', page)
+            info = driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[3]/div/p/span')
+            # print('fresh_recruit:info:', info)
+            # info的每个信息格式为： 刷新时间：07-27 09:15（4天前）
+            for i in info:
+                # print('fresh_i', i.text.strip())
+                i = i.text.strip()
+                if i:
+                    # print("简历刷新信息:", i)
+                    month = int(i[5:7])  # 07
+                    day = int(i[8:10])   # 27
+                    # hour = int(i[11:13])  # 09
+                    nums = self.dayBetweenDates(month, day)
+                    if nums > 2:
+                        num += 1  # 统计有几个信息超过两天没有刷新，有一个就加1
+                else:
+                    continue
 
-        # 以下print转换为msg信息发送给关注人
-        msg = f'您在第{page}页有{num}条简历信息超过2天没有刷新了'
-        LOG.info(msg)
-        self.refresh_queue.put(msg)
-        return int(page)
-
-    def do_task(self):
-        while True:
-            # page 为总共有多少页
-            page = self.ipage()
-            # print(f'总共有:{page}页')
-            # 搜索该页面的刷新信息
-            nowpage = self.fresh_recruit()    # 返回当前所在的页面
-            # 搜索该页面的发布信息
-            LOG.info(f'****************')
-            self.release_date()
-            # 此页面处理完毕后，判断页面是否有下一页，然后处理是否翻页
-            # self.Have_next()  # 暂时可以不管这个方式
-            if nowpage < page:
-                # 有下一页，点击下一页
-                button = driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button[2]')
-                driver.execute_script("arguments[0].click();", button)
-                LOG.info(f'在第{nowpage}页运行成功')
-                time.sleep(5)
-            else:
-                break
+            # 以下print转换为msg信息发送给关注人
+            msg = f'您在{company}账号的第{page}页有{num}条简历信息超过2天没有刷新了'
+            LOG.info(msg)
+            self.refresh_queue.put(msg)
+            return int(page)
 
     @staticmethod
     def ipage():
-        # 返回共有多少页
         driver.execute_script(jd)
         page = driver.find_elements_by_xpath('//div/ul[@class="k-pager"]/li')
         num = len(page)
@@ -226,6 +288,7 @@ class ZhiLian(object):
     @staticmethod
     def Have_next():
         # 检测是否有下一页，进行翻页处理                     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< problem
+        # 此处均为测试信息，可以不管的
         try:
             # 不清楚这里的返回值是啥
             Is_Next = driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button/@disabled')
@@ -247,6 +310,10 @@ class ZhiLian(object):
         return STATUS
 
     def release_date(self):
+        """
+        检测30天信息
+        :return:
+        """
         WebDriverWait(driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, '//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]'))
         )
@@ -254,6 +321,7 @@ class ZhiLian(object):
         num = 0
         # 任务需求： 发布日期大于30天的提醒
         # xpath: //tr[@class="k-table__row"]/td[4]
+        company = driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
         info = driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[4]')
         page = driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
         for i in info:
@@ -268,30 +336,38 @@ class ZhiLian(object):
             else:
                 continue
         # 以下print转换为msg信息发送给关注人
-        msg = f'您在第{page}页有{num}个信息超过30天没有 重新发布/上线'
+        msg = f'您在{company}账号的第{page}页有{num}个信息超过30天没有 重新发布/上线'
         LOG.info(msg)
         self.output_queue.put(msg)
 
     def case_rate(self):
-        # https://sou.zhaopin.com/?p=3&jl=763&sf=0&st=0&kw=python&kt=3
+        # https://sou.zhaopin.com/?jl=763&sf=0&st=0&kw=python&kt=3&p=3
         # 解决关键职位页面太后问题
         pass
 
     def fresh_cookie(self):
         # 获取cookie 相当于刷新
         rep = requests.get(self.base_url, cookies=cookies)
+        time.sleep(5)
         coo = rep.cookies
+        print(coo)
         cook = requests.utils.dict_from_cookiejar(coo)  # cookies 信息： {'at': 'bc68fccbe0994b6d8f20f10c6bf11e76',...
-        return cook
+        print(cook)
+        # return cook
 
     def send_msg(self):
-        # 发送消息
+        """
+        发送消息的函数
+        receivers = 字符串,多个信息用 英文分号 分割
+        :return:
+        """
         receivers = '朱建坤'
         # receivers = '聂清娜;张子珏;杨国玲;陈淼灵'
         f_n = 0
         o_n = 0
         fresh_msg = ''
         output_msg = ''
+        # 从消息队列中把应该获取的信息拼接，下面那个循环一样的
         for _ in range(self.refresh_queue.qsize()):
             if self.refresh_queue.empty():
                 break
@@ -308,26 +384,32 @@ class ZhiLian(object):
 
         fre_re = re.compile(r'(\d*)条简历信息')
         out_re = re.compile(r'(\d*)个信息')
+        cmp_re = re.compile(r'您在(\w+)账号的第')
         nm = fre_re.findall(fresh_msg)
         om = out_re.findall(output_msg)
+        comp = cmp_re.findall(fresh_msg)[0]
+        com_re = re.compile(r'(\w+?)账号的第')
+        company = com_re.findall(comp)[0]
+        # print('company:::', company)
         for i in nm:
             f_n += int(i)
         if f_n > 0:
-            msg = f'您在智联的招聘信息总共有{f_n}条超过2天没有刷新了'
-            post_data = {
-                "sender": "系统机器人",
-                "receivers": receivers,
-                "msg": msg,
-            }
-            LOG.info('》》》》》系统发送刷新信息成功')
-            self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+            msg = f'您在智联的<<{company}>>账号的招聘信息总共有{f_n}条超过2天没有刷新了'
+            # post_data = {
+            #     "sender": "系统机器人",
+            #     "receivers": receivers,
+            #     "msg": msg,
+            # }
+            # LOG.info('》》》》》系统发送刷新信息成功')
+            # self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+            print('msg:::', msg)
         else:
-            LOG.info('>>>>>>>>>没有需要发送的刷新信息')
+            LOG.info('>>>>>>>>>没有需要发送的<刷新>信息')
 
         for i in om:
             o_n += int(i)
         if o_n > 0:
-            msg = f'您在智联的招聘信息总共有{o_n}条超过30天没有重新发布/上线'
+            msg = f'您在智联的{company}账号的招聘信息总共有{o_n}条超过30天没有重新发布/上线'
             post_data = {
                 "sender": "系统机器人",
                 "receivers": receivers,
@@ -336,21 +418,67 @@ class ZhiLian(object):
             LOG.info('》》》》》系统发送发布信息成功')
             self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
         else:
-            LOG.info('>>>>>>>>>没有需要发送的发布信息')
+            LOG.info('>>>>>>>>>没有需要发送的<发布>信息')
+
+    def do_task(self):
+        """
+        任务翻页以及处理同样的信息事情
+        :return:
+        """
+        while True:
+            # page 为总共有多少页
+            page = self.ipage()
+            # print(f'总共有:{page}页')
+            # 搜索该页面的刷新信息
+            nowpage = self.fresh_recruit()    # 返回当前所在的页面
+            # 搜索该页面的发布信息
+            LOG.info(f'****************')
+            self.release_date()
+            # 此页面处理完毕后，判断页面是否有下一页，然后处理是否翻页
+            # self.Have_next()  # 暂时可以不管这个方式
+            if nowpage < page:
+                # 有下一页，点击下一页
+                button = driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button[2]')
+                driver.execute_script("arguments[0].click();", button)
+                LOG.info(f'在第{nowpage}页运行成功')
+                time.sleep(5)
+            else:
+                break
 
     def test(self):
+        """
+        开发时候使用的测试函数
+        :return:
+        """
         # self.dayBetweenDates(1, 25)  # 直接返回天数
         # test01: 测试携带cookie登录
         self.get_post_page()
-        self.send_msg()
+        # self.send_msg()
+        # self.fresh_cookie()
         driver.quit()
         pass
 
     def run(self):
+        """
+        程序主启动，包含》大 《异常检测
+        :return:
+        """
         # get_cookie: 从给的借口获得账户的cookie
         # 启动程序
-        driver.quit()
-        pass
+        try:
+            t1 = Thread(target=self.get_post_page)
+            t2 = Thread(target=self.case_rate)
+            t1.start()
+            t2.start()
+        except Exception as e:
+            # 程序出错，可能需要重新登录
+            LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
+        else:
+            pass
+        finally:
+            t1.join()
+            t2.join()
+            driver.quit()
 
 
 if __name__ == '__main__':

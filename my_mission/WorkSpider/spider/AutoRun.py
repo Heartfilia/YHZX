@@ -1,8 +1,8 @@
 # 设置定时任务，自动爬取任务
-import cmd
 from datetime import datetime
 import time
 import os
+from threading import Thread
 from apscheduler.schedulers.background import BackgroundScheduler
 
 base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__)))
@@ -10,7 +10,9 @@ base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__)))
 
 def tick():
     print('定时任务开始，现在时间为: %s' % datetime.now())
-    cmd.Cmd('pip list')
+    for i in range(1):
+        # t = Thread()
+        pass
 
 
 if __name__ == '__main__':
