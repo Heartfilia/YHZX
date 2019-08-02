@@ -16,6 +16,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
 from helper.Our_company import o_comp   # 导入我们公司的信息 list
 from helper.Positions import POS        # 导入需要关注排行的位置的信息
+from multiprocessing import Process
 
 # 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
@@ -96,10 +97,10 @@ class ZhiLian(object):
         except Exception as e:
             LOG.error('*=*=*=* 没有找到元素，可能是页面元素信息变更 *=*=*=*=*')
             LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
-            # from spider import Message
-            # receivers = '朱建坤'
-            # msg = '智联招聘自动追踪程序::24小时内重新登录来继续抓取信息'
-            # Message.send_rtx_msg(receivers, msg)
+            from spider import Message
+            receivers = '朱建坤'
+            msg = '智联招聘自动追踪程序::24小时内重新登录来继续抓取信息'
+            Message.send_rtx_msg(receivers, msg)
             WebDriverWait(self.driver, 86400, poll_frequency=30).until(
                 EC.presence_of_element_located((By.XPATH, '//div[@class="rd55-header__inner"]/ul/li[6]/a[@class="rd55-header__base-button"]'))
             )
@@ -123,9 +124,9 @@ class ZhiLian(object):
         self.save_cookies(cook)
 
         LOG.info('本地的cookies文件已经刷新')
-        # driver.execute_script(jd)
-        # time.sleep(7)
-        # self.do_task()
+        self.driver.execute_script(jd)
+        time.sleep(7)
+        self.do_task()
 
     def save_cookies(self, cook):
         dic = {
@@ -386,13 +387,13 @@ class ZhiLian(object):
             f_n += int(i)
         if f_n > 0:
             msg = f'您在智联的<<{company}>>账号的招聘信息总共有{f_n}条超过2天没有刷新了'
-            # post_data = {
-            #     "sender": "系统机器人",
-            #     "receivers": receivers,
-            #     "msg": msg,
-            # }
-            # LOG.info('》》》》》系统发送刷新信息成功')
-            # self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+            post_data = {
+                "sender": "系统机器人",
+                "receivers": receivers,
+                "msg": msg,
+            }
+            LOG.info('》》》》》系统发送刷新信息成功')
+            self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
             print('msg:::', msg)
         else:
             LOG.info('>>>>>>>>>没有需要发送的<刷新>信息')
@@ -423,7 +424,7 @@ class ZhiLian(object):
             # 搜索该页面的刷新信息
             nowpage = self.fresh_recruit()    # 返回当前所在的页面
             # 搜索该页面的发布信息
-            LOG.info(f'****************')
+            LOG.info('*' * 50)
             self.release_date()
             # 此页面处理完毕后，判断页面是否有下一页，然后处理是否翻页
             # self.Have_next()  # 暂时可以不管这个方式
@@ -443,7 +444,7 @@ class ZhiLian(object):
         """
         # self.dayBetweenDates(1, 25)  # 直接返回天数
         # test01: 测试携带cookie登录
-        # self.get_post_page()      # 《《《 需要开
+        self.get_post_page()      # 《《《 需要开
         # self.send_msg()           # 《《《 需要开
         # self.fresh_cookie()
         self.driver.quit()
@@ -460,7 +461,7 @@ class ZhiLian(object):
             self.send_msg()            # 《《《 需要开
         except Exception as e:
             # 程序出错，可能需要重新登录
-            LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
+            LOG.warning('》》！！》》程序异常，出了问题需要跟进处理《《！！《《')
         finally:
             self.driver.quit()
 
@@ -474,7 +475,7 @@ class Rate(object):
         # self.option.add_experimental_option('excludeSwitches', ['enable-automation'])
         # self.path = "chromedriver.exe"
         # self.browser = webdriver.Chrome(options=self.option, executable_path=self.path)
-        self.base_url = 'https://sou.zhaopin.com/'
+        # self.base_url = 'https://sou.zhaopin.com/'
         self.js_url = 'https://fe-api.zhaopin.com/c/i/sou?'
         self.headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36',
@@ -582,15 +583,16 @@ class Rate(object):
         pass
 
     def re_get(self):
-        resp = requests.get(self.base_url, headers=self.headers, cookies=self.req_cookies, verify=False)
+        # resp = requests.get(self.base_url, headers=self.headers, cookies=self.req_cookies, verify=False)
 
         # LOG.info('请求get信息的状态是:', resp.status_code)
-        cookie = resp.cookies
-        cookie = requests.utils.dict_from_cookiejar(cookie)
-        print(cookie)
+        # cookie = resp.cookies
+        # cookie = requests.utils.dict_from_cookiejar(cookie)
+        # print(cookie)
         # with open('req_cookies.txt', 'w') as f:
         #     f.write(cookie)
         # return cookie
+        pass
 
     def session_get(self):
         while True:
@@ -598,76 +600,125 @@ class Rate(object):
                 break
             else:
                 position = self.pos_que.get()
-                params = {
-                    "pageSize": "90",  # 每页数据
-                    "cityId": "763",  # 广州
-                    "workExperience": "-1",
-                    "education": "-1",
-                    "companyType": "-1",
-                    "employmentType": "-1",
-                    "jobWelfareTag": "-1",
-                    "kw": position,
-                    "kt": "3",
-                    "_v": "0.33455201",  # <<<<<<<<<<<
-                    "x-zp-page-request-id": f"cb1924332a7b411b9373a3d6c188301b-{int(time.time() * 1000)}-176603",  # <<<<<<
-                    "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
-                }
-                time.sleep(10)
-                resp = requests.get(self.js_url, params=params, headers=self.headers, cookies=self.req_cookies, verify=False)
-                dic = json.loads(resp.text, encoding='utf-8')
-                data = dic['data']['results']
-                for com in data:
-                    co = com['company']['name']
-
-            # session = requests.Session()
-            # resp = session.post(self.js_url, data=self.dic, cookies=)
+                time.sleep(5)
+                for page in range(6):
+                    start = page * 90
+                    now_page = page + 1       # 现在页数
+                    params = {
+                        "start": str(start),
+                        "pageSize": "90",  # 每页数据
+                        "cityId": "763",  # 广州
+                        "workExperience": "-1",
+                        "education": "-1",
+                        "companyType": "-1",
+                        "employmentType": "-1",
+                        "jobWelfareTag": "-1",
+                        "kw": position,
+                        "kt": "3",      # 这个参数很重要，没有就服务器错误
+                        # "_v": "0.33455201",  # <<<<<<<<<<<
+                        # "x-zp-page-request-id": f"475845d52fa846b9b68d41ef6fce3fca-{int(time.time() * 1000)}-972139",  # <<<<<<
+                        # "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
+                        # 上面三个数据都不重要，可以不传输的
+                    }
+                    time.sleep(10)
+                    try:
+                        requests.packages.urllib3.disable_warnings()
+                        resp = requests.get(self.js_url, params=params, headers=self.headers, cookies=self.req_cookies, verify=False)
+                    except Exception as e:
+                        LOG.error(f'{position}职位的第{now_page}页内容已经写入失败》[可能：请求信息过期或者没有后续页面了]》')
+                        break
+                    else:
+                        dic = json.loads(resp.text, encoding='utf-8')
+                        count = dic['data']['count']
+                        LOG.info(f'{position}这个岗位总共有{count}个发布信息')
+                        if int(count) > 90:
+                            last_page = int(count) // 90      # 获取最后一页页码
+                        else:
+                            last_page = 1
+                        data = dic['data']['results']    # list
+                        now_info = [f'{position}:{now_page}:::']
+                        for com in data:
+                            co = com['company']['name']    # goal
+                            now_info.append(co)
+                        time.sleep(1)
+                        with open('information.txt', 'a', encoding='gb18030') as f:
+                            f.write(str(now_info) + '\r\n')
+                        LOG.info(f'{position}职位的第{now_page}页内容已经写入成功》》》》》》')
+                        now_page_info = set(now_info)
+                        if now_page_info & o_comp:
+                            LOG.info(f'##### 在第{now_page}页的<<{position}>>职位查到公司信息')
+                            break    # 只要在规定页码内查到公司信息就可以退出了
+                        if now_page == last_page:
+                            if not now_page_info & o_comp:
+                                LOG.warning(f'2)))){position}>>职位没有在规定页码内，需要处理')
+                                from spider import Message
+                                receivers = '朱建坤'
+                                msg = f'2)))){position}>>职位没有在规定页码内，需要处理'
+                                Message.send_rtx_msg(receivers, msg)
+                                break
+                        if count <= start:
+                            LOG.info(f"<<<{position}>>>职位只有{now_page}页数据，已经停止搜索")
+                            break
 
     def save_pos(self):
-        pass
+        for p in POS:
+            LOG.info(f'！！！>>> {p} 职位已经放入队列 >>>>>')
+            self.pos_que.put(p)
 
     def requests_json(self):
         # self.re_get()
-        self.save_pos()
+        q1 = []
+        for i in range(2):
+            t1 = Thread(target=self.save_pos)
+            t1.start()
+            LOG.info(f'#####存职位》》的线程{i}已经启动#####')
+            q1.append(t1)
+
         time.sleep(5)
-        for i in range(10):
-            t = Thread(target=self.session_get)
 
+        q2 = []
+        for i in range(2):
+            t2 = Thread(target=self.session_get)
+            LOG.info(f'#####搜信息》》的线程{i}已经启动#####')
+            t2.start()
+            q2.append(t2)
 
-
-    def test(self):
-        # 测试程序
-        self.requests_json()
-        try:
-            # self.case_rate()  # 《《《 需要开
-            # self.send_msg()  #  《《《 需要开
-            # self.requests_json()   # https://fe-api.zhaopin.com/c/i/sou?
-            pass
-        except Exception as e:
-            # 程序出错，可能需要重新登录
-            LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
-            # self.browser.quit()
-        finally:
-            # self.browser.quit()
-            pass
+        time.sleep(2)
+        for i in q1:
+            i.join()
+        LOG.info(f'#####存职位》》的线程已经回收#####')
+        for i in q2:
+            i.join()
+        LOG.info(f'#####搜信息》》的线程已经回收#####')
 
     def run(self):
-        # 发布版本程序
         try:
-            self.case_rate()  # 《《《 需要开
-            # self.send_msg()  # 《《《 需要开
+            # self.case_rate()  # 《《《 需要开
+            self.requests_json()   # https://fe-api.zhaopin.com/c/i/sou?
         except Exception as e:
-            # 程序出错，可能需要重新登录
+            # 程序出错，可能需要处理
             LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
-        finally:
-            self.browser.quit()
+            from spider import Message
+            receivers = '朱建坤'
+            msg = '自动排查排名靠后程序出错'
+            Message.send_rtx_msg(receivers, msg)
+
+
+def main():
+    app1 = ZhiLian()
+    app2 = Rate()
+    app1.run()
+
+    try:
+        p2 = Process(target=app2.run)
+    except Exception as e:
+        LOG.error('### 页面信息》》》抓取进程错误 ###')
+    else:
+        p2.start()
+        LOG.info('页面信息》》》抓取进程开启成功')
+        p2.join()
 
 
 if __name__ == '__main__':
-    # app1 = ZhiLian()
-    app2 = Rate()
-
-    # app1.test()        # 测试程序
-    app2.test()
-    # app.run()        # 主程序
-    # main.run()
+    main()
 

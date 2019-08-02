@@ -6,8 +6,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-driver = webdriver.Chrome()
-options = webdriver.ChromeOptions()
+# driver = webdriver.Chrome()
+# options = webdriver.ChromeOptions()
 
 # options.add_experimental_option('prefs', self.prefs)
 # options.add_argument('user-agent="%s"' % self.User_Agent)
