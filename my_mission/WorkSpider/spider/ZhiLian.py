@@ -96,7 +96,7 @@ class ZhiLian(object):
             LOG.error('*=*=*=* 没有找到元素，可能是页面元素信息变更 *=*=*=*=*')
             LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
             from spider import Message
-            receivers = '朱建坤'
+            receivers = '聂清娜;张子珏'
             msg = '智联招聘自动追踪程序::24小时内重新登录来继续抓取信息'
             Message.send_rtx_msg(receivers, msg)
             WebDriverWait(self.driver, 86400, poll_frequency=30).until(
@@ -665,6 +665,8 @@ class Rate(object):
             self.pos_que.put(p)
 
     def requests_json(self):
+        with open('information.txt', 'w') as f:
+            f.write('')    # 清空上次查询的信息
         # self.re_get()
         q1 = []
         for i in range(2):
@@ -699,6 +701,7 @@ class Rate(object):
             LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
             from spider import Message
             receivers = '朱建坤'                                              # <<<======
+            # receivers = '聂清娜;张子珏;杨国玲;陈淼灵'                        # <<<======
             msg = '自动排查排名靠后程序出错'
             Message.send_rtx_msg(receivers, msg)
 
