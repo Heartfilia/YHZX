@@ -1,3 +1,6 @@
+# -*- coding: gbk -*-
+
+
 jd = """
 (function () {
     var y = 0;

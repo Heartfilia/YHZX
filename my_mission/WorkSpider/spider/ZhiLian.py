@@ -110,8 +110,8 @@ class ZhiLian(object):
         # driver.switch_to_window(driver.window_handles[0])
         # time.sleep(5)
 
-        # 此处是存cookie操作 暂时不管 也没有完成    《《《《《《《《《《《《《《《《《
-        LOG.info('》》》刷新本地的Cookies，保持高可用《《《')
+        # 此处是存cookie操作 暂时不管 也没有完成
+
         coo = self.driver.get_cookies()
         cook = list()
         for i in coo:
@@ -119,6 +119,7 @@ class ZhiLian(object):
                 del i['expiry']
             cook.append(i)
         # print('cook:::', cook)
+        LOG.info('》》》刷新本地的Cookies，保持高可用《《《')
         self.save_cookies(cook)
 
         LOG.info('本地的cookies文件已经刷新')
@@ -648,7 +649,7 @@ class Rate(object):
                             break    # 只要在规定页码内查到公司信息就可以退出了
                         if now_page == last_page:
                             if not now_page_info & o_comp:
-                                LOG.warning(f'2)))){position}>>职位没有在规定页码内，需要处理')
+                                LOG.warning(f'智联)))){position}>>职位没有在规定页码内，需要处理')
                                 from spider import Message
                                 receivers = '朱建坤'                                              # <<<======
                                 msg = f'2)))){position}>>职位没有在规定页码内，需要处理'
