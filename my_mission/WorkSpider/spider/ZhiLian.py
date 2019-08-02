@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # 智联招聘的信息爬取
-# import time
 import json
 # from datetime import datetime
 import re
@@ -15,21 +14,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
+from helper.Our_company import o_comp   # 导入我们公司的信息 list
+from helper.Positions import POS        # 导入需要关注排行的位置的信息
 
 # 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
 
-with open('cookies.json', 'r') as f:
-    cookies = json.loads(f.read())['cookies']
-
-# 开启基本的信息
-path = "chromedriver.exe"
-driver = webdriver.Chrome(executable_path=path)
-options = webdriver.ChromeOptions()
-
 
 class ZhiLian(object):
     def __init__(self):
+        with open('cookies.json', 'r') as f:
+            self.cookies = json.loads(f.read())['cookies']
         self.base_url = 'https://www.zhaopin.com/'
         self.goal_url = 'https://rd5.zhaopin.com/job/manage'
         # self.proxies = ''
@@ -38,6 +33,10 @@ class ZhiLian(object):
         self.refresh_queue = Queue()   # 刷新消息的队列
         self.output_queue = Queue()    # 发布时间的队列
         # self.cookies_queue = Queue()
+        # 开启基本的信息
+        self.path = "chromedriver.exe"
+        self.driver = webdriver.Chrome(executable_path=self.path)
+        self.options = webdriver.ChromeOptions()
 
     @staticmethod
     def get_api_cookie(cook):
@@ -56,8 +55,7 @@ class ZhiLian(object):
 
         return cookie
 
-    @staticmethod
-    def do_cookies(cooki):
+    def do_cookies(self, cooki):
         for cook in cooki:  # 这里是cookies的信息
             if len(cook) < 6:
                 new = dict(cook, **{
@@ -68,31 +66,31 @@ class ZhiLian(object):
                 })
             else:
                 new = cook
-            driver.add_cookie(new)
+            self.driver.add_cookie(new)
 
     def get_post_page(self):
         # 获取招聘信息页面
-        driver.get(self.base_url)    # 打开最基本页面注入cookies
-        driver.delete_all_cookies()
+        self.driver.get(self.base_url)    # 打开最基本页面注入cookies
+        self.driver.delete_all_cookies()
 
-        if type(cookies) == dict:
-            cooki = self.get_api_cookie(cookies)
+        if type(self.cookies) == dict:
+            cooki = self.get_api_cookie(self.cookies)
             self.do_cookies(cooki)
-        elif type(cookies) == list:
-            self.do_cookies(cookies)
+        elif type(self.cookies) == list:
+            self.do_cookies(self.cookies)
 
         time.sleep(3)
-        driver.refresh()
+        self.driver.refresh()
         # 以下为打开新窗口，加载页面
-        driver.execute_script('window.open();')
-        driver.switch_to_window(driver.window_handles[1])
+        self.driver.execute_script('window.open();')
+        self.driver.switch_to_window(self.driver.window_handles[1])
 
-        driver.get(self.goal_url)   # 访问目标网站
+        self.driver.get(self.goal_url)   # 访问目标网站
         time.sleep(2)
         try:
             # 判断是否登录成功还是在登录页面
             # 1.寻找元素在不在 >>> 2.1.不在的话异常，然后异常里面进行阻塞,处理了后接着运行 2.2.存在表明登录成功
-            WebDriverWait(driver, 5).until(
+            WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.XPATH, '//div[@class="rd55-header__inner"]/ul/li[6]/a[@class="rd55-header__base-button"]'))
             )
         except Exception as e:
@@ -102,7 +100,7 @@ class ZhiLian(object):
             # receivers = '朱建坤'
             # msg = '智联招聘自动追踪程序::24小时内重新登录来继续抓取信息'
             # Message.send_rtx_msg(receivers, msg)
-            WebDriverWait(driver, 86400, poll_frequency=60).until(
+            WebDriverWait(self.driver, 86400, poll_frequency=30).until(
                 EC.presence_of_element_located((By.XPATH, '//div[@class="rd55-header__inner"]/ul/li[6]/a[@class="rd55-header__base-button"]'))
             )
         except KeyboardInterrupt:
@@ -114,7 +112,8 @@ class ZhiLian(object):
         # time.sleep(5)
 
         # 此处是存cookie操作 暂时不管 也没有完成    《《《《《《《《《《《《《《《《《
-        coo = driver.get_cookies()
+        LOG.info('》》》刷新本地的Cookies，保持高可用《《《')
+        coo = self.driver.get_cookies()
         cook = list()
         for i in coo:
             if 'expiry' in i:
@@ -123,6 +122,7 @@ class ZhiLian(object):
         # print('cook:::', cook)
         self.save_cookies(cook)
 
+        LOG.info('本地的cookies文件已经刷新')
         # driver.execute_script(jd)
         # time.sleep(7)
         # self.do_task()
@@ -235,7 +235,7 @@ class ZhiLian(object):
         :return:
         """
         try:
-            WebDriverWait(driver, 1800).until(
+            WebDriverWait(self.driver, 1800).until(
                 EC.element_to_be_clickable((By.XPATH, '//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]'))
             )
         except Exception as e:
@@ -252,10 +252,10 @@ class ZhiLian(object):
             # 任务需求：检测到数据是2天没有刷新的就提醒
             # xpath: //tr[@class="k-table__row"]/td[3]/div/p/span
             # WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.XPATH, '')))
-            company = driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
-            page = driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
+            company = self.driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
+            page = self.driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
             # print('fresh_recruit:page:', page)
-            info = driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[3]/div/p/span')
+            info = self.driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[3]/div/p/span')
             # print('fresh_recruit:info:', info)
             # info的每个信息格式为： 刷新时间：07-27 09:15（4天前）
             for i in info:
@@ -272,26 +272,23 @@ class ZhiLian(object):
                 else:
                     continue
 
-            # 以下print转换为msg信息发送给关注人
             msg = f'您在{company}账号的第{page}页有{num}条简历信息超过2天没有刷新了'
             LOG.info(msg)
             self.refresh_queue.put(msg)
             return int(page)
 
-    @staticmethod
-    def ipage():
-        driver.execute_script(jd)
-        page = driver.find_elements_by_xpath('//div/ul[@class="k-pager"]/li')
+    def ipage(self):
+        self.driver.execute_script(jd)
+        page = self.driver.find_elements_by_xpath('//div/ul[@class="k-pager"]/li')
         num = len(page)
         return num
 
-    @staticmethod
-    def Have_next():
-        # 检测是否有下一页，进行翻页处理                     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< problem
+    def Have_next(self):
+        # 检测是否有下一页，进行翻页处理     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< problem
         # 此处均为测试信息，可以不管的
         try:
             # 不清楚这里的返回值是啥
-            Is_Next = driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button/@disabled')
+            Is_Next = self.driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button/@disabled')
             print('is_next', Is_Next)
         except:
             # 以下的STATUS 都为 测试信息
@@ -314,16 +311,16 @@ class ZhiLian(object):
         检测30天信息
         :return:
         """
-        WebDriverWait(driver, 30).until(
+        WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, '//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]'))
         )
         time.sleep(5)
         num = 0
         # 任务需求： 发布日期大于30天的提醒
         # xpath: //tr[@class="k-table__row"]/td[4]
-        company = driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
-        info = driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[4]')
-        page = driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
+        company = self.driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
+        info = self.driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[4]')
+        page = self.driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
         for i in info:
             # i = " 2019-07-27 "
             i = i.text.strip()
@@ -335,19 +332,13 @@ class ZhiLian(object):
                     num += 1  # 统计有几个信息超过30天没有 重新发布/上线
             else:
                 continue
-        # 以下print转换为msg信息发送给关注人
         msg = f'您在{company}账号的第{page}页有{num}个信息超过30天没有 重新发布/上线'
         LOG.info(msg)
         self.output_queue.put(msg)
 
-    def case_rate(self):
-        # https://sou.zhaopin.com/?jl=763&sf=0&st=0&kw=python&kt=3&p=3
-        # 解决关键职位页面太后问题
-        pass
-
     def fresh_cookie(self):
         # 获取cookie 相当于刷新
-        rep = requests.get(self.base_url, cookies=cookies)
+        rep = requests.get(self.base_url, cookies=self.cookies)
         time.sleep(5)
         coo = rep.cookies
         print(coo)
@@ -438,8 +429,8 @@ class ZhiLian(object):
             # self.Have_next()  # 暂时可以不管这个方式
             if nowpage < page:
                 # 有下一页，点击下一页
-                button = driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button[2]')
-                driver.execute_script("arguments[0].click();", button)
+                button = self.driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button[2]')
+                self.driver.execute_script("arguments[0].click();", button)
                 LOG.info(f'在第{nowpage}页运行成功')
                 time.sleep(5)
             else:
@@ -452,11 +443,10 @@ class ZhiLian(object):
         """
         # self.dayBetweenDates(1, 25)  # 直接返回天数
         # test01: 测试携带cookie登录
-        self.get_post_page()
-        # self.send_msg()
+        # self.get_post_page()      # 《《《 需要开
+        # self.send_msg()           # 《《《 需要开
         # self.fresh_cookie()
-        driver.quit()
-        pass
+        self.driver.quit()
 
     def run(self):
         """
@@ -466,23 +456,218 @@ class ZhiLian(object):
         # get_cookie: 从给的借口获得账户的cookie
         # 启动程序
         try:
-            t1 = Thread(target=self.get_post_page)
-            t2 = Thread(target=self.case_rate)
-            t1.start()
-            t2.start()
+            self.get_post_page()       # 《《《 需要开
+            self.send_msg()            # 《《《 需要开
         except Exception as e:
             # 程序出错，可能需要重新登录
             LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
-        else:
-            pass
         finally:
-            t1.join()
-            t2.join()
-            driver.quit()
+            self.driver.quit()
+
+
+class Rate(object):
+    """
+    智能检测排名靠后问题程序
+    """
+    def __init__(self):
+        # self.option = webdriver.ChromeOptions()
+        # self.option.add_experimental_option('excludeSwitches', ['enable-automation'])
+        # self.path = "chromedriver.exe"
+        # self.browser = webdriver.Chrome(options=self.option, executable_path=self.path)
+        self.base_url = 'https://sou.zhaopin.com/'
+        self.js_url = 'https://fe-api.zhaopin.com/c/i/sou?'
+        self.headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36',
+            'referer': 'https://www.zhaopin.com/',
+        }
+        self.req_cookies = {
+            'x-zp-client-id': 'e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',
+            'sts_deviceid': '16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d',
+            'acw_tc': '2760827115645391462656402e91acd157b0d446a910bb2afc512e1ed3ef06',
+            'urlfrom2': '121126445',
+            'adfcid2': 'none',
+            'adfbid2': '0',
+            'x-zp-device-id': 'd249967fbc2a8769053b7d5bfee9690b',
+            'x-zp-dfp': 'zlzhaopin-1564541208377-824fee2b5b7e3',
+            'JSloginnamecookie': '15521262081',
+            'JSShowname': '""',
+            'JSpUserInfo': '3d692e695671417154775b755c6a5c7541775869586953714c7129772775546a557545775d6958695a71457153775b75596a5c75417753692f6926714a7156775b755f6a52754777586953695d71447125771875186a4a751377076907695071247131775475586a5f7531773c6957695d715a7156774975586a55754a77596953695071367129775475586a5f7525772969576921713a7154775b755c6a5c75417758695869537142715e773c753d6a597541775369396922714a71557752753c6a34753e775569056905711971577759751f6a3b750477596906691271027114771875086a12752f770f690769037107710d7713751c6a527505770a69136950716',
+            'uiioit': '3d753d684968426454380b6446684d7959745874566500395f732a753d68496844645e384',
+            'zp-route-meta': 'uid=655193256,orgid=67827992',
+            'login_point': '67827992',
+            'promoteGray': '',
+            'diagnosis': '0',
+            'LastCity': '%E5%B9%BF%E5%B7%9E',
+            'LastCity%5Fid': '763',
+            'sensorsdata2015jssdkcross': '%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%7D',
+            'dywez': '95841923.1564567034.8.3.dywecsr=ihr.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/talk/manage.html',
+            '__utmz': '269921210.1564567034.8.3.utmcsr=ihr.zhaopin.com|utmccn=(referral)|utmcmd=referral|utmcct=/talk/manage.html',
+            'NTKF_T2D_CLIENTID': 'guest848ED7A8-2D6C-CB43-D002-4785D3149DAB',
+            'sou_experiment': 'psapi',
+            'ZP_OLD_FLAG': 'false',
+            'urlfrom': '121126445',
+            'adfcid': 'none',
+            'adfbid': '0',
+            'dywea': '95841923.183147172171786560.1564539142.1564648972.1564714276.14',
+            'dywec': '95841923',
+            'dyweb': '95841923.1.10.1564714276',
+            'Hm_lvt_38ba284938d5eddca645bb5e02a02006': '1564620760,1564709828,1564712348,1564714276',
+            'Hm_lpvt_38ba284938d5eddca645bb5e02a02006': '1564714276',
+            '__utma': '269921210.1113127844.1564539142.1564648972.1564714276.14',
+            '__utmc': '269921210',
+            '__utmt': '1',
+            '__utmb': '269921210.1.10.1564714276',
+            'sts_sg': '1',
+            'sts_sid': '16c503d169151c-05fa9b217424fd-5a13331d-2073600-16c503d1692721',
+            'sts_chnlsid': 'Unknown',
+            'jobRiskWarning': 'true',
+            'sts_evtseq': '2',
+        }
+        self.pos_que = Queue()      # 职位准备存入队列
+        pass
+
+    def next_page(self):
+        """
+        处理下一页 以及 判断总共页数
+        :return:
+        """
+        try:
+            # self.browser.find_element_by_class_name('btn soupager__btn soupager__btn--disable')  # 没有下一页的标志
+            self.browser.find_element_by_class_name('btn soupager__btn')                           # 能翻页
+        except Exception as e:
+            # 最后一页
+            status = False
+        else:
+            # 有下一页
+            status = True
+        finally:
+            print(status)
+            return status
+
+    def case_rate(self):   # selenium
+        # https://sou.zhaopin.com/?jl=763&sf=0&st=0&kw=python&kt=3&p=3
+        # 重新开一个窗口，与公司账户端独立
+        self.browser.get(self.base_url)
+        WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, '//div[@class="a-modal__content"]/div/button'))
+        )
+        self.browser.find_element_by_xpath('//div[@class="a-modal__content"]/div/button').click()
+        time.sleep(2)
+        LOG.info('二 》》》排名靠后检测问题程序打开')
+        for position in POS:
+            input_box = self.browser.find_element_by_class_name('search-box__common__input')
+            time.sleep(1)
+            input_box.clear()
+            time.sleep(1)
+            input_box.send_keys(position)
+            print('能走到这里')
+            time.sleep(1)
+            for _ in range(1, 6):
+                # self.browser.execute_script(jd)
+                for h in range(20):
+                    self.browser.execute_script(
+                        "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
+                            a=500 * h, b=500 * (h + 1)))
+                    time.sleep(1)
+
+                time.sleep(10)
+                if self.next_page():   # 判断是否有下一页，有的话就翻页，没有就break
+                    # 翻页
+                    print('有下一页')
+                    pass
+                else:
+                    LOG.info(f'《{position}》这个职位没有下一页了当前为第{_}页')
+                    break
+                time.sleep(10)
+        pass
+
+    def re_get(self):
+        resp = requests.get(self.base_url, headers=self.headers, cookies=self.req_cookies, verify=False)
+
+        # LOG.info('请求get信息的状态是:', resp.status_code)
+        cookie = resp.cookies
+        cookie = requests.utils.dict_from_cookiejar(cookie)
+        print(cookie)
+        # with open('req_cookies.txt', 'w') as f:
+        #     f.write(cookie)
+        # return cookie
+
+    def session_get(self):
+        while True:
+            if self.pos_que.empty():
+                break
+            else:
+                position = self.pos_que.get()
+                params = {
+                    "pageSize": "90",  # 每页数据
+                    "cityId": "763",  # 广州
+                    "workExperience": "-1",
+                    "education": "-1",
+                    "companyType": "-1",
+                    "employmentType": "-1",
+                    "jobWelfareTag": "-1",
+                    "kw": position,
+                    "kt": "3",
+                    "_v": "0.33455201",  # <<<<<<<<<<<
+                    "x-zp-page-request-id": f"cb1924332a7b411b9373a3d6c188301b-{int(time.time() * 1000)}-176603",  # <<<<<<
+                    "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
+                }
+                time.sleep(10)
+                resp = requests.get(self.js_url, params=params, headers=self.headers, cookies=self.req_cookies, verify=False)
+                dic = json.loads(resp.text, encoding='utf-8')
+                data = dic['data']['results']
+                for com in data:
+                    co = com['company']['name']
+
+            # session = requests.Session()
+            # resp = session.post(self.js_url, data=self.dic, cookies=)
+
+    def save_pos(self):
+        pass
+
+    def requests_json(self):
+        # self.re_get()
+        self.save_pos()
+        time.sleep(5)
+        for i in range(10):
+            t = Thread(target=self.session_get)
+
+
+
+    def test(self):
+        # 测试程序
+        self.requests_json()
+        try:
+            # self.case_rate()  # 《《《 需要开
+            # self.send_msg()  #  《《《 需要开
+            # self.requests_json()   # https://fe-api.zhaopin.com/c/i/sou?
+            pass
+        except Exception as e:
+            # 程序出错，可能需要重新登录
+            LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
+            # self.browser.quit()
+        finally:
+            # self.browser.quit()
+            pass
+
+    def run(self):
+        # 发布版本程序
+        try:
+            self.case_rate()  # 《《《 需要开
+            # self.send_msg()  # 《《《 需要开
+        except Exception as e:
+            # 程序出错，可能需要重新登录
+            LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
+        finally:
+            self.browser.quit()
 
 
 if __name__ == '__main__':
-    app = ZhiLian()
-    app.test()
-    # app.run()
+    # app1 = ZhiLian()
+    app2 = Rate()
+
+    # app1.test()        # 测试程序
+    app2.test()
+    # app.run()        # 主程序
+    # main.run()
 

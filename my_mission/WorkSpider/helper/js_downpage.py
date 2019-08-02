@@ -9,10 +9,10 @@ jd = """
             window.scroll(0, y);
             setTimeout(f, 100);
         } 
-        /* else {
+         else {
             window.scroll(0, 0);
             document.title += "scroll-done";
-        } */
+        } 
     }
     setTimeout(f, 1000);
 })();
