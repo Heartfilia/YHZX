@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # 智联招聘的信息爬取
 import json
-# from datetime import datetime
 import re
 from threading import Thread
 import requests
@@ -16,7 +15,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
 from helper.Our_company import o_comp   # 导入我们公司的信息 list
 from helper.Positions import POS        # 导入需要关注排行的位置的信息
-from multiprocessing import Process
 
 # 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
@@ -353,7 +351,7 @@ class ZhiLian(object):
         receivers = 字符串,多个信息用 英文分号 分割
         :return:
         """
-        receivers = '朱建坤'
+        receivers = '朱建坤'                                              # <<<======
         # receivers = '聂清娜;张子珏;杨国玲;陈淼灵'
         f_n = 0
         o_n = 0
@@ -652,7 +650,7 @@ class Rate(object):
                             if not now_page_info & o_comp:
                                 LOG.warning(f'2)))){position}>>职位没有在规定页码内，需要处理')
                                 from spider import Message
-                                receivers = '朱建坤'
+                                receivers = '朱建坤'                                              # <<<======
                                 msg = f'2)))){position}>>职位没有在规定页码内，需要处理'
                                 Message.send_rtx_msg(receivers, msg)
                                 break
@@ -699,24 +697,29 @@ class Rate(object):
             # 程序出错，可能需要处理
             LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
             from spider import Message
-            receivers = '朱建坤'
+            receivers = '朱建坤'                                              # <<<======
             msg = '自动排查排名靠后程序出错'
             Message.send_rtx_msg(receivers, msg)
 
 
 def main():
-    app1 = ZhiLian()
-    app2 = Rate()
-    app1.run()
+    try:
+        app1 = ZhiLian()
+        app1.run()
+    except Exception as e:
+        LOG.error('### 招聘信息》》》抓取进程错误 ###')
+    else:
+        LOG.info('招聘信息》》》抓取进程开启成功')
+
+    time.sleep(30)   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
 
     try:
-        p2 = Process(target=app2.run)
+        app2 = Rate()
+        app2.run()
     except Exception as e:
         LOG.error('### 页面信息》》》抓取进程错误 ###')
     else:
-        p2.start()
         LOG.info('页面信息》》》抓取进程开启成功')
-        p2.join()
 
 
 if __name__ == '__main__':
