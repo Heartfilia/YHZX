@@ -200,7 +200,7 @@ class ZhiLian(object):
                 "company": company.text if company else ''
             }
             # jsd = json.dumps(dic)
-            with open(self.base_dir + r'\resume.text', 'a') as f:
+            with open(self.base_dir + r'\resume.txt', 'a') as f:
                 f.write(str(dic) + '\n')
             print('*-*-*-*-*-*-*-*-' * 6 + '\n', dic)
 
