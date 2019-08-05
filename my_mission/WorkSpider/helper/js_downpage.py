@@ -17,6 +17,6 @@ jd = """
             document.title += "scroll-done";
         } 
     }
-    setTimeout(f, 1000);
+    # setTimeout(f, 1000);
 })();
 """

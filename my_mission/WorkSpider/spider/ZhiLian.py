@@ -2,10 +2,10 @@
 # 智联招聘的信息爬取
 import json
 import re
+import random
 from threading import Thread
 import requests
 from utils.logger import *    # includes logging infos
-from helper.js_downpage import jd    # js to page bottom
 from selenium import webdriver
 # from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
@@ -15,6 +15,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
 from helper.Our_company import o_comp   # 导入我们公司的信息 list
 from helper.Positions import POS        # 导入需要关注排行的位置的信息
+from helper.company import competitor   # 导入竞争者的信息
 
 # 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
@@ -26,6 +27,7 @@ class ZhiLian(object):
             self.cookies = json.loads(f.read())['cookies']
         self.base_url = 'https://www.zhaopin.com/'
         self.goal_url = 'https://rd5.zhaopin.com/job/manage'
+        self.hr_url = 'https://rd5.zhaopin.com/resume/apply'
         # self.proxies = ''
         self.session = requests.Session()
         self.base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__)))
@@ -106,10 +108,10 @@ class ZhiLian(object):
         except KeyboardInterrupt:
             LOG.warning('》》》》》》程序中断，需要维护信息了《《《《《《')
 
-        time.sleep(2)
+        # time.sleep(2)
         # 以下为关闭前一个窗口，不过没有必要
         # driver.switch_to_window(driver.window_handles[0])
-        # time.sleep(5)
+        time.sleep(5)
 
         # 此处是存cookie操作 暂时不管 也没有完成
 
@@ -123,10 +125,96 @@ class ZhiLian(object):
         LOG.info('》》》刷新本地的Cookies，保持高可用《《《')
         self.save_cookies(cook)
 
+        # =========================================================================================== #
         LOG.info('本地的cookies文件已经刷新')
-        self.driver.execute_script(jd)
-        time.sleep(7)
+        for h in range(8):
+            self.driver.execute_script(
+                "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
+                    a=500 * h, b=500 * (h + 1)))
+            time.sleep(1)
+
+        time.sleep(5)
         self.do_task()
+        time.sleep(3)
+        # =========================================================================================== #
+        self.get_hr_book()
+
+    def get_hr_book(self):
+        time.sleep(5)
+        self.driver.get(self.hr_url)
+        time.sleep(1)
+        all_num = self.driver.find_element_by_xpath('//div[@class="k-tabs__nav-wrapper"]/div/div[1]/span[2]').text
+        print('所有简历数量为：', all_num)
+        all_page = self.driver.find_element_by_xpath('//span[@class="k-pagination__total"]').text
+        reg = re.compile('(\d*)')
+        page = int([i for i in reg.findall(all_page) if i != ''][0])    # 总共的页数
+        print('所有页数为：', page)
+        for h in range(8):
+            self.driver.execute_script(
+                "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
+                    a=500 * h, b=500 * (h + 1)))
+            time.sleep(1)
+
+        for _ in range(1, page+1):
+            try:
+                LOG.info(f'当前位置为第{_}页！')
+                WebDriverWait(self.driver, 86400, poll_frequency=30).until(
+                    EC.presence_of_element_located(
+                        (By.XPATH, '//button[@class="btn-next"]'))
+                )
+                for h in range(8):
+                    self.driver.execute_script(
+                        "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
+                            a=500 * h, b=500 * (h + 1)))
+                    time.sleep(1)
+
+            except Exception as e:
+                LOG.debug('没有找到下一页')
+                break
+            else:
+                self.parse_page()
+                LOG.debug('准备前往下一页')
+                self.do_next_pg()
+
+    def parse_page(self):
+        from spider import Message
+        receivers = '朱建坤'                                        # <<<======
+        button = self.driver.find_element_by_xpath('//div[@class="resume-header__actions"]//i[@class="fa fa-th-list"]')
+        self.driver.execute_script("arguments[0].click();", button)
+        time.sleep(5)
+        # print(self.driver.page_source)
+        # 人员 ： //div[@class="fixable-list__body"]/div[1]//div[@class="user-name__inner"]/a/span/text()
+        # 职位 ： //div[@class="fixable-list__body"]//p[@class="job-title"]/text()
+        # 公司 ： //div[@class="fixable-list__body"]/div[2]//div[@class="cell-extend-simple"]//dl[1]/dd//li[1]/span[2]
+        main_nodes = self.driver.find_elements_by_xpath('//div[@class="fixable-list__body"]/div[1]//div[@class="user-name__inner"]/a/span')
+
+        time.sleep(5)
+        for i in range(len(main_nodes)):
+            staff = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]/div[1]//div[@class="user-name__inner"]/a/span').get_attribute('title')
+            position = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]//p[@class="job-title"]')
+            company = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]/div[2]//div[@class="cell-extend-simple"]//dl[1]/dd//li[1]/span[2]')
+            time.sleep(1)
+            dic = {
+                "staff": staff if staff else '',
+                "position": position.text if position else '',
+                "company": company.text if company else ''
+            }
+            # jsd = json.dumps(dic)
+            with open(self.base_dir + r'\resume.text', 'a') as f:
+                f.write(str(dic) + '\n')
+            print('*-*-*-*-*-*-*-*-' * 6 + '\n', dic)
+
+            if dic["staff"] in competitor:
+                msg = f'应聘{dic["position"]}的{dic["staff"]}曾经在{dic["company"]}工作过'
+                Message.send_rtx_msg(receivers, msg)
+
+        # 这里还需要做一定的处理 ########################################################################################
+
+    def do_next_pg(self):
+        time.sleep(2)
+        button = self.driver.find_element_by_xpath("//button[@class='btn-next'][1]")
+        time.sleep(0.5)
+        self.driver.execute_script("arguments[0].click();", button)
 
     def save_cookies(self, cook):
         dic = {
@@ -244,7 +332,7 @@ class ZhiLian(object):
             LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
             from spider import Message
             receivers = '朱建坤'                                              # <<<======
-            msg = '智联招聘自动追踪程序::半小时内可以登录信息来继续抓取信息'
+            msg = '智联相关的程序需要重新检测！'
             Message.send_rtx_msg(receivers, msg)
             # 《《《《《《《《《《《《《《 阻塞问题处理等待中
         else:
@@ -279,7 +367,12 @@ class ZhiLian(object):
             return int(page)
 
     def ipage(self):
-        self.driver.execute_script(jd)
+        for h in range(8):
+            self.driver.execute_script(
+                "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
+                    a=500 * h, b=500 * (h + 1)))
+            time.sleep(1)
+
         page = self.driver.find_elements_by_xpath('//div/ul[@class="k-pager"]/li')
         num = len(page)
         return num
@@ -456,14 +549,15 @@ class ZhiLian(object):
         """
         # get_cookie: 从给的借口获得账户的cookie
         # 启动程序
-        try:
-            self.get_post_page()       # 《《《 需要开
-            self.send_msg()            # 《《《 需要开
-        except Exception as e:
-            # 程序出错，可能需要重新登录
-            LOG.warning('》》！！》》程序异常，出了问题需要跟进处理《《！！《《')
-        finally:
-            self.driver.quit()
+        self.get_post_page()       # 《《《 需要开
+        # try:
+        #     self.get_post_page()       # 《《《 需要开
+        #     self.send_msg()            # 《《《 需要开
+        # except Exception as e:
+        #     # 程序出错，可能需要重新登录
+        #     LOG.warning('》》！！》》程序异常，出了问题需要跟进处理《《！！《《')
+        # finally:
+        #     self.driver.quit()
 
 
 class Rate(object):
@@ -708,26 +802,151 @@ class Rate(object):
             Message.send_rtx_msg(receivers, msg)
 
 
+class QiangRen(object):
+    def __init__(self):
+        self.t = int(time.time() * 1000)
+        # self.goal_url = f'https://rd5.zhaopin.com/api/rd/resume/list?_={self.t}&x-zp-page-request-id=85e5a225faf442fbac34fb2286194763-{self.t}-42410&x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5'
+        self.goal_url = f'https://rd5.zhaopin.com/api/rd/resume/list?_=1564991558352&x-zp-page-request-id=b116247a3361418cbd6a9dbe2c5e7b0f-1564991390220-588985&x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5'
+        self.base_url = f'https://rd5.zhaopin.com/api/rd/resume/list?'
+        self.headers = {
+            # ':authority': 'rd5.zhaopin.com',
+            # ':method': 'POST',
+            # ':path': '/api/rd/resume/list?_=1564983961418&x-zp-page-request-id=dc2a6b8319ff46e8a59d18c6a0f88fb6-1564983960816-698407&x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',
+            # ':scheme': 'https',
+            'accept': 'application/json, text/javascript, */*; q=0.01',      # 这句很关键
+            # 'accept-encoding': 'gzip, deflate, br',
+            # 'accept-language': 'zh-CN,zh;q=0.9',
+            # 'content-length': '139',
+            # 'content-type': 'text/plain',
+            'origin': 'https://rd5.zhaopin.com',
+            'referer': 'https://rd5.zhaopin.com/resume/apply',
+            # 'sec-fetch-mode': 'cors',
+            # 'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36',
+            # 'x-requested-with': 'XMLHttpRequest',
+        }
+        self.cookies = {
+            'x-zp-client-id': 'e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',   #
+            'sts_deviceid': '16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d',    #
+            'urlfrom2': '121126445',    #
+            'adfcid2': 'none',    #
+            'adfbid2': '0',    #
+            'x-zp-device-id': 'd249967fbc2a8769053b7d5bfee9690b',    #
+            'acw_tc': '2760827015645412125101117e0aea7957a2c5bd1a105885e3208f62506ae6',    #
+            'x-zp-dfp': 'zlzhaopin-1564541208377-824fee2b5b7e3',    #
+            'JSloginnamecookie': '15521262081',    #
+            'JSShowname': '""',    #
+            'JSpUserInfo': '3d692e695671417154775b755c6a5c7541775869586953714c7129772775546a557545775d6958695a71457153775b75596a5c75417753692f6926714a7156775b755f6a52754777586953695d71447125771875186a4a751377076907695071247131775475586a5f7531773c6957695d715a7156774975586a55754a77596953695071367129775475586a5f7525772969576921713a7154775b755c6a5c75417758695869537142715e773c753d6a597541775369396922714a71557752753c6a34753e775569056905711971577759751f6a3b750477596906691271027114771875086a12752f770f690769037107710d7713751c6a527505770a69136950716',   #
+            'uiioit': '3d753d684968426454380b6446684d7959745874566500395f732a753d68496844645e384',    #
+            'login_point': '67827992',    #
+            'promoteGray': '',    #
+            'diagnosis': '0',     #
+            'LastCity': '%E5%B9%BF%E5%B7%9E',     #
+            'LastCity%5Fid': '763',     #
+            'dywez': '95841923.1564567034.8.3.dywecsr=ihr.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/talk/manage.html',   #
+            '__utmz': '269921210.1564567034.8.3.utmcsr=ihr.zhaopin.com|utmccn=(referral)|utmcmd=referral|utmcct=/talk/manage.html',   #
+            'NTKF_T2D_CLIENTID': 'guest848ED7A8-2D6C-CB43-D002-4785D3149DAB',     #
+            'sou_experiment': 'psapi',     #
+            'ZP_OLD_FLAG': 'false',      #
+            'zp-route-meta': 'uid=655193256,orgid=67827992',     #
+            'urlfrom': '121126445',     #
+            'adfcid': 'none',     #
+            'adfbid': '0',     #
+            'sts_sg': '1',    #
+            'sts_chnlsid': 'Unknown',      #
+            'jobRiskWarning': 'true',    #
+            'dywec': '95841923',     #
+            '__utmc': '269921210',     #
+            'Hm_lvt_38ba284938d5eddca645bb5e02a02006': '1564714276,1564715492,1564724007,1564975164',    #
+            'is-oversea-acount': '0',     #
+            'at': 'bc68fccbe0994b6d8f20f10c6bf11e76',       #
+            'rt': 'ed94a17d09454492a834a67a209f473a',       #
+            'login-type': 'b',       #
+            'zp_src_url': 'https%3A%2F%2Fpassport.zhaopin.com%2Forg%2Flogin%3Fbkurl%3Dhttps%253A%252F%252Frd5.zhaopin.com%252Fjob%252Fmanage',    #
+            'JsNewlogin': '1837743086',     #
+            'loginreleased': '1',        #
+            'privacyUpdateVersion': '1',       #
+            'CANCELALL': '1',         #
+            'Hm_lpvt_38ba284938d5eddca645bb5e02a02006': '1564975254',          #
+            'ZL_REPORT_GLOBAL': '{%22sou%22:{%22actionid%22:%22db6edcde-6d31-4be7-a83e-08f44595ff76-sou%22%2C%22funczone%22:%22smart_matching%22}}',   #
+            'sensorsdata2015jssdkcross': '%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%7D',  #
+            # 'sts_sid': '16c6043c099ae4-09391b3f662b1c-5a13331d-2073600-16c6043c09aa50',
+            'dywea': '95841923.183147172171786560.1564539142.1564983149.1564985773.19',     # <<<<<<
+            '__utma': '269921210.1113127844.1564539142.1564983149.1564985773.18',           # <<<<<<
+            # 'sts_evtseq': '4',
+            # 'dyweb': '95841923.5.10.1564983149',
+            # '__utmb': '269921210.5.10.1564983149',
+        }
+
+    def getpage(self,):
+        # page = 1
+        data = {
+            '_': str(self.t),
+            'x-zp-page-request-id': f'635a78aae7de43d6896046b171250cfa-{self.t - random.randint(100, 150)}-159627',
+            'x-zp-client-id': 'e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',
+        }
+        jsond = "isNewList=true&sort=time&S_ResumeState=1&S_CreateDate=190729,190805&S_feedback=&searchSource=1&page=1&pageSize=20"
+        session = requests.Session()
+        try:
+            resp = session.post(self.goal_url, cookies=self.cookies, json=jsond, headers=self.headers, verify=False)
+        except Exception as e:
+            print('错误')
+        else:
+            jstr = resp.content.decode('utf-8')
+            info = json.loads(jstr)
+            print(info)
+            # print(info['data']['dataList'])
+            # for i in info['data']['dataList']:
+            #     userName = i['userName']
+            #     jobTitle = i['jobTitle']
+            #     lastCompany = i['lastCompany']
+            #     dic = {
+            #         "userName": userName,
+            #         "jobTitle": jobTitle,
+            #         "lastCompany": lastCompany
+            #     }
+            #     print('*' * 50)
+            #     print(dic)
+
+    def run(self):
+        self.getpage()    # 第一步，获取页面信息(api) 刷新本地cookies
+
+
 def main():
-    try:
-        app1 = ZhiLian()
-        app1.run()
-    except Exception as e:
-        LOG.error('### 招聘信息》》》抓取进程错误 ###')
-    else:
-        LOG.info('招聘信息》》》抓取进程开启成功')
+    app1 = ZhiLian()
+    app1.run()
+    # try:
+    #     app1 = ZhiLian()
+    #     app1.run()
+    # except Exception as e:
+    #     LOG.error('### 招聘信息》》》抓取进程错误 ###')
+    # else:
+    #     LOG.info('招聘信息》》》抓取进程开启成功')
 
-    time.sleep(30)   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
+    # time.sleep(30)   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
 
-    try:
-        app2 = Rate()
-        app2.run()
-    except Exception as e:
-        LOG.error('### 页面信息》》》抓取进程错误 ###')
-    else:
-        LOG.info('页面信息》》》抓取进程开启成功')
+    # try:
+    #     app2 = Rate()
+    #     app2.run()
+    # except Exception as e:
+    #     LOG.error('### 页面信息》》》抓取进程错误 ###')
+    # else:
+    #     LOG.info('页面信息》》》抓取进程开启成功')
+
+    # time.sleep(10)
+    # try:
+    #     app3 = QiangRen()
+    #     app3.run()
+    # except Exception as e:
+    #     LOG.error('### 抢人信息》》》抓取进程错误 ###')
+    # else:
+    #     # LOG.info('### 抢人信息》》》抓取进程开启成功 ###')
+    #     print('### 抢人信息》》》抓取进程开启成功 ###')
+    # app3 = QiangRen()
+    # app3.run()
 
 
 if __name__ == '__main__':
     main()
+
 
