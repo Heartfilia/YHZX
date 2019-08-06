@@ -2,31 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84fc2dd6-6bd3-46c3-af95-069a31985282" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/DjHr.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjHr/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjHr/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjHr/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjHr/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider/helper/mysql_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider/spider/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/WorkSpider.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/Our_company.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/Positions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/company.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/cookie1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/js_downpage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/Message.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/ZhiLian.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/chromedriver.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/cookies.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/cookies_hr.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/date_task.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/information.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/json_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/resume.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/utils/2019.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WorkSpider2/utils/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjHr/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjHr/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjHr/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjHr/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/Message.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/Message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/date_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/date_task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/resume.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/resume.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -70,8 +96,9 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="DjHr.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\User\AppData\Local\Programs\Python\Python37\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -80,7 +107,7 @@
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
+      <option name="browserUrl" value="http://0.0.0.0:8000/" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
@@ -98,7 +125,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565054550830</updated>
-      <workItem from="1565054552010" duration="2620000" />
+      <workItem from="1565054552010" duration="24024000" />
     </task>
     <servers />
   </component>

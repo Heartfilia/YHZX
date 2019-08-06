@@ -20,4 +20,5 @@ def send_rtx_msg(receivers, msg):
     s.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
-# send_rtx_msg('陈毅', 'testinfo')
+# ip_info = "127.0.0.1:8000"
+# send_rtx_msg('朱建坤', f'请点击 \nhttp://{ip_info}/admin \n在后台管理系统中处理')
