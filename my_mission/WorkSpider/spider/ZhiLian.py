@@ -360,7 +360,7 @@ class ZhiLian(object):
             # print('fresh_recruit:page:', page)
             main_nodes = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]')
 
-            test_node = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]/td[3]/div/p/span')
+            # test_node = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]/td[3]/div/p/span')
 
             # print('fresh_recruit:info:', info)
             # //tr[@class="k-table__row"]/td[3]/div/p/span
@@ -382,9 +382,9 @@ class ZhiLian(object):
             else:
                 com = '1'
 
-            for i in test_node:
-                time.sleep(1)
-                print('i2:::', i.text)
+            # for i in test_node:
+            #     time.sleep(1)
+            #     print('i2:::', i.text)
 
             time.sleep(60)
             for node in main_nodes:
@@ -429,7 +429,7 @@ class ZhiLian(object):
         else:
             cy = '1'
 
-        ifo = requests.get(f'http://127.0.0.1:8000/api/get/refresh/{cy}/z').text         # 这里地址也需要修改  《《《《《
+        ifo = requests.get(f'http://192.168.6.112:8000/api/get/refresh/{cy}/z').text         # 这里地址也需要修改  《《《《《
         time.sleep(1)
         info = json.loads(ifo)
         # print('info:', type(info), info)   # dict

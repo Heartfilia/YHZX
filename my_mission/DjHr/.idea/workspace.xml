@@ -1,50 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84fc2dd6-6bd3-46c3-af95-069a31985282" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../WorkSpider/helper/mysql_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider/spider/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/WorkSpider.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/Our_company.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/Positions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/company.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/cookie1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/helper/js_downpage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/Message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/ZhiLian.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/cookies.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/cookies_hr.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/date_task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/information.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/json_file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/spider/resume.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/utils/2019.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WorkSpider2/utils/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjHr/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjHr/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjHr/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjHr/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/Message.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/Message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/date_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/date_task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/resume.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/resume.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" afterDir="false" />
-    </list>
+    <list default="true" id="84fc2dd6-6bd3-46c3-af95-069a31985282" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565054550830</updated>
-      <workItem from="1565054552010" duration="24024000" />
+      <workItem from="1565054552010" duration="24175000" />
     </task>
     <servers />
   </component>
