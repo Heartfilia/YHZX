@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="84fc2dd6-6bd3-46c3-af95-069a31985282" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/local_selenium.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,9 +30,10 @@
   <component name="ProjectId" id="1P1vjL7gRd5FQES3jc8dSGIcyiT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WorkSpider" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -90,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565054550830</updated>
       <workItem from="1565054552010" duration="24175000" />
-      <workItem from="1565140577434" duration="2170000" />
+      <workItem from="1565140577434" duration="3481000" />
     </task>
     <servers />
   </component>

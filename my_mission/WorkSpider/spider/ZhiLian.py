@@ -50,6 +50,7 @@ class ZhiLian(object):
         self.path = "chromedriver.exe"
         self.driver = webdriver.Chrome(executable_path=self.path)
         self.options = webdriver.ChromeOptions()
+        self.driver.maximize_window()
 
     @staticmethod
     def get_api_cookie(cook):
@@ -147,16 +148,18 @@ class ZhiLian(object):
 
         time.sleep(3)
         self.do_task()
-        # time.sleep(3)
+        self.send_msg()
+        time.sleep(3)
         # =========================================================================================== #
         self.cursor.close()
         self.db.close()
-        # self.get_hr_book()           # ======================  需  要  打  开  ===================== #
+        time.sleep(random.randint(5, 10))
+        self.get_hr_book()           # ======================  需  要  打  开  ===================== #
 
     def get_hr_book(self):
-        time.sleep(5)
+        time.sleep(random.randint(3, 5))
         self.driver.get(self.hr_url)
-        time.sleep(1)
+        time.sleep(random.randint(3, 5))
         all_num = self.driver.find_element_by_xpath('//div[@class="k-tabs__nav-wrapper"]/div/div[1]/span[2]').text
         print('所有简历数量为：', all_num)
         all_page = self.driver.find_element_by_xpath('//span[@class="k-pagination__total"]').text
@@ -188,21 +191,25 @@ class ZhiLian(object):
             else:
                 self.parse_page()
                 LOG.debug('准备前往下一页')
+                if _ > 4:
+                    LOG.info('只查询前5页简历信息，现在页码超过5页，退出查询')
+                    break
                 self.do_next_pg()
 
     def parse_page(self):
+        time.sleep(random.randint(3, 5))
         # from spider import Message
         receivers = '朱建坤'                                        # <<<======
         button = self.driver.find_element_by_xpath('//div[@class="resume-header__actions"]//i[@class="fa fa-th-list"]')
         self.driver.execute_script("arguments[0].click();", button)
-        time.sleep(5)
+        time.sleep(random.randint(3, 8))
         # print(self.driver.page_source)
         # 人员 ： //div[@class="fixable-list__body"]/div[1]//div[@class="user-name__inner"]/a/span/text()
         # 职位 ： //div[@class="fixable-list__body"]//p[@class="job-title"]/text()
         # 公司 ： //div[@class="fixable-list__body"]/div[2]//div[@class="cell-extend-simple"]//dl[1]/dd//li[1]/span[2]
         main_nodes = self.driver.find_elements_by_xpath('//div[@class="fixable-list__body"]/div[1]//div[@class="user-name__inner"]/a/span')
 
-        time.sleep(5)
+        time.sleep(random.randint(3, 8))
         for i in range(len(main_nodes)):
             staff = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]/div[1]//div[@class="user-name__inner"]/a/span').get_attribute('title')
             position = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]//p[@class="job-title"]')
@@ -215,7 +222,7 @@ class ZhiLian(object):
             }
             # jsd = json.dumps(dic)
             with open(self.base_dir + r'\resume.txt', 'a') as f:
-                f.write(str(dic) + '\n')
+                f.write(str(dic) + ',\n')
             # print('*-*-*-*-*-*-*-*-' * 6 + '\n', dic)
 
             if dic["staff"] in competitor:
@@ -225,9 +232,9 @@ class ZhiLian(object):
         LOG.info('抢人程序跑完了》》等待接下来的操作')
 
     def do_next_pg(self):
-        time.sleep(2)
+        time.sleep(random.randint(3, 5))
         button = self.driver.find_element_by_xpath("//button[@class='btn-next'][1]")
-        time.sleep(0.5)
+        time.sleep(random.randint(3, 5))
         self.driver.execute_script("arguments[0].click();", button)
 
     def save_cookies(self, cook):
@@ -238,6 +245,7 @@ class ZhiLian(object):
         jsn = json.dumps(dic)
         with open(self.base_dir + '\cookies.json', 'w') as f:
             f.write(jsn)
+        time.sleep(1)
 
     def isLeapYear(self, year):
         """
@@ -344,11 +352,9 @@ class ZhiLian(object):
         except Exception as e:
             LOG.error('*=*=*=* 没有找到元素，可能是页面元素信息变更 *=*=*=*=*')
             LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
-            # from spider import Message
             receivers = '朱建坤'                                              # <<<======
             msg = '智联相关的程序需要重新检测！'
             Message.send_rtx_msg(receivers, msg)
-            # 《《《《《《《《《《《《《《 阻塞问题处理等待中
         else:
             time.sleep(3)
             ind = 0
@@ -361,7 +367,7 @@ class ZhiLian(object):
             # company = '广州市银河在线饰品有限公司'
             page = self.driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
             # print('fresh_recruit:page:', page)
-            main_nodes = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]')
+            main_nodes = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]/td[3]')
 
             # test_node = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]/td[3]/div/p/span')
 
@@ -369,14 +375,17 @@ class ZhiLian(object):
             # //tr[@class="k-table__row"]/td[3]/div/p/span
             # //tr[@class="k-table__row"]/td[3]/div/@title
             # info的每个信息格式为： 刷新时间：07-27 09:15（20天前）
-            print("company:", company)
+            # print("company:", company)
             api_all = self.get_info_api(company)   # 从规定的api里面获取到需要的信息  # dict
             pstn = [i['info'] for i in api_all['data'] if i]
 
             # print('*' * 20)
-            with open('test.html', 'w', encoding='utf-8') as f:
-                f.write(self.driver.page_source)
+            # LOG.info('因为Selenium的问题，直接拿不到数据，所以采取本地数据拿取到!')
+            # with open('local_selenium.html', 'w', encoding='utf-8') as f:
+            #     f.write(self.driver.page_source)
             # print('*' * 20)
+
+            page_source = self.driver.page_source
 
             if company.strip() == "广州市银河在线饰品有限公司":
                 com = '1'
@@ -388,44 +397,75 @@ class ZhiLian(object):
             # for i in test_node:
             #     time.sleep(1)
             #     print('i2:::', i.text)
+            reg = re.compile('>刷新时间：(.*?)</span>', re.S)
+            time.sleep(5)
+            li = reg.findall(page_source)
+            # with open('local_selenium.html', 'r', encoding='utf-8') as f2:
+            #     time.sleep(5)
+            #     page_source = f2.read()
 
-            time.sleep(100)
-            WebDriverWait(self.driver, 120).until(
-                EC.presence_of_all_elements_located(
-                    (By.XPATH, '//table/tbody/tr[@class="k-table__row"]/td[3]/div/p/span'))
-            )
+            # time.sleep(1)
+            # xpt = etree.HTML(page_source)
+
+            time.sleep(1)
+            # WebDriverWait(self.driver, 120).until(
+            #     EC.presence_of_all_elements_located(
+            #         (By.XPATH, '//table/tbody/tr[@class="k-table__row"]/td[3]/div/p/span'))
+            # )
+            # main_tm = xpt.xpath('//table/tbody/tr[@class="k-table__row"]/td[3]/div/p/span')
+            qunty_xp = len(main_nodes)
+            qunty_re = len(li)
+            # print('len:xp::', qunty_xp)
+            # print('len:re::', qunty_re)
+            if qunty_xp > qunty_re:
+                minu = qunty_xp - qunty_re
+                for _ in range(minu):
+                    li.insert(0, '')
+
+            # print('re::', li)
             for node in main_nodes:
                 # print('fresh_i', i.text.strip())
                 time.sleep(2)
                 try:
-                    i = node.find_element_by_xpath('./td[3]/div/p/span').text    # 简历时间信息
-                    # print(">>>i>>>", i)
+                    # i = node.find_element_by_xpath('./td[3]/div/p/span').text    # 简历时间信息
+                    posi = node.find_element_by_xpath('./div').get_attribute('title')   # 判断 如果不在就插入 在就不管
+                    # i = node.xpath('./td[3]/div/p/span')[0].strip()   # 简历时间信息
                 except Exception as e:
                     LOG.warning('这个节点没有信息')
-                    continue
-                # else:
-                #     i = ''
-                posi = node.find_element_by_xpath('./td[3]/div').get_attribute('title')   # 判断 如果不在就插入 在就不管
+                    posi = ''
+
+                try:
+                    # i = main_tm[ind].strip()
+                    i = li[ind].strip()
+                except:
+                    i = ''
+
+                # print("11ii::", i)
+
+                # posi = node.find_element_by_xpath('./td[3]/div').get_attribute('title')   # 判断 如果不在就插入 在就不管
+                # posi = node.xpath('./td[3]/div/@title')                                  # 判断 如果不在就插入 在就不管
                 # print("posi:", posi)
                 if posi not in pstn:
-                    self.insert_mysql_one(com, posi)
+                    if posi:
+                        self.insert_mysql_one(com, posi)
                     lateRemind = '2'
                 else:
                     y = api_all['data'][pstn.index(posi)]
                     y = y['lateRemind']
                     lateRemind = str(y)   # 获取需要提醒的天数
-                i = i.strip()
+
                 ind += 1
-                # print('简历时间 i:', i)
+
+                # print('简历时间 i:', i)    07-09 19:59（28天前）
                 if i:
-                    month = int(i[5:7])     # 07
-                    day = int(i[8:10])      # 27
-                    # hour = int(i[11:13])  # 09
+                    month = int(i[:2])     # 07
+                    day = int(i[3:5])      # 27
+                    # hour = int(i[6:8])  # 09
                     nums = self.dayBetweenDates(month, day)
                     if nums > int(lateRemind):
                         num += 1  # 统计有几个信息超过指定天没有刷新，有一个就加1
                 else:
-                    # LOG.warning('没有查找到时间节点')
+                    LOG.warning('没有查找到时间节点')
                     # print('没有查找到时间节点')
                     continue
 
@@ -444,7 +484,7 @@ class ZhiLian(object):
         else:
             cy = '1'
 
-        ifo = requests.get(f'http://localhost:8000/api/get/refresh/{cy}/z').text         # 这里地址也需要修改  《《《《《
+        ifo = requests.get(f'{ip_info}get/refresh/{cy}/z').text         # 这里地址也需要修改  《《《《《
         time.sleep(1)
         info = json.loads(ifo)
         # print('info:', type(info), info)   # dict
@@ -583,7 +623,7 @@ class ZhiLian(object):
             f_n += int(i)
         if f_n > 0:
             msg = f'您在智联的<<{company}>>账号的招聘信息总共有{f_n}条超过规定天数没有刷新了请及时处理,修改提醒请点击\n' \
-                  f'http://{ip_info}/admin \n然后在后台管理系统中处理'
+                  f'http://192.168.6.112:8000/admin \n然后在后台管理系统中处理'
             post_data = {
                 "sender": "系统机器人",
                 "receivers": receivers,
@@ -653,6 +693,8 @@ class ZhiLian(object):
         # get_cookie: 从给的借口获得账户的cookie
         # 启动程序
         self.get_post_page()       # 《《《 需要开
+
+        self.driver.quit()
         # try:
         #     self.get_post_page()       # 《《《 需要开
         #     self.send_msg()            # 《《《 需要开
@@ -668,16 +710,17 @@ class Rate(object):
     智能检测排名靠后问题程序
     """
     def __init__(self):
-        self.option = webdriver.ChromeOptions()
-        self.option.add_experimental_option('excludeSwitches', ['enable-automation'])
-        self.path = "chromedriver.exe"
-        self.browser = webdriver.Chrome(options=self.option, executable_path=self.path)
+        # self.option = webdriver.ChromeOptions()
+        # self.option.add_experimental_option('excludeSwitches', ['enable-automation'])
+        # self.path = "chromedriver.exe"
+        # self.browser = webdriver.Chrome(options=self.option, executable_path=self.path)
         self.base_url = 'https://sou.zhaopin.com/'
         self.js_url = 'https://fe-api.zhaopin.com/c/i/sou?'
         self.headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36',
             'referer': 'https://www.zhaopin.com/',
         }
+        # 信息已经过期
         self.req_cookies = {
             'x-zp-client-id': 'e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',
             'sts_deviceid': '16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d',
@@ -722,7 +765,6 @@ class Rate(object):
             'sts_evtseq': '2',
         }
         self.pos_que = Queue()      # 职位准备存入队列
-        pass
 
     def next_page(self):
         """
@@ -868,13 +910,13 @@ class Rate(object):
             f.write('=' * 50 + '\n')    #
         # self.re_get()
         q1 = []
-        for i in range(2):
+        for i in range(1):
             t1 = Thread(target=self.save_pos)
             t1.start()
             LOG.info(f'#####存职位》》的线程{i}已经启动#####')
             q1.append(t1)
 
-        time.sleep(5)
+        time.sleep(random.randint(3, 7))
 
         q2 = []
         for i in range(2):
@@ -883,7 +925,7 @@ class Rate(object):
             t2.start()
             q2.append(t2)
 
-        time.sleep(2)
+        time.sleep(random.randint(2, 5))
         for i in q1:
             i.join()
         LOG.info(f'#####存职位》》的线程已经回收#####')
@@ -898,8 +940,7 @@ class Rate(object):
         except Exception as e:
             # 程序出错，可能需要处理
             LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
-            # from spider import Message
-            receivers = '朱建坤'                                              # <<<======
+            receivers = '朱建坤'
             # receivers = '聂清娜;张子珏;杨国玲;陈淼灵'                        # <<<======
             msg = '自动排查排名靠后程序出错'
             Message.send_rtx_msg(receivers, msg)
@@ -1021,12 +1062,12 @@ def main():
 
     LOG.info('招聘信息》》》抓取进程开启成功')
 
-    # time.sleep(30)   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
-    #
-    # app2 = Rate()
-    # app2.run()
-    #
-    # LOG.info('页面信息》》》抓取进程开启成功')
+    time.sleep(random.randint(30, 60))   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
+
+    app2 = Rate()
+    app2.run()
+
+    LOG.info('页面信息》》》抓取进程开启成功')
     #
 
     # time.sleep(10)
