@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84fc2dd6-6bd3-46c3-af95-069a31985282" name="Default Changelist" comment="" />
+    <list default="true" id="84fc2dd6-6bd3-46c3-af95-069a31985282" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/ZhiLian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/cookies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/spider/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/spider/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkSpider/utils/2019.log" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -83,6 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565054550830</updated>
       <workItem from="1565054552010" duration="24175000" />
+      <workItem from="1565140577434" duration="2170000" />
     </task>
     <servers />
   </component>
@@ -94,7 +102,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

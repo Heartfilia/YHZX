@@ -5,7 +5,17 @@ from .models import *
 class InfoAdmin(admin.ModelAdmin):
     list_display = ('info', 'isRemind', 'lateRemind')
     list_editable = ('isRemind', 'lateRemind')
-    list_filter = ('isRemind', 'account', 'platform')
+    list_filter = ('isRemind', 'platform')
+    list_per_page = 20
+    fieldsets = (
+        ('基本选项', {
+            'fields': ('info', 'isRemind', 'lateRemind')
+        }),
+        ('高级选项', {
+            'fields': ('account', 'platform'),
+            'classes': ('collapse',)
+        })
+    )
 
 
 # Register your models here.

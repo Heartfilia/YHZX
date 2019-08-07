@@ -20,6 +20,7 @@ from helper.Positions import POS        # 导入需要关注排行的位置的�
 from helper.company import competitor   # 导入竞争者的信息
 from spider import Message
 from helper.mysql_config import *
+from lxml import etree
 
 # 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
@@ -349,13 +350,15 @@ class ZhiLian(object):
             Message.send_rtx_msg(receivers, msg)
             # 《《《《《《《《《《《《《《 阻塞问题处理等待中
         else:
-            time.sleep(5)
+            time.sleep(3)
             ind = 0
             num = 0
             # 任务需求：检测到数据是2天没有刷新的就提醒
             # xpath: //tr[@class="k-table__row"]/td[3]/div/p/span
             # WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.XPATH, '')))
-            company = self.driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
+            # company = self.driver.find_element_by_xpath('//div[@class="user__basic"]/span[@class="user__name"]/span').text
+            company = self.driver.find_element_by_xpath('//td[@class="k-table__column"][5]').get_attribute('title')
+            # company = '广州市银河在线饰品有限公司'
             page = self.driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
             # print('fresh_recruit:page:', page)
             main_nodes = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]')
@@ -365,14 +368,14 @@ class ZhiLian(object):
             # print('fresh_recruit:info:', info)
             # //tr[@class="k-table__row"]/td[3]/div/p/span
             # //tr[@class="k-table__row"]/td[3]/div/@title
-            # info的每个信息格式为： 刷新时间：07-27 09:15（4天前）
+            # info的每个信息格式为： 刷新时间：07-27 09:15（20天前）
             print("company:", company)
             api_all = self.get_info_api(company)   # 从规定的api里面获取到需要的信息  # dict
             pstn = [i['info'] for i in api_all['data'] if i]
 
             # print('*' * 20)
-            # with open('test.html', 'w', encoding='utf-8') as f:
-            #     f.write(self.driver.page_source)
+            with open('test.html', 'w', encoding='utf-8') as f:
+                f.write(self.driver.page_source)
             # print('*' * 20)
 
             if company.strip() == "广州市银河在线饰品有限公司":
@@ -386,12 +389,24 @@ class ZhiLian(object):
             #     time.sleep(1)
             #     print('i2:::', i.text)
 
-            time.sleep(60)
+            time.sleep(100)
+            WebDriverWait(self.driver, 120).until(
+                EC.presence_of_all_elements_located(
+                    (By.XPATH, '//table/tbody/tr[@class="k-table__row"]/td[3]/div/p/span'))
+            )
             for node in main_nodes:
                 # print('fresh_i', i.text.strip())
-                time.sleep(3)
-                i = node.find_element_by_xpath('./td[3]/div/p/span')    # 简历时间信息
+                time.sleep(2)
+                try:
+                    i = node.find_element_by_xpath('./td[3]/div/p/span').text    # 简历时间信息
+                    # print(">>>i>>>", i)
+                except Exception as e:
+                    LOG.warning('这个节点没有信息')
+                    continue
+                # else:
+                #     i = ''
                 posi = node.find_element_by_xpath('./td[3]/div').get_attribute('title')   # 判断 如果不在就插入 在就不管
+                # print("posi:", posi)
                 if posi not in pstn:
                     self.insert_mysql_one(com, posi)
                     lateRemind = '2'
@@ -399,12 +414,12 @@ class ZhiLian(object):
                     y = api_all['data'][pstn.index(posi)]
                     y = y['lateRemind']
                     lateRemind = str(y)   # 获取需要提醒的天数
-                i = i.text.strip()
+                i = i.strip()
                 ind += 1
-                print('简历时间 i:', i)
+                # print('简历时间 i:', i)
                 if i:
-                    month = int(i[5:7])  # 07
-                    day = int(i[8:10])   # 27
+                    month = int(i[5:7])     # 07
+                    day = int(i[8:10])      # 27
                     # hour = int(i[11:13])  # 09
                     nums = self.dayBetweenDates(month, day)
                     if nums > int(lateRemind):
@@ -429,7 +444,7 @@ class ZhiLian(object):
         else:
             cy = '1'
 
-        ifo = requests.get(f'http://192.168.6.112:8000/api/get/refresh/{cy}/z').text         # 这里地址也需要修改  《《《《《
+        ifo = requests.get(f'http://localhost:8000/api/get/refresh/{cy}/z').text         # 这里地址也需要修改  《《《《《
         time.sleep(1)
         info = json.loads(ifo)
         # print('info:', type(info), info)   # dict
