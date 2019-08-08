@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
-from .models import Info
+from .models import Info, Rate
 from urllib.request import unquote
 # Create your views here.
 
@@ -16,14 +16,14 @@ def home(request):
     return HttpResponse('<h1 align="center">当前服务只有后台管理系统以及接口信息</h1>')
 
 
-def info_api(request, account="1", platform='z'):
+def info_api(request, account, platform='z'):
     # 返回api信息用来处理提醒
     if account == '1':
         company = '广州市银河在线饰品有限公司'
     elif account == '2':
         company = '广州外宝电子商务有限公司'
-    else:
-        company = '广州市银河在线饰品有限公司'
+    elif account == '3':
+        company = '广州时时美电子商务有限公司'
 
     if platform == 'z':
         pf = '智联'
@@ -32,7 +32,7 @@ def info_api(request, account="1", platform='z'):
     else:
         pf = '智联'
 
-    Ft = Info.objects.all().filter(isRemind=True)
+    Ft = Info.objects.all().filter(isRemind=True).filter(account=account)
     fulljson = {
         'platform': pf,
         'account': company,
@@ -80,3 +80,23 @@ def insert_info(request, account, platform, minf):
             # obj = Info(**dic)
             # obj.save()
             return HttpResponse('Insert Done')
+
+
+def rate_info(request, pf='z'):
+    if pf == 'z':
+        plateform = '智联'
+    elif pf == 'q':
+        plateform = '前程无忧'
+
+    Rt = Rate.objects.all()
+    fulljson = {
+        'plateform': plateform,
+        'data': []
+    }
+    for i in Rt:
+        dic = {
+            'keyword': i.keyword,
+            'pageinfo': i.pageinfo
+        }
+        fulljson['data'].append(dic)
+    return JsonResponse(fulljson)

@@ -1,0 +1,1250 @@
+{'staff': '黄子聪', 'position': 'python 开发工程师', 'company': '南京天数智芯科技有限公司'}
+{'staff': '郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': 'php工程师（急聘）', 'company': '广州至真信息科技有限公司'}
+{'staff': '尹芳', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州市丞华电子设备有限公司'}
+{'staff': '叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '[已读]祝伟民', 'position': '出纳 出纳员 出纳', 'company': '美臣金融服务集团'}
+{'staff': '许御钗', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '许御钗', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '林璇霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '某猎头公司'}
+{'staff': '温集能', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '赞播集团'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '赞播集团'}
+{'staff': '赵超', 'position': '高级PHP开发工程师（后台）', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'PHP开发工程师', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'php工程师（急聘）', 'company': '南京宁智科技有限公司'}
+{'staff': '郑润龙', 'position': 'PHP开发工程师', 'company': '广州至真信息科技有限公司'}
+{'staff': '刘玉谊', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广州亿荣国际贸易公司'}
+{'staff': '杨曙阳', 'position': 'python 开发工程师', 'company': '中国石油化工股份有限公司广州分公司'}
+{'staff': '黄秋合', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '深圳公狼网络科技有限公司'}
+{'staff': '[已读]贺香', 'position': 'python 开发工程师', 'company': '长沙睿哲有限公司'}
+{'staff': '何健豪', 'position': '出纳 出纳员 出纳', 'company': '平安银行'}
+{'staff': '张文颖', 'position': '行政专员 人事助理 文员', 'company': '腾哲集团'}
+{'staff': '陈祖兴', 'position': 'python 开发工程师', 'company': '广州微易软件有限公司'}
+{'staff': '周烨烨', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '义乌市一诺电子商务有限公司'}
+{'staff': '曾文飘', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '广东南泰房地产土地资产评估有限公司'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '莫敏宏', 'position': 'php工程师（急聘）', 'company': '广州圣火科技有限公司'}
+{'staff': '卢建宏', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '服装公司'}
+{'staff': '曾光超', 'position': 'php工程师（急聘）', 'company': '广州宝乐软件科技有限公司'}
+{'staff': '唐洋洋', 'position': '财务主管（跨境电商应收方向）', 'company': '广州鹰飞特机电设备有限公司'}
+{'staff': '周娜', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '莉子贸易有限公司'}
+{'staff': '王棵', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': 'leebart鞋先生'}
+{'staff': '胡雅玲', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '北京蹭蹭蹭信息技术有限公司'}
+{'staff': '李国旺', 'position': 'python 开发工程师', 'company': '江西易网络科技有限公司'}
+{'staff': '谢平壕', 'position': '出纳 出纳员 出纳', 'company': '鹏泰购物广场'}
+{'staff': '林燕珊', 'position': '出纳 出纳员 出纳', 'company': '广州星厨艺贸易有限公司'}
+{'staff': '康健民', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '李润钊', 'position': 'python 开发工程师', 'company': '广州天琪贸易公司'}
+{'staff': '钟婧琳', 'position': '行政专员 人事助理 文员', 'company': '秦汉胡同国学书院'}
+{'staff': '梁欣', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州鑫越贸易有限公司'}
+{'staff': '张坦', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '台湾顶行贸易有限公司（广州办）'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '李明', 'position': '行政专员 人事助理 文员', 'company': '广州凯利电器维修部'}
+{'staff': '吴巧', 'position': 'PHP开发工程师', 'company': '更多简历'}
+{'staff': '吴巧', 'position': 'php工程师（急聘）', 'company': '更多简历'}
+{'staff': '曾小姐', 'position': '招聘助理 招聘专员 人事专员', 'company': '廣州錦澤信息諮詢有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '梁土照', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '广州诚毅科技开发有限公司'}
+{'staff': '陈湛', 'position': 'python 开发工程师', 'company': '广州仲昌一科信息科技有限公司'}
+{'staff': '康健民', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市兵利服饰有限公司'}
+{'staff': '蔡昊锦', 'position': 'python 开发工程师', 'company': '广州浩承网络科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市兵利服饰有限公司'}
+{'staff': '黄奕健', 'position': '行政专员 人事助理 文员', 'company': '广东宝宝博物馆文化有限公司'}
+{'staff': '周磊', 'position': '高级PHP开发工程师（后台）', 'company': '广州方鼎软件科技有限公司'}
+{'staff': '严志坚', 'position': 'python 开发工程师', 'company': '和仁(天津)科技有限公司（总公司为，浙江和仁科技股份有限公司）'}
+{'staff': '张港', 'position': 'python 开发工程师', 'company': '中科软科技股份有限公司'}
+{'staff': '李睿敏', 'position': '行政专员 人事助理 文员', 'company': '上海常净环保技术有限公司'}
+{'staff': '关雪怡', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '詹宝雯', 'position': '财务主管（跨境电商应收方向）', 'company': '广州诺亚舟小新星教育培训有限公司'}
+{'staff': '苏婉金', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '探渍古女装'}
+{'staff': '张婉仪', 'position': '行政专员 人事助理 文员', 'company': '广州网聚广告有限公司'}
+{'staff': '聂懿雯', 'position': '质检员', 'company': '东泰实业(广州润时保健用品有限公司)'}
+{'staff': '皮利红', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '皮利红', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '龚赢', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳市亮目生物科技有限公司'}
+{'staff': '陈希托', 'position': 'php工程师（急聘）', 'company': '广东澳德嘉云信息科技有限公司'}
+{'staff': '叶美欣', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '广州市花都区协和百货'}
+{'staff': '许米纳', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '北京中公教育科技有限公司上海分公司'}
+{'staff': '王瑞', 'position': 'PHP开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '陈育鑫', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': 'ANA&KATE'}
+{'staff': '张永笑', 'position': '招聘助理 招聘专员 人事专员', 'company': '郑州见云美业集团'}
+{'staff': '梁妍', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '懿偲文化'}
+{'staff': '汤晓沁', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州市漕鎏贸易有限公司'}
+{'staff': '毛鸿英', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广东顺德南祥饲料有限公司'}
+{'staff': '周世霖', 'position': 'python 开发工程师', 'company': '华亚微电子（上海）有限公司'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '马辉亮', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '广晟达家具科技有限公司'}
+{'staff': '莫先生', 'position': '高级PHP开发工程师（后台）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'PHP开发工程师', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'php工程师（急聘）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '孙宇', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '亮点飞织鞋面'}
+{'staff': '刘国思', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '广州天下通宝拍卖有限公司'}
+{'staff': '陈碧云', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州中誉仪器有限公司'}
+{'staff': '罗丽英', 'position': '行政专员 人事助理 文员', 'company': '广州永盈'}
+{'staff': '向延乔', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市新广志贸易发展有限公司'}
+{'staff': '张文婷', 'position': '行政专员 人事助理 文员', 'company': '清远乐排河污水处理有限公司'}
+{'staff': '黄晓锋', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '惠州格致'}
+{'staff': '黄晓锋', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '惠州格致'}
+{'staff': '潘雅雯', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '广州棒谷科技股份有限公司'}
+{'staff': '侯松毅', 'position': 'python 开发工程师', 'company': '大查柜（上海）网络科技有限公司'}
+{'staff': 'Wu Zhixiong 吴志雄', 'position': 'AliExpress速卖通主管 B2C平台销售主管', 'company': 'Guangzhou Chinaway Trade Co.,Ltd'}
+{'staff': '叶少华', 'position': '速卖通主管/aliexpress经理/速卖通销售主管', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '叶丽青', 'position': '出纳 出纳员 出纳', 'company': '新中物业管理（中国）有限公司广州分公司'}
+{'staff': '叶少华', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '康淇', 'position': '招聘助理 招聘专员 人事专员', 'company': '小桔梗网络科技有限公司'}
+{'staff': '祝国治', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '香港永恒集团'}
+{'staff': '黄腾', 'position': 'python 开发工程师', 'company': '湖北云铺网络科技有限公司'}
+{'staff': '杨同发', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州凯信国际货运代理有限公司'}
+{'staff': '曹爱娟', 'position': '财务主管（跨境电商应收方向）', 'company': '广州英虎网络股份有限公司（新三板）'}
+{'staff': '李英毅', 'position': '高级PHP开发工程师（后台）', 'company': '广州御书房文化传播公司'}
+{'staff': '刘霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州骏昇信息咨询有限公司'}
+{'staff': '陈娜', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州奇威胜国际贸易有限公司'}
+{'staff': '陈冠兰', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '黄小姐', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '佛山帆柯工业紧固件有限公司'}
+{'staff': '陈冠兰', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '陈巧燕', 'position': 'python 开发工程师', 'company': '深圳前海爱客风信息技术有限公司'}
+{'staff': '唐军', 'position': '行政专员 人事助理 文员', 'company': '广东合地集团股份有限公司'}
+{'staff': '黄晓燕', 'position': '招聘助理 招聘专员 人事专员', 'company': '广东储牌药业有限公司'}
+{'staff': '洪光豪', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州双利贸易有限公司'}
+{'staff': '刘斌', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '广东朝野科技集团有限公司'}
+{'staff': '温集能', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '赞播集团'}
+{'staff': '王宇红', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州心曲网络科技有限公司'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '赞播集团'}
+{'staff': '吕巧玉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '桑嘉晖', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '广州型腔模具制造有限公司'}
+{'staff': '林颖洁', 'position': '出纳 出纳员 出纳', 'company': '江南物业公司'}
+{'staff': '杨顿', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳合和投资公司'}
+{'staff': '顾达新', 'position': 'PHP开发工程师', 'company': '广州明动软件有限公司'}
+{'staff': '黄敏华', 'position': '行政专员 人事助理 文员', 'company': '江门旺大饲料有限公司'}
+{'staff': '田甜', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '光风霁月服饰文化有限公司'}
+{'staff': '黄燕', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞创科集团'}
+{'staff': '李尚钊', 'position': 'PHP开发工程师', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '冼少怡', 'position': '出纳 出纳员 出纳', 'company': '税意通（广州）企业服务平台有限公司'}
+{'staff': '李尚钊', 'position': 'php工程师（急聘）', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '关坤尧', 'position': '行政专员 人事助理 文员', 'company': '佐丹奴'}
+{'staff': '肖先生', 'position': 'php工程师（急聘）', 'company': '广州韵创科技'}
+{'staff': '黄钰滢', 'position': '出纳 出纳员 出纳', 'company': '深圳市云创得力数据有限公司'}
+{'staff': '符晓峰', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '天津大学仁爱学院'}
+{'staff': '江乐伟', 'position': 'python 开发工程师', 'company': '郑州创恒实业有限公司'}
+{'staff': '[已读]袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '[已读]冯颖欣', 'position': '招聘专员/人事专员/HRBP', 'company': '广东猪兼强互联网科技有限公司'}
+{'staff': '胡逸诗', 'position': '行政专员 人事助理 文员', 'company': '广州宾裳展贸易有限公司'}
+{'staff': '[已读]杨薏', 'position': '行政专员 人事助理 文员', 'company': '广州市国美电器有限公司'}
+{'staff': '[已读]苏桢妍', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '洛阳中国一拖集团'}
+{'staff': '黄冬明', 'position': 'python 开发工程师', 'company': '广州天锐医健信息科技有限公司'}
+{'staff': '马梓淳', 'position': '行政专员 人事助理 文员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]马梓淳', 'position': '助理/文员/产品上传员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]唐静婕', 'position': '助理/文员/产品上传员', 'company': '北京视达科科技有限公司(视达科)'}
+{'staff': '刘苏', 'position': '出纳 出纳员 出纳', 'company': '广州市培臻国际贸易有限公司'}
+{'staff': '姚青', 'position': '出纳 出纳员 出纳', 'company': '广州五金货架有限公司'}
+{'staff': '付玉婷', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '乳源瑶族自治县弘成房地产开发有限公司'}
+{'staff': '罗洁', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '林洁钰', 'position': '采购助理/跟单文员/业务跟单', 'company': '佳映国际影城'}
+{'staff': '周钟岚', 'position': '行政专员/助理', 'company': '时光教育'}
+{'staff': '蓝银燕', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '王衡', 'position': '出纳 出纳员 出纳', 'company': '广州广兴牧业设备集团有限公司'}
+{'staff': '郑思琪', 'position': '出纳 出纳员 出纳', 'company': '广州市水为先环保科技有限公司'}
+{'staff': '续安顺', 'position': 'AliExpress 速卖通主管', 'company': '巨鼎国际供应链'}
+{'staff': '黄文乾', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州国投悦康养老服务有限公司'}
+{'staff': '潘祖丽', 'position': 'AliExpress/速卖通/速卖通销售/外贸业务员', 'company': '广州众牛电子商务有限公司'}
+{'staff': '黄富俞', 'position': '英文产品编辑 英文翻译', 'company': '广州乐晟网络科技有限公司'}
+{'staff': '周梓豪', 'position': 'php工程师（急聘）', 'company': '广州新意站广告有限公司'}
+{'staff': '陈梅丽', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '香港多利来贸易有限公司'}
+{'staff': '刘子坚', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'}
+{'staff': '刘子坚', 'position': 'wish 外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'}
+{'staff': '王清璐', 'position': 'python 开发工程师', 'company': '新疆品宣生物科技有限责任公司'}
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'}
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'}
+{'staff': '张欣', 'position': '行政专员 人事助理 文员', 'company': '广州仓讯电子科技服务有限公司'}
+{'staff': '范晓丽', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州时尚天河商业城有限公司'}
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '王群峰', 'position': 'PHP开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '伍海莲', 'position': '行政专员 人事助理 文员', 'company': '福建平潭全健生物科技有限公司'}
+{'staff': '周晓晴', 'position': '行政专员 人事助理 文员', 'company': '广东元晟建设发展有限公司'}
+{'staff': '桂晓', 'position': '财务主管（跨境电商应收方向）', 'company': '广州壹乐源品牌管理有限公司'}
+{'staff': '席万鹏', 'position': '行政专员 人事助理 文员', 'company': '广州海关'}
+{'staff': '练银玲', 'position': '出纳 出纳员 出纳', 'company': '广州毓美皮具有限公司'}
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'}
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'}
+{'staff': '谭俊琦', 'position': 'python 开发工程师', 'company': '长沙玛雅软件科技有限公司'}
+{'staff': '杨楠', 'position': 'python 开发工程师', 'company': '武汉尚云客网络技术有限公司'}
+{'staff': '刘肇莲', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '上海力盛赛车文化有限公司'}
+{'staff': '陈秀婷', 'position': 'AliExpress 速卖通主管 外贸销售主管 B2C跨境电商销售主管', 'company': '汇丰银行'}
+{'staff': '詹美珠', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市超胜科技有限公司'}
+{'staff': '詹美珠', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': ''}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': ''}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': ''}
+{'staff': '邓谦', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市浩永贸易有限公司'}
+{'staff': '雷权威', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '华住集团'}
+{'staff': '郭建辉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '富士康科技集团（上市公司世界五百强）'}
+{'staff': '雷权威', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '华住集团'}
+{'staff': '周敏', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '洋葱（OMALL）集团'}
+{'staff': '陈国乐', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市从一品餐饮管理有限公司'}
+{'staff': '王君益', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '新华都购物广场股份有限公司'}
+{'staff': '陈伟德', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广州思方行网络科技有限公司'}
+{'staff': '陈洁贞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市东信达计算机技术开发有限公司'}
+{'staff': '侯体宗', 'position': 'php工程师（急聘）', 'company': '广州穗阳集团有限公司'}
+{'staff': '苏丽茹', 'position': '出纳 出纳员 出纳', 'company': '广东良策按揭服务有限公司'}
+{'staff': '[已读]黄子聪', 'position': 'python 开发工程师', 'company': '南京天数智芯科技有限公司'}
+{'staff': '[已读]郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': 'php工程师（急聘）', 'company': '广州至真信息科技有限公司'}
+{'staff': '[已读]尹芳', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州市丞华电子设备有限公司'}
+{'staff': '[已读]叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '[已读]祝伟民', 'position': '出纳 出纳员 出纳', 'company': '美臣金融服务集团'}
+{'staff': '[已读]许御钗', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '许御钗', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '[已读]林璇霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '某猎头公司'}
+{'staff': '[已读]温集能', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '赞播集团'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '赞播集团'}
+{'staff': '[已读]赵超', 'position': '高级PHP开发工程师（后台）', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'PHP开发工程师', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'php工程师（急聘）', 'company': '南京宁智科技有限公司'}
+{'staff': '[已读]郑润龙', 'position': 'PHP开发工程师', 'company': '广州至真信息科技有限公司'}
+{'staff': '[已读]杨曙阳', 'position': 'python 开发工程师', 'company': '中国石油化工股份有限公司广州分公司'}
+{'staff': '[已读]贺香', 'position': 'python 开发工程师', 'company': '长沙睿哲有限公司'}
+{'staff': '何健豪', 'position': '出纳 出纳员 出纳', 'company': '平安银行'}
+{'staff': '陈祖兴', 'position': 'python 开发工程师', 'company': '广州微易软件有限公司'}
+{'staff': '周烨烨', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '义乌市一诺电子商务有限公司'}
+{'staff': '曾文飘', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '广东南泰房地产土地资产评估有限公司'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '莫敏宏', 'position': 'php工程师（急聘）', 'company': '广州圣火科技有限公司'}
+{'staff': '卢建宏', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '服装公司'}
+{'staff': '曾光超', 'position': 'php工程师（急聘）', 'company': '广州宝乐软件科技有限公司'}
+{'staff': '唐洋洋', 'position': '财务主管（跨境电商应收方向）', 'company': '广州鹰飞特机电设备有限公司'}
+{'staff': '周娜', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '莉子贸易有限公司'}
+{'staff': '王棵', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': 'leebart鞋先生'}
+{'staff': '胡雅玲', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '北京蹭蹭蹭信息技术有限公司'}
+{'staff': '李国旺', 'position': 'python 开发工程师', 'company': '江西易网络科技有限公司'}
+{'staff': '李国旺', 'position': 'python 开发工程师', 'company': '江西易网络科技有限公司'}
+{'staff': '谢平壕', 'position': '出纳 出纳员 出纳', 'company': '鹏泰购物广场'}
+{'staff': '林燕珊', 'position': '出纳 出纳员 出纳', 'company': '广州星厨艺贸易有限公司'}
+{'staff': '康健民', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '李润钊', 'position': 'python 开发工程师', 'company': '广州天琪贸易公司'}
+{'staff': '钟婧琳', 'position': '行政专员 人事助理 文员', 'company': '秦汉胡同国学书院'}
+{'staff': '梁欣', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州鑫越贸易有限公司'}
+{'staff': '张坦', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '台湾顶行贸易有限公司（广州办）'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '李明', 'position': '行政专员 人事助理 文员', 'company': '广州凯利电器维修部'}
+{'staff': '吴巧', 'position': 'PHP开发工程师', 'company': '更多简历'}
+{'staff': '吴巧', 'position': 'php工程师（急聘）', 'company': '更多简历'}
+{'staff': '曾小姐', 'position': '招聘助理 招聘专员 人事专员', 'company': '廣州錦澤信息諮詢有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '梁土照', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '广州诚毅科技开发有限公司'}
+{'staff': '陈湛', 'position': 'python 开发工程师', 'company': '广州仲昌一科信息科技有限公司'}
+{'staff': '康健民', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市兵利服饰有限公司'}
+{'staff': '蔡昊锦', 'position': 'python 开发工程师', 'company': '广州浩承网络科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市兵利服饰有限公司'}
+{'staff': '黄奕健', 'position': '行政专员 人事助理 文员', 'company': '广东宝宝博物馆文化有限公司'}
+{'staff': '周磊', 'position': '高级PHP开发工程师（后台）', 'company': '广州方鼎软件科技有限公司'}
+{'staff': '严志坚', 'position': 'python 开发工程师', 'company': '和仁(天津)科技有限公司（总公司为，浙江和仁科技股份有限公司）'}
+{'staff': '张港', 'position': 'python 开发工程师', 'company': '中科软科技股份有限公司'}
+{'staff': '李睿敏', 'position': '行政专员 人事助理 文员', 'company': '上海常净环保技术有限公司'}
+{'staff': '关雪怡', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '詹宝雯', 'position': '财务主管（跨境电商应收方向）', 'company': '广州诺亚舟小新星教育培训有限公司'}
+{'staff': '苏婉金', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '探渍古女装'}
+{'staff': '张婉仪', 'position': '行政专员 人事助理 文员', 'company': '广州网聚广告有限公司'}
+{'staff': '聂懿雯', 'position': '质检员', 'company': '东泰实业(广州润时保健用品有限公司)'}
+{'staff': '皮利红', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '皮利红', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '龚赢', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳市亮目生物科技有限公司'}
+{'staff': '陈希托', 'position': 'php工程师（急聘）', 'company': '广东澳德嘉云信息科技有限公司'}
+{'staff': '叶美欣', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '广州市花都区协和百货'}
+{'staff': '许米纳', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '北京中公教育科技有限公司上海分公司'}
+{'staff': '王瑞', 'position': 'PHP开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '陈育鑫', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': 'ANA&KATE'}
+{'staff': '张永笑', 'position': '招聘助理 招聘专员 人事专员', 'company': '郑州见云美业集团'}
+{'staff': '梁妍', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '懿偲文化'}
+{'staff': '汤晓沁', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州市漕鎏贸易有限公司'}
+{'staff': '毛鸿英', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广东顺德南祥饲料有限公司'}
+{'staff': '周世霖', 'position': 'python 开发工程师', 'company': '华亚微电子（上海）有限公司'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '马辉亮', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '广晟达家具科技有限公司'}
+{'staff': '莫先生', 'position': '高级PHP开发工程师（后台）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'PHP开发工程师', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'php工程师（急聘）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '孙宇', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '亮点飞织鞋面'}
+{'staff': '刘国思', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '广州天下通宝拍卖有限公司'}
+{'staff': '陈碧云', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州中誉仪器有限公司'}
+{'staff': '罗丽英', 'position': '行政专员 人事助理 文员', 'company': '广州永盈'}
+{'staff': '向延乔', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市新广志贸易发展有限公司'}
+{'staff': '张文婷', 'position': '行政专员 人事助理 文员', 'company': '清远乐排河污水处理有限公司'}
+{'staff': '黄晓锋', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '惠州格致'}
+{'staff': '黄晓锋', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '惠州格致'}
+{'staff': '潘雅雯', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '广州棒谷科技股份有限公司'}
+{'staff': '侯松毅', 'position': 'python 开发工程师', 'company': '大查柜（上海）网络科技有限公司'}
+{'staff': 'Wu Zhixiong 吴志雄', 'position': 'AliExpress速卖通主管 B2C平台销售主管', 'company': 'Guangzhou Chinaway Trade Co.,Ltd'}
+{'staff': '叶少华', 'position': '速卖通主管/aliexpress经理/速卖通销售主管', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '叶丽青', 'position': '出纳 出纳员 出纳', 'company': '新中物业管理（中国）有限公司广州分公司'}
+{'staff': '叶少华', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '康淇', 'position': '招聘助理 招聘专员 人事专员', 'company': '小桔梗网络科技有限公司'}
+{'staff': '祝国治', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '香港永恒集团'}
+{'staff': '黄腾', 'position': 'python 开发工程师', 'company': '湖北云铺网络科技有限公司'}
+{'staff': '杨同发', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州凯信国际货运代理有限公司'}
+{'staff': '曹爱娟', 'position': '财务主管（跨境电商应收方向）', 'company': '广州英虎网络股份有限公司（新三板）'}
+{'staff': '李英毅', 'position': '高级PHP开发工程师（后台）', 'company': '广州御书房文化传播公司'}
+{'staff': '刘霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州骏昇信息咨询有限公司'}
+{'staff': '陈娜', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州奇威胜国际贸易有限公司'}
+{'staff': '陈冠兰', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '黄小姐', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '佛山帆柯工业紧固件有限公司'}
+{'staff': '陈冠兰', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '陈巧燕', 'position': 'python 开发工程师', 'company': '深圳前海爱客风信息技术有限公司'}
+{'staff': '唐军', 'position': '行政专员 人事助理 文员', 'company': '广东合地集团股份有限公司'}
+{'staff': '黄晓燕', 'position': '招聘助理 招聘专员 人事专员', 'company': '广东储牌药业有限公司'}
+{'staff': '洪光豪', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州双利贸易有限公司'}
+{'staff': '刘斌', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '广东朝野科技集团有限公司'}
+{'staff': '温集能', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '赞播集团'}
+{'staff': '王宇红', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州心曲网络科技有限公司'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '赞播集团'}
+{'staff': '吕巧玉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '桑嘉晖', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '广州型腔模具制造有限公司'}
+{'staff': '林颖洁', 'position': '出纳 出纳员 出纳', 'company': '江南物业公司'}
+{'staff': '杨顿', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳合和投资公司'}
+{'staff': '顾达新', 'position': 'PHP开发工程师', 'company': '广州明动软件有限公司'}
+{'staff': '黄敏华', 'position': '行政专员 人事助理 文员', 'company': '江门旺大饲料有限公司'}
+{'staff': '田甜', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '光风霁月服饰文化有限公司'}
+{'staff': '黄燕', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞创科集团'}
+{'staff': '李尚钊', 'position': 'PHP开发工程师', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '冼少怡', 'position': '出纳 出纳员 出纳', 'company': '税意通（广州）企业服务平台有限公司'}
+{'staff': '李尚钊', 'position': 'php工程师（急聘）', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '关坤尧', 'position': '行政专员 人事助理 文员', 'company': '佐丹奴'}
+{'staff': '肖先生', 'position': 'php工程师（急聘）', 'company': '广州韵创科技'}
+{'staff': '黄钰滢', 'position': '出纳 出纳员 出纳', 'company': '深圳市云创得力数据有限公司'}
+{'staff': '符晓峰', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '天津大学仁爱学院'}
+{'staff': '江乐伟', 'position': 'python 开发工程师', 'company': '郑州创恒实业有限公司'}
+{'staff': '[已读]袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '[已读]冯颖欣', 'position': '招聘专员/人事专员/HRBP', 'company': '广东猪兼强互联网科技有限公司'}
+{'staff': '胡逸诗', 'position': '行政专员 人事助理 文员', 'company': '广州宾裳展贸易有限公司'}
+{'staff': '[已读]杨薏', 'position': '行政专员 人事助理 文员', 'company': '广州市国美电器有限公司'}
+{'staff': '[已读]苏桢妍', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '洛阳中国一拖集团'}
+{'staff': '黄冬明', 'position': 'python 开发工程师', 'company': '广州天锐医健信息科技有限公司'}
+{'staff': '马梓淳', 'position': '行政专员 人事助理 文员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]马梓淳', 'position': '助理/文员/产品上传员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]唐静婕', 'position': '助理/文员/产品上传员', 'company': '北京视达科科技有限公司(视达科)'}
+{'staff': '刘苏', 'position': '出纳 出纳员 出纳', 'company': '广州市培臻国际贸易有限公司'}
+{'staff': '姚青', 'position': '出纳 出纳员 出纳', 'company': '广州五金货架有限公司'}
+{'staff': '付玉婷', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '乳源瑶族自治县弘成房地产开发有限公司'}
+{'staff': '罗洁', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '林洁钰', 'position': '采购助理/跟单文员/业务跟单', 'company': '佳映国际影城'}
+{'staff': '周钟岚', 'position': '行政专员/助理', 'company': '时光教育'}
+{'staff': '蓝银燕', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '王衡', 'position': '出纳 出纳员 出纳', 'company': '广州广兴牧业设备集团有限公司'}
+{'staff': '郑思琪', 'position': '出纳 出纳员 出纳', 'company': '广州市水为先环保科技有限公司'}
+{'staff': '韩志胜', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市光明服饰有限公司'}
+{'staff': '续安顺', 'position': 'AliExpress 速卖通主管', 'company': '巨鼎国际供应链'}
+{'staff': '黄文乾', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州国投悦康养老服务有限公司'}
+{'staff': '潘祖丽', 'position': 'AliExpress/速卖通/速卖通销售/外贸业务员', 'company': '广州众牛电子商务有限公司'}
+{'staff': '黄富俞', 'position': '英文产品编辑 英文翻译', 'company': '广州乐晟网络科技有限公司'}
+{'staff': '周梓豪', 'position': 'php工程师（急聘）', 'company': '广州新意站广告有限公司'}
+{'staff': '陈梅丽', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '香港多利来贸易有限公司'}
+{'staff': '刘子坚', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'}
+{'staff': '刘子坚', 'position': 'wish 外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'}
+{'staff': '王清璐', 'position': 'python 开发工程师', 'company': '新疆品宣生物科技有限责任公司'}
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'}
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'}
+{'staff': '张欣', 'position': '行政专员 人事助理 文员', 'company': '广州仓讯电子科技服务有限公司'}
+{'staff': '范晓丽', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州时尚天河商业城有限公司'}
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '王群峰', 'position': 'PHP开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '伍海莲', 'position': '行政专员 人事助理 文员', 'company': '福建平潭全健生物科技有限公司'}
+{'staff': '周晓晴', 'position': '行政专员 人事助理 文员', 'company': '广东元晟建设发展有限公司'}
+{'staff': '桂晓', 'position': '财务主管（跨境电商应收方向）', 'company': '广州壹乐源品牌管理有限公司'}
+{'staff': '席万鹏', 'position': '行政专员 人事助理 文员', 'company': '广州海关'}
+{'staff': '练银玲', 'position': '出纳 出纳员 出纳', 'company': '广州毓美皮具有限公司'}
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'}
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'}
+{'staff': '谭俊琦', 'position': 'python 开发工程师', 'company': '长沙玛雅软件科技有限公司'}
+{'staff': '杨楠', 'position': 'python 开发工程师', 'company': '武汉尚云客网络技术有限公司'}
+{'staff': '刘肇莲', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '上海力盛赛车文化有限公司'}
+{'staff': '陈秀婷', 'position': 'AliExpress 速卖通主管 外贸销售主管 B2C跨境电商销售主管', 'company': '汇丰银行'}
+{'staff': '詹美珠', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市超胜科技有限公司'}
+{'staff': '詹美珠', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': ''}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': ''}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': ''}
+{'staff': '邓谦', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市浩永贸易有限公司'}
+{'staff': '雷权威', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '华住集团'}
+{'staff': '郭建辉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '富士康科技集团（上市公司世界五百强）'}
+{'staff': '雷权威', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '华住集团'}
+{'staff': '周敏', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '洋葱（OMALL）集团'}
+{'staff': '陈国乐', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市从一品餐饮管理有限公司'}
+{'staff': '王君益', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '新华都购物广场股份有限公司'}
+{'staff': '陈伟德', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广州思方行网络科技有限公司'}
+{'staff': '陈洁贞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市东信达计算机技术开发有限公司'}
+{'staff': '侯体宗', 'position': 'php工程师（急聘）', 'company': '广州穗阳集团有限公司'}
+{'staff': '苏丽茹', 'position': '出纳 出纳员 出纳', 'company': '广东良策按揭服务有限公司'}
+{'staff': '[已读]黄子聪', 'position': 'python 开发工程师', 'company': '南京天数智芯科技有限公司'}
+{'staff': '[已读]郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': 'php工程师（急聘）', 'company': '广州至真信息科技有限公司'}
+{'staff': '[已读]尹芳', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州市丞华电子设备有限公司'}
+{'staff': '[已读]叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '[已读]祝伟民', 'position': '出纳 出纳员 出纳', 'company': '美臣金融服务集团'}
+{'staff': '[已读]许御钗', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '许御钗', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '[已读]林璇霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '某猎头公司'}
+{'staff': '[已读]温集能', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '赞播集团'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '赞播集团'}
+{'staff': '[已读]赵超', 'position': '高级PHP开发工程师（后台）', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'PHP开发工程师', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'php工程师（急聘）', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'php工程师（急聘）', 'company': '南京宁智科技有限公司'}
+{'staff': '[已读]郑润龙', 'position': 'PHP开发工程师', 'company': '广州至真信息科技有限公司'}
+{'staff': '[已读]杨曙阳', 'position': 'python 开发工程师', 'company': '中国石油化工股份有限公司广州分公司'}
+{'staff': '[已读]贺香', 'position': 'python 开发工程师', 'company': '长沙睿哲有限公司'}
+{'staff': '何健豪', 'position': '出纳 出纳员 出纳', 'company': '平安银行'}
+{'staff': '陈祖兴', 'position': 'python 开发工程师', 'company': '广州微易软件有限公司'}
+{'staff': '周烨烨', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '义乌市一诺电子商务有限公司'}
+{'staff': '曾文飘', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '广东南泰房地产土地资产评估有限公司'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '莫敏宏', 'position': 'php工程师（急聘）', 'company': '广州圣火科技有限公司'}
+{'staff': '卢建宏', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '服装公司'}
+{'staff': '曾光超', 'position': 'php工程师（急聘）', 'company': '广州宝乐软件科技有限公司'}
+{'staff': '唐洋洋', 'position': '财务主管（跨境电商应收方向）', 'company': '广州鹰飞特机电设备有限公司'}
+{'staff': '周娜', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '莉子贸易有限公司'}
+{'staff': '王棵', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': 'leebart鞋先生'}
+{'staff': '胡雅玲', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '北京蹭蹭蹭信息技术有限公司'}
+{'staff': '李国旺', 'position': 'python 开发工程师', 'company': '江西易网络科技有限公司'}
+{'staff': '谢平壕', 'position': '出纳 出纳员 出纳', 'company': '鹏泰购物广场'}
+{'staff': '林燕珊', 'position': '出纳 出纳员 出纳', 'company': '广州星厨艺贸易有限公司'}
+{'staff': '康健民', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '李润钊', 'position': 'python 开发工程师', 'company': '广州天琪贸易公司'}
+{'staff': '钟婧琳', 'position': '行政专员 人事助理 文员', 'company': '秦汉胡同国学书院'}
+{'staff': '梁欣', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州鑫越贸易有限公司'}
+{'staff': '张坦', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '台湾顶行贸易有限公司（广州办）'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '李明', 'position': '行政专员 人事助理 文员', 'company': '广州凯利电器维修部'}
+{'staff': '吴巧', 'position': 'PHP开发工程师', 'company': '更多简历'}
+{'staff': '吴巧', 'position': 'php工程师（急聘）', 'company': '更多简历'}
+{'staff': '曾小姐', 'position': '招聘助理 招聘专员 人事专员', 'company': '廣州錦澤信息諮詢有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '梁土照', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '广州诚毅科技开发有限公司'}
+{'staff': '陈湛', 'position': 'python 开发工程师', 'company': '广州仲昌一科信息科技有限公司'}
+{'staff': '康健民', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市兵利服饰有限公司'}
+{'staff': '蔡昊锦', 'position': 'python 开发工程师', 'company': '广州浩承网络科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市兵利服饰有限公司'}
+{'staff': '黄奕健', 'position': '行政专员 人事助理 文员', 'company': '广东宝宝博物馆文化有限公司'}
+{'staff': '周磊', 'position': '高级PHP开发工程师（后台）', 'company': '广州方鼎软件科技有限公司'}
+{'staff': '严志坚', 'position': 'python 开发工程师', 'company': '和仁(天津)科技有限公司（总公司为，浙江和仁科技股份有限公司）'}
+{'staff': '张港', 'position': 'python 开发工程师', 'company': '中科软科技股份有限公司'}
+{'staff': '李睿敏', 'position': '行政专员 人事助理 文员', 'company': '上海常净环保技术有限公司'}
+{'staff': '关雪怡', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '詹宝雯', 'position': '财务主管（跨境电商应收方向）', 'company': '广州诺亚舟小新星教育培训有限公司'}
+{'staff': '苏婉金', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '探渍古女装'}
+{'staff': '张婉仪', 'position': '行政专员 人事助理 文员', 'company': '广州网聚广告有限公司'}
+{'staff': '聂懿雯', 'position': '质检员', 'company': '东泰实业(广州润时保健用品有限公司)'}
+{'staff': '皮利红', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '皮利红', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '龚赢', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳市亮目生物科技有限公司'}
+{'staff': '陈希托', 'position': 'php工程师（急聘）', 'company': '广东澳德嘉云信息科技有限公司'}
+{'staff': '叶美欣', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '广州市花都区协和百货'}
+{'staff': '许米纳', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '北京中公教育科技有限公司上海分公司'}
+{'staff': '王瑞', 'position': 'PHP开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '陈育鑫', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': 'ANA&KATE'}
+{'staff': '张永笑', 'position': '招聘助理 招聘专员 人事专员', 'company': '郑州见云美业集团'}
+{'staff': '梁妍', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '懿偲文化'}
+{'staff': '汤晓沁', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州市漕鎏贸易有限公司'}
+{'staff': '毛鸿英', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广东顺德南祥饲料有限公司'}
+{'staff': '周世霖', 'position': 'python 开发工程师', 'company': '华亚微电子（上海）有限公司'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '马辉亮', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '广晟达家具科技有限公司'}
+{'staff': '莫先生', 'position': '高级PHP开发工程师（后台）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'PHP开发工程师', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'php工程师（急聘）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '孙宇', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '亮点飞织鞋面'}
+{'staff': '刘国思', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '广州天下通宝拍卖有限公司'}
+{'staff': '陈碧云', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州中誉仪器有限公司'}
+{'staff': '罗丽英', 'position': '行政专员 人事助理 文员', 'company': '广州永盈'}
+{'staff': '向延乔', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市新广志贸易发展有限公司'}
+{'staff': '张文婷', 'position': '行政专员 人事助理 文员', 'company': '清远乐排河污水处理有限公司'}
+{'staff': '黄晓锋', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '惠州格致'}
+{'staff': '黄晓锋', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '惠州格致'}
+{'staff': '潘雅雯', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '广州棒谷科技股份有限公司'}
+{'staff': '侯松毅', 'position': 'python 开发工程师', 'company': '大查柜（上海）网络科技有限公司'}
+{'staff': 'Wu Zhixiong 吴志雄', 'position': 'AliExpress速卖通主管 B2C平台销售主管', 'company': 'Guangzhou Chinaway Trade Co.,Ltd'}
+{'staff': '叶少华', 'position': '速卖通主管/aliexpress经理/速卖通销售主管', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '叶丽青', 'position': '出纳 出纳员 出纳', 'company': '新中物业管理（中国）有限公司广州分公司'}
+{'staff': '叶少华', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '康淇', 'position': '招聘助理 招聘专员 人事专员', 'company': '小桔梗网络科技有限公司'}
+{'staff': '祝国治', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '香港永恒集团'}
+{'staff': '黄腾', 'position': 'python 开发工程师', 'company': '湖北云铺网络科技有限公司'}
+{'staff': '杨同发', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州凯信国际货运代理有限公司'}
+{'staff': '曹爱娟', 'position': '财务主管（跨境电商应收方向）', 'company': '广州英虎网络股份有限公司（新三板）'}
+{'staff': '李英毅', 'position': '高级PHP开发工程师（后台）', 'company': '广州御书房文化传播公司'}
+{'staff': '刘霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州骏昇信息咨询有限公司'}
+{'staff': '陈娜', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州奇威胜国际贸易有限公司'}
+{'staff': '陈冠兰', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '黄小姐', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '佛山帆柯工业紧固件有限公司'}
+{'staff': '陈冠兰', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '陈巧燕', 'position': 'python 开发工程师', 'company': '深圳前海爱客风信息技术有限公司'}
+{'staff': '唐军', 'position': '行政专员 人事助理 文员', 'company': '广东合地集团股份有限公司'}
+{'staff': '黄晓燕', 'position': '招聘助理 招聘专员 人事专员', 'company': '广东储牌药业有限公司'}
+{'staff': '洪光豪', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州双利贸易有限公司'}
+{'staff': '刘斌', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '广东朝野科技集团有限公司'}
+{'staff': '温集能', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '赞播集团'}
+{'staff': '王宇红', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州心曲网络科技有限公司'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '赞播集团'}
+{'staff': '吕巧玉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '桑嘉晖', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '广州型腔模具制造有限公司'}
+{'staff': '林颖洁', 'position': '出纳 出纳员 出纳', 'company': '江南物业公司'}
+{'staff': '杨顿', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳合和投资公司'}
+{'staff': '顾达新', 'position': 'PHP开发工程师', 'company': '广州明动软件有限公司'}
+{'staff': '黄敏华', 'position': '行政专员 人事助理 文员', 'company': '江门旺大饲料有限公司'}
+{'staff': '田甜', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '光风霁月服饰文化有限公司'}
+{'staff': '黄燕', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞创科集团'}
+{'staff': '李尚钊', 'position': 'PHP开发工程师', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '冼少怡', 'position': '出纳 出纳员 出纳', 'company': '税意通（广州）企业服务平台有限公司'}
+{'staff': '李尚钊', 'position': 'php工程师（急聘）', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '关坤尧', 'position': '行政专员 人事助理 文员', 'company': '佐丹奴'}
+{'staff': '肖先生', 'position': 'php工程师（急聘）', 'company': '广州韵创科技'}
+{'staff': '黄钰滢', 'position': '出纳 出纳员 出纳', 'company': '深圳市云创得力数据有限公司'}
+{'staff': '符晓峰', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '天津大学仁爱学院'}
+{'staff': '江乐伟', 'position': 'python 开发工程师', 'company': '郑州创恒实业有限公司'}
+{'staff': '[已读]袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '[已读]冯颖欣', 'position': '招聘专员/人事专员/HRBP', 'company': '广东猪兼强互联网科技有限公司'}
+{'staff': '胡逸诗', 'position': '行政专员 人事助理 文员', 'company': '广州宾裳展贸易有限公司'}
+{'staff': '[已读]杨薏', 'position': '行政专员 人事助理 文员', 'company': '广州市国美电器有限公司'}
+{'staff': '[已读]苏桢妍', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '洛阳中国一拖集团'}
+{'staff': '黄冬明', 'position': 'python 开发工程师', 'company': '广州天锐医健信息科技有限公司'}
+{'staff': '马梓淳', 'position': '行政专员 人事助理 文员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]马梓淳', 'position': '助理/文员/产品上传员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]唐静婕', 'position': '助理/文员/产品上传员', 'company': '北京视达科科技有限公司(视达科)'}
+{'staff': '刘苏', 'position': '出纳 出纳员 出纳', 'company': '广州市培臻国际贸易有限公司'}
+{'staff': '姚青', 'position': '出纳 出纳员 出纳', 'company': '广州五金货架有限公司'}
+{'staff': '付玉婷', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '乳源瑶族自治县弘成房地产开发有限公司'}
+{'staff': '罗洁', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '林洁钰', 'position': '采购助理/跟单文员/业务跟单', 'company': '佳映国际影城'}
+{'staff': '周钟岚', 'position': '行政专员/助理', 'company': '时光教育'}
+{'staff': '蓝银燕', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '王衡', 'position': '出纳 出纳员 出纳', 'company': '广州广兴牧业设备集团有限公司'}
+{'staff': '郑思琪', 'position': '出纳 出纳员 出纳', 'company': '广州市水为先环保科技有限公司'}
+{'staff': '叶正', 'position': 'Wish专员/网站营运专员（欢迎优秀应届毕业生）', 'company': '北京启明星辰信息安全技术有限公司'}
+{'staff': '李建圣', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '海万科技'}
+{'staff': '韩志胜', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市光明服饰有限公司'}
+{'staff': '续安顺', 'position': 'AliExpress 速卖通主管', 'company': '巨鼎国际供应链'}
+{'staff': '黄文乾', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州国投悦康养老服务有限公司'}
+{'staff': '潘祖丽', 'position': 'AliExpress/速卖通/速卖通销售/外贸业务员', 'company': '广州众牛电子商务有限公司'}
+{'staff': '黄富俞', 'position': '英文产品编辑 英文翻译', 'company': '广州乐晟网络科技有限公司'}
+{'staff': '周梓豪', 'position': 'php工程师（急聘）', 'company': '广州新意站广告有限公司'}
+{'staff': '陈梅丽', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '香港多利来贸易有限公司'}
+{'staff': '刘子坚', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'}
+{'staff': '刘子坚', 'position': 'wish 外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'}
+{'staff': '王清璐', 'position': 'python 开发工程师', 'company': '新疆品宣生物科技有限责任公司'}
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'}
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'}
+{'staff': '张欣', 'position': '行政专员 人事助理 文员', 'company': '广州仓讯电子科技服务有限公司'}
+{'staff': '范晓丽', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州时尚天河商业城有限公司'}
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '王群峰', 'position': 'PHP开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'}
+{'staff': '伍海莲', 'position': '行政专员 人事助理 文员', 'company': '福建平潭全健生物科技有限公司'}
+{'staff': '周晓晴', 'position': '行政专员 人事助理 文员', 'company': '广东元晟建设发展有限公司'}
+{'staff': '桂晓', 'position': '财务主管（跨境电商应收方向）', 'company': '广州壹乐源品牌管理有限公司'}
+{'staff': '席万鹏', 'position': '行政专员 人事助理 文员', 'company': '广州海关'}
+{'staff': '练银玲', 'position': '出纳 出纳员 出纳', 'company': '广州毓美皮具有限公司'}
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'}
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'}
+{'staff': '谭俊琦', 'position': 'python 开发工程师', 'company': '长沙玛雅软件科技有限公司'}
+{'staff': '杨楠', 'position': 'python 开发工程师', 'company': '武汉尚云客网络技术有限公司'}
+{'staff': '刘肇莲', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '上海力盛赛车文化有限公司'}
+{'staff': '陈秀婷', 'position': 'AliExpress 速卖通主管 外贸销售主管 B2C跨境电商销售主管', 'company': '汇丰银行'}
+{'staff': '詹美珠', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市超胜科技有限公司'}
+{'staff': '詹美珠', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': ''}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': ''}
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': ''}
+{'staff': '邓谦', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市浩永贸易有限公司'}
+{'staff': '雷权威', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '华住集团'}
+{'staff': '郭建辉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '富士康科技集团（上市公司世界五百强）'}
+{'staff': '雷权威', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '华住集团'}
+{'staff': '周敏', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '洋葱（OMALL）集团'}
+{'staff': '周敏', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '洋葱（OMALL）集团'}
+{'staff': '陈国乐', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市从一品餐饮管理有限公司'}
+{'staff': '王君益', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '新华都购物广场股份有限公司'}
+{'staff': '陈伟德', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广州思方行网络科技有限公司'}
+{'staff': '陈洁贞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市东信达计算机技术开发有限公司'}
+{'staff': '侯体宗', 'position': 'php工程师（急聘）', 'company': '广州穗阳集团有限公司'}
+{'staff': '苏丽茹', 'position': '出纳 出纳员 出纳', 'company': '广东良策按揭服务有限公司'}
+{'staff': '[已读]黄子聪', 'position': 'python 开发工程师', 'company': '南京天数智芯科技有限公司'}
+{'staff': '[已读]郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'}
+{'staff': '郑润龙', 'position': 'php工程师（急聘）', 'company': '广州至真信息科技有限公司'}
+{'staff': '[已读]尹芳', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州市丞华电子设备有限公司'}
+{'staff': '[已读]叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'}
+{'staff': '[已读]祝伟民', 'position': '出纳 出纳员 出纳', 'company': '美臣金融服务集团'}
+{'staff': '[已读]许御钗', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '许御钗', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州绿番茄贸易有限公司'}
+{'staff': '[已读]林璇霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '某猎头公司'}
+{'staff': '[已读]温集能', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '赞播集团'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '赞播集团'}
+{'staff': '[已读]赵超', 'position': '高级PHP开发工程师（后台）', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'PHP开发工程师', 'company': '南京宁智科技有限公司'}
+{'staff': '赵超', 'position': 'php工程师（急聘）', 'company': '南京宁智科技有限公司'}
+{'staff': '[已读]郑润龙', 'position': 'PHP开发工程师', 'company': '广州至真信息科技有限公司'}
+{'staff': '[已读]杨曙阳', 'position': 'python 开发工程师', 'company': '中国石油化工股份有限公司广州分公司'}
+{'staff': '[已读]贺香', 'position': 'python 开发工程师', 'company': '长沙睿哲有限公司'}
+{'staff': '何健豪', 'position': '出纳 出纳员 出纳', 'company': '平安银行'}
+{'staff': '陈祖兴', 'position': 'python 开发工程师', 'company': '广州微易软件有限公司'}
+{'staff': '周烨烨', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '义乌市一诺电子商务有限公司'}
+{'staff': '曾文飘', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '广东南泰房地产土地资产评估有限公司'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '中国天渊投资集团'}
+{'staff': '谢伟菊', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '中国天渊投资集团'}
+{'staff': '莫敏宏', 'position': 'php工程师（急聘）', 'company': '广州圣火科技有限公司'}
+{'staff': '卢建宏', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '服装公司'}
+{'staff': '曾光超', 'position': 'php工程师（急聘）', 'company': '广州宝乐软件科技有限公司'}
+{'staff': '唐洋洋', 'position': '财务主管（跨境电商应收方向）', 'company': '广州鹰飞特机电设备有限公司'}
+{'staff': '周娜', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '莉子贸易有限公司'}
+{'staff': '王棵', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': 'leebart鞋先生'}
+{'staff': '胡雅玲', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '北京蹭蹭蹭信息技术有限公司'}
+{'staff': '李国旺', 'position': 'python 开发工程师', 'company': '江西易网络科技有限公司'}
+{'staff': '谢平壕', 'position': '出纳 出纳员 出纳', 'company': '鹏泰购物广场'}
+{'staff': '林燕珊', 'position': '出纳 出纳员 出纳', 'company': '广州星厨艺贸易有限公司'}
+{'staff': '康健民', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '李润钊', 'position': 'python 开发工程师', 'company': '广州天琪贸易公司'}
+{'staff': '钟婧琳', 'position': '行政专员 人事助理 文员', 'company': '秦汉胡同国学书院'}
+{'staff': '梁欣', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州鑫越贸易有限公司'}
+{'staff': '张坦', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '台湾顶行贸易有限公司（广州办）'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'}
+{'staff': '李明', 'position': '行政专员 人事助理 文员', 'company': '广州凯利电器维修部'}
+{'staff': '吴巧', 'position': 'PHP开发工程师', 'company': '更多简历'}
+{'staff': '吴巧', 'position': 'php工程师（急聘）', 'company': '更多简历'}
+{'staff': '曾小姐', 'position': '招聘助理 招聘专员 人事专员', 'company': '廣州錦澤信息諮詢有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '吕巧玉', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '梁土照', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '广州诚毅科技开发有限公司'}
+{'staff': '陈湛', 'position': 'python 开发工程师', 'company': '广州仲昌一科信息科技有限公司'}
+{'staff': '康健民', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '仝达实业(惠州)'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市兵利服饰有限公司'}
+{'staff': '蔡昊锦', 'position': 'python 开发工程师', 'company': '广州浩承网络科技有限公司'}
+{'staff': '林锦旭', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市兵利服饰有限公司'}
+{'staff': '黄奕健', 'position': '行政专员 人事助理 文员', 'company': '广东宝宝博物馆文化有限公司'}
+{'staff': '周磊', 'position': '高级PHP开发工程师（后台）', 'company': '广州方鼎软件科技有限公司'}
+{'staff': '严志坚', 'position': 'python 开发工程师', 'company': '和仁(天津)科技有限公司（总公司为，浙江和仁科技股份有限公司）'}
+{'staff': '张港', 'position': 'python 开发工程师', 'company': '中科软科技股份有限公司'}
+{'staff': '李睿敏', 'position': '行政专员 人事助理 文员', 'company': '上海常净环保技术有限公司'}
+{'staff': '关雪怡', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '关雪怡', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '武汉纺织大学外经贸学院'}
+{'staff': '詹宝雯', 'position': '财务主管（跨境电商应收方向）', 'company': '广州诺亚舟小新星教育培训有限公司'}
+{'staff': '苏婉金', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '探渍古女装'}
+{'staff': '张婉仪', 'position': '行政专员 人事助理 文员', 'company': '广州网聚广告有限公司'}
+{'staff': '聂懿雯', 'position': '质检员', 'company': '东泰实业(广州润时保健用品有限公司)'}
+{'staff': '皮利红', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '皮利红', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州冉晟服装有限公司'}
+{'staff': '龚赢', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳市亮目生物科技有限公司'}
+{'staff': '陈希托', 'position': 'php工程师（急聘）', 'company': '广东澳德嘉云信息科技有限公司'}
+{'staff': '叶美欣', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '广州市花都区协和百货'}
+{'staff': '许米纳', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '北京中公教育科技有限公司上海分公司'}
+{'staff': '王瑞', 'position': 'PHP开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'}
+{'staff': '陈育鑫', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': 'ANA&KATE'}
+{'staff': '张永笑', 'position': '招聘助理 招聘专员 人事专员', 'company': '郑州见云美业集团'}
+{'staff': '梁妍', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '懿偲文化'}
+{'staff': '汤晓沁', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州市漕鎏贸易有限公司'}
+{'staff': '毛鸿英', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广东顺德南祥饲料有限公司'}
+{'staff': '周世霖', 'position': 'python 开发工程师', 'company': '华亚微电子（上海）有限公司'}
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市超胜科技有限公司'}
+{'staff': '马辉亮', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '广晟达家具科技有限公司'}
+{'staff': '莫先生', 'position': '高级PHP开发工程师（后台）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'PHP开发工程师', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '莫先生', 'position': 'php工程师（急聘）', 'company': '广州铂桥科技信息有限公司'}
+{'staff': '孙宇', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '亮点飞织鞋面'}
+{'staff': '刘国思', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '广州天下通宝拍卖有限公司'}
+{'staff': '陈碧云', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州中誉仪器有限公司'}
+{'staff': '罗丽英', 'position': '行政专员 人事助理 文员', 'company': '广州永盈'}
+{'staff': '向延乔', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市新广志贸易发展有限公司'}
+{'staff': '张文婷', 'position': '行政专员 人事助理 文员', 'company': '清远乐排河污水处理有限公司'}
+{'staff': '黄晓锋', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '惠州格致'}
+{'staff': '黄晓锋', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '惠州格致'}
+{'staff': '潘雅雯', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '广州棒谷科技股份有限公司'}
+{'staff': '侯松毅', 'position': 'python 开发工程师', 'company': '大查柜（上海）网络科技有限公司'}
+{'staff': 'Wu Zhixiong 吴志雄', 'position': 'AliExpress速卖通主管 B2C平台销售主管', 'company': 'Guangzhou Chinaway Trade Co.,Ltd'}
+{'staff': '叶少华', 'position': '速卖通主管/aliexpress经理/速卖通销售主管', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '叶丽青', 'position': '出纳 出纳员 出纳', 'company': '新中物业管理（中国）有限公司广州分公司'}
+{'staff': '叶少华', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '国信电子票据平台信息服务有限公司'}
+{'staff': '康淇', 'position': '招聘助理 招聘专员 人事专员', 'company': '小桔梗网络科技有限公司'}
+{'staff': '祝国治', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '香港永恒集团'}
+{'staff': '黄腾', 'position': 'python 开发工程师', 'company': '湖北云铺网络科技有限公司'}
+{'staff': '杨同发', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州凯信国际货运代理有限公司'}
+{'staff': '曹爱娟', 'position': '财务主管（跨境电商应收方向）', 'company': '广州英虎网络股份有限公司（新三板）'}
+{'staff': '李英毅', 'position': '高级PHP开发工程师（后台）', 'company': '广州御书房文化传播公司'}
+{'staff': '刘霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州骏昇信息咨询有限公司'}
+{'staff': '陈娜', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州奇威胜国际贸易有限公司'}
+{'staff': '陈冠兰', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '黄小姐', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '佛山帆柯工业紧固件有限公司'}
+{'staff': '陈冠兰', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '东莞市莞邑建筑咨询有限公司'}
+{'staff': '陈巧燕', 'position': 'python 开发工程师', 'company': '深圳前海爱客风信息技术有限公司'}
+{'staff': '唐军', 'position': '行政专员 人事助理 文员', 'company': '广东合地集团股份有限公司'}
+{'staff': '黄晓燕', 'position': '招聘助理 招聘专员 人事专员', 'company': '广东储牌药业有限公司'}
+{'staff': '洪光豪', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州双利贸易有限公司'}
+{'staff': '刘斌', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '广东朝野科技集团有限公司'}
+{'staff': '温集能', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '赞播集团'}
+{'staff': '王宇红', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州心曲网络科技有限公司'}
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '赞播集团'}
+{'staff': '吕巧玉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '泰极爱思（中国）投资有限公司'}
+{'staff': '桑嘉晖', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '广州型腔模具制造有限公司'}
+{'staff': '林颖洁', 'position': '出纳 出纳员 出纳', 'company': '江南物业公司'}
+{'staff': '杨顿', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳合和投资公司'}
+{'staff': '顾达新', 'position': 'PHP开发工程师', 'company': '广州明动软件有限公司'}
+{'staff': '黄敏华', 'position': '行政专员 人事助理 文员', 'company': '江门旺大饲料有限公司'}
+{'staff': '田甜', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '光风霁月服饰文化有限公司'}
+{'staff': '黄燕', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞创科集团'}
+{'staff': '李尚钊', 'position': 'PHP开发工程师', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '冼少怡', 'position': '出纳 出纳员 出纳', 'company': '税意通（广州）企业服务平台有限公司'}
+{'staff': '李尚钊', 'position': 'php工程师（急聘）', 'company': '广西臻萃互联网科技有限公司'}
+{'staff': '关坤尧', 'position': '行政专员 人事助理 文员', 'company': '佐丹奴'}
+{'staff': '肖先生', 'position': 'php工程师（急聘）', 'company': '广州韵创科技'}
+{'staff': '黄钰滢', 'position': '出纳 出纳员 出纳', 'company': '深圳市云创得力数据有限公司'}
+{'staff': '符晓峰', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '天津大学仁爱学院'}
+{'staff': '江乐伟', 'position': 'python 开发工程师', 'company': '郑州创恒实业有限公司'}
+{'staff': '[已读]袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'}
+{'staff': '[已读]冯颖欣', 'position': '招聘专员/人事专员/HRBP', 'company': '广东猪兼强互联网科技有限公司'}
+{'staff': '胡逸诗', 'position': '行政专员 人事助理 文员', 'company': '广州宾裳展贸易有限公司'}
+{'staff': '[已读]杨薏', 'position': '行政专员 人事助理 文员', 'company': '广州市国美电器有限公司'}
+{'staff': '[已读]苏桢妍', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '洛阳中国一拖集团'}
+{'staff': '黄冬明', 'position': 'python 开发工程师', 'company': '广州天锐医健信息科技有限公司'}
+{'staff': '马梓淳', 'position': '行政专员 人事助理 文员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]马梓淳', 'position': '助理/文员/产品上传员', 'company': '慢生活奶茶店'}
+{'staff': '[已读]唐静婕', 'position': '助理/文员/产品上传员', 'company': '北京视达科科技有限公司(视达科)'}
+{'staff': '刘苏', 'position': '出纳 出纳员 出纳', 'company': '广州市培臻国际贸易有限公司'}
+{'staff': '姚青', 'position': '出纳 出纳员 出纳', 'company': '广州五金货架有限公司'}
+{'staff': '付玉婷', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '乳源瑶族自治县弘成房地产开发有限公司'}
+{'staff': '罗洁', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '林洁钰', 'position': '采购助理/跟单文员/业务跟单', 'company': '佳映国际影城'}
+{'staff': '周钟岚', 'position': '行政专员/助理', 'company': '时光教育'}
+{'staff': '蓝银燕', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'}
+{'staff': '王衡', 'position': '出纳 出纳员 出纳', 'company': '广州广兴牧业设备集团有限公司'}
+{'staff': '郑思琪', 'position': '出纳 出纳员 出纳', 'company': '广州市水为先环保科技有限公司'}
+{'staff': '陈宇婷', 'position': '出纳 出纳员 出纳', 'company': '广州市广泽税务师事务所'},
+{'staff': '郑裕心', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '深圳婵娟珠宝有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州塬点服装有限公司'},
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '赞播集团'},
+{'staff': '杨先生', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '兴林佳达办公用品有限公司'},
+{'staff': '陈知佳', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州西村名物产品中心'},
+{'staff': '黎宇豪', 'position': 'python 开发工程师', 'company': '江苏米游信息科技有限公司'},
+{'staff': '流泪', 'position': '招聘专员/人事专员/HRBP', 'company': '天天快递有限公司(天天快递)'},
+{'staff': '邹景超', 'position': 'python 开发工程师', 'company': '中国人民解放军'},
+{'staff': '王浩磊', 'position': 'python 开发工程师', 'company': '祺天优贷会联网金融服务有限公司'},
+{'staff': '刘麟', 'position': 'python 开发工程师', 'company': '广州天鹏计算机科技有限公司'},
+{'staff': '贾远梅', 'position': '英文产品编辑 英文翻译', 'company': '中国国际航空公司西南分公司'},
+{'staff': '方小锋', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '安徽法润贸易有限公司'},
+{'staff': '李凯欣', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '广州市友和房地产投资有限公司'},
+{'staff': '吕晴', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '湖南桃花江竹材科技股份有限公司'},
+{'staff': '郑桂清', 'position': 'php工程师（急聘）', 'company': '广州远程教育中心有限公司(广州远程教育中心)'},
+{'staff': '张小姐', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '广州亚银投资有限公司'},
+{'staff': '林晓文', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州亚标信息技术有限公司'},
+{'staff': '郑桂清', 'position': 'PHP开发工程师', 'company': '广州远程教育中心有限公司(广州远程教育中心)'},
+{'staff': '马晓莉', 'position': '仓库文员 质检员 理货员', 'company': '广州珠江电信设备制造有限公司'},
+{'staff': '马晓莉', 'position': '质检员', 'company': '广州珠江电信设备制造有限公司'},
+{'staff': '王宇', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '广州户博运动用品有限公司'},
+{'staff': '骆志彬', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州市鼎呈皮具有限公司'},
+{'staff': '欧阳桂丽', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州伊的家网络科技有限公司'},
+{'staff': '黄桂钊', 'position': '质检员', 'company': '广州市高可达自动化科技有限公司'},
+{'staff': '杨敏', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广东骆驼服饰有限公司'},
+{'staff': '杨敏', 'position': 'Ebay销售/Ebay运营', 'company': '广东骆驼服饰有限公司'},
+{'staff': '盘春玲', 'position': '行政专员 人事助理 文员', 'company': '不出名火锅'},
+{'staff': '李娟', 'position': 'shopify运营经理/主管', 'company': '南方电网数字电网研究院有限公司'},
+{'staff': '袁方', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '广州诚旭电子科技有限公司'},
+{'staff': '韩长文', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '东莞卓淦机械配件有限公司'},
+{'staff': '曾楚倩', 'position': '行政专员 人事助理 文员', 'company': '广州市穗洲拆迁有限公司'},
+{'staff': '董凡', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '广东外语外贸大学'},
+{'staff': '林清秀', 'position': '行政专员 人事助理 文员', 'company': '广东省电子品胜有限公司'},
+{'staff': '李强召', 'position': 'python 开发工程师', 'company': '上海母婴之家网络科技股份有限公司'},
+{'staff': '吴学尧', 'position': '财务主管（跨境电商应收方向）', 'company': '五华县骏兴电器有限公司'},
+{'staff': '罗宇中', 'position': 'AliExpress/速卖通/速卖通销售/外贸业务员', 'company': '广州市耀天环保科技有限公司'},
+{'staff': '余江江', 'position': 'python 开发工程师', 'company': '南京擎盾信息科技有限公司'},
+{'staff': '余江江', 'position': 'python 开发工程师', 'company': '南京擎盾信息科技有限公司'},
+{'staff': '向延乔', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市新广志贸易发展有限公司'},
+{'staff': '李嘉豪', 'position': 'python 开发工程师', 'company': '广州八通八达科技有限公司'},
+{'staff': '李嘉豪', 'position': 'python 开发工程师', 'company': '广州八通八达科技有限公司'},
+{'staff': '潘智敏', 'position': '出纳 出纳员 出纳', 'company': '广州市盈莱普益商务服务有限公司'},
+{'staff': '詹吉彬', 'position': 'python 开发工程师', 'company': '广州锦行网络科技有限公司'},
+{'staff': '吴侠辉', 'position': 'python 开发工程师', 'company': '山东国子软件股份有限公司'},
+{'staff': '林叶雅', 'position': '助理/文员/产品上传员', 'company': '天河大华中英文学校'},
+{'staff': '陈莹', 'position': '出纳 出纳员 出纳', 'company': '广州皇上皇集团有限公司肉食制品厂'},
+{'staff': '杨伟娴', 'position': '行政专员 人事助理 文员', 'company': '广东本来生活网电子商务有限公司'},
+{'staff': '陈茂隆', 'position': 'python 开发工程师', 'company': '武汉佰钧成技术有限责任公司'},
+{'staff': '陈茂隆', 'position': 'python 开发工程师', 'company': '武汉佰钧成技术有限责任公司'},
+{'staff': '刘晓渊', 'position': '高级PHP开发工程师（后台）', 'company': '广州必富科技应用企业（有限合伙）'},
+{'staff': '李翠艳', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '武汉贝斯特集团'},
+{'staff': '蓝海瑚', 'position': 'php工程师（急聘）', 'company': '佛山二十五小时网络信息服务有限公司'},
+{'staff': '杨连续', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '壹佳服饰'},
+{'staff': '陈小敏', 'position': '出纳 出纳员 出纳', 'company': '广州市嘉诚国际物流股份有限公司'},
+{'staff': '关文杰', 'position': 'AliExpress速卖通主管 B2C平台销售主管', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'amazon 亚马逊运营主管（高提成）', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'AliExpress 速卖通运营主管 外贸销售主管', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '亚马逊销售主管/amazon运营主管', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'Ebay销售/Ebay运营', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '日语亚马逊销售 Amazon销售/运营', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '速卖通客服 运营客服 外贸客服', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '华林珠宝玉器城'},
+{'staff': '周世霖', 'position': 'python 开发工程师', 'company': '华亚微电子（上海）有限公司'},
+{'staff': '关文杰', 'position': 'amazon亚马逊外贸销售运营主管 B2C跨境电商销售主管 外贸主管', 'company': '华林珠宝玉器城'},
+{'staff': '[已读]何睿', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '赤霄金融'},
+{'staff': '[已读]黄女士', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州市泰迪熊婴幼儿用品有限公司'},
+{'staff': '[已读]叶正', 'position': 'Wish专员/网站营运专员（欢迎优秀应届毕业生）', 'company': '北京启明星辰信息安全技术有限公司'},
+{'staff': '[已读]李建圣', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '海万科技'},
+{'staff': '韩志胜', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市光明服饰有限公司'},
+{'staff': '续安顺', 'position': 'AliExpress 速卖通主管', 'company': '巨鼎国际供应链'},
+{'staff': '黄文乾', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州国投悦康养老服务有限公司'},
+{'staff': '黄富俞', 'position': '英文产品编辑 英文翻译', 'company': '广州乐晟网络科技有限公司'},
+{'staff': '陈梅丽', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '香港多利来贸易有限公司'},
+{'staff': '刘子坚', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'},
+{'staff': '刘子坚', 'position': 'wish 外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'},
+{'staff': '王清璐', 'position': 'python 开发工程师', 'company': '新疆品宣生物科技有限责任公司'},
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'},
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'},
+{'staff': '张欣', 'position': '行政专员 人事助理 文员', 'company': '广州仓讯电子科技服务有限公司'},
+{'staff': '范晓丽', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州时尚天河商业城有限公司'},
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'},
+{'staff': '王群峰', 'position': 'PHP开发工程师', 'company': '山东通科信息技术有限公司'},
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'},
+{'staff': '伍海莲', 'position': '行政专员 人事助理 文员', 'company': '福建平潭全健生物科技有限公司'},
+{'staff': '周晓晴', 'position': '行政专员 人事助理 文员', 'company': '广东元晟建设发展有限公司'},
+{'staff': '桂晓', 'position': '财务主管（跨境电商应收方向）', 'company': '广州壹乐源品牌管理有限公司'},
+{'staff': '席万鹏', 'position': '行政专员 人事助理 文员', 'company': '新港海关'},
+{'staff': '练银玲', 'position': '出纳 出纳员 出纳', 'company': '广州毓美皮具有限公司'},
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'},
+{'staff': '邝石柱', 'position': 'python 开发工程师', 'company': '信雅纳网络有限公司'},
+{'staff': '谭俊琦', 'position': 'python 开发工程师', 'company': '长沙玛雅软件科技有限公司'},
+{'staff': '杨楠', 'position': 'python 开发工程师', 'company': '武汉尚云客网络技术有限公司'},
+{'staff': '刘肇莲', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '上海力盛赛车文化有限公司'},
+{'staff': '陈秀婷', 'position': 'AliExpress 速卖通主管 外贸销售主管 B2C跨境电商销售主管', 'company': '汇丰银行'},
+{'staff': '詹美珠', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市超胜科技有限公司'},
+{'staff': '詹美珠', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市超胜科技有限公司'},
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': ''},
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': ''},
+{'staff': '袁皓', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': ''},
+{'staff': '邓谦', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市浩永贸易有限公司'},
+{'staff': '雷权威', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '华住集团'},
+{'staff': '郭建辉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '富士康科技集团（上市公司世界五百强）'},
+{'staff': '雷权威', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '华住集团'},
+{'staff': '周敏', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '洋葱（OMALL）集团'},
+{'staff': '陈国乐', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市从一品餐饮管理有限公司'},
+{'staff': '王君益', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '新华都购物广场股份有限公司'},
+{'staff': '陈伟德', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广州思方行网络科技有限公司'},
+{'staff': '陈洁贞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州市东信达计算机技术开发有限公司'},
+{'staff': '侯体宗', 'position': 'php工程师（急聘）', 'company': '广州穗阳集团有限公司'},
+{'staff': '苏丽茹', 'position': '出纳 出纳员 出纳', 'company': '广东良策按揭服务有限公司'},
+{'staff': '[已读]黄子聪', 'position': 'python 开发工程师', 'company': '南京天数智芯科技有限公司'},
+{'staff': '[已读]郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'},
+{'staff': '郑润龙', 'position': '高级PHP开发工程师（后台）', 'company': '广州至真信息科技有限公司'},
+{'staff': '郑润龙', 'position': 'php工程师（急聘）', 'company': '广州至真信息科技有限公司'},
+{'staff': '[已读]尹芳', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州市丞华电子设备有限公司'},
+{'staff': '[已读]叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'},
+{'staff': '叶磊', 'position': 'python 开发工程师', 'company': '河南奇酷网络工程有限公司'},
+{'staff': '[已读]祝伟民', 'position': '出纳 出纳员 出纳', 'company': '美臣金融服务集团'},
+{'staff': '[已读]许御钗', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州绿番茄贸易有限公司'},
+{'staff': '许御钗', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州绿番茄贸易有限公司'},
+{'staff': '[已读]林璇霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '某猎头公司'},
+{'staff': '[已读]温集能', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '赞播集团'},
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '赞播集团'},
+{'staff': '[已读]赵超', 'position': '高级PHP开发工程师（后台）', 'company': '南京宁智科技有限公司'},
+{'staff': '赵超', 'position': 'PHP开发工程师', 'company': '南京宁智科技有限公司'},
+{'staff': '赵超', 'position': 'php工程师（急聘）', 'company': '南京宁智科技有限公司'},
+{'staff': '[已读]郑润龙', 'position': 'PHP开发工程师', 'company': '广州至真信息科技有限公司'},
+{'staff': '[已读]杨曙阳', 'position': 'python 开发工程师', 'company': '中国石油化工股份有限公司广州分公司'},
+{'staff': '[已读]贺香', 'position': 'python 开发工程师', 'company': '长沙睿哲有限公司'},
+{'staff': '何健豪', 'position': '出纳 出纳员 出纳', 'company': '平安银行'},
+{'staff': '陈祖兴', 'position': 'python 开发工程师', 'company': '广州微易软件有限公司'},
+{'staff': '周烨烨', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '义乌市一诺电子商务有限公司'},
+{'staff': '曾文飘', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '广东南泰房地产土地资产评估有限公司'},
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '中国天渊投资集团'},
+{'staff': '谢伟菊', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '中国天渊投资集团'},
+{'staff': '谢伟菊', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '中国天渊投资集团'},
+{'staff': '谢伟菊', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '中国天渊投资集团'},
+{'staff': '谢伟菊', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '中国天渊投资集团'},
+{'staff': '谢伟菊', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '中国天渊投资集团'},
+{'staff': '莫敏宏', 'position': 'php工程师（急聘）', 'company': '广州圣火科技有限公司'},
+{'staff': '卢建宏', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '服装公司'},
+{'staff': '曾光超', 'position': 'php工程师（急聘）', 'company': '广州宝乐软件科技有限公司'},
+{'staff': '唐洋洋', 'position': '财务主管（跨境电商应收方向）', 'company': '广州鹰飞特机电设备有限公司'},
+{'staff': '周娜', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '莉子贸易有限公司'},
+{'staff': '王棵', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': 'leebart鞋先生'},
+{'staff': '胡雅玲', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '北京蹭蹭蹭信息技术有限公司'},
+{'staff': '李国旺', 'position': 'python 开发工程师', 'company': '江西易网络科技有限公司'},
+{'staff': '谢平壕', 'position': '出纳 出纳员 出纳', 'company': '鹏泰购物广场'},
+{'staff': '林燕珊', 'position': '出纳 出纳员 出纳', 'company': '广州星厨艺贸易有限公司'},
+{'staff': '康健民', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '仝达实业(惠州)'},
+{'staff': '李润钊', 'position': 'python 开发工程师', 'company': '广州天琪贸易公司'},
+{'staff': '钟婧琳', 'position': '行政专员 人事助理 文员', 'company': '秦汉胡同国学书院'},
+{'staff': '梁欣', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州鑫越贸易有限公司'},
+{'staff': '张坦', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '台湾顶行贸易有限公司（广州办）'},
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'},
+{'staff': '刘建珊', 'position': 'python 开发工程师', 'company': '南昌大城讯科软件技术有限公司'},
+{'staff': '李明', 'position': '行政专员 人事助理 文员', 'company': '广州凯利电器维修部'},
+{'staff': '吴巧', 'position': 'PHP开发工程师', 'company': '更多简历'},
+{'staff': '吴巧', 'position': 'php工程师（急聘）', 'company': '更多简历'},
+{'staff': '曾小姐', 'position': '招聘助理 招聘专员 人事专员', 'company': '廣州錦澤信息諮詢有限公司'},
+{'staff': '吕巧玉', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '泰极爱思（中国）投资有限公司'},
+{'staff': '吕巧玉', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '泰极爱思（中国）投资有限公司'},
+{'staff': '梁土照', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '广州诚毅科技开发有限公司'},
+{'staff': '陈湛', 'position': 'python 开发工程师', 'company': '广州仲昌一科信息科技有限公司'},
+{'staff': '康健民', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '仝达实业(惠州)'},
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市超胜科技有限公司'},
+{'staff': '林锦旭', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州市兵利服饰有限公司'},
+{'staff': '蔡昊锦', 'position': 'python 开发工程师', 'company': '广州浩承网络科技有限公司'},
+{'staff': '林锦旭', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '广州市兵利服饰有限公司'},
+{'staff': '黄奕健', 'position': '行政专员 人事助理 文员', 'company': '广东宝宝博物馆文化有限公司'},
+{'staff': '周磊', 'position': '高级PHP开发工程师（后台）', 'company': '广州方鼎软件科技有限公司'},
+{'staff': '严志坚', 'position': 'python 开发工程师', 'company': '和仁(天津)科技有限公司（总公司为，浙江和仁科技股份有限公司）'},
+{'staff': '张港', 'position': 'python 开发工程师', 'company': '中科软科技股份有限公司'},
+{'staff': '李睿敏', 'position': '行政专员 人事助理 文员', 'company': '上海常净环保技术有限公司'},
+{'staff': '关雪怡', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '武汉纺织大学外经贸学院'},
+{'staff': '关雪怡', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '武汉纺织大学外经贸学院'},
+{'staff': '关雪怡', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '武汉纺织大学外经贸学院'},
+{'staff': '詹宝雯', 'position': '财务主管（跨境电商应收方向）', 'company': '广州诺亚舟小新星教育培训有限公司'},
+{'staff': '苏婉金', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '探渍古女装'},
+{'staff': '张婉仪', 'position': '行政专员 人事助理 文员', 'company': '广州网聚广告有限公司'},
+{'staff': '聂懿雯', 'position': '质检员', 'company': '东泰实业(广州润时保健用品有限公司)'},
+{'staff': '皮利红', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州冉晟服装有限公司'},
+{'staff': '皮利红', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州冉晟服装有限公司'},
+{'staff': '龚赢', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳市亮目生物科技有限公司'},
+{'staff': '陈希托', 'position': 'php工程师（急聘）', 'company': '广东澳德嘉云信息科技有限公司'},
+{'staff': '叶美欣', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '广州市花都区协和百货'},
+{'staff': '许米纳', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '北京中公教育科技有限公司上海分公司'},
+{'staff': '王瑞', 'position': 'PHP开发工程师', 'company': '广东省科技职业技术学校'},
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'},
+{'staff': '王瑞', 'position': 'python 开发工程师', 'company': '广东省科技职业技术学校'},
+{'staff': '陈育鑫', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': 'ANA&KATE'},
+{'staff': '张永笑', 'position': '招聘助理 招聘专员 人事专员', 'company': '郑州见云美业集团'},
+{'staff': '梁妍', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '懿偲文化'},
+{'staff': '汤晓沁', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州市漕鎏贸易有限公司'},
+{'staff': '毛鸿英', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '广东顺德南祥饲料有限公司'},
+{'staff': '周世霖', 'position': 'python 开发工程师', 'company': '华亚微电子（上海）有限公司'},
+{'staff': '詹美珠', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市超胜科技有限公司'},
+{'staff': '马辉亮', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '广晟达家具科技有限公司'},
+{'staff': '莫先生', 'position': '高级PHP开发工程师（后台）', 'company': '广州铂桥科技信息有限公司'},
+{'staff': '莫先生', 'position': 'PHP开发工程师', 'company': '广州铂桥科技信息有限公司'},
+{'staff': '莫先生', 'position': 'php工程师（急聘）', 'company': '广州铂桥科技信息有限公司'},
+{'staff': '孙宇', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '亮点飞织鞋面'},
+{'staff': '刘国思', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '广州天下通宝拍卖有限公司'},
+{'staff': '陈碧云', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州中誉仪器有限公司'},
+{'staff': '罗丽英', 'position': '行政专员 人事助理 文员', 'company': '广州永盈'},
+{'staff': '向延乔', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州市新广志贸易发展有限公司'},
+{'staff': '张文婷', 'position': '行政专员 人事助理 文员', 'company': '清远乐排河污水处理有限公司'},
+{'staff': '黄晓锋', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '惠州格致'},
+{'staff': '黄晓锋', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '惠州格致'},
+{'staff': '潘雅雯', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '广州棒谷科技股份有限公司'},
+{'staff': '侯松毅', 'position': 'python 开发工程师', 'company': '大查柜（上海）网络科技有限公司'},
+{'staff': 'Wu Zhixiong 吴志雄', 'position': 'AliExpress速卖通主管 B2C平台销售主管', 'company': 'Guangzhou Chinaway Trade Co.,Ltd'},
+{'staff': '叶少华', 'position': '速卖通主管/aliexpress经理/速卖通销售主管', 'company': '国信电子票据平台信息服务有限公司'},
+{'staff': '叶丽青', 'position': '出纳 出纳员 出纳', 'company': '新中物业管理（中国）有限公司广州分公司'},
+{'staff': '叶少华', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '国信电子票据平台信息服务有限公司'},
+{'staff': '康淇', 'position': '招聘助理 招聘专员 人事专员', 'company': '小桔梗网络科技有限公司'},
+{'staff': '祝国治', 'position': 'QC质检员 验货员 检验员 理货员', 'company': '香港永恒集团'},
+{'staff': '黄腾', 'position': 'python 开发工程师', 'company': '湖北云铺网络科技有限公司'},
+{'staff': '杨同发', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州凯信国际货运代理有限公司'},
+{'staff': '曹爱娟', 'position': '财务主管（跨境电商应收方向）', 'company': '广州英虎网络股份有限公司（新三板）'},
+{'staff': '李英毅', 'position': '高级PHP开发工程师（后台）', 'company': '广州御书房文化传播公司'},
+{'staff': '刘霞', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州骏昇信息咨询有限公司'},
+{'staff': '陈娜', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州奇威胜国际贸易有限公司'},
+{'staff': '陈冠兰', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞市莞邑建筑咨询有限公司'},
+{'staff': '黄小姐', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '佛山帆柯工业紧固件有限公司'},
+{'staff': '陈冠兰', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '东莞市莞邑建筑咨询有限公司'},
+{'staff': '陈巧燕', 'position': 'python 开发工程师', 'company': '深圳前海爱客风信息技术有限公司'},
+{'staff': '唐军', 'position': '行政专员 人事助理 文员', 'company': '广东合地集团股份有限公司'},
+{'staff': '黄晓燕', 'position': '招聘助理 招聘专员 人事专员', 'company': '广东储牌药业有限公司'},
+{'staff': '洪光豪', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州双利贸易有限公司'},
+{'staff': '刘斌', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '广东朝野科技集团有限公司'},
+{'staff': '温集能', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '赞播集团'},
+{'staff': '王宇红', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州心曲网络科技有限公司'},
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '赞播集团'},
+{'staff': '吕巧玉', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '泰极爱思（中国）投资有限公司'},
+{'staff': '桑嘉晖', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '广州型腔模具制造有限公司'},
+{'staff': '林颖洁', 'position': '出纳 出纳员 出纳', 'company': '江南物业公司'},
+{'staff': '杨顿', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '深圳合和投资公司'},
+{'staff': '顾达新', 'position': 'PHP开发工程师', 'company': '广州明动软件有限公司'},
+{'staff': '黄敏华', 'position': '行政专员 人事助理 文员', 'company': '江门旺大饲料有限公司'},
+{'staff': '田甜', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '光风霁月服饰文化有限公司'},
+{'staff': '黄燕', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '东莞创科集团'},
+{'staff': '李尚钊', 'position': 'PHP开发工程师', 'company': '广西臻萃互联网科技有限公司'},
+{'staff': '冼少怡', 'position': '出纳 出纳员 出纳', 'company': '税意通（广州）企业服务平台有限公司'},
+{'staff': '李尚钊', 'position': 'php工程师（急聘）', 'company': '广西臻萃互联网科技有限公司'},
+{'staff': '关坤尧', 'position': '行政专员 人事助理 文员', 'company': '佐丹奴'},
+{'staff': '肖先生', 'position': 'php工程师（急聘）', 'company': '广州韵创科技'},
+{'staff': '黄钰滢', 'position': '出纳 出纳员 出纳', 'company': '深圳市云创得力数据有限公司'},
+{'staff': '符晓峰', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '天津大学仁爱学院'},
+{'staff': '江乐伟', 'position': 'python 开发工程师', 'company': '郑州创恒实业有限公司'},
+{'staff': '[已读]袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'},
+{'staff': '袁淑雯', 'position': 'python 开发工程师', 'company': '南昌铭静科技有限科技公司'},
+{'staff': '[已读]冯颖欣', 'position': '招聘专员/人事专员/HRBP', 'company': '广东猪兼强互联网科技有限公司'},
+{'staff': '胡逸诗', 'position': '行政专员 人事助理 文员', 'company': '广州宾裳展贸易有限公司'},
+{'staff': '[已读]杨薏', 'position': '行政专员 人事助理 文员', 'company': '广州市国美电器有限公司'},
+{'staff': '[已读]苏桢妍', 'position': '采购专员 供应商开发专员（fashion饰品类）', 'company': '洛阳中国一拖集团'},
+{'staff': '黄冬明', 'position': 'python 开发工程师', 'company': '广州天锐医健信息科技有限公司'},
+{'staff': '马梓淳', 'position': '行政专员 人事助理 文员', 'company': '慢生活奶茶店'},
+{'staff': '[已读]马梓淳', 'position': '助理/文员/产品上传员', 'company': '慢生活奶茶店'},
+{'staff': '[已读]唐静婕', 'position': '助理/文员/产品上传员', 'company': '北京视达科科技有限公司(视达科)'},
+{'staff': '刘苏', 'position': '出纳 出纳员 出纳', 'company': '广州市培臻国际贸易有限公司'},
+{'staff': '姚青', 'position': '出纳 出纳员 出纳', 'company': '广州五金货架有限公司'},
+{'staff': '付玉婷', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '乳源瑶族自治县弘成房地产开发有限公司'},
+{'staff': '罗洁', 'position': '出纳 出纳员 出纳', 'company': '清新区良甲鞋材厂'},
+{'staff': '林洁钰', 'position': '采购助理/跟单文员/业务跟单', 'company': '佳映国际影城'},
+{'staff': '潘成林', 'position': 'python 开发工程师', 'company': '好来化工（中山）有限公司'},
+{'staff': '傅灿城', 'position': 'php工程师（急聘）', 'company': '广州涂氏体育用品有限公司'},
+{'staff': '陈宇婷', 'position': '出纳 出纳员 出纳', 'company': '广州市广泽税务师事务所'},
+{'staff': '郑裕心', 'position': '采购专员/采购主管/买手/供应商开发', 'company': '深圳婵娟珠宝有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 采购主管 买手 供应商开发（家居类）', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州塬点服装有限公司'},
+{'staff': '温集能', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '赞播集团'},
+{'staff': '杨先生', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '兴林佳达办公用品有限公司'},
+{'staff': '陈知佳', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州西村名物产品中心'},
+{'staff': '黎宇豪', 'position': 'python 开发工程师', 'company': '江苏米游信息科技有限公司'},
+{'staff': '流泪', 'position': '招聘专员/人事专员/HRBP', 'company': '天天快递有限公司(天天快递)'},
+{'staff': '邹景超', 'position': 'python 开发工程师', 'company': '中国人民解放军'},
+{'staff': '王浩磊', 'position': 'python 开发工程师', 'company': '祺天优贷会联网金融服务有限公司'},
+{'staff': '刘麟', 'position': 'python 开发工程师', 'company': '广州天鹏计算机科技有限公司'},
+{'staff': '贾远梅', 'position': '英文产品编辑 英文翻译', 'company': '中国国际航空公司西南分公司'},
+{'staff': '方小锋', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '安徽法润贸易有限公司'},
+{'staff': '李凯欣', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '广州市友和房地产投资有限公司'},
+{'staff': '吕晴', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '湖南桃花江竹材科技股份有限公司'},
+{'staff': '郑桂清', 'position': 'php工程师（急聘）', 'company': '广州远程教育中心有限公司(广州远程教育中心)'},
+{'staff': '张小姐', 'position': '会计主管 财务主管（跨境电商行业优先）', 'company': '广州亚银投资有限公司'},
+{'staff': '林晓文', 'position': '招聘助理 招聘专员 人事专员', 'company': '广州亚标信息技术有限公司'},
+{'staff': '郑桂清', 'position': 'PHP开发工程师', 'company': '广州远程教育中心有限公司(广州远程教育中心)'},
+{'staff': '马晓莉', 'position': '仓库文员 质检员 理货员', 'company': '广州珠江电信设备制造有限公司'},
+{'staff': '马晓莉', 'position': '质检员', 'company': '广州珠江电信设备制造有限公司'},
+{'staff': '王宇', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '广州户博运动用品有限公司'},
+{'staff': '骆志彬', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州市鼎呈皮具有限公司'},
+{'staff': '欧阳桂丽', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州伊的家网络科技有限公司'},
+{'staff': '黄桂钊', 'position': '质检员', 'company': '广州市高可达自动化科技有限公司'},
+{'staff': '杨敏', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广东骆驼服饰有限公司'},
+{'staff': '杨敏', 'position': 'Ebay销售/Ebay运营', 'company': '广东骆驼服饰有限公司'},
+{'staff': '盘春玲', 'position': '行政专员 人事助理 文员', 'company': '不出名火锅'},
+{'staff': '李娟', 'position': 'shopify运营经理/主管', 'company': '南方电网数字电网研究院有限公司'},
+{'staff': '袁方', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '广州诚旭电子科技有限公司'},
+{'staff': '韩长文', 'position': '采购专员 采购主管 买手 供应商开发（fashion饰品类）', 'company': '东莞卓淦机械配件有限公司'},
+{'staff': '曾楚倩', 'position': '行政专员 人事助理 文员', 'company': '广州市穗洲拆迁有限公司'},
+{'staff': '董凡', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '广东外语外贸大学'},
+{'staff': '林清秀', 'position': '行政专员 人事助理 文员', 'company': '广东省电子品胜有限公司'},
+{'staff': '李强召', 'position': 'python 开发工程师', 'company': '上海母婴之家网络科技股份有限公司'},
+{'staff': '吴学尧', 'position': '财务主管（跨境电商应收方向）', 'company': '五华县骏兴电器有限公司'},
+{'staff': '罗宇中', 'position': 'AliExpress/速卖通/速卖通销售/外贸业务员', 'company': '广州市耀天环保科技有限公司'},
+{'staff': '余江江', 'position': 'python 开发工程师', 'company': '南京擎盾信息科技有限公司'},
+{'staff': '余江江', 'position': 'python 开发工程师', 'company': '南京擎盾信息科技有限公司'},
+{'staff': '向延乔', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市新广志贸易发展有限公司'},
+{'staff': '李嘉豪', 'position': 'python 开发工程师', 'company': '广州八通八达科技有限公司'},
+{'staff': '李嘉豪', 'position': 'python 开发工程师', 'company': '广州八通八达科技有限公司'},
+{'staff': '潘智敏', 'position': '出纳 出纳员 出纳', 'company': '广州市盈莱普益商务服务有限公司'},
+{'staff': '詹吉彬', 'position': 'python 开发工程师', 'company': '广州锦行网络科技有限公司'},
+{'staff': '吴侠辉', 'position': 'python 开发工程师', 'company': '山东国子软件股份有限公司'},
+{'staff': '林叶雅', 'position': '助理/文员/产品上传员', 'company': '天河大华中英文学校'},
+{'staff': '陈莹', 'position': '出纳 出纳员 出纳', 'company': '广州皇上皇集团有限公司肉食制品厂'},
+{'staff': '杨伟娴', 'position': '行政专员 人事助理 文员', 'company': '广东本来生活网电子商务有限公司'},
+{'staff': '陈茂隆', 'position': 'python 开发工程师', 'company': '武汉佰钧成技术有限责任公司'},
+{'staff': '陈茂隆', 'position': 'python 开发工程师', 'company': '武汉佰钧成技术有限责任公司'},
+{'staff': '刘晓渊', 'position': '高级PHP开发工程师（后台）', 'company': '广州必富科技应用企业（有限合伙）'},
+{'staff': '李翠艳', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '武汉贝斯特集团'},
+{'staff': '蓝海瑚', 'position': 'php工程师（急聘）', 'company': '佛山二十五小时网络信息服务有限公司'},
+{'staff': '杨连续', 'position': '采购专员 买手 供应商开发专员（服饰类）', 'company': '壹佳服饰'},
+{'staff': '陈小敏', 'position': '出纳 出纳员 出纳', 'company': '广州市嘉诚国际物流股份有限公司'},
+{'staff': '关文杰', 'position': 'AliExpress速卖通主管 B2C平台销售主管', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'amazon 亚马逊运营主管（高提成）', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'AliExpress 速卖通运营主管 外贸销售主管', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '亚马逊销售主管/amazon运营主管', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'Ebay销售/Ebay运营', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '日语亚马逊销售 Amazon销售/运营', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '日语亚马逊销售 Amazon运营(无经验也可）', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'amazon经理/亚马逊运营经理/亚马逊销售经理', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'AliExpress 速卖通运营 外贸销售业务员', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '速卖通客服 运营客服 外贸客服', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '华林珠宝玉器城'},
+{'staff': '周世霖', 'position': 'python 开发工程师', 'company': '华亚微电子（上海）有限公司'},
+{'staff': '关文杰', 'position': 'amazon亚马逊外贸销售运营主管 B2C跨境电商销售主管 外贸主管', 'company': '华林珠宝玉器城'},
+{'staff': '[已读]何睿', 'position': '阿里客服/运营助理/阿里巴巴采购助理', 'company': '赤霄金融'},
+{'staff': '[已读]黄女士', 'position': '财务主管 / 会计主管(跨境电商财务 或 网络支付经验优先）', 'company': '广州市泰迪熊婴幼儿用品有限公司'},
+{'staff': '[已读]叶正', 'position': 'Wish专员/网站营运专员（欢迎优秀应届毕业生）', 'company': '北京启明星辰信息安全技术有限公司'},
+{'staff': '[已读]李建圣', 'position': '产品运营专员 / 产品运维专员 / 产品编辑专员', 'company': '海万科技'},
+{'staff': '韩志胜', 'position': '采购专员 采购主管 买手 供应商开发（服饰类）', 'company': '广州市光明服饰有限公司'},
+{'staff': '续安顺', 'position': 'AliExpress 速卖通主管', 'company': '巨鼎国际供应链'},
+{'staff': '黄文乾', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '广州国投悦康养老服务有限公司'},
+{'staff': '黄富俞', 'position': '英文产品编辑 英文翻译', 'company': '广州乐晟网络科技有限公司'},
+{'staff': '陈梅丽', 'position': '外贸业务员 销售 跟单 跨境电商平台销售', 'company': '香港多利来贸易有限公司'},
+{'staff': '刘子坚', 'position': 'amazon 亚马逊外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'},
+{'staff': '刘子坚', 'position': 'wish 外贸销售业务员', 'company': '阿里巴巴（中国）有限公司(一淘网-淘宝网-闲鱼-盒马鲜生-阿里旅行-yugong 愚公)'},
+{'staff': '王清璐', 'position': 'python 开发工程师', 'company': '新疆品宣生物科技有限责任公司'},
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'},
+{'staff': '徐楠', 'position': 'python 开发工程师', 'company': '湖北航天信息技术有限公司'},
+{'staff': '张欣', 'position': '行政专员 人事助理 文员', 'company': '广州仓讯电子科技服务有限公司'},
+{'staff': '范晓丽', 'position': 'amazon 亚马逊销售 亚马逊运营', 'company': '广州时尚天河商业城有限公司'},
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'},
+{'staff': '王群峰', 'position': 'PHP开发工程师', 'company': '山东通科信息技术有限公司'},
+{'staff': '王群峰', 'position': 'python 开发工程师', 'company': '山东通科信息技术有限公司'},
+{'staff': '伍海莲', 'position': '行政专员 人事助理 文员', 'company': '福建平潭全健生物科技有限公司'},
+{'staff': '周晓晴', 'position': '行政专员 人事助理 文员', 'company': '广东元晟建设发展有限公司'},
+{'staff': '桂晓', 'position': '财务主管（跨境电商应收方向）', 'company': '广州壹乐源品牌管理有限公司'},
+{'staff': '席万鹏', 'position': '行政专员 人事助理 文员', 'company': '新港海关'},
+{'staff': '练银玲', 'position': '出纳 出纳员 出纳', 'company': '广州毓美皮具有限公司'},
+{'staff': '吴玉双', 'position': '日语amazon 亚马逊销售 亚马逊运营', 'company': '自主创业'},
+{'staff': '[已读]陈诗韵', 'position': 'HRBP 招聘专员 人事专员', 'company': '华尔街英语'},
+{'staff': '[已读]陈诗韵', 'position': '行政专员 前台文员', 'company': '华尔街英语'},
+{'staff': '[已读]宋大海', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '顺为网络皮具有限公司'},
+{'staff': '[已读]张廉英', 'position': 'HRBP 招聘专员 人事专员', 'company': '名创优品（横琴）企业管理有限公司'},
+{'staff': '[已读]吴先生', 'position': 'Python开发工程师', 'company': '广东国鸿氢能有限公司'},
+{'staff': '[已读]梁先生', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '江西梓丰网络科技有限公司'},
+{'staff': '[已读]李秋雄', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '广东国晖律师事务所'},
+{'staff': '[已读]周松源', 'position': 'PHP开发工程师', 'company': '同洲智能有限公司'},
+{'staff': '[已读]何泳华', 'position': '行政专员 前台文员', 'company': '德庆县必火健身服务有限公司'},
+{'staff': '[已读]蒋增', 'position': 'Python开发工程师', 'company': '广州诚旭电子科技有限公司'},
+{'staff': '[已读]王美英', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '广州蓝墨贸易有限公司'},
+{'staff': '[已读]李婷', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '纺织品有限公司'},
+{'staff': '李婷', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '纺织品有限公司'},
+{'staff': '[已读]王春萍', 'position': '行政专员 前台文员', 'company': '深圳市北奇建贸易有限公司'},
+{'staff': '[已读]周颖', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '意高服装有限公司'},
+{'staff': '[已读]黄四明', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '青岛泽树贸易有限公司'},
+{'staff': '[已读]贺先生', 'position': 'Python开发工程师', 'company': '深圳市宏宇天创科技有限公司'},
+{'staff': '[已读]吴学尧', 'position': '应收主管 电商财务主管', 'company': '五华县骏兴电器有限公司'},
+{'staff': '[已读]钟佩玲', 'position': '行政专员 前台文员', 'company': '天马连锁大药房'},
+{'staff': '[已读]杨帆', 'position': '日语amazon 亚马逊销售 亚马逊运营', 'company': 'BPA International'},
+{'staff': '[已读]陈文轼', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州棒谷科技股份有限公司'},
+{'staff': '[已读]吴晓龙', 'position': 'PHP开发工程师', 'company': '广东工业大学'},
+{'staff': '吴晓龙', 'position': 'php开发', 'company': '广东工业大学'},
+{'staff': '[已读]丁士超', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '连云港正品堂贸易有限公司'},
+{'staff': '[已读]王秋金', 'position': '行政专员 前台文员', 'company': '广州好精彩教育科技有限公司'},
+{'staff': '[已读]魏道畅', 'position': 'HRBP 招聘专员 人事专员', 'company': '映鑫贸易（广州）有限公司'},
+{'staff': '叶绿欣', 'position': '行政专员 前台文员', 'company': '广州市广刃机械工具有限公司'},
+{'staff': '黎诗婷', 'position': '行政专员 前台文员', 'company': '金苗艺术教育中心'},
+{'staff': '胡嘉雯', 'position': '行政专员 前台文员', 'company': '广州银雁金融外包服务有限公司'},
+{'staff': '朱楚帆', 'position': '招聘专员 人事专员 人事主管', 'company': '广州市卓越里程教育科技有限公司'},
+{'staff': '[已读]黎洪燊（保险勿扰）', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州塬点服装有限公司'},
+{'staff': '黎洪燊（保险勿扰）', 'position': '采购专员 采购主管 买手 供应商开发', 'company': '广州塬点服装有限公司'},
+{'staff': '[已读]杨先生', 'position': '跨境电商财务主管（应收）', 'company': '兴林佳达办公用品有限公司'},
+{'staff': '[已读]侯庆谋', 'position': 'AliExpress 速卖通销售 外贸业务员', 'company': '广州固特威国际货运代理有限公司'},
+{'staff': '[已读]陈知佳', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州西村名物产品中心'},
+{'staff': '[已读]姚佩琪', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '海珠区江南西日料餐饮店'},
+{'staff': '[已读]刘建珊', 'position': 'Python开发工程师', 'company': '南昌大城讯科软件技术有限公司'},
+{'staff': '汤仙宇', 'position': '质检员 QC 仓管员', 'company': '广州时易中信息科技有限公司'},
+{'staff': '[已读]刘志河', 'position': '仓管员 理货员+五险一金+ 高绩效', 'company': '荔豪宾馆'},
+{'staff': '[已读]骆志彬', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '广州市鼎呈皮具有限公司'},
+{'staff': '[已读]杨敏', 'position': '日语amazon 亚马逊销售 亚马逊运营', 'company': '广东骆驼服饰有限公司'},
+{'staff': '[已读]杨敏', 'position': '日语亚马逊销售 Amazon销售/运营', 'company': '广东骆驼服饰有限公司'},
+{'staff': '[已读]黎秋仪', 'position': '助理/文员/修图编辑', 'company': '广东联拍博物馆有限公司'},
+{'staff': '[已读]陈茂隆', 'position': 'Python开发工程师', 'company': '武汉佰钧成技术有限责任公司'},
+{'staff': '[已读]魏翠媚', 'position': '鞋子买手/服装买手/包包买手/电商买手', 'company': '唯令服装店'},
+{'staff': '[已读]黄文乾', 'position': '跨境电商财务主管（应收）', 'company': '广州国投悦康养老服务有限公司'},
+{'staff': '[已读]Rita.', 'position': '行政专员 前台文员', 'company': '厦门诺亚品牌管理有限公司(诺亚国际)'},
+{'staff': '[已读]余江江', 'position': 'Python开发工程师', 'company': '南京擎盾信息科技有限公司'},
+{'staff': '[已读]向延乔', 'position': '采购专员/采购主管/买手/供应商开发（饰品类）', 'company': '广州市新广志贸易发展有限公司'},
+{'staff': '[已读]廖锦', 'position': '速卖通销售经理/速卖通主管/aliexpress经理', 'company': '广东邦业服装有限公司'},
+{'staff': '[已读]潘连带', 'position': '涉外会计 财务主管', 'company': '广州杰志公司'},
+{'staff': '[已读]杨小姐', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '佛山市零国界电子商务有限公司'},
+{'staff': '[已读]陈茂隆', 'position': 'Python开发工程师', 'company': '武汉佰钧成技术有限责任公司'},
+{'staff': '[已读]李涛', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '环球车享汽车租赁有限公司'},
+{'staff': '[已读]王潇', 'position': 'shopify运营经理/外贸主管 /外贸专员', 'company': '北京网聘咨询有限公司(智联招聘)'},
+{'staff': '[已读]邓j锦彬', 'position': '仓管员 理货员+五险一金+ 高绩效', 'company': '郴州第一职中'},
+{'staff': '[已读]黄嘉欣', 'position': '行政专员 前台文员', 'company': '广州兴业企业管理服务有限公司'},
+{'staff': '关文杰', 'position': '速卖通销售经理/速卖通主管/aliexpress经理', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'wish 外贸销售 外贸业务员', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '亚马逊销售经理/amazon经理/亚马逊运营经理', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'amazon 亚马逊销售主管 亚马逊运营主管', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'Ebay销售 Ebay运营', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': '日语amazon 亚马逊销售 亚马逊运营', 'company': '华林珠宝玉器城'},
+{'staff': '关文杰', 'position': 'shopify运营经理/外贸主管 /外贸专员', 'company': '华林珠宝玉器城'},
+{'staff': '[已读]侯松毅', 'position': 'Python开发工程师', 'company': '大查柜（上海）网络科技有限公司'},
+{'staff': '侯松毅', 'position': 'Python开发工程师', 'company': '大查柜（上海）网络科技有限公司'},
+{'staff': '[已读]黄远珍', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '广州易融普惠有限公司'},
+{'staff': '[已读]方雅兰', 'position': 'wish销售 外贸业务员', 'company': '佛山杰莉丝科技有限公司'},
+{'staff': '[已读]朱姬楚', 'position': '行政专员 前台文员', 'company': '广州汨江酒店管理有限公司'},
+{'staff': '[已读]徐楠', 'position': 'Python开发工程师', 'company': '湖北航天信息技术有限公司'},
+{'staff': '[已读]谢伟和', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '宜美内衣'},
+{'staff': '[已读]张生', 'position': 'shopify运营经理/外贸主管 /外贸专员', 'company': '广州上野化妆品有限公司'},
+{'staff': '[已读]章小鹿', 'position': 'Python开发工程师', 'company': '文思海辉技术有限公司(符号)'},
+{'staff': '[已读]章小鹿', 'position': 'Python开发工程师', 'company': '文思海辉技术有限公司(符号)'},
+{'staff': '[已读]麦健强', 'position': '仓管员 理货员+五险一金+ 高绩效', 'company': '广州外宝电子商务有限公司'},
+{'staff': '[已读]梁妍瑶', 'position': '行政专员 前台文员', 'company': '广州破晓贸易有限公司'},
+{'staff': '[已读]杨敏', 'position': 'shopify运营经理/外贸主管 /外贸专员', 'company': '广东骆驼服饰有限公司'},
+{'staff': '[已读]席万鹏', 'position': '行政专员 前台文员', 'company': '新港海关'},
+{'staff': '[已读]潘冰颜', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '太古世家'},
+{'staff': '[已读]潘冰颜', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '太古世家'},
+{'staff': '[已读]关雪怡', 'position': 'amazon 亚马逊销售 外贸业务员', 'company': '武汉纺织大学外经贸学院'},
+{'staff': '[已读]何思娟', 'position': '助理/文员/修图编辑', 'company': '智利高数码印花有限公司'},
+{'staff': '[已读]严志坚', 'position': 'Python开发工程师', 'company': '和仁(天津)科技有限公司（总公司为，浙江和仁科技股份有限公司）'},
+{'staff': '[已读]孔女士', 'position': '助理/文员/修图编辑', 'company': '初*摄影工作室'},
+{'staff': '[已读]王璐', 'position': '助理/文员/修图编辑', 'company': '广州地铁'},
+{'staff': '[已读]罗海军', 'position': 'php开发', 'company': '广州巨点信息科技有限公司'},
+{'staff': '罗海军', 'position': 'PHP开发工程师', 'company': '广州巨点信息科技有限公司'},
+{'staff': '[已读]刘晓旋', 'position': '招聘专员 人事专员 人事主管', 'company': '北京恒昌惠诚信息咨询有限公司'},
+{'staff': '[已读]文春艳', 'position': '行政专员 前台文员', 'company': '广州源石网络科技有限公司'},
+{'staff': '[已读]尹芳', 'position': '外贸业务员 外贸销售 外贸跟单 跨境电商平台销售', 'company': '广州市丞华电子设备有限公司'},
+{'staff': '[已读]肖小桂', 'position': '日语amazon 亚马逊销售 亚马逊运营', 'company': '广州欧泊仕家电有限公司'},
+{'staff': '[已读]郑润龙', 'position': 'php开发', 'company': '广州至真信息科技有限公司'},
+{'staff': '[已读]郑润龙', 'position': 'PHP开发工程师', 'company': '广州至真信息科技有限公司'},
+{'staff': '[已读]叶磊', 'position': 'Python开发工程师', 'company': '河南奇酷网络工程有限公司'},
+{'staff': '叶磊', 'position': 'Python开发工程师', 'company': '河南奇酷网络工程有限公司'},
+{'staff': '[已读]张艺', 'position': '行政主管', 'company': '广州市铄力电子有限公司'},
+{'staff': '[已读]谭小姐', 'position': '行政主管', 'company': '东莞东聚电子电讯制品有限公司广州分公司'},
+{'staff': '[已读]李玉昆', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '广东通提汽车销售有限公司'},
+{'staff': '[已读]刘玉谊', 'position': '淘宝客服 采购助理 跟单文员 国内跟单', 'company': '广州亿荣国际贸易公司'},
