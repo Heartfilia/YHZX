@@ -462,10 +462,12 @@ class ZhiLian(object):
                     day = int(i[3:5])      # 27
                     # hour = int(i[6:8])  # 09
                     nums = self.dayBetweenDates(month, day)
+                    self.update_mysql_one(posi, i[:5])
                     if nums > int(lateRemind):
                         num += 1  # 统计有几个信息超过指定天没有刷新，有一个就加1
                 else:
                     LOG.warning('没有查找到时间节点')
+                    self.update_mysql_one(posi, 'Null')
                     # print('没有查找到时间节点')
                     continue
 
@@ -490,6 +492,18 @@ class ZhiLian(object):
         # print('info:', type(info), info)   # dict
         return info
 
+    def update_mysql_one(self, posi, dtm):
+        sql = f'update info set lastFresh = "{dtm}" where info = "{posi.strip()}"'
+
+        try:
+            LOG.info('数据库准备修改数据>>>>>>>')
+            self.cursor.execute(sql)
+            self.db.commit()
+            time.sleep(0.3)
+        except Exception as e:
+            LOG.warning('数据错误已经回滚>>>>>>>')
+            self.db.rollback()
+
     def insert_mysql_one(self, com, posi):
         # 方案一 ======== api插入  服务端会出错
         # time.sleep(0.5)
@@ -504,6 +518,7 @@ class ZhiLian(object):
             LOG.info('数据库准备输入>>>>>>>')
             self.cursor.execute(sql)
             self.db.commit()
+            time.sleep(0.3)
         except Exception as e:
             LOG.warning('数据错误已经回滚>>>>>>>')
             self.db.rollback()
