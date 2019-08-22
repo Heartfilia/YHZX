@@ -1,0 +1,10 @@
+trans_d2l
+trans_l2d
+trans_l2t
+trans_t2l
+trans_t2d
+trans_d2l
+trans_s2l
+trans_l2s
+trans_s2t
+trans_t2l
