@@ -10,5 +10,5 @@ import scrapy
 
 class Job51Item(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
+    ifo = scrapy.Field()
     pass

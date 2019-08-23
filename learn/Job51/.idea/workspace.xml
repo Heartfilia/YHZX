@@ -1,11 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aa1506c0-932a-4f3d-b9f5-0bc7d3667b04" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job51/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job51/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/middlewares.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job51/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job51/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job51/spiders/job.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/spiders/job.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my_pack/Interval_task.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my_pack/Interval_task2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my_pack/Message.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my_pack/browser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my_pack/date_task.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my_pack/logger.py" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1Pl9pI7NPbmdie5HohsiEO8Imfe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/Project/Job51_bak" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="job" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Job51" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Job51/spiders" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Job51/spiders/job.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.job" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aa1506c0-932a-4f3d-b9f5-0bc7d3667b04" name="Default Changelist" comment="" />
+      <created>1566437996694</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566437996694</updated>
+      <workItem from="1566437999402" duration="5367000" />
+      <workItem from="1566525360007" duration="2777000" />
+    </task>
+    <task id="LOCAL-00001" summary="create project">
+      <created>1566438026465</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1566438026465</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create project" />
+    <option name="LAST_COMMIT_MESSAGE" value="create project" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Job51$job.coverage" NAME="job Coverage Results" MODIFIED="1566525419349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Job51/spiders" />
   </component>
 </project>
