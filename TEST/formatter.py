@@ -6,7 +6,7 @@ f1 = f.split("; ")
 
 cookies = list()
 for i in f1:
-    f2 = {"name": i.split('=', 1)[0], "value": i.split('=', 1)[1]}
+    f2 = {"name": i.split('=', 1)[0], "value": i.split('=', 1)[1], "httponly": "✓", "domain": "ehire.51job.com", "path": "/"}
     cookies.append(f2)
 
 
