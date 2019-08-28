@@ -11,13 +11,13 @@ from spider.Message import send_rtx_msg
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # 银河在线 cookie
-cookie = "rd_resume_actionId=1566301817743681821689; __ut=269921845364562680.1564567034.8; jobRiskWarning=true; Jsgin=186; x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5; rd_resume_srccode=402101; is-oversea-acount=0; zp_src_url=https%3A%2F%2Fpassport.zhin%2Fbind%2Fmobile; acw_tc=2760810a5e3025e6; JSloie=onn20vgmh0oxin; jobRing=true; at=f5ed7a0d47af4f6e8e0e550334fcb6cc; sts_deviceid=16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d; JsNewlogin=1837743086; sajssdr=1; stid=Un; sts_e=130; adfcid=none; x-zp-dfp=zlzhab5b7e3; sts_sg=1; JSShome=""; JSShowname=""; dywea=95841923.183147172171786560.1564539142.1564567034.1565260839.9; LastCity=%E5%B9%BF%E5%B7%9E; Hm_l45bb5e02a02006=156354; JSloginnamecookie=15521262081; urlfrom2=121126445; ad2=none; urlfrom=121126445; adfbid=0; prision=1; dywec=95841923; adfcid2=none; acw_tc=2760820015653133142198330e7a3628ff884a067cde745a8b2b06b9621e80; Hm_lvt_38ba284938d5eddca645bb5e02a02006=1565313306; x-zp-device-id=517b4dfa92d572d2bb60ac0175c1def6; url=121; promoteGray=; LastCity%5Fid=763; rd_resume_actionId=1564551879644655193256; sts_sid=16c4776579071a-0c1dec00e67027-5a13331d-2073600-16c47765791af2; d=9584134; Token=f5ed7a0d47af4f6e8e0e550334fcb6cc; sajssdk_2015_cross_new_user=1; __utmc=269921210; JSpUserInfo=3d692e695671417154775b755c6a5c7541775869586953714c7129772775546a557545775d6958695a71457153775b75596a5c75417753692f6926714a7156775b755f6a52754777586953695d71447125771875186a4a751377076907695071247131775475586a5f7531773c6957695c715a7150774975586a54754a7759695b695071367129775475586a5f7525772969576921713a7154775b755c6a5c75417758695869537142715e773c753d6a597541775369396922714a71557752753c6a34753e775569056905714071177718755d6a0c75047750691269077112710f771f75006a5275497719691a6903714171147700750f6a0a75487712691d6950716; sensorsdross=%7B%22distinct_id%22%3A%2265519322%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa22%7D; diagnosis=0; __utmt=1; adfbid2=0; dywez=95841923.1564567034.8.3.dywecsr=ihr.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/talk/manage.html; __utmz=269921210.1565260839.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); loginreleased=1; expireJobs=true; rd_resu=401; __utma=269921210.1935357850.1565260839.1565260839.1565260839.1; __u=269921210.140.10.1564567034; login_point=67827992; login-type=b; zp-route-meta=uid=655193256,orgid=67827992; rt=03172f3ac1864e519a0c7ab8aadfd999; sts_chnlsid=Unknown; uiioit=2264202c55795c69093747795d6b4f64552c5879586900374e792a6b3364592c587951695; Hm_lpvt_38ba284938d5eddca645bb5e02a02006=1566612281; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c70d0f4b8221-0f3fc9200ad50c-7373e61-2073600-16c70d0f4b9283%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c70d0f4b8221-0f3fc9200ad50c-7373e61-2073600-16c70d0f4b9283%22%7D; sts_evtseq=54; dyweb=95841923.48.10.1565260839; __utmb=269921210.48.10.1565260839"
+cookie = "rt=35bb599e18b44874bc6ae949b368b0d7; Token=9f50676f96ec46e7a88894dd4b7ff91f; is-oversea-acount=0; at=9f50676f96ec46e7a88894dd4b7ff91f; __utma=269921210.1113127844.1564539142.1564567034.1565919391.9; jobRiskWarning=true; sts_chnlsid=Unknown; privacyUpdateVersion=1; rd_resume_srccode=402101; zp-route-meta=uid=655193256,orgid=67827992; adfcid2=none; acw_tc=2760827015645412125101117e0aea7957a2c5bd1a105885e3208f62506ae6; JsNewlogin=1837743086; x-zp-dfp=zlzhaopin-1564541208377-824fee2b5b7e3; adfcid=none; urlfrom=121126445; urlfrom2=121126445; JSpUserInfo=376436655a665266557757754c6f41754869526440655f665f6628772b75446f48754c69576440655666566652775775496f41754869596437652a665966577757754f6f4f754e6952644b655166576624771475086f57751a690d641f655c66376630775875486f4275386936644f655066496651774575406f43754a69546449652666286659775475426f2c7538695f6438652a66556656775075416f4875496950644a6552665f6631773175446f4875426931643b655a6654665f773075296f377544690d641c650966566654771375266f0d7548690e640b6512661566157704750f6f26751e690f641a6517660c661e7710754f6f0c751b691b6449650; zp_src_url=https%3A%2F%2Fpassport.zhaopin.com%2Forg%2Flogin%2Fbind%2Fmobile; __utmt=1; diagnosis=0; sts_sid=16c4776579071a-0c1dec00e67027-5a13331d-2073600-16c47765791af2; rd_resume_actionId=1564551879644655193256; dywez=95841923.1564567034.8.3.dywecsr=ihr.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/talk/manage.html; adfbid2=0; sajssdk_2015_cross_new_user=1; LastCity%5Fid=763; promoteGray=; Hm_lvt_38ba284938d5eddca645bb5e02a02006=1564539142; dywea=95841923.183147172171786560.1564539142.1564567034.1565919391.9; LastCity=%E5%B9%BF%E5%B7%9E; adfbid=0; dywec=95841923; x-zp-device-id=06b355731434d0df4ef09edbd7b01b84; login_point=67827992; JSShowname=""; JSloginnamecookie=15521262081; sts_deviceid=16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d; login-type=b; uiioit=3d753d684968426454380b6446684d7959745874566500395f732a753d68496844645e384; __utmz=269921210.1564567034.8.3.utmcsr=ihr.zhaopin.com|utmccn=(referral)|utmcmd=referral|utmcct=/talk/manage.html; loginreleased=1; x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5; sts_sg=1; __utmc=269921210; Hm_lpvt_38ba284938d5eddca645bb5e02a02006=1565923069; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%7D; dyweb=95841923.4.10.1565919391; __utmb=269921210.4.10.1565919391; sts_evtseq=139"
 
 
-class Detail(object):
+class Cart(object):
     def __init__(self):
         self.session = requests.Session()
-        self.detail_url = "https://rd5.zhaopin.com/api/rd/resume/detail?"
+        self.detail_url = "https://rd5.zhaopin.com/resume/detail?"
         self.url = 'https://rd5.zhaopin.com/api/rd/resume/list?'
         self.localtime = time.localtime(time.time())
         self.headers = {
@@ -90,69 +90,166 @@ class Detail(object):
             nu = num
         return nu
 
-    def params_get(self, resume_no):
+    # 1
+    def params_get(self):
         t = time.time()
         node = int(t * 1000)
+        today = time.localtime(t)
+        yesterday = time.localtime(t - 86400)
+        lastweek = time.localtime(t - 604800)
+
+        today_year = str(today.tm_year)
+        today_month = self.handle0(today.tm_mon)
+        today_day = self.handle0(today.tm_mday)
+
+        yesterday_year = str(yesterday.tm_year)[-2:]
+        yesterday_month = self.handle0(yesterday.tm_mon)
+        yesterday_day = self.handle0(yesterday.tm_mday)
+
+        lastweek_year = str(lastweek.tm_year)
+        lastweek_month = self.handle0(lastweek.tm_mon)
+        lastweek_day = self.handle0(lastweek.tm_mday)
+
+        today_info = today_year + today_month + today_day
+        yesterday_info = yesterday_year + yesterday_month + yesterday_day
+        lastweek_info = lastweek_year + lastweek_month + lastweek_day
+        lastyear_info = str(today.tm_year - 1) + today_month + today_day
+
         front = [
             '46ba3dcc4781446ab7b77f11468b6c36',
             '15f87159b7c440078fedea3be92d26e7',
             '97ea329932f04166b268e0cb0b2bfd61',
-            'bf37a85ca31548808cc4f6222bf07783'
+            'bf37a85ca31548808cc4f6222bf07783',
+            'c02dc6d312fe483194fece4f996ae8ba'
         ]
         max_len = len(front) - 1
         params = {
             "_": f"{node}",
             "x-zp-page-request-id": f"{front[random.randint(0, max_len)]}-{node - random.randint(50, 1000)}-{random.randint(200000, 800000)}",
             'x-zp-client-id': 'e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',
-            'resumeNo': f'{resume_no}_1_1'
+            "S_CreateDate": f"{lastyear_info},{today_info}",
+            "isNewList": "true",
+            "sort": "time",
+            "time": f"{node - random.randint(6, 15)}",
+            "isStash": "true",
+            "tagIds": [],
+            "page": 1,
+            "pageSize": 20,
         }
-        return params
+        return params   #
 
+    # 1
     @staticmethod
-    def headers_get(resume_no):
+    def headers_get():
         headers = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Content-Type': 'text/plain',
-            'Referer': f'https://rd5.zhaopin.com/resume/detail?resumeNo={resume_no}_1_1&openFrom=5',
+            'Referer': 'https://rd5.zhaopin.com/talent-bank',
             'Sec-Fetch-Mode': 'cors',
             "sec-fetch-site": "same-origin",
+            "origin": "https://rd5.zhaopin.com",
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
             'X-Requested-With': 'XMLHttpRequest',
             "cookie": cookie
         }
         return headers
 
-    def response_get(self, resume_no):
+    # TODO 1
+    def do_get_all(self):
         """
-        响应
-        :param resume_no: 简历的号码
-        :return: 然后响应值
+        获取到简历夹里面的简历信息 然后再分析每一个
+        :return:
         """
-        params = self.params_get(resume_no)
-        headers = self.headers_get(resume_no)
+        params = self.params_get()
+        headers = self.headers_get()
+        info = self.session.post(self.url, json=params, headers=headers, verify=False)
+        time.sleep(5)
         try:
-            response = self.session.get(self.detail_url, params=params, headers=headers, verify=False)
-        except:
-            LOG.error('status_code: <404> NOT FOUND')
+            data = json.loads(info.text)['data']
+        except KeyError:
+            print('键错误，被反爬了，页面不能抓到数据，需要刷新cookie')
+            return None
         else:
-            LOG.info('status_code: <200> OK')
-            return json.loads(response.text)
+            total = data['total']
+        if total == 0:
+            receivers = '张子珏'
+            msg = '智联:简历收藏夹里面没有简历需要处理'
+            send_rtx_msg(receivers, msg)
+            return None
+        else:
+            pass
+            receivers = ''
+            msg = f'智联:简历收藏夹里面有{total}条简历, 现在准备上传到简历库'
+            send_rtx_msg(receivers, msg)
+            dataList = data['dataList']
+            self.params_get_2(dataList, self.session)
 
-    def get_resume(self, inno):
-        """
-        get every resume's id
-        :return: id list
-        """
-        # with open(f'info0812{filename}.json', 'r', encoding='utf-8') as f:
-        #     resume = f.read()
-        lists = inno["data"]["dataList"]
+    def params_get_2(self, dataList, session):
+        if dataList:
+            for data in dataList:
+                number = data['number']
+                k = data['k']
+                t = data['t']
 
-        li = []
-        for i in lists:
-            d = i["id"]
-            li.append(d)
+                ts = time.time()
+                node = int(ts * 1000)
+                front = [
+                    '46ba3dcc4781446ab7b77f11468b6c36',
+                    '15f87159b7c440078fedea3be92d26e7',
+                    '97ea329932f04166b268e0cb0b2bfd61',
+                    'bf37a85ca31548808cc4f6222bf07783',
+                    'cf560800ad4b40588066133829b3d2f6'
+                ]
+                max_len = len(front) - 1
+                params = {
+                    "_": f"{node}",
+                    'resumeNo': f'{number}_1_1%3B{k}%3B{t}',
+                    "x-zp-page-request-id": f"{front[random.randint(0, max_len)]}-{node - random.randint(50, 1000)}-{random.randint(200000, 800000)}",
+                    'x-zp-client-id': 'e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',
+                    'openFrom': 5
+                }
+                headers = {
+                    "Connection": "Keep-Alive",
+                    "accept": "application/json, text/javascript, */*; q=0.01",
+                    "accept-language": "zh-CN,zh;q=0.9",
+                    "cookie": cookie,
+                    "referer": f"https://rd5.zhaopin.com/resume/detail?resumeNo={number}_1_1%3B{k}%3B{t}&openFrom=5",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:6.0) Gecko/20100101 Firefox/6.0",
+                    "x-requested-with": "XMLHttpRequest",
+                    # "authority": "rd5.zhaopin.com",
+                    # "method": "GET",
+                    # "path": f"/api/rd/resume/detail?_={t}&resumeNo={number}_1_1%3B{k}%3B1565919566477&x-zp-page-request-id=19687738042c4124bffb9a3ee6475dd6-1565919927778-974149&x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5"
+                }
+                url = "https://rd5.zhaopin.com/api/rd/resume/detail?" + f'_={node}&resumeNo={number}_1_1%3B{k}%3B{t}&x-zp-page-request-id={params["x-zp-page-request-id"]}&x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5'
+                # resp = session.get(self.url, params=params, headers=headers, verify=False)
+                resp = session.get(url, headers=headers, verify=False)
+                time.sleep(10)
+                try:
+                    info = json.loads(resp.text)
+                except Exception as e:
+                    LOG.info('error：', e)
+                else:
+                    resume, account = self.deal_info(info)
+                    self.post_resume(resume, account)
 
-        return li
+    def post_resume(self, jr, account):
+        info = {
+            'account': account,
+            'data': [jr]
+        }
+        # with open('ttt.txt', 'w', encoding='utf-8') as f:
+        #     f.write(str(info))
+        print(info)
+        url = 'http://testhr.gets.com:8989/api/autoInsertResume.php'
+        # url = 'http://hr.gets.com:8989/api/autoOwnerResume.php?'
+        try:
+            rq = self.session.post(url, json=info)
+        except Exception as e:
+            LOG.error('目标计算机拒绝链接,错误:', e)
+        else:
+            LOG.info(f'数据的插入详情为:{unquote(rq.text)}')
 
     def deal_info(self, info):
         now_year = datetime.datetime.now().year
@@ -161,13 +258,13 @@ class Detail(object):
         }
         data = info['data']
         detail = data['detail']          # dict
-        jobResume = data['jobResume']    # dict
+        jobResume = data['jobResume']    # dict   #null
         candidate = data['candidate']    # dict
         job = data['job']                # dict
         account = "广州银河在线饰品有限公司"       # job['orgName']
 
         name = candidate['userName']
-        mobile_phone = candidate['mobilePhone'] if candidate['mobilePhone'] else ''
+        mobile_phone = candidate['mobilePhone'] if candidate['mobilePhone'] else '0'
         company_dpt = 1
         resume_key = ''
         gender = detail['Gender']
@@ -212,7 +309,7 @@ class Detail(object):
         else:
             current_salary = ''
 
-        politics_status = detail['PoliticsBackGround']
+        politics_status = detail['PoliticsBackGround'] if detail['PoliticsBackGround'] else ''
         marital_status = '1' if detail['MaritalStatus'] == '2' else '2'
         address = candidate['address']
         zip_code = detail['PostalCode'] if detail['PostalCode'] else ''
@@ -234,8 +331,8 @@ class Detail(object):
 
         working_place_expected = '广州' if candidate['cityId'] == '763' else '其它'
         num_expected = detail['DesiredSalaryScope']
-        time_now = int(jobResume['createdate'] / 1000)
-        dateModified = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time_now))
+        time_now = time.time()
+        dateModified = time.strftime('%Y-%m-%d', time.localtime(time_now))
         # print('更新日期:', dateModified)
         if num_expected:
             sn = str(num_expected)
@@ -254,7 +351,7 @@ class Detail(object):
         job_function_expected = ''
         current_situation = ''
 
-        word_experience = [{'应聘职位': job["jobTitle"]}]
+        word_experience = []
         info_experience = detail['WorkExperience']
         if info_experience:
             for ifo in info_experience:
@@ -364,127 +461,14 @@ class Detail(object):
         resume['resume_date'] = resume_date
         resume['get_type'] = get_type
         resume['external_resume_id'] = external_resume_id
-        resume['labeltype'] = jobResume['labeltype']    # 1 待处理 2 有意向 3 已发面试 4 不合适
+        resume['labeltype'] = 1    # 1 待处理 2 有意向 3 已发面试 4 不合适
 
         return resume, account
 
-    def post_resume(self, jr, account):
-        info = {
-            'account': account,
-            'data': [jr]
-        }
-        # with open('ttt.txt', 'w', encoding='utf-8') as f:
-        #     f.write(str(info))
-        print(info)
-        # url = 'http://testhr.gets.com:8989/api/autoOwnerResume.php?'
-        url = 'http://hr.gets.com:8989/api/autoOwnerResume.php?'
-        if jr:
-            try:
-                rq = self.session.post(url, json=info)
-            except Exception as e:
-                LOG.error('目标计算机拒绝链接')
-            else:
-                LOG.info(f'数据的插入详情为:{unquote(rq.text)}')
-
-    def run2(self, info):
-        resume_lists = self.get_resume(info)
-        LOG.info(f'当前页数据获取成功，页面数据为{len(resume_lists)}条')
-
-        for i in resume_lists:
-            # time.sleep(random.randint(9, 13))
-            info = self.response_get(i)
-            json_resume, account = self.deal_info(info)
-            self.post_resume(json_resume, account)
-
-    def params_pg_get(self, i):
-        t = time.time()
-        node = int(t * 1000)
-        today = time.localtime(t)
-        yesterday = time.localtime(t - 86400)
-        lastweek = time.localtime(t - 604800)
-
-        today_year = str(today.tm_year)[-2:]
-        today_month = self.handle0(today.tm_mon)
-        today_day = self.handle0(today.tm_mday)
-
-        yesterday_year = str(yesterday.tm_year)[-2:]
-        yesterday_month = self.handle0(yesterday.tm_mon)
-        yesterday_day = self.handle0(yesterday.tm_mday)
-
-        lastweek_year = str(lastweek.tm_year)[-2:]
-        lastweek_month = self.handle0(lastweek.tm_mon)
-        lastweek_day = self.handle0(lastweek.tm_mday)
-
-        today_info = today_year + today_month + today_day
-        yesterday_info = yesterday_year + yesterday_month + yesterday_day
-        lastweek_info = lastweek_year + lastweek_month + lastweek_day
-        front = [
-            '46ba3dcc4781446ab7b77f11468b6c36',
-            '15f87159b7c440078fedea3be92d26e7',
-            '97ea329932f04166b268e0cb0b2bfd61',
-            'bf37a85ca31548808cc4f6222bf07783'
-        ]
-        max_len = len(front) - 1
-        params = {
-            "_": f"{node}",
-            "x-zp-page-request-id": f"{front[random.randint(0, max_len)]}-{node - random.randint(50, 1000)}-{random.randint(200000, 800000)}",
-            "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
-            "S_CreateDate": f"{yesterday_info},{today_info}",
-            "S_ResumeState": "1",                              # 只查询待处理的信息
-            "S_feedback": '""',
-            "isNewList": "true",
-            "page": i + 1,
-            "pageSize": 100,       # 最多只能传100数据
-            "searchSource": 1,
-            "sort": "time",        # 目前顺序是最新 >> 最旧
-        }
-        return params
-
-    def first_time(self):
-        # 获取数据 返回总共有多少页
-        params = self.params_pg_get(0)
-        resp = self.session.post(self.url, json=params, headers=self.headers, verify=False)
-        data = json.loads(resp.text)
-        m = data['data']['total']
-        if m % 100 == 0:
-            pg = m // 100
-        else:
-            pg = m // 100 + 1
-        # time.sleep(15)
-        return pg
-
-    def stabilization(self, pg):
-        # 对每一页的数据进行遍历
-        for x in range(pg):
-            LOG.info(f'当前所在页为第{x+1}页')
-            params = self.params_pg_get(x)
-            # time.sleep(11)
-            try:
-                information = self.session.post(self.url, json=params, headers=self.headers, verify=False)
-            except:
-                LOG.error(f'第{x+1}页数据获取错误！！！')
-            else:
-                print(f'第{x+1}页:', information.text)
-                self.run2(json.loads(information.text))
-
     def run(self):
-        try:
-            pg = self.first_time()
-            LOG.info(f'获取页面数据有{pg}页,每页最多100条数据')
-            self.stabilization(pg)
-        except Exception:
-            LOG.warning('cookies 失效！')
-            receivers = '朱建坤'
-            # receivers = '聂清娜;张子珏'
-            msg = '每日检测智联待处理简历信息程序的cookies失效或网页结构变化, 需要跟进处理'
-            send_rtx_msg(receivers, msg)
+        self.do_get_all()
 
 
 if __name__ == '__main__':
-    while True:
-        app = Detail()
-        app.run()
-        for _ in range(86400):
-            n = _ // 1728
-            print(f'\rloading: {(50 -n) * "=" + n * ">"}', end="")
-            time.sleep(1)
+    app = Cart()
+    app.run()

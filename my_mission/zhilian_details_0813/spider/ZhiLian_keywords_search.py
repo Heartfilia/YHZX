@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 # 智联招聘的信息爬取
-# 这里面的信息为旧 新信息在服务器里面 不过里面也能做到该有的功能 有的需求是变化的 有的地方有bug 但是服务器那边是修改好了的
 import datetime
 import json
 import re
 import random
-from threading import Thread
 import requests
 import pymysql
 # from urllib.request import quote
@@ -17,27 +15,28 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
-from helper.Our_company import o_comp   # 导入我们公司的信息 list
-# from helper.Positions import POS        # 导入需要关注排行的位置的信息
-from helper.company import competitor   # 导入竞争者的信息
-from spider import Message
-# =================================== #
 from helper.mysql_config import *
+from spider import Message
 import urllib3
-from urllib.request import unquote
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # =================================== #
 
 # 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
-ip_info = "http://192.168.6.112:8000/api/"
+ip_info = "http://192.168.1.112:8000/api/"
+# 其实这个搜索也只需要一个人的账号就好了 不用其它账号了
+cookie = "__utma=269921210.1113127844.1564539142.1564567034.1565919391.9; at=9f50676f96ec46e7a88894dd4b7ff91f; sts_chnlsid=Unknown; privacyUpdateVersion=1; jobRiskWarning=true; rd_resume_srccode=402101; is-oversea-acount=0; x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5; adfcid2=none; rd_resume_srccode=402101; zp-route-meta=uid=655193256,orgid=67827992; JsNewlogin=1837743086; zp_src_url=https%3A%2F%2Fpassport.zhaopin.com%2Forg%2Flogin%2Fbind%2Fmobile; diagnosis=0; __utmt=1; adfbid2=0; dywez=95841923.1564567034.8.3.dywecsr=ihr.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/talk/manage.html; rd_resume_actionId=1564551879644655193256; sts_sid=16c4776579071a-0c1dec00e67027-5a13331d-2073600-16c47765791af2; sajssdk_2015_cross_new_user=1; Token=9f50676f96ec46e7a88894dd4b7ff91f; adfcid=none; x-zp-dfp=zlzhaopin-1564541208377-824fee2b5b7e3; urlfrom2=121126445; JSloginnamecookie=15521262081; acw_tc=2760827015645412125101117e0aea7957a2c5bd1a105885e3208f62506ae6; JSpUserInfo=376436655a665266557757754c6f41754869526440655f665f6628772b75446f48754c69576440655666566652775775496f41754869596437652a665966577757754f6f4f754e6952644b655166576624771475086f57751a690d641f655c66376630775875486f4275386936644f655066496651774575406f43754a69546449652666286659775475426f2c7538695f6438652a66556656775075416f4875496950644a6552665f6631773175446f4875426931643b655a6654665f773075296f377544690d641c650966566654771375266f0d7548690e640b6512661566157704750f6f26751e690f641a6517660c661e7710754f6f0c751b691b6449650; LastCity%5Fid=763; promoteGray=; x-zp-device-id=06b355731434d0df4ef09edbd7b01b84; Hm_lvt_38ba284938d5eddca645bb5e02a02006=1564539142; JSShowname=""; LastCity=%E5%B9%BF%E5%B7%9E; dywea=95841923.183147172171786560.1564539142.1564567034.1565919391.9; sts_sg=1; dywec=95841923; adfbid=0; login_point=67827992; login-type=b; sts_deviceid=16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d; urlfrom=121126445; uiioit=3d753d684968426454380b6446684d7959745874566500395f732a753d68496844645e384; loginreleased=1; __utmz=269921210.1564567034.8.3.utmcsr=ihr.zhaopin.com|utmccn=(referral)|utmcmd=referral|utmcct=/talk/manage.html; __utmc=269921210; rt=35bb599e18b44874bc6ae949b368b0d7; rd_resume_actionId=1566197039375655193256; Hm_lpvt_38ba284938d5eddca645bb5e02a02006=1566357374; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%7D; rd_resume_srccode=402101; rd_resume_actionId=1566359926594655193256; dyweb=95841923.184.10.1565919391; __utmb=269921210.184.10.1565919391; sts_evtseq=549"
 
 
 class ZhiLian(object):
     def __init__(self):
-        with open('cookies.json', 'r') as f:
-            self.cookies = json.loads(f.read())['cookies']
+        try:
+            with open('cookies.json', 'r') as f:
+                self.cookies = json.loads(f.read())['cookies']
+        except Exception as e:
+            print('error', e)
+            self.cookies = []
         self.base_url = 'https://www.zhaopin.com/'
         self.goal_url = 'https://rd5.zhaopin.com/job/manage'
         self.hr_url = 'https://rd5.zhaopin.com/resume/apply'
@@ -180,12 +179,12 @@ class ZhiLian(object):
                          ['200100', '11100', '政府/公共事业/非盈利机构'], ['120600', '11100', '学术/科研'],
                          ['100000', '11400', '农/林/牧/渔'], ['100100', '11400', '跨领域经营'], ['990000', '11400', '其他']]
 
-        # self.db = pymysql.connect(host=host,
-        #                           port=port,
-        #                           user=user,
-        #                           password=password,
-        #                           database=database)
-        # self.cursor = self.db.cursor()
+        self.db = pymysql.connect(host=host,
+                                  port=port,
+                                  user=user,
+                                  password=password,
+                                  database=database)
+        self.cursor = self.db.cursor()
 
         # 开启基本的信息
         # self.path = "chromedriver.exe"
@@ -238,25 +237,21 @@ class ZhiLian(object):
         self.driver.refresh()
         # 以下为打开新窗口，加载页面
         # self.driver.execute_script('window.open();')
-        # self.driver.switch_to_window(self.driver.window_handles[1])
-
+        # self.driver.switch_to.window(self.driver.window_handles[1])
         # =================================================== #
 
         self.driver.get(self.search_url)   # 访问目标网站
-        # self.driver.get(self.goal_url)   # 访问目标网站
         time.sleep(2)
         self.driver.refresh()
         try:
-            # 判断是否登录成功还是在登录页面
-            # 1.寻找元素在不在 >>> 2.1.不在的话异常，然后异常里面进行阻塞,处理了后接着运行 2.2.存在表明登录成功
             WebDriverWait(self.driver, 5).until(
-                EC.presence_of_element_located((By.XPATH,
-                     '//div[@class="rd55-header__inner"]/ul/li[6]/a[@class="rd55-header__base-button"]'))
+                EC.presence_of_element_located((
+                    By.XPATH,
+                    '//div[@class="rd55-header__inner"]/ul/li[6]/a[@class="rd55-header__base-button"]'))
             )
         except Exception as e:
-            LOG.error('*=*=*=* 没有找到元素，可能是页面元素信息变更 *=*=*=*=*')
+            LOG.error('*=*=*=*=* 没有找到元素可能是页面元素信息变更 *=*=*=*=*')
             LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
-            # from spider import Message
             # receivers = '聂清娜;张子珏'
             receivers = '朱建坤'
             msg = '智联招聘自动追踪程序:广州市银河在线饰品有限公司:24小时内重新登录来继续抓取信息'
@@ -269,8 +264,6 @@ class ZhiLian(object):
 
         time.sleep(5)
 
-        # 此处是存cookie操作 暂时不管 也没有完成
-
         coo = self.driver.get_cookies()
         cook = list()
         for i in coo:
@@ -279,35 +272,23 @@ class ZhiLian(object):
             cook.append(i)
         # LOG.info('》》》刷新本地的Cookies，保持高可用《《《')
         self.save_cookies(cook)
-
         # =========================================================================================== #
         LOG.info('本地的cookies文件已经刷新')
 
-        # time.sleep(3)
-        # self.do_task()          # 检测简历信息 超过30天发布 和 指定天数未刷新的
-        # self.send_msg()         # 发送发布和刷新信息
-        # time.sleep(3)
-        # ==========================================以下和简历相关=================================== #
-        # from .Resume_Crawl import run       # 遍历每个简历信息
-
-        # run()                                # 开始跑程序
-
-        # self.cursor.close()
-        # self.db.close()
-        # time.sleep(random.randint(5, 10))
-        # self.get_hr_book()           # ====获取hr简历信息====  需  要  打  开  ===================== #
-        # time.sleep(30)
-
-    # 丅========================================== #
         self.search_page()
         self.scroll_page()
 
     def scroll_page(self, n=1):
+        """
+        滑动屏幕用的
+        :param n:
+        :return:
+        """
         for h in range(n):
             self.driver.execute_script(
                "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
-                   a=200 * h, b=200 * (h + 1)))
-            time.sleep(1)
+                   a=70 * h, b=70 * (h + 1)))
+            time.sleep(0.2)
 
     def search_page(self):
         # self.driver.get(self.search_url)
@@ -327,96 +308,138 @@ class ZhiLian(object):
 
         time.sleep(5)
         self.chose_expect_place()   # 选择广州
-        self.chose_date()           # 选择一个月
+        # self.chose_date()           # 选择一个月
 
         # 从这里可以设置循环，然后循环处理职位和公司信息
 
-        # _POS_ = self.get_api_pos()
-        _POS_ = ['Ali', 'ebay', '速卖通', '文员', 'Amazon', 'php', 'python', ]
-        _CMP_ = ['科技', '商务', '外贸']
+        _POS_, _CMP_, k_v = self.get_api_pos()
         time.sleep(1)
+
         for pos in _POS_:
             self.input_position(pos)       # 选择职位》》》可以传递岗位
-            time.sleep(1)
-            for cmp in _CMP_:
-                self.input_working(cmp)        # 选择公司》》》可以传递公司
-                time.sleep(1)
+            search = self.driver.find_element_by_xpath('//div[@class="pull-right"]/button[3]/i')
+            self.driver.execute_script("arguments[0].click();", search)
+            time.sleep(5)
+            whole_num = self.get_whole_numbers()  # 返回 int 类型 数据 总共符合的数量
+            # print('总共的数量:', whole_num)  # 这个大前提下总共的数量
 
-                search = self.driver.find_element_by_xpath('//div[@class="pull-right"]/button[3]/i')
-                self.driver.execute_script("arguments[0].click();", search)
+            if whole_num == 0:
+                LOG.info('0= 没有符合的简历信息')
+                continue
+            if whole_num > 60:
+                # 翻页
+                next_pg = self.driver.find_element_by_xpath('//button[@class="btn-next"]')
+                self.driver.execute_script("arguments[0].click();", next_pg)
+                time.sleep(3)
+                self.driver.execute_script("arguments[0].click();", next_pg)
+                time.sleep(3)
+            # else:
+                v = k_v[pos]
+                v_add_user = v[1]
+                v_receiver = v[0]
+                self.handle_search(pos, v_add_user, v_receiver)  # 这里主要处理有信息的简历
+            else:
+                v = k_v[pos]
+                v_add_user = v[1]
+                v_receiver = v[0]
+                self.handle_search(pos, v_add_user, v_receiver)  # 这里主要处理有信息的简历
 
-                time.sleep(5)
+        box1 = self.driver.find_element_by_xpath('//div[@id="form-item--3"]/div[1]/input')
+        box1.clear()
 
-                whole_num = self.get_whole_numbers()   # 返回 int 类型 数据 总共符合的数量
+        # for cmp in _CMP_:
+        #     self.input_working(cmp)  # 选择公司》》》可以传递公司
+        #     time.sleep(1)
+        #     search = self.driver.find_element_by_xpath('//div[@class="pull-right"]/button[3]/i')
+        #     self.driver.execute_script("arguments[0].click();", search)
+        #     time.sleep(5)
+        #     whole_num = self.get_whole_numbers()  # 返回 int 类型 数据 总共符合的数量
+        #     # print('总共的数量:', whole_num)  # 这个大前提下总共的数量
+        #     if whole_num == 0:
+        #         LOG.info('0= 没有符合的简历信息')
+        #         continue
+        #     else:
+        #         v = k_v[cmp]
+        #         v_add_user = v[1]
+        #         v_receiver = v[0]
+        #         self.handle_search(cmp, v_add_user, v_receiver)  # 这里主要处理有信息的简历
+        #
+        # box2 = self.driver.find_element_by_xpath('//div[@id="form-item-9"]/div[1]/input')
+        # box2.clear()
 
-                if whole_num == 0:
-                    LOG.info('0= 没有符合的简历信息')
-                    continue
-                else:
-                    self.scroll_page()   # 处理第一页的信息之前 滑动一下屏幕 这里面有延时
-                    self.handle_search()  # 这里主要处理有信息的简历
-
-    def handle_search(self):
+    def handle_search(self, key_word, v_add_user, v_receiver):
         tr = self.driver.find_elements_by_xpath('//tbody/tr')
         num = len(tr)
+        # print('num::', num)   # 每一页的数量
         for td in range(num):
             if td % 2 == 0:
                 continue
             else:
                 try:
                     name = self.driver.find_element_by_xpath(f'//tbody/tr[{td}]/td[2]/div/a')
+                    print('name::', name.text)
                 except Exception as e:
-                    # 没有详细信息
+                    print('error:', e)
                     continue
                 else:
-                    time.sleep(1)
-                    self.driver.execute_script("arguments[0].click();", name)
-                    time.sleep(5)
-                    self.handle_search_detail()
-                    self.scroll_page(td)
+                    if '已查看' in name.text:
+                        print('内容已经被查看, 自动跳过需求')
+                        self.scroll_page(td)
+                        time.sleep(1)
+                        continue
+                    else:
+                        self.driver.execute_script("arguments[0].click();", name)
+                        time.sleep(1)
+                        self.handle_search_detail(key_word, v_add_user, v_receiver)
+                        self.scroll_page(td)
 
-    def handle_search_detail(self):
+    def handle_search_detail(self, key_word, v_add_user, v_receiver):
         time.sleep(1)
         window = self.driver.window_handles
-        self.driver.switch_to_window(self.driver.window_handles[len(window)-1])
-        time.sleep(1)
-        self.driver.refresh()
+        self.driver.switch_to.window(self.driver.window_handles[len(window)-1])
         time.sleep(1)
         now_page_url = self.driver.current_url
-        # print(now_page_url)   # https://rd5.zhaopin.com/resume/detail?keyword=amazon&z=402101&resumeNo=JOOVsp%29MbdFln4dJF8d2mA_1_1%3BFB9BCEB64574FD986F14309ACCC91031%3B1565776032783&openFrom=1
 
         resumeNo_handle = now_page_url.split('&')[1:][1]
         main_resumeNo = resumeNo_handle.split('%3B')
 
-        resumeNo_key = main_resumeNo[1]
-        resumeNo_ts = main_resumeNo[2]
+        resumeNo_key = main_resumeNo[1]    # FB9BCEB64574FD986F14309ACCC91031
+        resumeNo_ts = main_resumeNo[2]     # 1565776032783
 
         ID_info = self.driver.find_element_by_xpath("//div[@class='resume-content__header']/span/span[1]").text[3:]
         # print("ID_info::", ID_info)   # JOOVsp)MbdFln4dJF8d2mA
         params = self.params_get(ID_info, resumeNo_key, resumeNo_ts)
         headers = self.headers_get()
         info = self.do_get_requests_detail(params, headers)
-        resume = self.deal_info(info)
+        resume, eid = self.deal_info(info, key_word)
         # print('resume::', resume)
         self.driver.close()
-        self.driver.switch_to_window(self.driver.window_handles[len(window) - 2])
-        time.sleep(1)
-        self.driver.refresh()
-        time.sleep(3)
+        time.sleep(2)
+        self.driver.switch_to.window(self.driver.window_handles[0])
+        time.sleep(5)
         if resume:
-            self.post_resume(resume)
+            self.post_resume(resume, v_add_user, v_receiver, eid)
 
-    def post_resume(self, resume):
+    def post_resume(self, resume, v_add_user, v_receiver, eid):
         info = {
-            'account': 'account',
+            'add_user': v_add_user,
             'data': [resume]
         }
-        print("info::", info)
-        url = 'http://testhr.gets.com:8989/api/autoInsertResume.php?'
-        rq = self.session.post(url, json=info)
-        LOG.info(f'数据的插入详情为:{unquote(rq.text)}')
+        try:
+            print("info::", json.dumps(info))
+            url = 'http://hr.gets.com:8989/api/autoInsertResume.php?'
+            # url = 'http://testhr.gets.com:8989/api/autoInsertResume.php?'
+            rq = self.session.post(url, json=info)
+        except Exception as e:
+            print(e)
+            print('字符编码出问题，已经跳过')
+        else:
+            with open('post_resume.json', 'a') as fl:
+                fl.write(json.dumps(info) + ',\n')
+            LOG.info(f'数据的插入详情为:{rq.text}, 接收者是{v_receiver}')
+            # send_rtx_msg(v_receiver, f'插入的信息的简历id为:{eid}')
 
-    def deal_info(self, info):
+    def deal_info(self, info, key_word):
         if not info.get('data'):
             return ''
         now_year = datetime.datetime.now().year
@@ -431,7 +454,7 @@ class ZhiLian(object):
 
         name = candidate['userName']
         mobile_phone = candidate['mobilePhone'] if candidate.get('mobilePhone') else '0'
-        resume_key = ''
+        resume_key = key_word
         gender = detail['Gender']
         date_of_birth = candidate['birthYear'] + self.handle0(candidate['birthMonth']) + self.handle0(candidate['birthDay'])
         current_residency = candidate['address']
@@ -497,8 +520,8 @@ class ZhiLian(object):
         DesiredPosition = detail['DesiredPosition'][0] if detail['DesiredPosition'] else ''
         working_place_expected = '广州' if '763' in DesiredPosition.get('DesiredCityDistrict') else '其它'
         num_expected = detail['DesiredSalaryScope']
-        time_now = int(data['dateModified'] / 1000)
-        dateModified = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time_now))
+        time_now = time.time()
+        dateModified = time.strftime('%Y-%m-%d', time.localtime(time_now))
         # print('更新日期:', dateModified)
         if num_expected:
             sn = str(num_expected)
@@ -523,14 +546,16 @@ class ZhiLian(object):
             for ifo in info_experience:
 
                 Sly = ifo['Salary']       # 0800110000
-                if Sly[0] == '0':
-                    if Sly[5] == '0':
-                        Salary = Sly[1:5] + '~' + Sly[6:]
+                try:
+                    if Sly[0] == '0':
+                        if Sly[5] == '0':
+                            Salary = Sly[1:5] + '~' + Sly[6:]
+                        else:
+                            Salary = Sly[1:5] + '~' + Sly[5:]
                     else:
-                        Salary = Sly[1:5] + '~' + Sly[5:]
-                else:
-                    Salary = Sly[:5] + '~' + Sly[5:]
-
+                        Salary = Sly[:5] + '~' + Sly[5:]
+                except Exception as e:
+                    Salary = 'None'
                 dic = {
                     '公司名': ifo['CompanyName'],
                     '开始时间': ifo['DateStart'],
@@ -628,7 +653,7 @@ class ZhiLian(object):
         resume['get_type'] = get_type
         resume['external_resume_id'] = external_resume_id
 
-        return resume
+        return resume, external_resume_id
 
     def handle0(self, n):
         if len(n) == 1:
@@ -644,9 +669,7 @@ class ZhiLian(object):
         except:
             LOG.error('status_code: <404> NOT FOUND')
         else:
-            time.sleep(3)
-            # print(response.text)
-            # LOG.info('status_code: <200> OK')
+            time.sleep(7)
             return json.loads(response.text)
 
     @staticmethod
@@ -679,27 +702,39 @@ class ZhiLian(object):
             "sec-fetch-site": "same-origin",
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
             'X-Requested-With': 'XMLHttpRequest',
-            "cookie": "rd_resume_srccode=402101; jobRiskWarning=true; rt=e8c06b41952d485a8a1a163e402eb667; __utmc=269921210; dywec=95841923; __utma=269921210.745608370.1565774809.1565774809.1565774809.1; JSlogie=15521262081; login_point=67827992; at=ba965698103246b298864313e3b2cabc; sts_deviceid=16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d; login-type=b; uiioit=3b622a6459640e644664456a5d6e5a6e5564543856775c7751682c622a64596408644c646; urlfrom=121126445; urlfrom2=121126445; adfcid=none; __utmz=269921210.1565774809.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); acw_tc=2760824315657748143842495e09da051d49ae4e178c13df2092bc658a154c; adfcid2=none; adfbid=0; __utmt=1; dywez=95841923.1564567034.8.3.dywecsr=ihr.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/talk/manage.html; adfbid2=0; diagnosis=0; sts_chnlsid=Unknown; sts_sg=1; dywea=95841923.2660674703251129300.1565774809.1565774809.1565774809.1; rd_resume_actionId=1565774813220655193256; zp-route-meta=uid=655193256,orgid=67827992; x-zp-client-id=da383633-9f36-4c66-a026-46cd3d6e5746; Hm_lvt_38ba284938d5eddca645bb5e02a02006=1565774805; sts_sid=16c8f738caba1b-0e9bbadc75f771-3c375f0d-2073600-16c8f738cac640; Hm_lpvt_38ba284938d5eddca645bb5e02a02006=1565851719; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%7D; rd_resume_srccode=402101; zp_src_url=https%3A%2F%2Frd5.zhaopin.com%2Fcustom%2Fsearchv2%2Fresult; c=iacZehsh-1565851764817-234e64e198724-258072056; _fmdata=RjVcPpTGcffpZk5l0yUErfjZkmBHOjkP6kSghdv6CtCOPuhtK9AFNBZkksKynlUPU7gZblkF2fifR7bH5CeKxE2bHxQ0SPUA0HYhj9k0Iro%3D; _xid=wMwX2dUYMRRqmhWzSFQ1byhjLl1FXWHDFzoVDl4fLr%2BU0MFD0UyhC1N1Uma2SJbxu6yyjyvYGVgCloV3FdO%2B6w%3D%3D; x-zp-dfp=zlzhaopin-1565851764147-f6ff5d1673abe; rd_resume_actionId=1565852122973655193256; dyweb=95841923.83.10.1565774809; __utmb=269921210.83.10.1565774809; sts_evtseq=174"
+            "cookie": cookie
         }
         return headers
 
     @staticmethod
     def get_api_pos():
-        p = requests.get('http://192.168.6.112:8000/api/get/rate/z').text
+        p = requests.get('http://hr.gets.com:8989/api/autoGetKeyword.php').text
         time.sleep(0.5)
+        # p = '[{"id":"124","keywords":"facebook\u5e7f\u544a\u6295\u653e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"123","keywords":"\u7269\u6d41\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"122","keywords":"SEO","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"121","keywords":"\u96f6\u552e\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"120","keywords":"\u51fa\u8d27\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"119","keywords":"SEN","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"118","keywords":"\u7f51\u7edc\u8425\u9500\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"117","keywords":"\u7f8e\u5de5","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"116","keywords":"\u62e3\u8d27\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"115","keywords":"\u6253\u5305\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"114","keywords":"\u8d28\u68c0","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"113","keywords":"\u4ed3\u7ba1\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"112","keywords":"\u5e94\u6536\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"111","keywords":"\u5e94\u4ed8\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"110","keywords":"\u5e94\u4ed8\u4f1a\u8ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"109","keywords":"\u5e94\u6536\u4f1a\u8ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"108","keywords":"\u4f1a\u8ba1\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"107","keywords":"\u8d22\u52a1\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"106","keywords":"\u51fa\u7eb3","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"105","keywords":"\u8d22\u52a1\u6587\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"104","keywords":"\u65e5\u8bed\u4e9a\u9a6c\u900a\u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"103","keywords":"\u5c0f\u8bed\u79cd\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"102","keywords":"\u65e5\u8bed\u62c5\u5f53","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"101","keywords":"\u65e5\u8bed\u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"100","keywords":"\u4e9a\u9a6c\u900a\u65e5\u8bed\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"99","keywords":"\u65e5\u8bed\u4e9a\u9a6c\u900a\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"98","keywords":"\u4ea7\u54c1\u5f00\u53d1\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"97","keywords":"\u5916\u8d38\u8ddf\u5355","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"96","keywords":"\u4ea7\u54c1\u7f16\u8f91","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"95","keywords":"\u91c7\u8d2d\u52a9\u7406","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"94","keywords":"\u4ea7\u54c1\u6587\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"93","keywords":"\u884c\u653f\u6587\u5458","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"92","keywords":"\u7535\u5546\u5ba2\u670d","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"91","keywords":"\u529e\u516c\u5ba4\u6587\u5458","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"90","keywords":"\u6587\u5458","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"89","keywords":"\u91c7\u8d2d","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"88","keywords":"\u91c7\u8d2d\u4e13\u5458","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"87","keywords":"\u4e9a\u9a6c\u900a\u8fd0\u8425\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"86","keywords":"\u4ea7\u54c1\u5f00\u53d1","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"85","keywords":"\u7bb1\u5305\u4e70\u624b","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"84","keywords":"\u5f00\u53d1\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"83","keywords":"\u978b\u5b50\u4e70\u624b","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"82","keywords":"\u670d\u88c5\u4e70\u624b","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"81","keywords":"\u4eba\u4e8b\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"80","keywords":"\u9ad8\u7ea7\u62db\u8058\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"79","keywords":"\u62db\u8058\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"78","keywords":"\u62db\u8058\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"77","keywords":"joom \u9500\u552e\u4e3b\u7ba1","sort":"-1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"76","keywords":"joom\u9500\u552e\u4e13\u5458","sort":"-1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"75","keywords":"joom\u8fd0\u8425","sort":"-1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"74","keywords":"ebay\u8fd0\u8425\u4e13\u5458","sort":"-1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"73","keywords":"ebay\u9500\u552e\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"72","keywords":"ebay\u8d1f\u8d23\u4eba","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"71","keywords":"ebay\u8fd0\u8425","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"70","keywords":"ebay\u9500\u552e","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"69","keywords":"wish\u8fd0\u8425\u4e3b\u7ba1","sort":"-1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"68","keywords":"\u8de8\u5883\u7535\u5546\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"67","keywords":"wish\u9500\u552e\u4e3b\u7ba1","sort":"-1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"66","keywords":"\u5916\u8d38\u4e1a\u52a1\u5458","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"65","keywords":"wish\u9500\u552e\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"64","keywords":"\u5e73\u53f0\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"63","keywords":"\u5e73\u53f0\u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"62","keywords":"wish\u8fd0\u8425\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"61","keywords":"\u72ec\u7acb\u7ad9\u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"60","keywords":"\u72ec\u7acb\u7ad9\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"59","keywords":"\u963f\u91cc\u5df4\u5df4\u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"58","keywords":"Alibaba","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"57","keywords":"joom","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"56","keywords":"wish","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"55","keywords":"eaby","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"54","keywords":"AliExpress","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"53","keywords":"amazon","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"52","keywords":"\u901f\u5356\u901a\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"51","keywords":"\u901f\u5356\u901a\u7ecf\u7406","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"50","keywords":"\u901f\u5356\u901a\u4e3b\u7ba1","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"49","keywords":"\u901f\u5356\u901a\u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"48","keywords":"\u901f\u5356\u901a\u5ba2\u670d","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"47","keywords":"\u901f\u5356\u901a\u52a9\u7406","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"46","keywords":"wish\u8fd0\u8425","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"45","keywords":"\u4e9a\u9a6c\u900a\u7ecf\u7406","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"44","keywords":"\u884c\u653f\u52a9\u7406","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"43","keywords":"\u4e9a\u9a6c\u900a\u4e3b\u7ba1","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"42","keywords":"wish\u9500\u552e","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2244"},{"id":"41","keywords":"\u4eba\u4e8b\u52a9\u7406","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"40","keywords":"\u884c\u653f\u7ecf\u7406","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"39","keywords":"\u884c\u653f\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"38","keywords":"\u7ee9\u6548\u85aa\u916c\u7ecf\u7406","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"37","keywords":"\u7ee9\u6548\u85aa\u916c\u4e3b\u7ba1","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"36","keywords":"\u4e9a\u9a6c\u900a\u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"35","keywords":"\u4e9a\u9a6c\u900a\u52a9\u7406","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"34","keywords":"\u4e9a\u9a6c\u900a\u5ba2\u670d","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"33","keywords":"Python","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"32","keywords":"\u4e9a\u9a6c\u900a\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"31","keywords":"PHP","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"30","keywords":"\u7ee9\u6548\u85aa\u916c\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"29","keywords":"\u884c\u653f\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"28","keywords":"\u884c\u653f\u524d\u53f0","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"27","keywords":"\u4eba\u4e8b\u4e13\u5458","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"26","keywords":"\u62db\u8058\u7ecf\u7406\/\u4e3b\u7ba1","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"25","keywords":"\u62db\u8058\u4e13\u5458\/\u52a9\u7406","sort":"0","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"24","keywords":"HRBP","sort":"1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"23","keywords":"\u8d5b\u7ef4","sort":"1","receiver":"\u5f20\u5b50\u73cf","rtx_new":"1","add_user":"2086"},{"id":"22","keywords":"\u5b9d\u89c6\u4f73","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"21","keywords":"\u73af\u7403\u6613\u8d2d","sort":"1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"20","keywords":"\u51ef\u4e50\u77f3","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"19","keywords":"\u4ef7\u4e4b\u94fe","sort":"1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"18","keywords":"\u667a\u84dd","sort":"1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"17","keywords":"\u901a\u62d3","sort":"1","receiver":"\u6768\u56fd\u73b2","rtx_new":"1","add_user":"2086"},{"id":"16","keywords":"\u8e0f\u6d6a\u8005","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"15","keywords":"\u6709\u68f5\u6811","sort":"1","receiver":"\u5f20\u5b50\u73cf","rtx_new":"1","add_user":"2086"},{"id":"14","keywords":"\u5e7f\u5dde\u5929\u89c5","sort":"1","receiver":"\u5f20\u5b50\u73cf","rtx_new":"1","add_user":"2086"},{"id":"13","keywords":"AliExpress \u901f\u5356\u901a\u9500\u552e \u901f\u5356\u901a\u8fd0\u8425","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2086"},{"id":"12","keywords":"\u8d26\u53f7\u7533\u8bc9\u5458 | \u5e97\u94fa\u98ce\u63a7\u4e13\u5458","sort":"0","receiver":"\u5f20\u5b50\u73cf","rtx_new":"1","add_user":"2215"},{"id":"11","keywords":"\u5e7f\u5dde\u5170\u4ead\u96c6\u52bf\u8d38\u6613(\u6df1\u5733)\u6709\u9650\u516c\u53f8","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"10","keywords":"\u6ee1\u7ffc","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"9","keywords":"\u5e7f\u5dde\u9ad8\u767b\u76ae\u5177","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"8","keywords":"\u7ec6\u523b","sort":"1","receiver":"\u5f20\u5b50\u73cf","rtx_new":"1","add_user":"2215"},{"id":"7","keywords":"\u767e\u4f26\u8d38\u6613","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"6","keywords":"\u5e7f\u5dde\u65f6\u6613\u4e2d\u4fe1\u606f\u79d1\u6280\u6709\u9650\u516c\u53f8","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"5","keywords":"\u5e7f\u5dde\u5e02\u84dd\u6df1\u8d38\u6613\u6709\u9650\u516c\u53f8","sort":"1","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"4","keywords":"\u4e9a\u9a6c\u900a\u8fd0\u8425  \u9500\u552e","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"3","keywords":"\u670d\u88c5\u4e70\u624b\/\u978b\u5b50\u4e70\u624b\/\u7bb1\u5305\u4e70\u624b","sort":"0","receiver":"\u9648\u6dfc\u7075","rtx_new":"1","add_user":"2114"},{"id":"2","keywords":"\u68d2\u8c37","sort":"1","receiver":"\u8042\u6e05\u5a1c","rtx_new":null,"add_user":"2086"},{"id":"1","keywords":"\u4e00\u767e\u79d1\u6280","sort":"1","receiver":"\u8042\u6e05\u5a1c","rtx_new":null,"add_user":"2086"}]'
         data = json.loads(p)
-        pos = data['data']
-        keywords = []
-        for key in pos:
-            keywords.append(key)
-        return keywords
+        pos = []
+        cmp = []
+        k_v = {}
+        for key in data:
+            kw = key.get('keywords')
+            user = key.get('add_user')
+            receiver = key.get('receiver')
+            if receiver is None:
+                receiver = '系统机器人'
+            if key.get('sort') == '0':
+                pos.append(kw)
+            else:
+                cmp.append(kw)
+            k_v[kw] = (receiver, user)
+        return pos, cmp, k_v
 
     def get_whole_numbers(self):
         try:
-            time.sleep(3)
+            print('do fast change page')
+            time.sleep(10)
             page_source = self.driver.page_source
             time.sleep(3)
-            reg = re.compile('<span data-bind="text: total" class="has-text-highlight">(\d*?)</span>', re.S)
+            reg = re.compile('<span data-bind="text: total" class="has-text-highlight">(\d*?)</span>')
             num = reg.findall(page_source)[0]
         except Exception as e:
             print('error:', e)
@@ -708,18 +743,21 @@ class ZhiLian(object):
             return int(num)
 
     def input_position(self, pos=None):
-        time.sleep(0.8)
+        time.sleep(1.5)
         box1 = self.driver.find_element_by_xpath('//div[@id="form-item--3"]/div[1]/input')
         box1.clear()
         box1.send_keys(pos)
-        time.sleep(0.5)
+        time.sleep(1.5)
+        # checkbox = self.driver.find_element_by_xpath('//div[@class="k-form-item__content is-narrow"]//label[@role="checkbox"][1]/span[@class="k-checkbox__input"]/span/i')
+        # self.driver.execute_script("arguments[0].click();", checkbox)
+        # time.sleep(1.5)
 
     def input_working(self, tec=None):
-        time.sleep(0.8)
+        time.sleep(1.5)
         box2 = self.driver.find_element_by_xpath('//div[@id="form-item-9"]/div[1]/input')
         box2.clear()
         box2.send_keys(tec)
-        time.sleep(0.5)
+        time.sleep(1.5)
 
     def chose_date(self):
         time.sleep(2)
@@ -744,100 +782,25 @@ class ZhiLian(object):
         optional2 = self.driver.find_element_by_xpath('//div[@id="form-item-35"]/div/div/input')
         self.driver.execute_script("arguments[0].click();", optional2)
         try:
-            WebDriverWait(self.driver, 3).until(
+            WebDriverWait(self.driver, 5).until(
                 EC.element_to_be_clickable(
                     (By.XPATH, '//div[@id="filter-item-dialog-select--35"]//div[@class="k-dialog__footer"]/a[2]'))
             )
         except Exception as e:
             LOG.warning('选择期望工作地点失败，默认就是全国')
         else:
-            time.sleep(1)
+            time.sleep(2)
             chosen_GZ = self.driver.find_element_by_xpath(
                 '//div[@data-option-id="0-2"]//span[@class="k-checkbox__inner"]/i')
             self.driver.execute_script("arguments[0].click();", chosen_GZ)
-            time.sleep(1)
+            time.sleep(2)
             chosen_place_sure = self.driver.find_element_by_xpath(
                 '//div[@id="filter-item-dialog-select--35"]//div[@class="k-dialog__footer"]/a[3]')
             self.driver.execute_script("arguments[0].click();", chosen_place_sure)
 
-        time.sleep(0.5)
+        time.sleep(1)
 
     # 丄============================================ #
-
-    def get_hr_book(self):
-        time.sleep(random.randint(3, 5))
-        self.driver.get(self.hr_url)
-        time.sleep(random.randint(3, 5))
-        all_num = self.driver.find_element_by_xpath('//div[@class="k-tabs__nav-wrapper"]/div/div[1]/span[2]').text
-        print('所有简历数量为：', all_num)
-        all_page = self.driver.find_element_by_xpath('//span[@class="k-pagination__total"]').text
-        reg = re.compile('(\d*)')
-        page = int([i for i in reg.findall(all_page) if i != ''][0])    # 总共的页数
-        print('所有页数为：', page)
-        for h in range(8):
-            self.driver.execute_script(
-                "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
-                    a=500 * h, b=500 * (h + 1)))
-            time.sleep(1)
-
-        for _ in range(1, page+1):
-            try:
-                LOG.info(f'当前位置为第{_}页！')
-                WebDriverWait(self.driver, 86400, poll_frequency=30).until(
-                    EC.presence_of_element_located(
-                        (By.XPATH, '//button[@class="btn-next"]'))
-                )
-                for h in range(8):
-                    self.driver.execute_script(
-                        "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
-                            a=500 * h, b=500 * (h + 1)))
-                    time.sleep(1)
-
-            except Exception as e:
-                LOG.debug('没有找到下一页')
-                break
-            else:
-                self.parse_page()
-                LOG.debug('准备前往下一页')
-                if _ > 4:
-                    LOG.info('只查询前5页简历信息，现在页码超过5页，退出查询')
-                    break
-                self.do_next_pg()
-
-    def parse_page(self):
-        time.sleep(random.randint(3, 5))
-        # from spider import Message
-        receivers = '聂清娜;张子珏'                                        # <<<======
-        button = self.driver.find_element_by_xpath('//div[@class="resume-header__actions"]//i[@class="fa fa-th-list"]')
-        self.driver.execute_script("arguments[0].click();", button)
-        time.sleep(random.randint(3, 8))
-        # print(self.driver.page_source)
-        # 人员 ： //div[@class="fixable-list__body"]/div[1]//div[@class="user-name__inner"]/a/span/text()
-        # 职位 ： //div[@class="fixable-list__body"]//p[@class="job-title"]/text()
-        # 公司 ： //div[@class="fixable-list__body"]/div[2]//div[@class="cell-extend-simple"]//dl[1]/dd//li[1]/span[2]
-        main_nodes = self.driver.find_elements_by_xpath('//div[@class="fixable-list__body"]/div[1]//div[@class="user-name__inner"]/a/span')
-
-        time.sleep(random.randint(3, 8))
-        for i in range(len(main_nodes)):
-            staff = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]/div[1]//div[@class="user-name__inner"]/a/span').get_attribute('title')
-            position = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]//p[@class="job-title"]')
-            company = self.driver.find_element_by_xpath(f'//div[@class="fixable-list__body"][{i+1}]/div[2]//div[@class="cell-extend-simple"]//dl[1]/dd//li[1]/span[2]')
-            time.sleep(1)
-            dic = {
-                "staff": staff if staff else '',
-                "position": position.text if position else '',
-                "company": company.text if company else ''
-            }
-            # jsd = json.dumps(dic)
-            with open(self.base_dir + r'\resume.txt', 'a') as f:
-                f.write(str(dic) + ',\n')
-            # print('*-*-*-*-*-*-*-*-' * 6 + '\n', dic)
-
-            if dic["staff"] in competitor:
-                msg = f'应聘{dic["position"]}的{dic["staff"]}曾经在{dic["company"]}工作过'
-                Message.send_rtx_msg(receivers, msg)
-
-        LOG.info('抢人程序跑完了》》等待接下来的操作')
 
     def do_next_pg(self):
         time.sleep(random.randint(3, 5))
@@ -948,106 +911,6 @@ class ZhiLian(object):
 
         return days    # 返回天数 int 类型
 
-    def fresh_recruit(self):
-        """
-        2天前的刷新信息
-        :return:
-        """
-        try:
-            WebDriverWait(self.driver, 1800).until(
-                EC.element_to_be_clickable((By.XPATH, '//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]'))
-            )
-        except Exception as e:
-            LOG.error('*=*=*=* 没有找到元素，可能是页面元素信息变更 *=*=*=*=*')
-            LOG.error('*=*=*=* 现在需要管理员重新登录页面来刷新cookie *=*=*=*')
-            receivers = '朱建坤'                                              # <<<======
-            msg = '智联相关的程序需要重新检测！'
-            Message.send_rtx_msg(receivers, msg)
-        else:
-            time.sleep(3)
-            ind = 0
-            num = 0
-            # 任务需求：检测到数据是2天没有刷新的就提醒
-            # xpath: //tr[@class="k-table__row"]/td[3]/div/p/span
-            # WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.XPATH, '')))
-            # company = self.driver.find_element_by_xpath('//div[@class="user__basic"]/span[@class="user__name"]/span').text
-            company = self.driver.find_element_by_xpath('//td[@class="k-table__column"][5]').get_attribute('title')
-            # company = '广州市银河在线饰品有限公司'
-            page = self.driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
-            # print('fresh_recruit:page:', page)
-            main_nodes = self.driver.find_elements_by_xpath('//table/tbody/tr[@class="k-table__row"]/td[3]')
-
-            api_all = self.get_info_api(company)   # 从规定的api里面获取到需要的信息  # dict
-            pstn = [i['info'] for i in api_all['data'] if i]
-
-            page_source = self.driver.page_source
-
-            if company.strip() == "广州市银河在线饰品有限公司":
-                com = '1'
-            elif company.strip() == "广州外宝电子商务有限公司":
-                com = '2'
-            elif company.strip() == "广州时时美电子商务有限公司":
-                com = '3'
-            else:
-                com = '1'
-
-            reg = re.compile('>刷新时间：(.*?)</span>', re.S)
-            time.sleep(5)
-            li = reg.findall(page_source)
-
-            time.sleep(1)
-
-            qunty_xp = len(main_nodes)
-            qunty_re = len(li)
-
-            if qunty_xp > qunty_re:
-                minu = qunty_xp - qunty_re
-                for _ in range(minu):
-                    li.insert(0, '')
-
-            for node in main_nodes:
-                time.sleep(2)
-                try:
-                    posi = node.find_element_by_xpath('./div').get_attribute('title')   # 判断 如果不在就插入 在就不管
-                except Exception as e:
-                    LOG.warning('这个节点没有信息')
-                    posi = ''
-
-                try:
-                    i = li[ind].strip()
-                except:
-                    i = ''
-
-                if posi not in pstn:
-                    if posi:
-                        self.insert_mysql_one(com, posi)
-                    lateRemind = '2'
-                else:
-                    y = api_all['data'][pstn.index(posi)]
-                    y = y['lateRemind']
-                    lateRemind = str(y)   # 获取需要提醒的天数
-
-                ind += 1
-
-                # print('简历时间 i:', i)    07-09 19:59（28天前）
-                if i:
-                    month = int(i[:2])     # 07
-                    day = int(i[3:5])      # 27
-                    # hour = int(i[6:8])  # 09
-                    nums = self.dayBetweenDates(month, day)
-                    self.update_mysql_one(posi, i[:5])
-                    if nums > int(lateRemind):
-                        num += 1  # 统计有几个信息超过指定天没有刷新，有一个就加1
-                else:
-                    LOG.warning('没有查找到时间节点')
-                    self.update_mysql_one(posi, 'Null')
-                    continue
-
-            msg = f'您在{company}账号的第{page}页有{num}条简历信息超过规定天数没有刷新了'
-            LOG.info(msg)
-            self.refresh_queue.put(msg)
-            return int(page)
-
     @staticmethod
     def get_info_api(company='1'):
         time.sleep(0.5)
@@ -1066,188 +929,20 @@ class ZhiLian(object):
         # print('info:', type(info), info)   # dict
         return info
 
-    def update_mysql_one(self, posi, dtm):
-        sql = f'update info set lastFresh = "{dtm}" where info = "{posi.strip()}" and account=1'
-
-        try:
-            LOG.info('数据库准备修改数据>>>>>>>')
-            self.cursor.execute(sql)
-            self.db.commit()
-            time.sleep(0.3)
-        except Exception as e:
-            LOG.warning('数据错误已经回滚>>>>>>>')
-            self.db.rollback()
-
-    def insert_mysql_one(self, com, posi):
-        # 方案一 ======== api插入  服务端会出错
-        # time.sleep(0.5)
-        # pos = quote(posi)        # 这里需要处理下url
-        # post_url = f'http://127.0.0.1:8000/api/post/{com}/z/{pos}'
-        # time.sleep(0.5)
-        # self.session.post(post_url)
-        # 方案二 ======== 直接插入
-        sql = f'insert into info(info, isRemind, lateRemind, account, platform) values ("{posi.strip()}", "1" , "2", "{com}", "智联")'
-
-        try:
-            LOG.info('数据库准备输入>>>>>>>')
-            self.cursor.execute(sql)
-            self.db.commit()
-            time.sleep(0.3)
-        except Exception as e:
-            LOG.warning('数据错误已经回滚>>>>>>>')
-            self.db.rollback()
-
     def ipage(self):
+        """
+        就是判断下页码数量没记错的话
+        :return:
+        """
         for h in range(8):
             self.driver.execute_script(
                 "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
-                    a=500 * h, b=500 * (h + 1)))
-            time.sleep(1)
+                    a=300 * h, b=300 * (h + 1)))
+            time.sleep(0.5)
 
         page = self.driver.find_elements_by_xpath('//div/ul[@class="k-pager"]/li')
         num = len(page)
         return num
-
-    def release_date(self):
-        """
-        检测30天信息
-        :return:
-        """
-        WebDriverWait(self.driver, 30).until(
-            EC.element_to_be_clickable((By.XPATH, '//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]'))
-        )
-        time.sleep(5)
-        num = 0
-        # 任务需求： 发布日期大于30天的提醒
-        # xpath: //tr[@class="k-table__row"]/td[4]
-        company = self.driver.find_element_by_xpath('//div[@class="rd55-header__login-point"]/span').text
-        info = self.driver.find_elements_by_xpath('//tr[@class="k-table__row"]/td[4]')
-        page = self.driver.find_element_by_xpath('//div/ul[@class="k-pager"]/li[contains(@class, "is-active")]').text
-        for i in info:
-            # i = " 2019-07-27 "
-            i = i.text.strip()
-            # print('30 i :', i)
-            if i:
-                month = int(i[5:7])
-                day = int(i[-2:])
-                nums = self.dayBetweenDates(month, day)
-                if nums > 30:
-                    num += 1  # 统计有几个信息超过30天没有 重新发布/上线
-            else:
-                continue
-        msg = f'您在{company}账号的第{page}页有{num}个信息超过30天没有 重新发布/上线'
-        LOG.info(msg)
-        self.output_queue.put(msg)
-
-    def fresh_cookie(self):
-        # 获取cookie 相当于刷新
-        rep = requests.get(self.base_url, cookies=self.cookies)
-        time.sleep(5)
-        coo = rep.cookies
-        print(coo)
-        cook = requests.utils.dict_from_cookiejar(coo)  # cookies 信息： {'at': 'bc68fccbe0994b6d8f20f10c6bf11e76',...
-        print(cook)
-        # return cook
-
-    def send_msg(self):
-        """
-        发送消息的函数
-        receivers = 字符串,多个信息用 英文分号 分割
-        :return:
-        """
-        # receivers = '朱建坤'                                              # <<<======
-        receivers = '聂清娜;张子珏'
-        f_n = 0
-        o_n = 0
-        fresh_msg = ''
-        output_msg = ''
-        # 从消息队列中把应该获取的信息拼接，下面那个循环一样的
-        for _ in range(self.refresh_queue.qsize()):
-            if self.refresh_queue.empty():
-                break
-            else:
-                m = self.refresh_queue.get()
-                fresh_msg += m
-
-        for _ in range(self.output_queue.qsize()):
-            if self.output_queue.empty():
-                break
-            else:
-                m = self.output_queue.get()
-                output_msg += m
-
-        fre_re = re.compile(r'(\d*)条简历信息')
-        out_re = re.compile(r'(\d*)个信息')
-        cmp_re = re.compile(r'您在(\w+)账号的第')
-        nm = fre_re.findall(fresh_msg)
-        om = out_re.findall(output_msg)
-        comp = cmp_re.findall(fresh_msg)[0]
-        com_re = re.compile(r'(\w+?)账号的第')
-        company = com_re.findall(comp)[0]
-        # print('company:::', company)
-        for i in nm:
-            f_n += int(i)
-        if f_n > 0:
-            msg = f'您在智联的<<{company}>>账号的招聘信息总共有{f_n}条超过规定天数没有刷新了请及时处理,修改提醒请点击\n' \
-                  f'http://192.168.6.112:8000/admin \n然后在后台管理系统中处理'
-            post_data = {
-                "sender": "系统机器人",
-                "receivers": receivers,
-                "msg": msg,
-            }
-            LOG.info('》》》》》系统发送刷新信息成功')
-            self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
-            print('msg:::', msg)
-        else:
-            LOG.info('>>>>>>>>>没有需要发送的<刷新>信息')
-
-        for i in om:
-            o_n += int(i)
-        if o_n > 0:
-            msg = f'您在智联的{company}账号的招聘信息总共有{o_n}条超过30天没有重新发布/上线'
-            post_data = {
-                "sender": "系统机器人",
-                "receivers": receivers,
-                "msg": msg,
-            }
-            LOG.info('》》》》》系统发送发布信息成功')
-            self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
-        else:
-            LOG.info('>>>>>>>>>没有需要发送的<发布>信息')
-
-    def do_task(self):
-        """
-        任务翻页以及处理同样的信息事情
-        :return:
-        """
-        while True:
-            # page 为总共有多少页
-            page = self.ipage()
-            # print(f'总共有:{page}页')
-            # 搜索该页面的刷新信息
-            nowpage = self.fresh_recruit()    # 返回当前所在的页面
-            # 搜索该页面的发布信息
-            LOG.info('*' * 50)
-            self.release_date()
-            # 此页面处理完毕后，判断页面是否有下一页，然后处理是否翻页
-            if nowpage < page:
-                # 有下一页，点击下一页
-                button = self.driver.find_element_by_xpath('//div[@class="k-pagination pagination-jobs"]/button[2]')
-                self.driver.execute_script("arguments[0].click();", button)
-                LOG.info(f'在第{nowpage}页运行成功')
-                time.sleep(5)
-            else:
-                break
-
-    def test(self):
-        """
-        开发时候使用的测试函数
-        :return:
-        """
-        # self.dayBetweenDates(1, 25)  # 直接返回天数
-        # test01: 测试携带cookie登录
-        self.get_post_page()      # 《《《 需要开
-        self.driver.quit()
 
     def run(self):
         """
@@ -1258,264 +953,26 @@ class ZhiLian(object):
         self.driver.quit()
 
 
-class Rate(object):
+def send_rtx_msg(receivers, msg):
     """
-    智能检测排名靠后问题程序
+    rtx 提醒
+    :param receivers:
+    :param msg:
+    :return:
     """
-    def __init__(self):
-        self.base_url = 'https://sou.zhaopin.com/'
-        self.js_url = 'https://fe-api.zhaopin.com/c/i/sou?'
-        self.headers = {
-            'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36',
-            'referer': 'https://www.zhaopin.com/',
-        }
-        self.pos_que = Queue()      # 职位准备存入队列
-        self.db = pymysql.connect(host=host,
-                                  port=port,
-                                  user=user,
-                                  password=password,
-                                  database=database)
-        self.cursor = self.db.cursor()
-
-    def next_page(self):
-        """
-        处理下一页 以及 判断总共页数
-        :return:
-        """
-        try:
-            # self.browser.find_element_by_class_name('btn soupager__btn soupager__btn--disable')  # 没有下一页的标志
-            self.browser.find_element_by_class_name('btn soupager__btn')                           # 能翻页
-        except Exception as e:
-            # 最后一页
-            status = False
-        else:
-            # 有下一页
-            status = True
-        finally:
-            print(status)
-            return status
-
-    def case_rate(self):   # selenium
-        # https://sou.zhaopin.com/?jl=763&sf=0&st=0&kw=python&kt=3&p=3
-        # 以下内容为初版内容, 后续没有用到的，也不需要用到这里
-        self.browser.get(self.base_url)
-        WebDriverWait(self.browser, 10).until(
-            EC.element_to_be_clickable((By.XPATH, '//div[@class="a-modal__content"]/div/button'))
-        )
-        self.browser.find_element_by_xpath('//div[@class="a-modal__content"]/div/button').click()
-        time.sleep(2)
-        LOG.info('二 》》》排名靠后检测问题程序打开')
-        for position in ['']:
-            input_box = self.browser.find_element_by_class_name('search-box__common__input')
-            time.sleep(1)
-            input_box.clear()
-            time.sleep(1)
-            input_box.send_keys(position)
-            print('能走到这里')
-            time.sleep(1)
-            for _ in range(1, 6):
-                # self.browser.execute_script(jd)
-                for h in range(20):
-                    self.browser.execute_script(
-                        "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
-                            a=500 * h, b=500 * (h + 1)))
-                    time.sleep(1)
-
-                time.sleep(10)
-                if self.next_page():   # 判断是否有下一页，有的话就翻页，没有就break
-                    # 翻页
-                    print('有下一页')
-                    pass
-                else:
-                    LOG.info(f'《{position}》这个职位没有下一页了当前为第{_}页')
-                    break
-                time.sleep(10)
-
-    def update_mysql_one(self, pg, kew, cnt):
-        sql = f'update keyword set pageinfo = {pg}, posi_nums = {cnt} where keyword = "{kew.strip()}"'
-
-        try:
-            LOG.info('数据库准备修改数据>>>>>>>')
-            self.cursor.execute(sql)
-            self.db.commit()
-            time.sleep(0.3)
-        except Exception as e:
-            LOG.warning('数据错误已经回滚>>>>>>>')
-            self.db.rollback()
-
-    def session_get(self):
-        while True:
-            if self.pos_que.empty():
-                break
-            else:
-                position = self.pos_que.get()
-                time.sleep(5)
-                for page in range(6):
-                    start = page * 90
-                    now_page = page + 1       # 现在页数
-                    params = {
-                        "start": str(start),
-                        "pageSize": "90",  # 每页数据
-                        "cityId": "763",  # 广州
-                        "workExperience": "-1",
-                        "education": "-1",
-                        "companyType": "-1",
-                        "employmentType": "-1",
-                        "jobWelfareTag": "-1",
-                        "kw": position,
-                        "kt": "3",      # 这个参数很重要，没有就服务器错误
-                        # "_v": "0.33455201",  # <<<<<<<<<<<
-                        # "x-zp-page-request-id": f"475845d52fa846b9b68d41ef6fce3fca-{int(time.time() * 1000)}-972139",  # <<<<<<
-                        # "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
-                        # 上面三个数据都不重要，可以不传输的
-                    }
-                    time.sleep(10)
-                    try:
-                        requests.packages.urllib3.disable_warnings()
-                        resp = requests.get(self.js_url, params=params, headers=self.headers, verify=False)
-                    except Exception as e:
-                        LOG.error(f'{position}职位的第{now_page}页内容已经写入失败》[可能：请求信息过期或者没有后续页面了]》')
-                        break
-                    else:
-                        dic = json.loads(resp.text, encoding='utf-8')
-                        count = dic['data']['count']
-                        LOG.info(f'{position}这个岗位总共有{count}个发布信息')
-                        if int(count) > 90:
-                            last_page = int(count) // 90      # 获取最后一页页码
-                        else:
-                            last_page = 1
-                        data = dic['data']['results']    # list
-                        now_info = [f'{position}:{now_page}:::']
-                        for com in data:
-                            co = com['company']['name']    # goal
-                            now_info.append(co)
-                        time.sleep(1)
-                        with open('information.txt', 'a', encoding='gb18030') as f:
-                            f.write(str(now_info) + '\r\n')
-                        LOG.info(f'{position}职位的第{now_page}页内容已经写入成功》》》》》》')
-                        now_page_info = set(now_info)
-                        if now_page_info & o_comp:
-                            self.update_mysql_one(now_page, position, count)
-                            LOG.info(f'##### 在第{now_page}页的<<{position}>>职位查到公司信息')
-                            break    # 只要在规定页码内查到公司信息就可以退出了
-
-                        self.update_mysql_one(0, position, count)
-
-                        if count <= start:
-                            LOG.info(f"<<<{position}>>>职位只有{now_page}页数据，已经停止搜索")
-                            break
-
-                        if now_page == last_page:
-                        #     print('now_page::', now_page)
-                        #     print('last_page::', last_page)
-                        #     if True:   # False
-                        #         self.update_mysql_one(0, position, count)
-                        #         LOG.warning(f'智联)))){position}>>职位没有在规定页码内，需要处理')
-                        #         # from spider import Message
-                        #         # receivers = '聂清娜;朱建坤'                                              # <<<======
-                        #         receivers = '朱建坤'
-                        #         msg = f'<<{position}>>职位没有在规定页码内，需要处理'
-                        #         Message.send_rtx_msg(receivers, msg)
-                            break
-
-    def save_pos(self):
-        p = requests.get('http://192.168.6.112:8000/api/get/rate/z').text
-        time.sleep(0.5)
-        data = json.loads(p)
-        pos = data['data']
-        for p in pos:
-            info = p['keyword']
-            LOG.info(f'！！！>>> {info} 职位已经放入队列 >>>>>')
-            self.pos_que.put(info)
-
-    @staticmethod
-    def requests_info():
-        page = requests.get('http://192.168.6.112:8000/api/get/rate/z').text
-        time.sleep(0.5)
-        data = json.loads(page)
-        pos = data['data']
-        main_info = []
-        for p in pos:
-            kw = p['keyword']
-            pi = p['pageinfo']
-            test = (kw, pi)
-            if pi == 0:
-                main_info.append(test)
-
-        return main_info
-
-    def requests_json(self):
-        with open('information.txt', 'a') as f:
-            f.write(time.ctime(time.time()) + '::开始记录公司信息\n')
-            f.write('=' * 50 + '\n')    #
-        # self.re_get()
-        q1 = []
-        for i in range(1):
-            t1 = Thread(target=self.save_pos)
-            t1.start()
-            LOG.info(f'#####存职位》》的线程{i}已经启动#####')
-            q1.append(t1)
-
-        time.sleep(random.randint(3, 7))
-
-        q2 = []
-        for i in range(2):
-            t2 = Thread(target=self.session_get)
-            LOG.info(f'#####搜信息》》的线程{i}已经启动#####')
-            t2.start()
-            q2.append(t2)
-
-        time.sleep(random.randint(2, 5))
-        for i in q1:
-            i.join()
-        LOG.info(f'#####存职位》》的线程已经回收#####')
-        for i in q2:
-            i.join()
-        LOG.info(f'#####搜信息》》的线程已经回收#####')
-
-    def run(self):
-        try:
-            # self.case_rate()  # 《《《 需要开
-            self.requests_json()   # https://fe-api.zhaopin.com/c/i/sou?
-        except Exception as e:
-            # 程序出错，可能需要处理
-            LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
-            receivers = '朱建坤'
-            # receivers = '聂清娜;张子珏;杨国玲;陈淼灵'                        # <<<======
-            msg = '自动排查排名靠后程序yhzx出错'
-            Message.send_rtx_msg(receivers, msg)
-        else:
-            out_page = self.requests_info()
-            if len(out_page) > 0:
-                receivers = '聂清娜;张子珏;杨国玲;陈淼灵'
-                msg = '智联岗位页面排行信息已经筛选出来，有关键字信息不在规定信息内可以在后台管理《排名信息》里面查看\n' \
-                      '快速链接:http://192.168.6.112:8000/admin \n' \
-                      '也可以在后台添加需要关注的关键字信息进行关注__系统会第二天自动搜索查询(如果都在指定页数则不提醒，仍然可以通过后台查询管理)'
-                Message.send_rtx_msg(receivers, msg)
+    post_data = {
+        "sender": "系统机器人",
+        "receivers": receivers,
+        "msg": msg,
+    }
+    ZhiLian().session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
 def main():
     app1 = ZhiLian()
     app1.run()
-    # try:
-    #     app1.run()
-    #     LOG.info('招聘信息》》》抓取进程开启成功')
-    # except Exception as e:
-    #     receivers = '朱建坤'
-    #     msg = '2基本信息筛选1 出现问题，需要调试'
-    #     Message.send_rtx_msg(receivers, msg)
-
-    # time.sleep(random.randint(30, 60))   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
-    #
-    # app2 = Rate()
-    # try:
-    #     app2.run()
-    #     LOG.info('页面信息》》》抓取进程开启成功')
-    # except Exception as e:
-    #     receivers = '朱建坤'
-    #     msg = '排行程序出现问题需要调试'
-    #     Message.send_rtx_msg(receivers, msg)
 
 
 if __name__ == '__main__':
     main()
+

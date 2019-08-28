@@ -9,9 +9,8 @@ import json
 from utils.logger import *
 
 from spider.cookies import cookie                            # 里面配置cookie
-# 每天一次 就
 account_main = 'wwet67827992'                                #
-POST_URL = 'http://testhr.gets.com:8989/api/autoAceUpdateResumeChannel.php?'   # post to
+POST_URL = 'http://hr.gets.com:8989/api/autoAceUpdateResumeChannel.php?'   # post to
 session = requests.Session()
 base_url = "https://rd5.zhaopin.com/api/rd/assets/summary?"
 
@@ -252,12 +251,8 @@ def report_send_rtx_msg(receivers, msg):
 
 if __name__ == '__main__':
     while True:
-        try:
-            do_requests()
-            report_do_requests()
-        except:
-            send_rtx_msg('聂清娜', '等待重新添加新的cookie信息到zhilian_yhzx_all/spider/cookies.py')
-            input('添加cookie后在终端按回车键继续')
+        do_requests()
+        report_do_requests()
         for _ in range(86400):
             n = _ // 1728
             print(f'\rloading: {(50 -n) * "=" + n * ">"}', end="")

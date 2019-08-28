@@ -331,8 +331,8 @@ class Cart(object):
 
         working_place_expected = '广州' if candidate['cityId'] == '763' else '其它'
         num_expected = detail['DesiredSalaryScope']
-        time_now = int(candidate['dateModified'] / 1000)
-        dateModified = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time_now))
+        time_now = time.time()
+        dateModified = time.strftime('%Y-%m-%d', time.localtime(time_now))
         # print('更新日期:', dateModified)
         if num_expected:
             sn = str(num_expected)

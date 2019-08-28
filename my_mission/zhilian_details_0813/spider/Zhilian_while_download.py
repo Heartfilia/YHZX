@@ -16,7 +16,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 # =================================== #
 import urllib3
-from spider.cookies import *
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -610,8 +609,8 @@ class ResumeDownloader(object):
 
         working_place_expected = '广州' if candidate['cityId'] == '763' else '其它'
         num_expected = detail['DesiredSalaryScope']
-        time_now = int(jobResume['createdate'] / 1000)
-        dateModified = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time_now))
+        time_now = time.time()
+        dateModified = time.strftime('%Y-%m-%d', time.localtime(time_now))
         # print('更新日期:', dateModified)
         if num_expected:
             sn = str(num_expected)
@@ -788,6 +787,7 @@ class ResumeDownloader(object):
 
     @staticmethod
     def headers_get(resume_no):
+        from spider.cookies import cookie
         headers = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Content-Type': 'text/plain',
@@ -875,57 +875,27 @@ class ResumeDownloader(object):
         """
         self.get_post_page()
         self.driver.quit()
-        # self.test()
 
-    def test(self):
-        jr = {'resume_from': 2, 'name': '李霞', 'mobile_phone': '15119146952', 'company_dpt': 1, 'resume_key': '',
-              'gender': '2', 'date_of_birth': '19940901', 'current_residency': '旺角公寓', 'years_of_working': 3,
-              'hukou': '广东 肇庆', 'current_salary': '6001~8000', 'politics_status': '', 'marital_status': '2',
-              'address': '旺角公寓', 'zip_code': '', 'email': '763261556@qq.com', 'home_telephone': '',
-              'work_phone': '', 'personal_home_page': '', 'excecutiveneed': '',
-              'self_assessment': '本人热心、善良、自信、乐于与人沟通、自律有上进心，工作认真负责，勇于承担任务与责任，并且具有良好的团队精神和能够快速适应新环境。', 'i_can_start': '',
-              'employment_type': '1',
-              'industry_expected': '互联网/电子商务', 'working_place_expected': '广州',
-              'salary_expected': '8001~10000', 'job_function_expected': '',
-              'current_situation': '',
-              'word_experience': [{'应聘职位': '高薪诚聘Amazon / 亚马逊销售运营主管 / B2C跨境电商销售主管'},
-                                  {'公司名': '深圳市萨拉摩尔电子商务有限公司（广州分公司）',
-                                      '开始时间': '2017-08-01 00:00:00',
-                                      '结束时间': '',
-                                      '工作标题': '亚马逊销售',
-                                      '工作描述': '1:管理账号每一个款的库存情况，每天保持FBA库存有足够数量，避免出现断货情况影响'
-                                              'listing排名从而影响销量。'
-                                              '\n2:找新品的关键词，编辑新产品资料，上传新产品。写新品的listing，优化listing。'
-                                              '\n3:每天检查账号产品listing是否有差评，及时处理差评情况。'
-                                              '\n4:在Facebook上找测评人给账号新款做测评，在Facebook上给一些请货款发code。'
-                                              '\n5:整理账号热销款和新款数据（流量，转化率，订单量）和主推关键词的排名情况。'
-                                              '\n6:根据30天的销售数据合理地给账号产品进行FBA库存补货以及翻单。'
-                                              '\n7:管理账号cpc的转化情况，及时调整。'
-                                              '\n8:教公司新人熟悉账号的款式情况，熟悉亚马逊后台和操作后台。'
-                                              '\n9:开发新产品。', '薪资范围': '6001~8000'},
-                                  {'公司名': '广州国诚投资有限公司',
-                                   '开始时间': '2016-07-01 00:00:00',
-                                   '结束时间': '2017-06-01 00:00:00',
-                                   '工作标题': '业务员销售',
-                                   '工作描述': '通过电话的方式给客户介绍公司产品，并且销售公司产品。与客户达成成交。', '薪资范围': '4001~6000'},
-                                  {'公司名': '安士制药（中山）有限公司',
-                                   '开始时间': '2015-11-01 08:00:00',
-                                   '结束时间': '2016-05-01 08:00:00',
-                                   '工作标题': '软胶囊保健品生产车间/业务助理',
-                                   '工作描述': '熟悉并掌握软胶囊的生产过程和方法。'
-                                           '\r\n帮忙上级整理文件和处理一些合同',
-                                   '薪资范围': '1000~2000'}],
-              'project_experience': [], 'education': [{'开始时间': '2013-09-01 00:00:00', '结束时间': '2016-06-01 00:00:00',
-                                                       '学校': '中山火炬职业技术学院', '专业': '生物制药'}],
-              'honors_awards': '', 'practical_experience': '', 'training': '', 'language': '', 'it_skill': '',
-              'certifications': [], 'is_viewed': 1, 'resume_date': '2019-08-22 14:29:47', 'get_type': 1,
-              'external_resume_id': 'LD9sxtIn5VFln4dJF8d2mA'}
-        self.post_resume(jr, resume_id='184', download_user='3')
+    def quit(self):
+        self.driver.quit()
 
 
 def main():
-    app1 = ResumeDownloader()
-    app1.run()
+    while True:
+        print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
+        input('>>>')
+        try:
+            app1 = ResumeDownloader()
+            app1.run()
+        except Exception as e:
+            msg = ''
+            receiver = '朱建坤'
+            app1.send_rtx_msg(receiver, msg)
+            app1.quit()
+            continue
+        else:
+            for _ in range(20):
+                time.sleep(1)
 
 
 if __name__ == '__main__':
