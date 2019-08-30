@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 # auto crawl download resume
 # __author__ = 'lodge'
 # done_time = '22/08/2019' -- d/m/y
@@ -23,7 +23,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Here are locally stored cookies. If it is in the selenium format, you don't need to use them
 # In the case of the standard large dictionary pattern, you can hand it by self.get_api_cookie()
-# cookie = 'x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5; sts_deviceid=16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d; urlfrom2=121126445; adfcid2=none; adfbid2=0; acw_tc=2760827015645412125101117e0aea7957a2c5bd1a105885e3208f62506ae6; login_point=67827992; promoteGray=; diagnosis=0; LastCity=%E5%B9%BF%E5%B7%9E; LastCity%5Fid=763; NTKF_T2D_CLIENTID=guest848ED7A8-2D6C-CB43-D002-4785D3149DAB; sou_experiment=psapi; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%7D; c=OYd5f54u-1565146352123-205a31b6147942073825198; Hm_lvt_38ba284938d5eddca645bb5e02a02006=1564539142,1565159011; x-zp-device-id=767356337adeccab996d3c784380a003; _fmdata=RjVcPpTGcffpZk5l0yUErfjZkmBHOjkP6kSghdv6CtDZCGZsOU%2FpDWROFqcil8ZtLKBaoJg%2Bh30Kj6axZ0iBPUJvEfIqpmt%2Ffcxm0cdBtPw%3D; _xid=GUpjGyhweX5r9zWgzZRh%2FyEytbFzi78wytWZeLGu0xjBP5RcI4yAu6DTtZy88uhi7ZUCrLXxoRfh66I6jWPojA%3D%3D; x-zp-dfp=zlzhaopin-1566373837703-bb01a0977b855; JSloginnamecookie=15521262081; JSShowname=""; JSpUserInfo=36672168546b5d754077577142654f71546357655a69536b4e713b653f7758774065566750685b6b5a7543775371456547715d63566553692e6b38714a6542775777476555675268596b52754777567137650671146349650b69046b18714c65227731774c6552675e68286b3f754c7752715a654471456356655d69516b407145654a7724773d655e675468526b3e75307758713d653a71546355655d69536b4471476543775d774465586730683d6b567540775e7124653e715863576553693e6b257139654c770a771f6554671768186b5f75197711714f650f710963026502691d6b1c7141654877147701650b675368186b027517770b714f650d7112635c651; uiioit=3d753d6a44640f385a6d5c6203355c6844795a795639006b566e203671645575496a42649; zp-route-meta=uid=655193256,orgid=67827992; companyCuurrentCity=763; dywec=95841923; __utmc=269921210; is-oversea-acount=0; at=38656a6fb1d14d2c88a67e307ca8c6c8; rt=dfde1a684f5247f9b385dc74129c1bde; login-type=b; sts_sg=1; sts_chnlsid=Unknown; zp_src_url=https%3A%2F%2Fpassport.zhaopin.com%2Forg%2Flogin%3Fbkurl%3Dhttps%253A%252F%252Frd5.zhaopin.com%252F; rd_resume_srccode=402101; dywez=95841923.1566445874.49.5.dywecsr=passport.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/org/login; __utmz=269921210.1566445874.46.4.utmcsr=passport.zhaopin.com|utmccn=(referral)|utmcmd=referral|utmcct=/org/login; sts_sid=16cb7d7f614244-0e398609ca15cc-3c375f0d-2073600-16cb7d7f61642d; dywea=95841923.183147172171786560.1564539142.1566452482.1566455489.51; __utma=269921210.1113127844.1564539142.1566452484.1566455489.48; rd_resume_actionId=1566455588110655193256; dyweb=95841923.4.10.1566455489; __utmb=269921210.4.10.1566455489; sts_evtseq=23'
+controller = "聂清娜;张子珏"
+company_name = '银河在线'
 
 
 class ResumeDownloader(object):
@@ -234,10 +235,8 @@ class ResumeDownloader(object):
             LOG.warning('*=*=*=*==*=*=*=*=*=*=*=*=*=*==*=*=*=*=*=*=*=*=*=*')
             LOG.warning('*=*=*=*= i need help to fresh the cookie =*=*=*=*')
             LOG.warning('*=*=*=*==*=*=*=*=*=*=*=*=*=*==*=*=*=*=*=*=*=*=*=*')
-            # receivers = '聂清娜;张子珏'
-            receivers = '朱建坤'
-            msg = '银河在线需要重新登录:24小时内重新登录来保持简历获取状态'
-            self.send_rtx_msg(receivers, msg)
+            msg = f'智联:{company_name}需要重新登录:24小时内重新登录来保持简历获取状态'
+            self.send_rtx_msg(controller, msg)
             WebDriverWait(self.driver, 86400, poll_frequency=30).until(
                 EC.presence_of_element_located((
                     By.XPATH,
@@ -260,7 +259,7 @@ class ResumeDownloader(object):
         # =========================================================================================== #
 
         self.search_page()
-        self.scroll_page()
+        # self.scroll_page()
 
     def scroll_page(self, n=1):
         for h in range(n):
@@ -277,7 +276,7 @@ class ResumeDownloader(object):
             )
         except Exception as e:
             print(e)
-            receivers = '朱建坤'
+            receivers = controller
             msg = 'ZhiLian downloader Program needs to fix！'
             self.send_rtx_msg(receivers, msg)
         else:
@@ -292,12 +291,16 @@ class ResumeDownloader(object):
         # add key into input box and search to download
         resume_id_button = self.driver.find_element_by_xpath('//div[@class="k-tabs__nav"]/a[3]')
         self.driver.execute_script("arguments[0].click();", resume_id_button)
-        try:
-            self.do_input_key()
-        except Exception as e:
-            print(e)
-            msg = "can't find elements at the page, login again now"
-            LOG.error("can't find the goal elements")
+        self.do_input_key()
+        # try:
+        #     self.do_input_key()
+        # except Exception as e:
+        #     self.driver.close()
+        #     self.driver.switch_to.window(self.driver.window_handles[0])
+        #     print('input_key:', e)
+        #     msg = "can't find elements at the page, login again now"
+        #     LOG.error("can't find the goal elements")
+        #     input('enter_to_in>>')
 
     def do_input_key(self):
         while True:
@@ -323,8 +326,9 @@ class ResumeDownloader(object):
                     search = self.driver.find_element_by_xpath(
                         '//*[@id="resume-filter-form"]/div/div/div[2]/div/button[2]')
                     self.driver.execute_script("arguments[0].click();", search)
+                    time.sleep(1)
 
-                    flag = self.do_get_only_one(resume_id, download_user)
+                    flag = self.do_get_only_one(resume_id, download_user)  # Not do 1
                     if flag == 'continue':
                         continue
                     elif flag == 'pass':
@@ -367,29 +371,29 @@ class ResumeDownloader(object):
         :return:
         """
         # at first, you need to judge is_loaded
+        self.driver.switch_to.window(self.driver.window_handles[0])
         try:
             WebDriverWait(self.driver, 15).until(
                 EC.element_to_be_clickable(
                     (By.XPATH, '//*[@id="root"]/div[1]/div[4]/div[3]/table/tbody/tr[1]/td[2]/div/a'))
             )
         except Exception as e:
-            print(e)
+            print('>> continue')
             return 'continue'
         else:
             try:
                 page_source = self.driver.page_source
-                reg = r'<span data-bind="text: total" class="has-text-highlight">(\d)</span>'
-                num = re.findall(reg, page_source)
+                num = re.findall(r'<span data-bind="text: total" class="has-text-highlight">(\d)</span>', page_source)
                 if num:
                     # if not none, it prove that get sure info
                     if num[0].isdigit():
                         if int(num[0]) == 0:
                             raise ValueError(
                                 "\nValueError: this account can't find the key resume, switch another account")
-                        pass
                     else:
                         raise Exception
             except ValueError:
+                print('ValueError:')
                 return 'continue'
             except Exception as e:
                 print('the exception is:', e)
@@ -406,61 +410,88 @@ class ResumeDownloader(object):
                 # get_now_url = self.driver.current_url
                 # before click download, judge it whether downloaded
                 flag = self.do_judge_whether_down()
-                print('flag:', flag)
 
                 if flag:
                     down_key = self.driver.find_element_by_xpath('//div[@class="affix-top"]/ul/li[1]/a')
-                    self.driver.execute_script("arguments[0].click();", down_key)
+                    if '收藏' in down_key.text:
+                        print('this resume has been already downloaded')
+                    else:
+                        self.driver.execute_script("arguments[0].click();", down_key)
+                        # time.sleep(1)
+                        # self.driver.refresh()
+                        time.sleep(1)
+                        page_source = self.driver.page_source
+                        self.do_chose_right_position(page_source)
+                        self.do_pop_box_info_and_down(page_source, resume_id, download_user)
+                else:
+                    print('Upload_again')
                     time.sleep(1)
-                    self.do_pop_box_info_and_down(page_source, resume_id, download_user)
+                    page_source = self.driver.page_source
+                    self.do_pop_box_info_and_down(page_source, resume_id, download_user, True)
 
                 time.sleep(2)
                 return 'pass'
 
-    def do_pop_box_info_and_down(self, page_source, resume_id, download_user):
+    def do_pop_box_info_and_down(self, page_source, resume_id, download_user, value=None):
         """
         get account info and download
         :return:
         """
-        try:
-            WebDriverWait(self.driver, 10, poll_frequency=0.5).until(
-                EC.presence_of_element_located(
-                    (By.XPATH, '//div[@class="k-form-item"]/div[1]/span[1]'))
-            )
-        except Exception as e:
-            print(e)
-            print('here are some trouble need to solve')
-        else:
-            nums_info = self.driver.find_elements_by_xpath('//div[@class="k-form-item"]/div[1]/span[1]')
-            all_times = nums_info[0].text
-            cost_times = nums_info[1].text
-            time.sleep(0.5)
-            # IMPORTANT: intelligence to compare keyword to chose the right position
-            self.do_chose_right_position(page_source)  # just like the name i get
-            time.sleep(0.5)
-            down = self.driver.find_element_by_xpath(
-                '//div[@class="k-dialog"]/div[@class="k-dialog__footer"]/button[@class="k-button is-primary is-main"]')
-            self.driver.execute_script("arguments[0].click();", down)
-            time.sleep(1)
-            msg = f'All resume downloads time: {all_times} \n now cost {cost_times} \n'
-            self.driver.refresh()
+        if value:
             url = self.driver.current_url
+            print('Value current url:::', url)
             _resumeNo_ = url.split('?')[1].split('&')[2].split('=')[1]
+            print('_resumeNo_', _resumeNo_)
             time.sleep(1)
             info = self.do_get_requests_detail(_resumeNo_)
             if info['code'] == 1:
-                print('链接已失效')
-                return ''
+                return
 
+            print('other status:>>')
             resume = self.deal_info(info)
 
             if resume:
                 self.post_resume(resume, resume_id, download_user)
+        else:
+            try:
+                WebDriverWait(self.driver, 10, poll_frequency=0.5).until(
+                    EC.presence_of_element_located(
+                        (By.XPATH, '//div[@class="k-form-item"]/div[1]/span[1]'))
+                )
+            except Exception as e:
+                print('here:', e)
+                print('here are some trouble need to solve')
+                input('>>')
+            else:
+                nums_info = self.driver.find_elements_by_xpath('//div[@class="k-form-item"]/div[1]/span[1]')
+                all_times = nums_info[0].text
+                cost_times = nums_info[1].text
+                time.sleep(0.5)
+                # IMPORTANT: intelligence to compare keyword to chose the right position
+                self.do_chose_right_position(page_source)  # just like the name i get
+                time.sleep(0.5)
+                down = self.driver.find_element_by_xpath(
+                    '//div[@class="k-dialog"]/div[@class="k-dialog__footer"]/button[@class="k-button is-primary is-main"]')
+                self.driver.execute_script("arguments[0].click();", down)
+                time.sleep(1)
+                msg = f'All resume downloads time: {all_times} \n now cost {cost_times} \n'
+                self.driver.refresh()
+                url = self.driver.current_url
+                print('url:::', url)
+                _resumeNo_ = url.split('?')[1].split('&')[2].split('=')[1]
+                info = self.do_get_requests_detail(_resumeNo_)
+                if info['code'] == 1:
+                    # print('链接已失效')
+                    self.driver.close()
+                else:
+                    resume = self.deal_info(info)
+                    if resume:
+                        self.post_resume(resume, resume_id, download_user)
 
-            time.sleep(1)
-            self.driver.close()
-            window = self.driver.window_handles
-            self.driver.switch_to.window(self.driver.window_handles[len(window) - 1])
+                    time.sleep(1)
+                    self.driver.close()
+
+        self.driver.switch_to.window(self.driver.window_handles[0])
 
     def do_chose_right_position(self, page_source):
         keywords = ['ebay', 'amazon', 'ali', 'python', 'php', 'HR', '行政', '采购', '财务', '外贸', 'shopify', '阿里']
@@ -499,13 +530,18 @@ class ResumeDownloader(object):
         time.sleep(1)
 
     def do_judge_whether_down(self):
-        key_status = self.driver.find_element_by_xpath('//div[@class="resume-content__status-box"]/p').text
-        print('key_status:', key_status)
+        # key_status = self.driver.find_element_by_xpath('//div[@class="resume-content__status-box"]/p').text
+        key_status = re.findall('收费|付费', self.driver.page_source)
+        print('current fee status:', key_status if key_status else 'None')
+        # return False
         time.sleep(1)
-        if '付费' or '收费' in key_status.strip():
+        # self.driver.close()
+        if key_status:
             # now, the status is not downloaded >> to do download
+            print('do_judge_whether_down: return True')
             return True
         else:
+            print('do_judge_whether_down: return False')
             return False
 
     def post_resume(self, jr, resume_id, download_user):
@@ -523,7 +559,7 @@ class ResumeDownloader(object):
             try:
                 rq = self.session.post(url, json=info)
             except Exception as e:
-                print(e)
+                print('connect:', e)
                 LOG.error('The target computer is not allowed to connect')
             else:
                 LOG.info(f'INSERT DATA INFO IS:{rq.text}')
@@ -753,10 +789,16 @@ class ResumeDownloader(object):
 
     def do_get_requests_detail(self, resume_no):
         url = "https://rd5.zhaopin.com/api/rd/resume/detail?"
+        # print('resume_no:', resume_no)
+        time.sleep(random.uniform(1, 2))
         params = self.params_get(resume_no)
         headers = self.headers_get(resume_no)
         try:
             response = requests.get(url, params=params, headers=headers, verify=False)
+            print('response::', response.text)
+            window = self.driver.window_handles
+            self.driver.switch_to.window(self.driver.window_handles[len(window) - 1])
+            self.driver.close()
         except:
             LOG.error('status_code: <404> NOT FOUND')
         else:
@@ -764,6 +806,11 @@ class ResumeDownloader(object):
 
     @staticmethod
     def params_get(ID_info):
+        resume_no = ID_info.replace('%3B', ';')
+        resume_no = resume_no.replace('%25', ')')
+        resume_no = resume_no.replace('%28', '(')
+        resume_no = resume_no.replace('%29', ')')
+        print('resume_no::', resume_no)
         t = time.time()
         node = int(t * 1000)
         front = [
@@ -781,7 +828,7 @@ class ResumeDownloader(object):
             "_": f"{node}",
             "x-zp-page-request-id": f"{front[random.randint(0, max_len)]}-{node - random.randint(50, 1000)}-{random.randint(200000, 999999)}",
             'x-zp-client-id': 'e5cc6ae7-13f9-4f11-ac17-f37439ae1de5',
-            'resumeNo': f'{ID_info}'
+            'resumeNo': f'{resume_no}'
         }
         return params
 
@@ -790,10 +837,10 @@ class ResumeDownloader(object):
         from spider.cookies import cookie
         headers = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
-            'Content-Type': 'text/plain',
+            # 'Content-Type': 'text/plain',
             'Sec-Fetch-Mode': 'cors',
             "sec-fetch-site": "same-origin",
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
             'X-Requested-With': 'XMLHttpRequest',
             'zp-route-meta': 'uid=655193256,orgid=67827992',
             'referer': f'https://rd5.zhaopin.com/resume/detail?keyword=&resumeNo={resume_no}&openFrom=1',
@@ -888,8 +935,8 @@ def main():
             app1 = ResumeDownloader()
             app1.run()
         except Exception as e:
-            msg = ''
-            receiver = '朱建坤'
+            msg = f'智联:{company_name}:自动下载程序需要重启'
+            receiver = controller
             app1.send_rtx_msg(receiver, msg)
             app1.quit()
             continue
