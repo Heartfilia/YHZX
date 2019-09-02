@@ -12,21 +12,52 @@
 
 # print(json.dumps(cookies))
 
-def decorator(fn):
-	def test():
-		for i in range(3):
-			print('=' * 20)
-			fn('hello')
-			print('*' * 20 )
-			print()
+# def decorator(fn):
+# 	def test():
+# 		for i in range(3):
+# 			print('=' * 20)
+# 			fn('hello')
+# 			print('*' * 20 )
+# 			print()
 
-	return test
-
-
-@decorator
-def a(test):
-	print('here are my test information')
-	print(test)
+# 	return test
 
 
-a()
+# @decorator
+# def a(test):
+# 	print('here are my test information')
+# 	print(test)
+
+
+# a()
+
+# import time
+
+
+# f = '*' * 50
+
+# lon = len(f)
+
+# for x in range(lon):
+#     x = x + 1
+#     print(f'\r{">" * x}{" " * (50 - x)}|', end='', flush=True)
+#     time.sleep(0.5)
+
+from requests import Session
+session = Session()
+
+def report_send_rtx_msg():
+    """
+    rtx 提醒
+    :param receivers:
+    :param msg:
+    :return:
+    """
+    post_data = {
+        "sender": "系统机器人",
+        "receivers": '朱建坤',
+        "msg": '测试信息',
+    }
+    session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+
+# report_send_rtx_msg()
