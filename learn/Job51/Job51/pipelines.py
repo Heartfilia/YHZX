@@ -8,5 +8,14 @@
 
 class Job51Pipeline(object):
     def process_item(self, item, spider):
-        print(item['name'])
+        posName = item['posName']
+        if posName:
+            comName = item['comName']
+            live = item['live']
+            publishTime = item['publishTime']
+            nowPG = item['nowPG']
+
+            with open('job.txt', 'a') as f:
+                f.write(f'{posName}:::{comName}:{live}:{publishTime}::{nowPG} \n')
+
         return item

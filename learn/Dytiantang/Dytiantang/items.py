@@ -8,10 +8,7 @@
 import scrapy
 
 
-class Job51Item(scrapy.Item):
+class DytiantangItem(scrapy.Item):
     # define the fields for your item here like:
-    posName = scrapy.Field()
-    comName = scrapy.Field()
-    live = scrapy.Field()
-    publishTime = scrapy.Field()
-    nowPG = scrapy.Field()
+    movieName = scrapy.Field()
+    movieUrl = scrapy.Field()

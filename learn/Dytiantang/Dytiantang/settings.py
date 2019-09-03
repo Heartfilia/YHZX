@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for Job51 project
+# Scrapy settings for Dytiantang project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'Job51'
+BOT_NAME = 'Dytiantang'
 
-SPIDER_MODULES = ['Job51.spiders']
-NEWSPIDER_MODULE = 'Job51.spiders'
+SPIDER_MODULES = ['Dytiantang.spiders']
+NEWSPIDER_MODULE = 'Dytiantang.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'
+#USER_AGENT = 'Dytiantang (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'Job51.middlewares.Job51SpiderMiddleware': 543,
+#    'Dytiantang.middlewares.DytiantangSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'Job51.middlewares.Job51DownloaderMiddleware': 543,
+#    'Dytiantang.middlewares.DytiantangDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'Job51.pipelines.Job51Pipeline': 300,
+   'Dytiantang.pipelines.DytiantangPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

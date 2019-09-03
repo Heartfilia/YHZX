@@ -8,10 +8,10 @@
 import scrapy
 
 
-class Job51Item(scrapy.Item):
+class GztianqiItem(scrapy.Item):
     # define the fields for your item here like:
-    posName = scrapy.Field()
-    comName = scrapy.Field()
-    live = scrapy.Field()
-    publishTime = scrapy.Field()
-    nowPG = scrapy.Field()
+    cityDate = scrapy.Field()
+    cityDay = scrapy.Field()
+    img = scrapy.Field()
+    temperature = scrapy.Field()
+    wind = scrapy.Field()

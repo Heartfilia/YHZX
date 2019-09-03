@@ -43,21 +43,33 @@
 #     print(f'\r{">" * x}{" " * (50 - x)}|', end='', flush=True)
 #     time.sleep(0.5)
 
-from requests import Session
-session = Session()
+# from requests import Session
+# session = Session()
 
-def report_send_rtx_msg():
-    """
-    rtx 提醒
-    :param receivers:
-    :param msg:
-    :return:
-    """
-    post_data = {
-        "sender": "系统机器人",
-        "receivers": '朱建坤',
-        "msg": '测试信息',
-    }
-    session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
-
+# def report_send_rtx_msg():
+#     """
+#     rtx 提醒
+#     :param receivers:
+#     :param msg:
+#     :return:
+#     """
+#     post_data = {
+#         "sender": "系统机器人",
+#         "receivers": '朱建坤',
+#         "msg": '测试信息',
+#     }
+#     session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 # report_send_rtx_msg()
+
+# def fun():
+#     for i in range(5):
+#         yield i
+
+
+# for i in fun():
+# 	print(i)
+
+f = "pageSize=90&cityId=763&workExperience=-1&education=-1&companyType=-1&employmentType=-1&jobWelfareTag=-1&kw=python&kt=3&_v=0.20908331&x-zp-page-request-id=b5ff670b48af4518829e4a432cafbad0-1567492285015-790004&x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5"
+f1 = f.split("&")
+f2 = {f3.split("=", 1)[0]: f3.split("=", 1)[1] for f3 in f1}
+print(f2)
