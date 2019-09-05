@@ -16,7 +16,6 @@ class JobspiderSpider(scrapy.Spider):
 
     def parse(self, response):
         _POS_ = self.get_pos()
-        item = Job51Item()
         for pos in _POS_:
             base_url = f"https://search.51job.com/list/030200,000000,0000,00,9,99,{pos},2,1.html?"
             data = {
@@ -41,8 +40,8 @@ class JobspiderSpider(scrapy.Spider):
 
     def sure_page(self, response):
         all_num = int(re.findall(r'共(\d+)条职位', response.body.decode(response.encoding))[0])
-        result = response['meta']['result']
-        pos = response['meta']['pos']
+        result = response.meta['result']
+        pos = response.meta['pos']
         if all_num != 0:
             page = all_num // 40
             for pg in range(1, page+1):

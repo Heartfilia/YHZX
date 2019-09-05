@@ -6,6 +6,9 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from fake_useragent import UserAgent
+
+ua = UserAgent()
 
 
 class Job51SpiderMiddleware(object):
@@ -101,3 +104,11 @@ class Job51DownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class Job51ProxyMiddleware(object):
+    pass
+
+
+class Job51UserAgentMiddleware(object):
+    pass

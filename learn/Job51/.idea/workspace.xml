@@ -2,24 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a5d7f34-bb63-4a09-b48f-9d77db92047d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/TEST.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TEST/formatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEST/formatter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/learn.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job51/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Job51/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job51/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/pipelines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Job51/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job51/spiders/job.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper/test2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job51/spiders/jobSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/spiders/jobSpider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +52,8 @@
       <option name="presentableId" value="Default" />
       <updated>1567501726817</updated>
       <workItem from="1567501727948" duration="5646000" />
+      <workItem from="1567558276738" duration="8394000" />
+      <workItem from="1567649254125" duration="216000" />
     </task>
     <servers />
   </component>
@@ -71,7 +65,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
