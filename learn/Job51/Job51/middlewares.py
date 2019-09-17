@@ -4,11 +4,10 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import urllib
 
 from scrapy import signals
-from fake_useragent import UserAgent
-
-ua = UserAgent()
+from Job51 import ua
 
 
 class Job51SpiderMiddleware(object):
@@ -111,4 +110,12 @@ class Job51ProxyMiddleware(object):
 
 
 class Job51UserAgentMiddleware(object):
-    pass
+    def process_request(self, request, spider):
+        if request.method == 'GET':
+            target = self.target(request)
+            request.headers.setdefault('User-Agent', ua.random)
+
+    def target(self, request):
+        url = urllib.unquote(request.url)
+        target_word = ''
+        return target_word

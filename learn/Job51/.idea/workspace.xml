@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a5d7f34-bb63-4a09-b48f-9d77db92047d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/TEST.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TEST/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TEST/formatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEST/formatter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uapractice/.idea/Uapractice.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job51/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Job51/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/middlewares.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Job51/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job51/spiders/jobSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Job51/spiders/jobSpider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +22,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/Project/HR/ZhiLian/zhilian_yhzx_all" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -53,7 +48,7 @@
       <updated>1567501726817</updated>
       <workItem from="1567501727948" duration="5646000" />
       <workItem from="1567558276738" duration="8394000" />
-      <workItem from="1567649254125" duration="216000" />
+      <workItem from="1567649254125" duration="4778000" />
     </task>
     <servers />
   </component>

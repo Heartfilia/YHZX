@@ -2,20 +2,21 @@ import time
 from functools import wraps
 
 def timer(goaltime):
+	day_info = time.strftime("%a", time.localtime())
 	def sleeptime(func):
 		@wraps(func)
 		def wrapper(*args, **kwargs):
-			if goaltime not in ['Sun']:
+			if day_info not in goaltime:
 				print('ok')
-				func(goaltime)
+				func(*args, **kwargs)
 				print('ok')
 		return wrapper
 	return sleeptime
 
-@timer(time.strftime("%a", time.localtime()))
-def go(goaltime):
+@timer(['Sun'])   # tuple, list and set all are Okay WEEK
+def go(other):
 	print('11111')
-	print(goaltime)
+	print(other)
 
 
-go(time.strftime("%a", time.localtime()))
+go(time.strftime("%H:%M", time.localtime()))
