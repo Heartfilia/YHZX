@@ -2,10 +2,10 @@ import time
 from functools import wraps
 
 def timer(goaltime):
-	day_info = time.strftime("%a", time.localtime())
 	def sleeptime(func):
 		@wraps(func)
 		def wrapper(*args, **kwargs):
+			day_info = time.strftime("%a", time.localtime())
 			if day_info not in goaltime:
 				print('ok')
 				func(*args, **kwargs)
