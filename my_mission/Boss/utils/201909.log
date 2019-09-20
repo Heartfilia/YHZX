@@ -1,0 +1,41 @@
+2019-09-20 10:00:11,334 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:00:14,187 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:00:17,265 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":0,"msg":"success"}
+2019-09-20 10:00:19,959 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:00:23,007 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:00:25,145 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:00:27,384 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:00:29,788 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:00:32,535 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:00:35,110 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:00:38,190 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:00:40,827 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:00:43,151 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:00:46,121 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:00:48,986 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:00:51,703 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:00:54,607 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:00:56,476 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:00:59,204 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:01:01,560 Selenium_call_find.py[line:120]INFO - 对方不来的原因是: 抱歉
+2019-09-20 10:01:01,580 Selenium_call_find.py[line:440]INFO - 检查状态-对方拒绝前来面试.
+2019-09-20 10:01:03,960 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:03:14,761 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:03:16,970 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:03:19,913 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:03:22,873 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:03:24,999 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:03:27,526 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:03:30,055 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:03:32,278 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:03:35,421 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:03:38,023 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:03:41,023 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:03:43,236 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:03:45,572 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:03:48,625 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:03:51,239 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:03:53,924 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================
+2019-09-20 10:03:56,940 Selenium_call_find.py[line:443]INFO - 检查状态-对方回复了信息,尝试上传简历.
+2019-09-20 10:03:59,339 Selenium_call_find.py[line:288]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-09-20 10:04:02,129 Selenium_call_find.py[line:394]INFO - ======================= 我是数据分割线 ========================

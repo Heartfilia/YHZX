@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/9/17 9:53
 # @Author  : Lodge
+"""
+特别注意,本文所有的xpath除了部分需要拼接的外,其余的均为浏览器生成,所以有些时候会出什么问题我也不知道,到时候再改就好了,主要还是xpath的问题
+"""
 import os
 import re
 import sys
@@ -24,14 +27,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
-import python_config
+import python_config   # 这里是导入配置文件
 
 ua = UserAgent()     # fake useragent
 LOG = getLogger()    # LOG recoder
 LOG.setLevel(logging.DEBUG)  # Change the level of logging::
 # You can modify the following code to change the location::
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-filename = BASE_DIR + f'/utils/{time.asctime()[-4:]}.log'
+this_month = time.strftime('%Y%m', time.localtime())
+filename = BASE_DIR + f'/utils/{this_month}.log'
 formatter = logging.Formatter(
         "%(asctime)s %(filename)s[line:%(lineno)d]%(levelname)s - %(message)s"
 )  # Define the log output format
@@ -47,6 +51,9 @@ urllib3.disable_warnings()   # disabled requests' verify warning
 
 # ========================================================================================== #
 class BossHello(object):
+    """
+    这里就是和别人沟通进行处理聊天信息的，看到这里写了这么多就知道这里是比较多逻辑的，还要判断很多状态来智能化处理各个情况。
+    """
     def __init__(self):
         # with open('./utils/selenium_cookies.json', 'r') as json_file:
         #     self.selenium_cookies = json.loads(json_file.read())['cookies']
@@ -181,11 +188,11 @@ class BossHello(object):
         self.driver.execute_script("arguments[0].click();", request_mobile)
         self.sure_change()
 
-        # request_wechat = self.driver.find_element_by_xpath(
-        #     '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[1]/a[5]')
-        # self.driver.execute_script("arguments[0].click();", request_wechat)    # get some trouble in change wechat
+        request_wechat = self.driver.find_element_by_xpath(
+            '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[1]/a[5]')
+        self.driver.execute_script("arguments[0].click();", request_wechat)    # get some trouble in change wechat
 
-        # self.sure_change()
+        self.sure_change()
 
     def request_base_info(self, data_uid):
         url = self.base_url + f'/wapi/zpboss/h5/chat/geek.json?uid={data_uid}'
@@ -225,7 +232,7 @@ class BossHello(object):
                 'zip_code': '',
                 'email': '',
                 'home_telephone': '',
-                'personal_home_page': '',
+                'personal_home_page': data['weixin'] if data['weixin'] else '',
                 'excecutiveneed': '',
                 'self_assessment': '',
                 'i_can_start': '',
@@ -271,10 +278,11 @@ class BossHello(object):
             'account': python_config.account,
             'data': [base_json]
         }
-        print('info::', info)
         url = python_config.POST_URL   # api not sure
         mobile_phone = base_json['mobile_phone']
         if base_json and mobile_phone:
+            with open('./utils/resume_info.txt', 'a') as json_file:
+                json_file.write(str(info) + ',\n')
             # LOG.info('pass: 到这里就是要准备上传信息了')
             try:
                 response = self.session.post(url, json=info)
@@ -288,7 +296,7 @@ class BossHello(object):
                 # msg = f'****** Boss沟通信息 ******\n人员姓名:{name}\n提醒原因:已经和对方交换信息,数据已经存入数据库'
                 # self.send_rtx_msg(msg)
         else:
-            LOG.info('reject: 到这里就是信息不符合规定,未能上传')
+            LOG.info('reject: 对方还未回复关键信息,简历未能上传')
 
     @staticmethod
     def parse_detail_page(base_json, html_detail):
@@ -399,7 +407,10 @@ class BossHello(object):
                 if flag == 'send_time':
                     msg_box = self.driver.find_element_by_xpath(
                         '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
-                    msg_box.send_keys(python_config.send_time_tec)  # send msg  如果是程序员回复这条信息 如果其他职业回复其他的
+
+                    # 在这里可以在判断一下,当前和你交流的人要面试的岗位,然后智能选择要发送什么信息 <<<<<<<<<<<<<<
+
+                    msg_box.send_keys(python_config.send_time_tec)  # send msg  如果是程序员回复这条信息
                     time.sleep(random.uniform(1, 2))
                     send_button = self.driver.find_element_by_xpath(
                         '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[3]/button')
@@ -454,6 +465,43 @@ class BossHello(object):
                     self.post_resume(base_json)
 
     # ===================================================================================== #
+
+    def test_scroll(self):
+        """
+        开发的时候的调试状态，后面没有用到的...
+        :return:
+        """
+        start_position = self.driver.find_element_by_xpath(
+            '//*[@id="container"]/div[1]/div[2]/div[3]/div[1]/ul[2]/li[1]/a/div[2]/div/span[2]'
+        )
+        ActionChains(self.driver).move_to_element(start_position).perform()
+        js = 'document.getElementsByClassName("scroll-bar")[1].scrollTop=500'
+        self.driver.execute_script(js)
+
+    # ===================================================================================== #
+
+    def run(self):
+        self.handle_selenium_cookies()     # about cookie 处理基础的页面状态(不用调)
+        self.ask_for_information()       # To solve now 主要聊天信息处理(容错状态处理跟进中)
+
+
+# ========================================================================================== #
+class CallForNiu(object):
+    """
+    这里是用来专门来处理给牛人打招呼的
+    """
+    def __init__(self):
+        self.base_url = 'https://www.zhipin.com'
+        self.chat_url = self.base_url + '/chat/im?mu=chat'
+        self.local_class = self.__class__.__name__
+
+        self.session = requests.Session()
+        self.options = webdriver.ChromeOptions()
+        self.options.add_argument("--no-sandbox")
+        self.options.add_argument('--disable-gpu')
+        # chrome.exe --remote-debugging-port=8055 --user-data-dir="C:\selenium_boss\AutomationProfile"   # start chrome
+        self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.chrome_port}")  # connect
+        self.driver = webdriver.Chrome(options=self.options)
 
     def chose_position_about_niu(self):
         recommend_positions = self.driver.find_element_by_xpath('//*[@id="header"]/div/div/div[2]/div[2]/span')
@@ -514,30 +562,15 @@ class BossHello(object):
         print('niu done')
         time.sleep(random.uniform(1, 3))
 
-    # ===================================================================================== #
-
-    def test_scroll(self):
-        """
-        开发的时候的调试状态，后面没有用到的...
-        :return:
-        """
-        start_position = self.driver.find_element_by_xpath(
-            '//*[@id="container"]/div[1]/div[2]/div[3]/div[1]/ul[2]/li[1]/a/div[2]/div/span[2]'
-        )
-        ActionChains(self.driver).move_to_element(start_position).perform()
-        js = 'document.getElementsByClassName("scroll-bar")[1].scrollTop=500'
-        self.driver.execute_script(js)
-
-    # ===================================================================================== #
-
     def run(self):
-        self.handle_selenium_cookies()     # about cookie 处理基础的页面状态(不用调)
-        self.ask_for_information()       # To solve now 主要聊天信息处理(容错状态处理跟进中)
-        # self.powerful_person_recommend()   # niu people  向牛人打招呼(完成)
+        self.powerful_person_recommend()   # niu people  向牛人打招呼(完成)
 
 
 # ========================================================================================== #
 class ClearAllChat(object):
+    """
+    这里就是专门用来清理聊天信息的
+    """
     def __init__(self):
         self.base_url = 'https://www.zhipin.com'
         self.chat_url = self.base_url + '/chat/im?mu=chat'
@@ -591,6 +624,13 @@ class ClearAllChat(object):
 
 
 def write_exception(e, local_def, local_class):
+    """
+    这里是写异常信息的，就是避免小黄线，我干脆把错误信息e写入文本算了，反正也能查看异常的状态信息
+    :param e: 异常信息
+    :param local_def: 发生异常的函数
+    :param local_class: 发生异常的类
+    :return: 不返回
+    """
     # local_def = sys._getframe().f_code.co_name
     # self.local_class = self.__class__.__name__
     # write_exception(e, local_def, self.local_class)
@@ -600,6 +640,11 @@ def write_exception(e, local_def, local_class):
 
 
 def send_rtx_msg(msg):
+    """
+    公司的内部的rtx信息发送接口, 接收人已经写成了配置文件了
+    :param msg: 要发送的信息
+    :return: 不返回
+    """
     post_data = {
         "sender": "系统机器人",
         "receivers": python_config.receivers,
@@ -656,8 +701,12 @@ def hello_timer(set_time):
     return work_time
 
 
-@hello_timer(['09:30', '13:30', '17:50'])
+@hello_timer(['09:30', '13:30', '17:50', '01:10'])
 def thread_one_hello():
+    """
+    抓们拿一个线程来处理打招呼，时间到了指定的时间就开始处理信息
+    :return: 不返回
+    """
     while True:
         find_app = BossHello()
         find_app.run()
@@ -665,29 +714,59 @@ def thread_one_hello():
 
 @clear_timer(['04'])
 def thread_two_clear():
+    """
+    专门开了第二个线程来处理多余的聊天信息,保证聊天界面的简洁,每天大家都睡着了的情况下，不会有新信息来的情况下就要删除了
+    :return: 不返回
+    """
     while True:
         delete_app = ClearAllChat()
         delete_app.run()
+
+
+@clear_timer(['10', '15'])
+def thread_three_niu():
+    """
+    专门开了第三个线程来处理给牛人打招呼,就是主动要人来聊天,每次打招呼10页牛人,大概有150个,每天打招呼两次
+    :return: 不返回
+    """
+    while True:
+        niu_app = CallForNiu()
+        niu_app.run()
 
 
 def development_mode():
     # 开发者模块，调试的时候用的
     find_app = BossHello()
     find_app.run()
+    print('功能选择中...')
+    time.sleep(100)  # 等待功能二
+    delete_app = ClearAllChat()
+    delete_app.run()
+    print('功能选择中...')
+    time.sleep(100)  # 等待功能三
+    niu_app = CallForNiu()
+    niu_app.run()
 
 
 def main():
+    """
+    程序的主要启动入口，就是这里来开启各个线程，让每个线程去做事。
+    :return: 不返回
+    """
     development_mode()
     print('调试的时候 要卡在这里...')
     time.sleep(1000)
     hello_t = Thread(target=thread_one_hello)
     clear_t = Thread(target=thread_two_clear)
+    call_t = Thread(target=thread_three_niu)
 
     hello_t.start()
     clear_t.start()
+    call_t.start()
 
     hello_t.join()
     clear_t.join()
+    call_t.join()
 
 
 if __name__ == '__main__':

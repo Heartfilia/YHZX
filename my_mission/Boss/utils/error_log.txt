@@ -60,3 +60,9 @@
   (Session info: chrome=76.0.3809.132)
 09-19 16:54:40:BossHello>judge_whether_exchange::Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[3]/div[1]/span[2]"}
   (Session info: chrome=76.0.3809.132)
+09-20 09:48:41:BossHello>sure_change::Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/div[2]/div[3]/div/span[2]"}
+  (Session info: chrome=76.0.3809.132)
+09-20 09:48:42:BossHello>sure_change::Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/div[2]/div[3]/div/span[2]"}
+  (Session info: chrome=76.0.3809.132)
+09-20 09:48:44:BossHello>sure_change::Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[5]/div[2]/div[3]/div/span[2]"}
+  (Session info: chrome=76.0.3809.132)
