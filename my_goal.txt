@@ -8,3 +8,6 @@ trans_s2l
 trans_l2s
 trans_s2t
 trans_t2l
+
+ELK
+haystack

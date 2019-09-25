@@ -18,7 +18,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
 import urllib3
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+urllib3.disable_warnings()
 # =================================== #
 
 # 这里是本地存的cookies,如果是selenium格式的话就不用这里了，直接用
@@ -585,11 +585,10 @@ class ZhiLian(object):
                 except Exception as e:
                     Salary = 'None'
                 dic = {
-                    '公司名': ifo['CompanyName'],
-                    '开始时间': ifo['DateStart'],
-                    '结束时间': ifo['DateEnd'] if ifo['DateEnd'] else '',
+                    '公司信息': ifo['CompanyName'],
+                    '起止时间': ifo['DateStart'] + '-' + (ifo['DateEnd'] if ifo['DateEnd'] else ''),
                     '工作标题': ifo['JobTitle'],
-                    '工作描述': ifo['WorkDescription'],
+                    '工作内容': ifo['WorkDescription'],
                     '薪资范围': Salary
                 }
                 word_experience.append(dic)
@@ -640,10 +639,12 @@ class ZhiLian(object):
         get_type = 2
         external_resume_id = data['resumeNumber'][:-4]
         resume_logo = candidate['photo']
+        account_from = python_config.account_from
+        update_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
 
         resume['name'] = name
         resume['mobile_phone'] = mobile_phone
-        resume['company_dpt'] = 1                          # 广州 义乌 但是这个表肯能不传这个信息
+        resume['company_dpt'] = 1  # 广州 义乌 但是这个表肯能不传这个信息
         resume['resume_key'] = resume_key
         resume['gender'] = gender
         resume['date_of_birth'] = date_of_birth
@@ -682,6 +683,8 @@ class ZhiLian(object):
         resume['get_type'] = get_type
         resume['external_resume_id'] = external_resume_id
         resume['resume_logo'] = resume_logo
+        resume['account_from'] = account_from
+        resume['update_date'] = update_date
 
         return resume, external_resume_id
 
@@ -1019,7 +1022,7 @@ def main():
 状态原因：智联{company_name}关键字搜索程序频率过高
 处理标准：请到服务器先处理验证码信息,然后关闭检索窗口再在程序窗口回车重启程序
 """
-            send_rtx_msg(msg)
+            # send_rtx_msg(msg)
 
 
 if __name__ == '__main__':

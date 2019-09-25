@@ -55,8 +55,6 @@ class BossHello(object):
     这里就是和别人沟通进行处理聊天信息的，看到这里写了这么多就知道这里是比较多逻辑的，还要判断很多状态来智能化处理各个情况。
     """
     def __init__(self):
-        # with open('./utils/selenium_cookies.json', 'r') as json_file:
-        #     self.selenium_cookies = json.loads(json_file.read())['cookies']
         self.base_url = 'https://www.zhipin.com'
         self.chat_url = self.base_url + '/chat/im?mu=chat'
         self.local_class = self.__class__.__name__
@@ -70,12 +68,7 @@ class BossHello(object):
         self.driver = webdriver.Chrome(options=self.options)
 
     def handle_selenium_cookies(self):
-        # time.sleep(random.uniform(1, 2))
         self.driver.get(self.chat_url)
-        # self.driver.delete_all_cookies()
-        # for each_cookie in self.selenium_cookies:
-        #     self.driver.add_cookie(each_cookie)
-        # self.driver.refresh()
         time.sleep(random.uniform(1, 2))
         try:
             WebDriverWait(self.driver, 5).until(
@@ -203,63 +196,79 @@ class BossHello(object):
             'User-Agent': ua.random,
             'Cookie': cookie
         }
-        json_base_info = requests.get(url, headers=headers, verify=False).text
-        json_status = json.loads(json_base_info)
-        if json_status['zpData']['status'] == -1:
-            return False   # get failed
-        elif json_status['zpData']['status'] == 1:
-            data = json_status['zpData']['data']
-            age_char = re.findall(r'(\d+)', data['ageDesc'])
-            if age_char:
-                age = int(age_char[0])
-                date_of_birth = time.localtime().tm_year - age
-            else:
-                date_of_birth = time.localtime().tm_year
-            json_info = {
-                'name': data['name'],
-                'mobile_phone': data['phone'] if data['phone'] else '',
-                'company_dpt': 1,
-                'resume_key': '',
-                'gender': data['gender'],
-                'date_of_birth': f'{date_of_birth}-01-01',
-                'current_residency': data['city'],
-                'years_of_working': data['year'],
-                'hukou': '',
-                'current_salary': '',
-                'politics_status': '',
-                'marital_status': 2,
-                'address': '',
-                'zip_code': '',
-                'email': '',
-                'home_telephone': '',
-                'personal_home_page': data['weixin'] if data['weixin'] else '',
-                'excecutiveneed': '',
-                'self_assessment': '',
-                'i_can_start': '',
-                'employment_type': 1,
-                'industry_expected': '',
-                'working_place_expected': '广州',
-                'salary_expected': data['price'],
-                'job_function_expected': 1,
-                'current_situation': data['positionStatus'],
-                'word_experience': [],
-                'project_experience': [],
-                'education': [],
-                'honors_awards': [],
-                'practical_experience': [],
-                'training': '',
-                'language': [],
-                'it_skill': [],
-                'certifications': [],
-                'is_viewed': 1,
-                'resume_date': data['addTime'],
-                'get_type': '',
-                'external_resume_id': data['encryptUid'],
-                'labeltype': 1,
-                'resume_logo': data['largeAvatar'],
-                'resume_from': 3
-            }
-            return json_info
+        try:
+            json_base_info = requests.get(url, headers=headers, verify=False).text
+            json_status = json.loads(json_base_info)
+            if json_status['zpData']['status'] == -1:
+                return False   # get failed
+            elif json_status['zpData']['status'] == 1:
+                data = json_status['zpData']['data']
+                age_char = re.findall(r'(\d+)', data['ageDesc'])
+                if age_char:
+                    age = int(age_char[0])
+                    date_of_birth = time.localtime().tm_year - age
+                else:
+                    date_of_birth = time.localtime().tm_year
+
+                weixin = data['weixin'] if data['weixin'] else ''
+                phone = data['phone'] if data['phone'] else ''
+                if not phone:
+                    if weixin.isdigit():
+                        mobile_phone = weixin
+                    else:
+                        mobile_phone = phone
+                else:
+                    mobile_phone = phone
+                json_info = {
+                    'name': data['name'],
+                    'mobile_phone': mobile_phone,
+                    'company_dpt': 1,
+                    'resume_key': '',
+                    'gender': data['gender'],
+                    'date_of_birth': f'{date_of_birth}-01-01',
+                    'current_residency': data['city'],
+                    'years_of_working': data['year'],
+                    'hukou': '',
+                    'current_salary': '',
+                    'politics_status': '',
+                    'marital_status': 2,
+                    'address': '',
+                    'zip_code': '',
+                    'email': '',
+                    'home_telephone': '',
+                    'personal_home_page': weixin,
+                    'excecutiveneed': '',
+                    'self_assessment': '',
+                    'i_can_start': '',
+                    'employment_type': 1,
+                    'industry_expected': '',
+                    'working_place_expected': '广州',
+                    'salary_expected': data['price'],
+                    'job_function_expected': 1,
+                    'current_situation': data['positionStatus'],
+                    'word_experience': [],
+                    'project_experience': [],
+                    'education': [],
+                    'honors_awards': [],
+                    'practical_experience': [],
+                    'training': '',
+                    'language': [],
+                    'it_skill': [],
+                    'certifications': [],
+                    'is_viewed': 1,
+                    'resume_date': data['addTime'],
+                    'get_type': '',
+                    'external_resume_id': data['encryptUid'],
+                    'labeltype': 1,
+                    'resume_logo': data['largeAvatar'],
+                    'resume_from': 3,
+                    'account_from': python_config.account_from,
+                    'update_date': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+                }
+                return json_info
+        except Exception as e:
+            local_def = sys._getframe().f_code.co_name
+            write_exception(e, local_def, self.local_class)
 
     def request_detail_info(self, data_eid):
         html_url = self.base_url + f"/chat/geek/chatinfo?uid={data_eid}"
@@ -273,17 +282,68 @@ class BossHello(object):
         html_detail_info = requests.get(html_url, headers=headers, verify=False).text
         return html_detail_info
 
-    def post_resume(self, base_json):
+    def save_message(self, name, phone, e_id, data_uid):
+        """
+        上传信息成功后需要把聊天记录上传到服务器
+        :param name: 聊天的人的名字
+        :param phone: 电话号码
+        :param e_id: 简历id(虽然不能搜),但是可以保证唯一
+        :param data_uid: 用来获取聊天信息的id
+        :return:
+        """
+        messages = self.request_chat_msg(data_uid)
+        base_chat = {
+            'name': name,
+            'phone': phone,
+            'external_resume_id': e_id,
+            'data': []
+        }
+        data = base_chat['data']
+        for each in messages:
+            info = each.get('pushText')
+            time_info = each.get('time')
+            if info:
+                dict_chat = {
+                    'add_time': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(time_info) / 1000)),
+                    'from_uid': each['from']['uid'],
+                    'from_name': each['from']['name'],
+                    'to_uid': each['to']['uid'],
+                    'to_name': each['to']['name'],
+                    'msg': info
+                }
+                data.append(dict_chat)
+        msg_url = python_config.MSG_URL
+        self.session.post(msg_url, json=base_chat)
+
+    def request_chat_msg(self, gid):
+        time.sleep(random.uniform(1, 3))
+        url = f'https://www.zhipin.com/wapi/zpchat/boss/historyMsg?gid={gid}'
+        cookie = importlib.reload(python_config).cookie
+        headers = {
+            'Referer': self.chat_url,
+            'Token': python_config.TOKEN,
+            'User-Agent': ua.random,
+            'Cookie': cookie
+        }
+        response_text = requests.get(url, headers=headers, verify=False).text
+        time.sleep(random.uniform(1, 2))
+        data = json.loads(response_text)
+        messages = data['zpData']['messages']
+        return messages
+
+    def post_resume(self, base_json, data_uid):
+        time.sleep(random.uniform(3, 5))
         info = {
             'account': python_config.account,
             'data': [base_json]
         }
         url = python_config.POST_URL   # api not sure
         mobile_phone = base_json['mobile_phone']
+        name = base_json['name']
+        e_id = base_json['external_resume_id']
         if base_json and mobile_phone:
-            with open('./utils/resume_info.txt', 'a') as json_file:
+            with open('./utils/resume_info.txt', 'a', encoding='utf-8') as json_file:
                 json_file.write(str(info) + ',\n')
-            # LOG.info('pass: 到这里就是要准备上传信息了')
             try:
                 response = self.session.post(url, json=info)
             except Exception as e:
@@ -292,9 +352,16 @@ class BossHello(object):
                 LOG.error('目标计算机拒绝链接')
             else:
                 LOG.info(f'沟通的数据插入详情为:{response.text}')
-                # name = base_json['name']
-                # msg = f'****** Boss沟通信息 ******\n人员姓名:{name}\n提醒原因:已经和对方交换信息,数据已经存入数据库'
-                # self.send_rtx_msg(msg)
+                msg_box = self.driver.find_element_by_xpath(
+                    '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
+                msg_box.send_keys(python_config.get_and_reply)
+                time.sleep(random.uniform(1, 2))
+                send_button = self.driver.find_element_by_xpath(
+                    '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[3]/button')
+                self.driver.execute_script("arguments[0].click();", send_button)
+                LOG.info(f'Reply信息状态:{name}:{mobile_phone}::的回复消息发送成功.')
+                time.sleep(random.uniform(1, 2))
+                self.save_message(name, mobile_phone, e_id, data_uid)
         else:
             LOG.info('reject: 对方还未回复关键信息,简历未能上传')
 
@@ -357,21 +424,10 @@ class BossHello(object):
     def do_judge_who_is_last_one(self, gid):
         # False : 在需要发消息的情况里面非关键字的情况下 不需要发送信息
         # True  : 在需要发消息的情况里面非关键字的情况下 需要发送信息
-        time.sleep(random.uniform(1, 3))
-        url = f'https://www.zhipin.com/wapi/zpchat/boss/historyMsg?gid={gid}'
-        cookie = importlib.reload(python_config).cookie
-        headers = {
-            'Referer': self.chat_url,
-            'Token': python_config.TOKEN,
-            'User-Agent': ua.random,
-            'Cookie': cookie
-        }
-        response_text = requests.get(url, headers=headers, verify=False).text
-        time.sleep(random.uniform(1, 2))
-        data = json.loads(response_text)
-        messages = data['zpData']['messages']
-        if len(messages) <= 3:
+        messages = self.request_chat_msg(gid)
+        if len(messages) < 4:
             return True
+        # ================== 上面的这个容错判断很容易受到其它条件影响 ===================
         who_send = str(messages[-1]['from']['uid'])
         try:
             push_text = messages['pushText']
@@ -380,7 +436,7 @@ class BossHello(object):
             write_exception(e, local_def, self.local_class)
             return False
         else:
-            if '牛人还没回复？' not in push_text:
+            if '牛人还没回复？' or '对方刚查看了您的主页' not in push_text:
                 if who_send != gid:  # we send
                     return False     # don't send request
                 else:
@@ -391,9 +447,9 @@ class BossHello(object):
     def ask_for_information(self):
         time.sleep(random.uniform(1, 2))
 
-        # unread = self.driver.find_element_by_xpath('//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div/label/span')
-        # unread.click()
-        # time.sleep(random.uniform(1, 2))    # filter unread
+        unread = self.driver.find_element_by_xpath('//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div/label/span')
+        unread.click()
+        time.sleep(random.uniform(1, 2))    # filter unread
         all_people = self.driver.find_elements_by_xpath('//*[@id="container"]/div[1]/div[2]/div[3]/div[1]/ul[2]/li')
         for each_person in all_people:
             time.sleep(random.uniform(2, 3))
@@ -404,13 +460,15 @@ class BossHello(object):
             flag = self.judge_whether_exchange()    # like the name
             gid = each_person.find_element_by_xpath('./a').get_attribute('data-uid')
             if flag:
+                judge_pos = self.driver.find_element_by_xpath('//*[@id="header"]/div/div/div[1]/div[2]/span').text
                 if flag == 'send_time':
+                    LOG.info('当前状态-咨询时间')
                     msg_box = self.driver.find_element_by_xpath(
                         '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
-
-                    # 在这里可以在判断一下,当前和你交流的人要面试的岗位,然后智能选择要发送什么信息 <<<<<<<<<<<<<<
-
-                    msg_box.send_keys(python_config.send_time_tec)  # send msg  如果是程序员回复这条信息
+                    if 'php' or 'python' in judge_pos.lower():
+                        msg_box.send_keys(python_config.send_time_tec)  # send msg  如果是程序员回复这条信息
+                    else:
+                        msg_box.send_keys(python_config.send_time_oth)
                     time.sleep(random.uniform(1, 2))
                     send_button = self.driver.find_element_by_xpath(
                         '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[3]/button')
@@ -419,6 +477,7 @@ class BossHello(object):
                     self.exchange_information()
                     LOG.info('检查状态-已经回复咨询时间,如果回复再进行验证.')
                 elif flag == 'go_on_chat':
+                    LOG.info('当前状态-继续沟通')
                     msg_box = self.driver.find_element_by_xpath(
                         '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
                     msg_box.send_keys(python_config.go_chat)  # send msg
@@ -430,11 +489,12 @@ class BossHello(object):
                     self.exchange_information()
                     LOG.info('检查状态-已经回复问候情况,如果回复再进行验证.')
                 else:
+                    LOG.info('当前状态-继续判断')
                     code_status = self.do_judge_who_is_last_one(gid)
                     if code_status:
                         msg_box = self.driver.find_element_by_xpath(
                             '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
-                        msg_box.send_keys(python_config.chat_msg)   # send msg
+                        msg_box.send_keys(python_config.chat_msg)
                         time.sleep(random.uniform(1, 2))
                         send_button = self.driver.find_element_by_xpath(
                             '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[3]/button')
@@ -462,27 +522,41 @@ class BossHello(object):
                     html_detail = self.request_detail_info(data_eid)
                     self.parse_detail_page(base_json, html_detail)
 
-                    self.post_resume(base_json)
+                    self.post_resume(base_json, data_uid)
+
+    def chose_each_position(self):
+        time.sleep(0.5)
+        each_pos = self.driver.find_element_by_xpath('//*[@id="header"]/div/div/div[1]/div[2]/span')
+        self.driver.execute_script("arguments[0].click();", each_pos)
+        time.sleep(random.uniform(1, 2))
+        all_pos = self.driver.find_elements_by_xpath('//*[@id="header"]/div/div/div[1]/div[2]/div/ul/li')[1:]
+        for pos in all_pos:
+            time.sleep(random.uniform(0, 1))
+            self.driver.execute_script("arguments[0].click();", pos)
+            time.sleep(random.uniform(1, 2))
+            self.ask_for_information()  # To solve now 主要聊天信息处理(容错状态大致没有问题了)
 
     # ===================================================================================== #
 
-    def test_scroll(self):
+    def test_msg(self):
         """
         开发的时候的调试状态，后面没有用到的...
         :return:
         """
-        start_position = self.driver.find_element_by_xpath(
-            '//*[@id="container"]/div[1]/div[2]/div[3]/div[1]/ul[2]/li[1]/a/div[2]/div/span[2]'
-        )
-        ActionChains(self.driver).move_to_element(start_position).perform()
-        js = 'document.getElementsByClassName("scroll-bar")[1].scrollTop=500'
-        self.driver.execute_script(js)
+        # start_position = self.driver.find_element_by_xpath(
+        #     '//*[@id="container"]/div[1]/div[2]/div[3]/div[1]/ul[2]/li[1]/a/div[2]/div/span[2]'
+        # )
+        # ActionChains(self.driver).move_to_element(start_position).perform()
+        # js = 'document.getElementsByClassName("scroll-bar")[1].scrollTop=500'
+        # self.driver.execute_script(js)
+        info = python_config.test_chat_info
+        self.session.post(python_config.MSG_URL, json=info)
 
     # ===================================================================================== #
 
     def run(self):
         self.handle_selenium_cookies()     # about cookie 处理基础的页面状态(不用调)
-        self.ask_for_information()       # To solve now 主要聊天信息处理(容错状态处理跟进中)
+        self.chose_each_position()
 
 
 # ========================================================================================== #
@@ -503,17 +577,37 @@ class CallForNiu(object):
         self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.chrome_port}")  # connect
         self.driver = webdriver.Chrome(options=self.options)
 
+    def select_salary_range(self):
+        # //*[@id="wrap"]/div/div[2]/div[2]/div/div/span
+        filter_button = self.driver.find_element_by_xpath('//*[@id="wrap"]/div/div[2]/div[2]/div/div/span')
+        self.driver.execute_script("arguments[0].click();", filter_button)
+        time.sleep(0.3)
+
+        range_salary = self.driver.find_element_by_xpath(
+            '//*[@id="wrap"]/div/div[2]/div[2]/div/div/div[2]/div[1]/div/dl[1]/dd/a[4]/span')
+        self.driver.execute_script("arguments[0].click();", range_salary)
+        time.sleep(0.3)
+
+        sure_filter = self.driver.find_element_by_xpath(
+            '//*[@id="wrap"]/div/div[2]/div[2]/div/div/div[2]/div[2]/div/span[2]'
+        )
+        self.driver.execute_script("arguments[0].click();", sure_filter)
+        time.sleep(0.3)
+
     def chose_position_about_niu(self):
+        time.sleep(random.uniform(1, 2))
         recommend_positions = self.driver.find_element_by_xpath('//*[@id="header"]/div/div/div[2]/div[2]/span')
         recommend_positions.click()
+        time.sleep(random.uniform(1, 2))
         # self.driver.execute_script("arguments[0].click();", recommend_positions)  # way two
         all_positions = self.driver.find_elements_by_xpath('//*[@id="header"]/div/div/div[2]/div[2]/div/ul/li')[1:]
         for each_pos in all_positions:
-            each_pos.click()
-            # self.driver.execute_script("arguments[0].click();", each_pos)  # way two
+            time.sleep(random.uniform(1, 2))
+            self.driver.execute_script("arguments[0].click();", each_pos)  # way two
             time.sleep(random.uniform(1, 2))
             self.driver.switch_to.frame('syncFrame')
-            for _ in range(10):
+            self.select_salary_range()
+            for _ in range(5):
                 self.driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
                 time.sleep(random.uniform(2, 4))
             all_people = self.driver.find_elements_by_xpath('//*[@id="recommend-list"]/div/ul/li')[1:]
@@ -525,8 +619,14 @@ class CallForNiu(object):
                 if '继续沟通' in button_label:
                     LOG.info('打过招呼了,跳过这个人')
                     continue
-                say_hi = each_people.find_element_by_xpath('./div/div/div[2]/div/span/button')
-                self.driver.execute_script("arguments[0].click();", say_hi)  # way two
+                try:
+                    say_hi = each_people.find_element_by_xpath('./div/div/div[2]/div/span/button')
+                    self.driver.execute_script("arguments[0].click();", say_hi)  # way two
+                except Exception as e:
+                    local_def = sys._getframe().f_code.co_name
+                    write_exception(e, local_def, self.local_class)
+                    break
+
                 try:
                     WebDriverWait(self.driver, 5).until(
                         expected_conditions.presence_of_element_located((
@@ -554,12 +654,11 @@ class CallForNiu(object):
                     time.sleep(random.uniform(0, 1))
 
     def powerful_person_recommend(self):
-        time.sleep(random.uniform(2, 3))
+        time.sleep(random.uniform(1, 3))
         niu = self.driver.find_element_by_xpath('//*[@id="main"]/div[1]/div/dl[2]/dt/a')
         niu.click()
         self.chose_position_about_niu()
         # self.driver.execute_script("arguments[0].click();", niu)   # way two
-        print('niu done')
         time.sleep(random.uniform(1, 3))
 
     def run(self):
@@ -620,9 +719,16 @@ class ClearAllChat(object):
         # 每天凌晨1点到4点清除所有消息(因为这个时候可能没有人回复消息,就不会错乱了,这个Boss消息是及时的就怕有人问然后改变处理消息的状态)
         self.delete_all()    # delete all contact # need to run at 01:00-04:00
 
+
 # ========================================================================================== #
+class CallForSend(object):
+    """
+    这里是可能会用来发送邀请信息的，现在没有先关业务，但是可以先留着
+    """
+    pass
 
 
+# ========================================================================================== #
 def write_exception(e, local_def, local_class):
     """
     这里是写异常信息的，就是避免小黄线，我干脆把错误信息e写入文本算了，反正也能查看异常的状态信息
@@ -663,15 +769,17 @@ def clear_timer(set_time):
     def work_time(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            now_time = time.strftime("%H", time.localtime())
+            now_time = time.strftime("%H:%M", time.localtime())
             if now_time in set_time:
                 print()
                 func(*args, **kwargs)
                 print('\r清除程序开始了,正在休眠中...', end='')
-                time.sleep(3600)
+                # print('清除程序开始了,正在休眠中...')
+                time.sleep(60)
             else:
                 print('\r不是清除程序运行的时间,继续休眠中...', end='')
-                time.sleep(3600)
+                # print('不是清除程序运行的时间,继续休眠中...')
+                time.sleep(60)
 
         return wrapper
     return work_time
@@ -701,51 +809,66 @@ def hello_timer(set_time):
     return work_time
 
 
-@hello_timer(['09:30', '13:30', '17:50', '01:10'])
+# 数据扫描时间为指定每小时，因为避免以后数据过多的问题 扫描时间为9点到20点每个的半小时
+@hello_timer(['01:10', '09:30'] + [f'{i}:30' for i in range(10, 21)])
 def thread_one_hello():
     """
     抓们拿一个线程来处理打招呼，时间到了指定的时间就开始处理信息
     :return: 不返回
     """
-    while True:
+    try:
         find_app = BossHello()
         find_app.run()
+    except Exception as e:
+        write_exception(e, 'thread_one_hello', '需要重新登录')
+        msg = f"********* HR 数据自动化 *********\n负责人：{python_config.handler}\n状态原因：其它地方登录,程序已经离线" \
+              f"\n处理标准：请重新登录账号,并替换本地的cookie"
+        send_rtx_msg(msg)
 
 
-@clear_timer(['04'])
+@clear_timer(['04:30'])
 def thread_two_clear():
     """
     专门开了第二个线程来处理多余的聊天信息,保证聊天界面的简洁,每天大家都睡着了的情况下，不会有新信息来的情况下就要删除了
     :return: 不返回
     """
-    while True:
+    try:
         delete_app = ClearAllChat()
         delete_app.run()
+    except Exception as e:
+        write_exception(e, 'thread_two_clear', '需要重新登录')
+        msg = f"********* HR 数据自动化 *********\n负责人：{python_config.handler}\n状态原因：其它地方登录,程序已经离线" \
+              f"\n处理标准：请重新登录账号,并替换本地的cookie"
+        send_rtx_msg(msg)
 
 
-@clear_timer(['10', '15'])
+@clear_timer(['10:00', '15:00'])
 def thread_three_niu():
     """
-    专门开了第三个线程来处理给牛人打招呼,就是主动要人来聊天,每次打招呼10页牛人,大概有150个,每天打招呼两次
+    专门开了第三个线程来处理给牛人打招呼,就是主动要人来聊天,每次打招呼5页牛人,大概有50个,每天打招呼两次
     :return: 不返回
     """
-    while True:
+    try:
         niu_app = CallForNiu()
         niu_app.run()
+    except Exception as e:
+        write_exception(e, 'thread_three_niu', '需要重新登录')
+        msg = f"********* HR 数据自动化 *********\n负责人：{python_config.handler}\n状态原因：其它地方登录,程序已经离线" \
+              f"\n处理标准：请重新登录账号,并替换本地的cookie"
+        send_rtx_msg(msg)
 
 
 def development_mode():
     # 开发者模块，调试的时候用的
     find_app = BossHello()
-    find_app.run()
-    print('功能选择中...')
-    time.sleep(100)  # 等待功能二
-    delete_app = ClearAllChat()
-    delete_app.run()
-    print('功能选择中...')
-    time.sleep(100)  # 等待功能三
-    niu_app = CallForNiu()
-    niu_app.run()
+    # find_app.run()
+    find_app.test_msg()
+    # time.sleep(100)  # 等待功能二
+    # delete_app = ClearAllChat()
+    # delete_app.run()
+    # time.sleep(100)  # 等待功能三
+    # niu_app = CallForNiu()
+    # niu_app.run()
 
 
 def main():
@@ -756,17 +879,18 @@ def main():
     development_mode()
     print('调试的时候 要卡在这里...')
     time.sleep(1000)
-    hello_t = Thread(target=thread_one_hello)
-    clear_t = Thread(target=thread_two_clear)
-    call_t = Thread(target=thread_three_niu)
+    while True:
+        hello_t = Thread(target=thread_one_hello)
+        clear_t = Thread(target=thread_two_clear)
+        call_t = Thread(target=thread_three_niu)
 
-    hello_t.start()
-    clear_t.start()
-    call_t.start()
+        hello_t.start()
+        clear_t.start()
+        call_t.start()
 
-    hello_t.join()
-    clear_t.join()
-    call_t.join()
+        hello_t.join()
+        clear_t.join()
+        call_t.join()
 
 
 if __name__ == '__main__':

@@ -193,22 +193,22 @@ class ResumeDownloader(object):
             one = self.driver.find_element_by_xpath('//tbody[@class="k-table__body"]/tr[1]/td[2]/div/a')
             self.driver.execute_script("arguments[0].click();", one)
         except Exception as e:
-            print('None')
+            pass
         else:
-            time.sleep(2)
+            time.sleep(8)
             window = self.driver.window_handles
             self.driver.switch_to.window(self.driver.window_handles[len(window)-1])
             page_source = self.driver.page_source
-            if ' 我要联系 TA' in page_source:
-                self.driver.find_element_by_xpath(
-                    '//*[@id="resume-detail-wrapper"]/div[1]/div[2]/div/div[1]/div[2]/a[1]').click()
-                time.sleep(random.uniform(1, 2))
-            if '面试时间' or '面邀已接受' in page_source:
+            if '面试时间' in page_source:
                 print('已经邀约了......')
                 self.session.post(
                     f'http://hr.gets.com:8989/api/autoGetInterview.php?type=setInterview&external_resume_id={e_id}')
                 self.driver.close()
                 return ''
+            if ' 我要联系 TA' in page_source:
+                self.driver.find_element_by_xpath(
+                    '//*[@id="resume-detail-wrapper"]/div[1]/div[2]/div/div[1]/div[2]/a[1]').click()
+                time.sleep(random.uniform(1, 2))
 
             self.driver.find_element_by_xpath('//div[@class="resume-content__status-box"]/a[2]').click()
             time.sleep(3)
@@ -232,8 +232,8 @@ class ResumeDownloader(object):
         day_info = self.driver.find_element_by_xpath(
             f'//table[@class="k-date-table"]/tbody//span[text()="{next_day}"]'
         )
-        day_info.click()
-        # self.driver.execute_script("arguments[0].click();", day_info)
+        # day_info.click()
+        self.driver.execute_script("arguments[0].click();", day_info)
         time.sleep(1)
         notice_box = self.driver.find_element_by_xpath(
             '//div[@class="k-form-item__content interview-remark__content"]/div[1]/textarea')

@@ -274,11 +274,10 @@ class Detail(object):
                     Salary = '0'
 
                 dic = {
-                    '公司名': ifo['CompanyName'],
-                    '开始时间': ifo['DateStart'],
-                    '结束时间': ifo['DateEnd'] if ifo['DateEnd'] else '',
+                    '公司信息': ifo['CompanyName'],
+                    '起止时间': ifo['DateStart'] + '-' + (ifo['DateEnd'] if ifo['DateEnd'] else ''),
                     '工作标题': ifo['JobTitle'],
-                    '工作描述': ifo['WorkDescription'],
+                    '工作内容': ifo['WorkDescription'],
                     '薪资范围': Salary
                 }
                 word_experience.append(dic)
@@ -288,11 +287,10 @@ class Detail(object):
         if pec:
             for i in pec:
                 dic = {
-                    '开始时间': i['DateStart'],
-                    '结束时间': i['DateEnd'],
-                    '项目名字': i['ProjectName'],
+                    '起止时间': i['DateStart'] + '-' + i['DateEnd'],
+                    '项目名称': i['ProjectName'],
                     '责任描述': i['ProjectResponsibility'],
-                    '项目描述': i['ProjectDescription']
+                    '项目内容': i['ProjectDescription']
                 }
                 project_experience.append(dic)
 
@@ -330,6 +328,8 @@ class Detail(object):
         get_type = 2
         external_resume_id = data['resumeNumber'][:-4]
         resume_logo = candidate['photo']
+        account_from = python_config.account_from
+        update_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(jobResume['modifieddate']) / 1000))
 
         resume['name'] = name
         resume['mobile_phone'] = mobile_phone
@@ -371,21 +371,23 @@ class Detail(object):
         resume['resume_date'] = resume_date
         resume['get_type'] = get_type
         resume['external_resume_id'] = external_resume_id
-        resume['labeltype'] = jobResume['labeltype']    # 1 待处理 2 有意向 3 已发面试 4 不合适
+        resume['labeltype'] = jobResume['labeltype']  # 1 待处理 2 有意向 3 已发面试 4 不合适
         resume['resume_logo'] = resume_logo
+        resume['account_from'] = account_from
+        resume['update_date'] = update_date
 
         return resume
 
     def post_resume_with_user(self, jr, resume_id, download_user):
         info = {
             'noneDlivery_resume_id': resume_id,
-            'add_user': 2215,
-            'inform_update_user': 'wwet67827992',
+            'add_user': python_config.account_from,
+            'inform_update_user': python_config.account_main,
             'data': [jr]
         }
         # with open('ttt.txt', 'w', encoding='utf-8') as f:
         #     f.write(str(info))
-        # print('info:', info)
+        print('info:', info)
         url = 'http://hr.gets.com:8989/api/autoOwnerResumeDownload.php?'
         if jr:
             try:
@@ -424,7 +426,7 @@ class Detail(object):
                     initialData = log['data']['initialData'][0]
                     staffName = initialData['staffName']
                 except:
-                    staffName = '2215'
+                    staffName = python_config.account_from
 
                 json_resume = self.deal_info(info)
                 self.post_resume_with_user(json_resume, '0', staffName)
@@ -462,7 +464,7 @@ class Detail(object):
             "_": f"{node}",
             "x-zp-page-request-id": f"{front[random.randint(0, max_len)]}-{node - random.randint(50, 1000)}-{random.randint(200000, 800000)}",
             "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
-            "S_CreateDate": f"{yesterday_info},{today_info}",
+            "S_CreateDate": f"{today_info},{today_info}",
             "S_HrId": '""',
             "S_ResumeSource": "2",                              # 只查询待处理的信息
             "isNewList": "true",
@@ -550,7 +552,7 @@ def timer(set_time):
         def wrapper(*args, **kwargs):
             if set_time not in ['Sun']:
                 t = time.strftime("%H:%M", time.localtime())
-                if t in ['06:40', '11:45', '20:20']:
+                if t in ['11:59', '22:59']:
                     func(*args, **kwargs)
                 else:
                     print(f'\r{t}', end='')

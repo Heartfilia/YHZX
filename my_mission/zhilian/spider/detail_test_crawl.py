@@ -1,13 +1,12 @@
-import datetime
 import json
 import time
 import random
 import requests
-# http://hr.gets.com:8989/api/autoGetKeyword.php?type=download
+
 
 session = requests.Session()
 
-from spider.cookies import cookie
+
 detail_url = "https://rd5.zhaopin.com/api/rd/resume/detail?"
 
 
@@ -31,7 +30,7 @@ def headers_get(resume_no):
         "sec-fetch-site": "same-origin",
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
         'X-Requested-With': 'XMLHttpRequest',
-        "cookie": cookie
+        "cookie": "jobRiskWarning=true; at=aa40e8c080b44806bd7bcc1b23023ff3; sajssdk_2015_cross_new_user=1; Token=aa40e8c080b44806bd7bcc1b23023ff3; sts_chnlsid=Unknown; privacyUpdateVersion=1; rd_resume_srccode=402101; zp-route-meta=uid=655193256,orgid=67827992; adfcid2=none; JsNewlogin=1837743086; x-zp-dfp=zlzhaopin-1564541208377-824fee2b5b7e3; adfcid=none; acw_tc=2760827015645412125101117e0aea7957a2c5bd1a105885e3208f62506ae6; urlfrom2=121126445; JSloginnamecookie=onn20v%5Ft1lyuqqav%5Fgmhphzu6uby%40oauth%2Eweixin; urlfrom=121126445; JSpUserInfo=24342e6955715d79453201754c6a5371056a5968436b417409333979246b4c34056906710579463203750f6a3471406a58681d6b0074473304791b6b10341c6937710c7919325b75096a03714e6a1c68476b0c7450330c792a6b1e340b691d711f791c321d750e6a0e715d6a1168186b177409333079276b4c3459695a715d7942320475496a5271026a5a68316b087443335b79096b1e3407695371387920320e75486a5071756a3d684c6b4e741f3346794a6b4034596952715e7947320875386a2771096a58684a6b2c7473334879206b3c345b695a715e794c320275496a59710c6a5c684a6b2c74663348795b6b4a34396921715679443208758; zp_src_url=https%3A%2F%2Fpassport.zhaopin.com%2Forg%2Flogin%2Fbind%2Fmobile; __utmt=1; diagnosis=0; rd_resume_actionId=1564551879644655193256; LastCity%5Fid=763; promoteGray=; x-zp-device-id=d249967fbc2a8769053b7d5bfee9690b; Hm_lvt_38ba284938d5eddca645bb5e02a02006=1564539142; adfbid=0; dywec=95841923; LastCity=%E5%B9%BF%E5%B7%9E; sts_deviceid=16c45ccbf571fb-056500981cae5-3f385c06-2073600-16c45ccbf5840d; JSShowname=""; sts_sg=1; login_point=67827992; login-type=b; x-zp-client-id=e5cc6ae7-13f9-4f11-ac17-f37439ae1de5; is-oversea-acount=0; loginreleased=1; __utmz=269921210.1564567034.8.3.utmcsr=ihr.zhaopin.com|utmccn=(referral)|utmcmd=referral|utmcct=/talk/manage.html; dywez=95841923.1564567034.8.3.dywecsr=ihr.zhaopin.com|dyweccn=(referral)|dywecmd=referral|dywectr=undefined|dywecct=/talk/manage.html; adfbid2=0; uiioit=3d753d6a44640f385a6d5c6203355c6844795a795639006b566e203671645575496a42649; rt=c5bcbdcb3f974eadb9de36ccb4f4b3d6; __utmc=269921210; Hm_lpvt_38ba284938d5eddca645bb5e02a02006=1565399655; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22655193256%22%2C%22%24device_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c45ccbfa4528-023d4aa56bf0c6-3f385c06-2073600-16c45ccbfa51a0%22%7D; sts_sid=16c7fc37ae816b-0a7adb49c590df-30760d58-2073600-16c7fc37ae98de; dywea=95841923.183147172171786560.1564539142.1565493091.1565511613.11; __utma=269921210.1113127844.1564539142.1565493091.1565511614.11; sts_evtseq=2; dyweb=95841923.2.10.1565511613; __utmb=269921210.2.10.1565511614"
     }
     return headers
 
@@ -62,162 +61,32 @@ def get_resume():
         return d
 
 
-def deal_info():
-    now_year = datetime.datetime.now().year
-    resume = {
-        'resume_from': 2,
-    }
-    job = '数据处理工程'  # dict
-    # account = resume_id  # job['orgName']
-
-    name = "陈六宝"
-    mobile_phone = '1234568911'
-    company_dpt = 1
-    resume_key = ''
-    gender = '1'
-    date_of_birth = '1995-03-09'
-    current_residency = '广州'
-    years_of_working = '1'
-
-    hukou = '广州'
-
-    salary_num = '0500107000'
-    if salary_num:
-        sn = str(salary_num)
-        if len(sn) == 9:
-            if sn[4] == '0':
-                current_salary = sn[:4] + '~' + sn[5:]
-            else:
-                current_salary = sn[:4] + '~' + sn[4:]
-        elif len(sn) == 10:
-            current_salary = sn[:5] + '~' + sn[5:]
-        else:
-            current_salary = ''
-    else:
-        current_salary = ''
-
-    politics_status = ''
-    marital_status = '2'
-    address = '中国广州'
-    zip_code = ''
-    email = ''
-    home_telephone = ''
-    work_phone = ''
-    personal_home_page = ''
-    excecutiveneed = ''
-    self_assessment = '为了理想需要努力'
-    i_can_start = ''
-    employment_type = '2'
-    industry_expected = []  # 数字 未处理
-
-    working_place_expected = '广州'
-    num_expected = '8000'
-    time_now = time.time()
-    dateModified = time.strftime('%Y-%m-%d', time.localtime(time_now))
-    # print('更新日期:', dateModified)
-    if num_expected:
-        sn = str(num_expected)
-        if len(sn) == 9:
-            if sn[4] == '0':
-                salary_expected = sn[:4] + '~' + sn[5:]
-            else:
-                salary_expected = sn[:4] + '~' + sn[4:]
-        elif len(sn) == 10:
-            salary_expected = sn[:5] + '~' + sn[5:]
-        else:
-            salary_expected = '面议'
-    else:
-        salary_expected = '面议'
-
-    job_function_expected = ''
-    current_situation = ''
-
-    word_experience = []
-
-    project_experience = []
-
-    education = []
-
-    honors_awards = ''
-    practical_experience = ''
-    training = ''
-    language = ''
-    it_skill = ''
-
-    certifications = []
-
-    is_viewed = 1
-    resume_date = dateModified
-    get_type = 1
-    external_resume_id = "y3TAn8FICBBln4dJF8d2mA"
-
-    resume['name'] = name
-    resume['mobile_phone'] = mobile_phone
-    resume['company_dpt'] = company_dpt
-    resume['resume_key'] = resume_key
-    resume['gender'] = gender
-    resume['date_of_birth'] = date_of_birth
-    resume['current_residency'] = current_residency
-    resume['years_of_working'] = years_of_working
-    resume['hukou'] = hukou
-    resume['current_salary'] = current_salary
-    resume['politics_status'] = politics_status
-    resume['marital_status'] = marital_status
-    resume['address'] = address
-    resume['zip_code'] = zip_code
-    resume['email'] = email
-    resume['home_telephone'] = home_telephone
-    resume['work_phone'] = work_phone
-    resume['personal_home_page'] = personal_home_page
-    resume['excecutiveneed'] = excecutiveneed
-    resume['self_assessment'] = self_assessment
-    resume['i_can_start'] = i_can_start
-    resume['employment_type'] = employment_type
-    resume['industry_expected'] = industry_expected[0] if industry_expected else ''
-    resume['working_place_expected'] = working_place_expected
-    resume['salary_expected'] = salary_expected
-    resume['job_function_expected'] = job_function_expected
-    resume['current_situation'] = current_situation
-    resume['word_experience'] = word_experience
-    resume['project_experience'] = project_experience
-    resume['education'] = education
-    resume['honors_awards'] = honors_awards
-    resume['practical_experience'] = practical_experience
-    resume['training'] = training
-    resume['language'] = language
-    resume['it_skill'] = it_skill
-    resume['certifications'] = certifications
-    resume['is_viewed'] = is_viewed
-    resume['resume_date'] = resume_date
-    resume['get_type'] = get_type
-    resume['external_resume_id'] = external_resume_id
-    # resume['labeltype'] = jobResume['labeltype']  # 1 待处理 2 有意向 3 已发面试 4 不合适
-
-    return resume
-
-
-def post_resume(jr=None, resume_id='3621', download_user='2244'):
-        info = {
-            'noneDlivery_resume_id': resume_id,
-            'add_user': download_user,
-            'data': [jr]
-        }
-        # with open('ttt.txt', 'w', encoding='utf-8') as f:
-        #     f.write(str(info))
-        print('info:', info)
-        # url = 'http://testhr.gets.com:8989/api/autoOwnerResumeDownload.php?'  # here is the post api
-        url = 'http://hr.gets.com:8989/api/autoOwnerResumeDownload.php?'
-
-        rq = session.post(url, json=info)
-        print(rq.text)
-
-
 def run():
     # resume = get_resume()
     # print(resume)
-    deal = deal_info()
-    post_resume(deal)
     # response_get(resume)
+    send_rtx_msg()
+
+
+def send_rtx_msg():
+    """
+    rtx 提醒
+    :param receivers:
+    :param msg:
+    :return:
+    """
+    msg = """
+********* HR 数据自动化 *********
+状态原因：xxx
+处理标准：xxxx
+查看链接：xxx
+"""
+    post_data = {
+        "sender": "系统机器人",
+        "receivers": '朱建坤',
+        "msg": msg,
+    }
+    requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
 if __name__ == '__main__':

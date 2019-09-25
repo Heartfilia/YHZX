@@ -19,7 +19,7 @@
   <component name="ProjectId" id="1QtnTd0eUzvhN10ZmKHoNG96BNF" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/GIT/learn/Job51" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ZhiLian/zhilian_yhzx_all" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
@@ -102,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1568598768033</updated>
       <workItem from="1568598769366" duration="79446000" />
-      <workItem from="1568853936809" duration="34336000" />
+      <workItem from="1568853936809" duration="85778000" />
     </task>
     <servers />
   </component>
@@ -118,7 +118,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Boss$Selenium_call_find.coverage" NAME="Selenium_call_find Coverage Results" MODIFIED="1568944986788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Boss$Selenium_call_find.coverage" NAME="Selenium_call_find Coverage Results" MODIFIED="1569319730601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Boss$python_config.coverage" NAME="python_config Coverage Results" MODIFIED="1568880092342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

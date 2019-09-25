@@ -27,7 +27,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # Here are locally stored cookies. If it is in the selenium format, you don't need to use them
 # In the case of the standard large dictionary pattern, you can hand it by self.get_api_cookie()
 receivers = "系统机器人"
-company_name = '外宝电子'
+company_name = '时时美'
 handler = '陈淼灵'
 
 
@@ -178,10 +178,10 @@ class ResumeDownloader(object):
 
         self.options = webdriver.ChromeOptions()
         # self.options.add_argument(generate_user_agent(device_type="desktop"))
-        # self.options.add_argument("--no-sandbox")
-        # self.options.add_argument('--disable-gpu')
+        self.options.add_argument("--no-sandbox")
+        self.options.add_argument('--disable-gpu')
         # self.options.add_argument('lang=zh-CN,zh,zh-TW,en-US,en')
-        # self.options.add_experimental_option("debuggerAddress", "127.0.0.1:9221")
+        self.options.add_experimental_option("debuggerAddress", "127.0.0.1:9221")
         # self.options.add_experimental_option('excludeSwitches', ['enable-automation'])
         self.driver = webdriver.Chrome(options=self.options)
 
@@ -254,7 +254,7 @@ class ResumeDownloader(object):
 状态原因：智联{company_name}简历下载程序发现异常
 处理标准：请人为到服务器手动处理登陆状态后重启程序
 """
-            # self.send_rtx_msg(msg)
+            self.send_rtx_msg(msg)
             WebDriverWait(self.driver, 86400, poll_frequency=30).until(
                 EC.presence_of_element_located((
                     By.XPATH,
@@ -765,7 +765,6 @@ class ResumeDownloader(object):
         resume_date = dateModified
         get_type = 1
         external_resume_id = data['resumeNumber'][:-4]
-        resume_logo = candidate['photo']
 
         resume['name'] = name
         resume['mobile_phone'] = mobile_phone
@@ -808,7 +807,6 @@ class ResumeDownloader(object):
         resume['get_type'] = get_type
         resume['external_resume_id'] = external_resume_id
         # resume['labeltype'] = jobResume['labeltype']  # 1 待处理 2 有意向 3 已发面试 4 不合适
-        resume['resume_logo'] = resume_logo
 
         return resume
 

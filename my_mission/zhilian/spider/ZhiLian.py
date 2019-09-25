@@ -174,8 +174,8 @@ class ZhiLian(object):
 
         time.sleep(5)
         self.msg_num()
-        # self.do_task()
-        # self.send_msg()
+        self.do_task()
+        self.send_msg()
         time.sleep(5)
         # =========================================================================================== #
         self.cursor.close()
@@ -677,189 +677,11 @@ class ZhiLian(object):
         self.driver.quit()
 
 
-class Rate(object):
-    """
-    智能检测排名靠后问题程序
-    """
-    def __init__(self):
-        self.base_url = 'https://sou.zhaopin.com/'
-        self.js_url = 'https://fe-api.zhaopin.com/c/i/sou?'
-        self.headers = {
-            'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36',
-            'referer': 'https://www.zhaopin.com/',
-        }
-        self.pos_que = Queue()      # 职位准备存入队列
-        self.db = pymysql.connect(host=host,
-                                  port=port,
-                                  user=user,
-                                  password=password,
-                                  database=database)
-        self.cursor = self.db.cursor()
-
-    def update_mysql_one(self, pg, kew, cnt):
-        sql = f'update keyword set pageinfo = {pg}, posi_nums = {cnt} where keyword = "{kew.strip()}"'
-
-        try:
-            LOG.info('数据库准备修改数据>>>>>>>')
-            self.cursor.execute(sql)
-            self.db.commit()
-            time.sleep(0.1)
-        except Exception as e:
-            LOG.warning('数据错误已经回滚>>>>>>>')
-            self.db.rollback()
-
-    def session_get(self):
-        while True:
-            if self.pos_que.empty():
-                break
-            else:
-                position = self.pos_que.get()
-                time.sleep(0.2)
-                for page in range(6):
-                    start = page * 90
-                    now_page = page + 1       # 现在页数
-                    params = {
-                        "start": str(start),
-                        "pageSize": "90",  # 每页数据
-                        "cityId": "763",  # 广州
-                        "workExperience": "-1",
-                        "education": "-1",
-                        "companyType": "-1",
-                        "employmentType": "-1",
-                        "jobWelfareTag": "-1",
-                        "kw": position,
-                        "kt": "3",      # 这个参数很重要，没有就服务器错误
-                        # "_v": "0.33455201",  # <<<<<<<<<<<
-                        # "x-zp-page-request-id": f"475845d52fa846b9b68d41ef6fce3fca-{int(time.time() * 1000)}-972139",  # <<<<<<
-                        # "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
-                        # 上面三个数据都不重要，可以不传输的
-                    }
-                    time.sleep(0.2)
-                    try:
-                        requests.packages.urllib3.disable_warnings()
-                        resp = requests.get(self.js_url, params=params, headers=self.headers, verify=False)
-                    except Exception as e:
-                        LOG.error(f'{position}职位的第{now_page}页内容已经写入失败》[可能：请求信息过期或者没有后续页面了]》')
-                        break
-                    else:
-                        dic = json.loads(resp.text, encoding='utf-8')
-                        count = dic['data']['count']
-                        LOG.info(f'{position}这个岗位总共有{count}个发布信息')
-                        if int(count) > 90:
-                            last_page = int(count) // 90      # 获取最后一页页码
-                        else:
-                            last_page = 1
-                        data = dic['data']['results']    # list
-                        now_info = [f'{position}:{now_page}:::']
-                        for com in data:
-                            co = com['company']['name']    # goal
-                            now_info.append(co)
-                        time.sleep(0.1)
-                        with open('information.txt', 'a', encoding='gb18030') as f:
-                            f.write(str(now_info) + '\r\n')
-                        LOG.info(f'{position}职位的第{now_page}页内容已经写入成功》》》》》》')
-                        now_page_info = set(now_info)
-                        if now_page_info & o_comp:
-                            self.update_mysql_one(now_page, position, count)
-                            LOG.info(f'##### 在第{now_page}页的<<{position}>>职位查到公司信息')
-                            break    # 只要在规定页码内查到公司信息就可以退出了
-
-                        self.update_mysql_one("0", position, count)
-
-                        if count <= start:
-                            LOG.info(f"<<<{position}>>>职位只有{now_page}页数据，已经停止搜索")
-                            break
-
-                        if now_page == last_page:
-                            break
-
-    def save_pos(self):
-        p = requests.get('http://192.168.1.112:8000/api/get/rate/z').text
-        time.sleep(0.1)
-        data = json.loads(p)
-        pos = data['data']
-        for p in pos:
-            info = p['keyword']
-            LOG.info(f'！！！>>> {info} 职位已经放入队列 >>>>>')
-            self.pos_que.put(info)
-
-    @staticmethod
-    def requests_info():
-        page = requests.get('http://192.168.1.112:8000/api/get/rate/z').text
-        time.sleep(0.1)
-        data = json.loads(page)
-        pos = data['data']
-        main_info = []
-        for p in pos:
-            kw = p['keyword']
-            pi = p['pageinfo']
-            test = (kw, pi)
-            if pi == 0:
-                main_info.append(test)
-
-        return main_info
-
-    def requests_json(self):
-        with open('information.txt', 'a') as f:
-            f.write(time.ctime(time.time()) + '::开始记录公司信息\n')
-            f.write('=' * 50 + '\n')    #
-        # self.re_get()
-        q1 = []
-        for i in range(1):
-            t1 = Thread(target=self.save_pos)
-            t1.start()
-            LOG.info(f'#####存职位》》的线程{i}已经启动#####')
-            q1.append(t1)
-
-        q2 = []
-        for i in range(2):
-            t2 = Thread(target=self.session_get)
-            LOG.info(f'#####搜信息》》的线程{i}已经启动#####')
-            t2.start()
-            q2.append(t2)
-
-        time.sleep(random.randint(1, 2))
-        for i in q1:
-            i.join()
-        LOG.info(f'#####存职位》》的线程已经回收#####')
-        for i in q2:
-            i.join()
-        LOG.info(f'#####搜信息》》的线程已经回收#####')
-
-    def run(self):
-        try:
-            # self.case_rate()  # 《《《 需要开
-            self.requests_json()   # https://fe-api.zhaopin.com/c/i/sou?
-        except Exception as e:
-            # 程序出错，可能需要处理
-            LOG.warning('》》》》》》程序异常，出了问题需要跟进处理《《《《《')
-            return
-        else:
-            out_page = self.requests_info()
-            if len(out_page) > 0:
-                pass
-
-
 def main():
     app1 = ZhiLian()
     try:
         app1.run()
         LOG.info('招聘信息》》》抓取进程开启成功')
-    except Exception as e:
-        msg = f"""
-********* HR 数据自动化 *********
-负责人：{handler}
-状态原因：智联{company_name}职位信息检测程序异常
-处理标准：人为到服务器处理异常状态后重新启动程序
-"""
-        send_rtx_msg(msg)
-
-    time.sleep(random.randint(5, 10))   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
-
-    app2 = Rate()
-    try:
-        app2.run()
-        LOG.info('页面信息》》》抓取进程开启成功')
     except Exception as e:
         msg = f"""
 ********* HR 数据自动化 *********
@@ -887,11 +709,11 @@ def send_rtx_msg(msg):
 
 if __name__ == '__main__':
     print('等待第二天中...')
-    time.sleep(58980)
+    time.sleep(1100)
     while True:
         main()
         for _ in range(86400):
-            # n = int(_ / 1728 * 50)
+            n = int(_ / 1728 * 50)
             # print(f'\rloading: {n * ">"} + {(50 - n) * "="}', end="")
             time.sleep(1)
 

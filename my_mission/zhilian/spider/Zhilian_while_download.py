@@ -704,11 +704,10 @@ class ResumeDownloader(object):
                     Salary = Sly[:5] + '~' + Sly[5:]
 
                 dic = {
-                    '公司名': ifo['CompanyName'],
-                    '开始时间': ifo['DateStart'],
-                    '结束时间': ifo['DateEnd'] if ifo['DateEnd'] else '',
+                    '公司信息': ifo['CompanyName'],
+                    '起止时间': ifo['DateStart'] + '-' + (ifo['DateEnd'] if ifo['DateEnd'] else ''),
                     '工作标题': ifo['JobTitle'],
-                    '工作描述': ifo['WorkDescription'],
+                    '工作内容': ifo['WorkDescription'],
                     '薪资范围': Salary
                 }
                 word_experience.append(dic)
@@ -759,6 +758,8 @@ class ResumeDownloader(object):
         get_type = 1
         external_resume_id = data['resumeNumber'][:-4]
         resume_logo = candidate['photo']
+        account_from = python_config.account_from
+        update_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(jobResume['modifieddate']) / 1000))
 
         resume['name'] = name
         resume['mobile_phone'] = mobile_phone
@@ -802,6 +803,8 @@ class ResumeDownloader(object):
         resume['external_resume_id'] = external_resume_id
         # resume['labeltype'] = jobResume['labeltype']  # 1 待处理 2 有意向 3 已发面试 4 不合适
         resume['resume_logo'] = resume_logo
+        resume['account_from'] = account_from
+        resume['update_date'] = update_date
 
         return resume
 
