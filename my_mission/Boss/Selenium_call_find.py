@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2019/9/17 9:53
 # @Author  : Lodge
@@ -11,6 +11,9 @@ import sys
 import time
 import json
 import random
+import base64
+from PIL import Image
+
 import urllib3
 import logging
 import importlib
@@ -18,16 +21,18 @@ from functools import wraps
 from threading import Thread
 from logging import getLogger
 
+
 import requests
 from lxml import etree
 from selenium import webdriver
 from fake_useragent import UserAgent
-from selenium.webdriver import ActionChains
+# from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
 import python_config   # 这里是导入配置文件
+from Baidu_ocr import client
 
 ua = UserAgent()     # fake useragent
 LOG = getLogger()    # LOG recoder
@@ -57,13 +62,14 @@ class BossHello(object):
     def __init__(self):
         self.base_url = 'https://www.zhipin.com'
         self.chat_url = self.base_url + '/chat/im?mu=chat'
+        self.pic_url = 'https://m.zhipin.com/wapi/zpgeek/resume/attachment/preview4boss?id='
         self.local_class = self.__class__.__name__
 
         self.session = requests.Session()
         self.options = webdriver.ChromeOptions()
         self.options.add_argument("--no-sandbox")
         self.options.add_argument('--disable-gpu')
-        # chrome.exe --remote-debugging-port=8055 --user-data-dir="C:\selenium_boss\AutomationProfile"   # start chrome
+        # chrome.exe --remote-debugging-port=8055 --user-data-dir="C:\selenium_boss_llfs\AutomationProfile"   # chrome
         self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.chrome_port}")  # connect
         self.driver = webdriver.Chrome(options=self.options)
 
@@ -211,20 +217,25 @@ class BossHello(object):
                     date_of_birth = time.localtime().tm_year
 
                 weixin = data['weixin'] if data['weixin'] else ''
-                phone = data['phone'] if data['phone'] else ''
-                if not phone:
+                phone = data['phone'] if data['phone'] else '123'
+                if phone == '123':
                     if weixin.isdigit():
                         mobile_phone = weixin
                     else:
-                        mobile_phone = phone
+                        info_phone = re.findall(r'(1\d{10})', weixin)
+                        if info_phone:
+                            mobile_phone = info_phone[0]
+                        else:
+                            mobile_phone = phone
                 else:
                     mobile_phone = phone
+
                 json_info = {
                     'name': data['name'],
                     'mobile_phone': mobile_phone,
                     'company_dpt': 1,
                     'resume_key': '',
-                    'gender': data['gender'],
+                    'gender': data['gender'] if int(data['gender']) == 1 else 2,
                     'date_of_birth': f'{date_of_birth}-01-01',
                     'current_residency': data['city'],
                     'years_of_working': data['year'],
@@ -295,7 +306,6 @@ class BossHello(object):
         base_chat = {
             'name': name,
             'phone': phone,
-            'external_resume_id': e_id,
             'data': []
         }
         data = base_chat['data']
@@ -304,16 +314,23 @@ class BossHello(object):
             time_info = each.get('time')
             if info:
                 dict_chat = {
-                    'add_time': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(time_info) / 1000)),
+                    'chat_time': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(time_info) / 1000)),
                     'from_uid': each['from']['uid'],
                     'from_name': each['from']['name'],
                     'to_uid': each['to']['uid'],
                     'to_name': each['to']['name'],
-                    'msg': info
+                    'message': info,
+                    'resume_id': e_id,
                 }
                 data.append(dict_chat)
         msg_url = python_config.MSG_URL
-        self.session.post(msg_url, json=base_chat)
+        print('聊天信息状态--准备写入聊天信息...')
+        with open('./utils/chat_msg.json', 'a') as file:
+            file.write(json.dumps(base_chat) + ',\n')
+            # LOG.info(f'聊天信息--和{name}的聊天信息已经存储.')
+
+        status = self.session.post(msg_url, json=base_chat)
+        LOG.info(f'聊天信息--和{name}的聊天信息存储状态为{status.text}.')
 
     def request_chat_msg(self, gid):
         time.sleep(random.uniform(1, 3))
@@ -332,17 +349,25 @@ class BossHello(object):
         return messages
 
     def post_resume(self, base_json, data_uid):
-        time.sleep(random.uniform(3, 5))
+        time.sleep(random.uniform(2, 3))
+        # 这里将那个图片转换为Base_64然后准备接下来的事情
+        with open(BASE_DIR + '/Baidu_ocr/base.png', 'rb') as f:
+            base64_data = base64.b64encode(f.read())
+            base_img = base64_data.decode()  # 要处理这个base_img
+            # print(f'data:image/png;base64,{base_img}')   # 这里是输出测试
         info = {
             'account': python_config.account,
+            'boss_pic': f'data:image/jpeg;base64,{base_img}',
             'data': [base_json]
         }
+        print(info)
         url = python_config.POST_URL   # api not sure
-        mobile_phone = base_json['mobile_phone']
+        mobile_phone = base_json['mobile_phone'] if base_json['mobile_phone'] != '123' else ''
         name = base_json['name']
         e_id = base_json['external_resume_id']
         if base_json and mobile_phone:
-            with open('./utils/resume_info.txt', 'a', encoding='utf-8') as json_file:
+            # if base_json:
+            with open('./utils/resume_info.txt', 'a') as json_file:
                 json_file.write(str(info) + ',\n')
             try:
                 response = self.session.post(url, json=info)
@@ -352,21 +377,28 @@ class BossHello(object):
                 LOG.error('目标计算机拒绝链接')
             else:
                 LOG.info(f'沟通的数据插入详情为:{response.text}')
-                msg_box = self.driver.find_element_by_xpath(
-                    '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
-                msg_box.send_keys(python_config.get_and_reply)
-                time.sleep(random.uniform(1, 2))
-                send_button = self.driver.find_element_by_xpath(
-                    '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[3]/button')
-                self.driver.execute_script("arguments[0].click();", send_button)
-                LOG.info(f'Reply信息状态:{name}:{mobile_phone}::的回复消息发送成功.')
-                time.sleep(random.uniform(1, 2))
-                self.save_message(name, mobile_phone, e_id, data_uid)
+                if json.loads(response.text)['error_code'] == 0:
+                    time.sleep(random.uniform(1, 2))
+                    back_chat = self.driver.find_element_by_xpath(
+                        '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[1]/div[2]/span[1]'
+                    )
+                    self.driver.execute_script("arguments[0].click();", back_chat)
+                    back_chat.click()
+                    time.sleep(1)
+                    msg_box = self.driver.find_element_by_xpath(
+                        '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
+                    msg_box.send_keys(python_config.get_and_reply)
+                    time.sleep(random.uniform(1, 2))
+                    send_button = self.driver.find_element_by_xpath(
+                        '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[3]/button')
+                    self.driver.execute_script("arguments[0].click();", send_button)
+                    LOG.info(f'Reply信息状态:{name}:{mobile_phone}::的回复消息发送成功.')
+                    time.sleep(random.uniform(1, 2))
+                    self.save_message(name, mobile_phone, e_id, data_uid)
         else:
             LOG.info('reject: 对方还未回复关键信息,简历未能上传')
 
-    @staticmethod
-    def parse_detail_page(base_json, html_detail):
+    def parse_detail_page(self, base_json, html_detail):
         time.sleep(random.uniform(1, 2))
         parser = etree.HTML(html_detail)
         self_assessment_xpt = parser.xpath('/html/body/div/div/div[1]/div[2]/div[2]//text()')
@@ -421,22 +453,72 @@ class BossHello(object):
             }
             base_json['education'].append(education_info)
 
+        self.go_resume(base_json)
+
+    def go_resume(self, base_json):
+        """
+        去到附件简历位置，先判断有吗 然后又再识别。
+        :return:
+        """
+        resume_extra = self.driver.find_element_by_xpath(
+            '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[1]/div[2]/span[3]'
+        )
+        attribute = resume_extra.get_attribute('class')
+        if 'gray' in attribute:
+            print('没有获取到附加简历...')
+            return
+        else:
+            print('拿到了简历...')
+            time.sleep(2)
+            self.driver.execute_script("arguments[0].click();", resume_extra)
+            time.sleep(2)
+            self.driver.save_screenshot(BASE_DIR + '/Baidu_ocr/base.png')
+            time.sleep(2)
+            img = self.driver.find_element_by_xpath(
+                '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[4]/div/div/img')
+            location = img.location
+            left = location['x']
+            top = location['y']
+            right = left + 860
+            bottom = top + 650
+
+            img = Image.open(BASE_DIR + '/Baidu_ocr/base.png')
+            im = img.crop((left, top, right, bottom))
+            im.save(BASE_DIR + '/Baidu_ocr/base.png')
+            time.sleep(1)
+            try:
+                app_email = client.main()
+            except Exception as e:
+                LOG.error('图片识别转码网络连接超时...')
+                write_exception(e, 'go_resume', 'BossHelll')
+            else:
+                if app_email:
+                    base_json['email'] = app_email
+
+            # resume_chat = self.driver.find_element_by_xpath(
+            #     '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[1]/div[2]/span[1]'
+            # )
+            # time.sleep(2)
+            # self.driver.execute_script("arguments[0].click();", resume_chat)
+
+        time.sleep(3)
+
     def do_judge_who_is_last_one(self, gid):
         # False : 在需要发消息的情况里面非关键字的情况下 不需要发送信息
         # True  : 在需要发消息的情况里面非关键字的情况下 需要发送信息
         messages = self.request_chat_msg(gid)
-        if len(messages) < 4:
-            return True
+        # if len(messages) < 5:
+        #     return True
         # ================== 上面的这个容错判断很容易受到其它条件影响 ===================
         who_send = str(messages[-1]['from']['uid'])
         try:
-            push_text = messages['pushText']
+            push_text = messages[-1]['pushText']
         except Exception as e:
             local_def = sys._getframe().f_code.co_name
             write_exception(e, local_def, self.local_class)
             return False
         else:
-            if '牛人还没回复？' or '对方刚查看了您的主页' not in push_text:
+            if '牛人还没回复？' or '您的主页' not in push_text:
                 if who_send != gid:  # we send
                     return False     # don't send request
                 else:
@@ -447,9 +529,6 @@ class BossHello(object):
     def ask_for_information(self):
         time.sleep(random.uniform(1, 2))
 
-        unread = self.driver.find_element_by_xpath('//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div/label/span')
-        unread.click()
-        time.sleep(random.uniform(1, 2))    # filter unread
         all_people = self.driver.find_elements_by_xpath('//*[@id="container"]/div[1]/div[2]/div[3]/div[1]/ul[2]/li')
         for each_person in all_people:
             time.sleep(random.uniform(2, 3))
@@ -517,7 +596,6 @@ class BossHello(object):
                 data_uid = url_node.get_attribute('data-uid')     # base info
                 data_eid = url_node.get_attribute('data-eid')     # detail info
                 base_json = self.request_base_info(data_uid)      # return json-format dict file
-                # print('base_json:', base_json)
                 if base_json:
                     html_detail = self.request_detail_info(data_eid)
                     self.parse_detail_page(base_json, html_detail)
@@ -526,9 +604,12 @@ class BossHello(object):
 
     def chose_each_position(self):
         time.sleep(0.5)
+        unread = self.driver.find_element_by_xpath('//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div/label/span')
+        unread.click()
+        time.sleep(random.uniform(0, 1))  # filter unread
         each_pos = self.driver.find_element_by_xpath('//*[@id="header"]/div/div/div[1]/div[2]/span')
         self.driver.execute_script("arguments[0].click();", each_pos)
-        time.sleep(random.uniform(1, 2))
+        time.sleep(random.uniform(0, 1))
         all_pos = self.driver.find_elements_by_xpath('//*[@id="header"]/div/div/div[1]/div[2]/div/ul/li')[1:]
         for pos in all_pos:
             time.sleep(random.uniform(0, 1))
@@ -543,20 +624,41 @@ class BossHello(object):
         开发的时候的调试状态，后面没有用到的...
         :return:
         """
-        # start_position = self.driver.find_element_by_xpath(
-        #     '//*[@id="container"]/div[1]/div[2]/div[3]/div[1]/ul[2]/li[1]/a/div[2]/div/span[2]'
-        # )
-        # ActionChains(self.driver).move_to_element(start_position).perform()
-        # js = 'document.getElementsByClassName("scroll-bar")[1].scrollTop=500'
-        # self.driver.execute_script(js)
-        info = python_config.test_chat_info
-        self.session.post(python_config.MSG_URL, json=info)
+        resume_extra = self.driver.find_element_by_xpath(
+            '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[1]/div[2]/span[3]'
+        )
+        attribute = resume_extra.get_attribute('class')
+        if 'gray' in attribute:
+            print('没有获取到附加简历...')
+            pass
+        else:
+            # resume_extra.click()
+            print('拿到了简历...')
+            time.sleep(2)
+            self.driver.execute_script("arguments[0].click();", resume_extra)
+            time.sleep(2)
+            self.driver.save_screenshot(BASE_DIR + '/Baidu_ocr/base.png')
+            time.sleep(4)
+            img = self.driver.find_element_by_xpath(
+                '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[4]/div/div/img')
+            location = img.location
+            left = location['x']
+            top = location['y']
+            right = left + 650
+            bottom = top + 700
+
+            img = Image.open(BASE_DIR + '/Baidu_ocr/base.png')
+            im = img.crop((left, top, right, bottom))
+            im.save(BASE_DIR + '/Baidu_ocr/base.png')
+            time.sleep(1)
 
     # ===================================================================================== #
 
     def run(self):
         self.handle_selenium_cookies()     # about cookie 处理基础的页面状态(不用调)
         self.chose_each_position()
+        time.sleep(3)
+        self.driver.refresh()     # 消息处理完毕后，刷新哈，避免新消息被触发
 
 
 # ========================================================================================== #
@@ -607,7 +709,7 @@ class CallForNiu(object):
             time.sleep(random.uniform(1, 2))
             self.driver.switch_to.frame('syncFrame')
             self.select_salary_range()
-            for _ in range(5):
+            for _ in range(10):
                 self.driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
                 time.sleep(random.uniform(2, 4))
             all_people = self.driver.find_elements_by_xpath('//*[@id="recommend-list"]/div/ul/li')[1:]
@@ -721,11 +823,26 @@ class ClearAllChat(object):
 
 
 # ========================================================================================== #
-class CallForSend(object):
+class CallForPosition(object):
     """
-    这里是可能会用来发送邀请信息的，现在没有先关业务，但是可以先留着
+    发布职位的位置
     """
-    pass
+
+    def __init__(self):
+        self.base_url = 'https://www.zhipin.com'
+        self.position_url = self.base_url + '/chat/im?mu=%2Fbossweb%2Fjobedit%2F0.html'
+        self.local_class = self.__class__.__name__
+        self.options = webdriver.ChromeOptions()
+        self.options.add_argument("--no-sandbox")
+        self.options.add_argument('--disable-gpu')
+        # chrome.exe --remote-debugging-port=8055 --user-data-dir="C:\selenium_boss\AutomationProfile"   # start chrome
+        self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.chrome_port}")  # connect
+        self.driver = webdriver.Chrome(options=self.options)
+
+        # ===================================================================================== #
+
+    def run(self):
+        pass
 
 
 # ========================================================================================== #
@@ -809,8 +926,8 @@ def hello_timer(set_time):
     return work_time
 
 
-# 数据扫描时间为指定每小时，因为避免以后数据过多的问题 扫描时间为9点到20点每个的半小时
-@hello_timer(['01:10', '09:30'] + [f'{i}:30' for i in range(10, 21)])
+# 数据扫描时间为指定每小时，因为避免以后数据过多的问题 每十分钟扫描一次
+@hello_timer(python_config.time_tic)
 def thread_one_hello():
     """
     抓们拿一个线程来处理打招呼，时间到了指定的时间就开始处理信息
@@ -842,10 +959,10 @@ def thread_two_clear():
         send_rtx_msg(msg)
 
 
-@clear_timer(['10:00', '15:00'])
+@clear_timer(['06:00'])
 def thread_three_niu():
     """
-    专门开了第三个线程来处理给牛人打招呼,就是主动要人来聊天,每次打招呼5页牛人,大概有50个,每天打招呼两次
+    专门开了第三个线程来处理给牛人打招呼,就是主动要人来聊天,每个职位每次打招呼10页牛人,大概有100个,每天打招呼一次[根据业务数据量只能减少]
     :return: 不返回
     """
     try:
@@ -858,11 +975,27 @@ def thread_three_niu():
         send_rtx_msg(msg)
 
 
+@hello_timer(['02:00'])
+def thread_four_position():
+    """
+        专门开了第四个线程来处理职位发布信息
+        :return: 不返回
+        """
+    try:
+        post_app = CallForPosition()
+        post_app.run()
+    except Exception as e:
+        write_exception(e, 'thread_three_niu', '需要重新登录')
+        msg = f"********* HR 数据自动化 *********\n负责人：{python_config.handler}\n状态原因：其它地方登录,程序已经离线" \
+              f"\n处理标准：请重新登录账号,并替换本地的cookie"
+        send_rtx_msg(msg)
+
+
 def development_mode():
     # 开发者模块，调试的时候用的
     find_app = BossHello()
-    # find_app.run()
-    find_app.test_msg()
+    find_app.run()
+    # find_app.test_msg()
     # time.sleep(100)  # 等待功能二
     # delete_app = ClearAllChat()
     # delete_app.run()
@@ -878,7 +1011,7 @@ def main():
     """
     development_mode()
     print('调试的时候 要卡在这里...')
-    time.sleep(1000)
+    time.sleep(10000)
     while True:
         hello_t = Thread(target=thread_one_hello)
         clear_t = Thread(target=thread_two_clear)
