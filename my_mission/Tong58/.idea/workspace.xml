@@ -165,7 +165,7 @@
       <workItem from="1569804787625" duration="17315000" />
       <workItem from="1570150072324" duration="14356000" />
       <workItem from="1570410496548" duration="11319000" />
-      <workItem from="1570498669395" duration="72711000" />
+      <workItem from="1570498669395" duration="76916000" />
     </task>
     <servers />
   </component>
@@ -176,6 +176,6 @@
     <SUITE FILE_PATH="coverage/Tong58$spider_58_request.coverage" NAME="spider_58_request Coverage Results" MODIFIED="1570619451228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tong58$test.coverage" NAME="test Coverage Results" MODIFIED="1570496935576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tong58$client.coverage" NAME="client Coverage Results" MODIFIED="1570610346632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper/Baidu_ocr" />
-    <SUITE FILE_PATH="coverage/Tong58$selenium58_yhzx.coverage" NAME="selenium58_yhzx Coverage Results" MODIFIED="1570688116533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tong58$selenium58_yhzx.coverage" NAME="selenium58_yhzx Coverage Results" MODIFIED="1570689981322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

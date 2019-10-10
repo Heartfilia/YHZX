@@ -201,8 +201,10 @@ class TongCheng(object):
 
             age = self.handle_num(data['ageText'], True)
             print('年龄为:', age)
-            now_year = time.localtime().tm_year
-            age = now_year
+            try:
+                now_year = time.localtime().tm_year - int(age)
+            except Exception as e:
+                now_year = time.localtime().tm_year
 
             json_info = {
                 'name': name,
@@ -210,7 +212,7 @@ class TongCheng(object):
                 'company_dpt': 1,   # 不确定写啥
                 'resume_key': data['expectCateName'],
                 'gender': 2 if gender_judge == '0' else 1,
-                'date_of_birth': f'{age}-01-01',
+                'date_of_birth': f'{now_year}-01-01',
                 'current_residency': data['expectArea'],
                 'years_of_working': work_year,
                 'hukou': '',
