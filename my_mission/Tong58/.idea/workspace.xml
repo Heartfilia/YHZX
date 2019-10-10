@@ -8,6 +8,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -38,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.spider_58_request">
+  <component name="RunManager" selected="Python.selenium58_yhzx">
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Tong58" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,8 +143,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.spider_58_request" />
         <item itemvalue="Python.selenium58_yhzx" />
+        <item itemvalue="Python.spider_58_request" />
         <item itemvalue="Python.client" />
         <item itemvalue="Python.test" />
       </list>
@@ -151,7 +165,7 @@
       <workItem from="1569804787625" duration="17315000" />
       <workItem from="1570150072324" duration="14356000" />
       <workItem from="1570410496548" duration="11319000" />
-      <workItem from="1570498669395" duration="43316000" />
+      <workItem from="1570498669395" duration="72711000" />
     </task>
     <servers />
   </component>
@@ -159,9 +173,9 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Tong58$spider_58_request.coverage" NAME="spider_58_request Coverage Results" MODIFIED="1570605006421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tong58$spider_58_request.coverage" NAME="spider_58_request Coverage Results" MODIFIED="1570619451228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tong58$test.coverage" NAME="test Coverage Results" MODIFIED="1570496935576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Tong58$client.coverage" NAME="client Coverage Results" MODIFIED="1570583409898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper/Baidu_ocr" />
-    <SUITE FILE_PATH="coverage/Tong58$selenium58_yhzx.coverage" NAME="selenium58_yhzx Coverage Results" MODIFIED="1570602659460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tong58$client.coverage" NAME="client Coverage Results" MODIFIED="1570610346632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper/Baidu_ocr" />
+    <SUITE FILE_PATH="coverage/Tong58$selenium58_yhzx.coverage" NAME="selenium58_yhzx Coverage Results" MODIFIED="1570688116533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
