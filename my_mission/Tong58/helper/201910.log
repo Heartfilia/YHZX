@@ -64,3 +64,356 @@
 2019-10-10 14:15:22,789 selenium58_yhzx.py[line:305]INFO - 当前下载页为:1, 页面数据有1条
 2019-10-10 14:46:25,158 selenium58_yhzx.py[line:341]INFO - 今天日期为2019-07-06,下载任务开始查询...
 2019-10-10 14:46:27,468 selenium58_yhzx.py[line:299]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 11:03:18,260 selenium58_yhzx.py[line:341]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 11:03:20,132 selenium58_yhzx.py[line:299]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 11:09:23,249 selenium58_yhzx.py[line:343]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 11:09:52,930 selenium58_yhzx.py[line:343]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 11:09:54,694 selenium58_yhzx.py[line:299]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 11:10:29,808 selenium58_yhzx.py[line:343]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 11:10:31,435 selenium58_yhzx.py[line:299]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 11:10:51,193 selenium58_yhzx.py[line:343]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 11:10:52,815 selenium58_yhzx.py[line:299]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 11:12:08,720 selenium58_yhzx.py[line:343]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 11:12:10,512 selenium58_yhzx.py[line:299]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 12:00:59,473 selenium58_yhzx.py[line:344]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 12:01:03,224 selenium58_yhzx.py[line:301]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 12:01:27,575 selenium58_yhzx.py[line:344]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 12:01:30,924 selenium58_yhzx.py[line:301]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 14:03:49,100 selenium58_yhzx.py[line:344]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 14:03:51,565 selenium58_yhzx.py[line:301]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 14:04:07,072 selenium58_yhzx.py[line:344]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 14:04:08,995 selenium58_yhzx.py[line:301]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 14:11:55,773 selenium58_yhzx.py[line:347]INFO - 今天日期为2019-07-06,下载任务开始查询...
+2019-10-11 14:11:58,951 selenium58_yhzx.py[line:301]INFO - 当前下载页为:1, 页面数据有1条
+2019-10-11 14:13:26,693 selenium58_yhzx.py[line:347]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 14:16:42,975 selenium58_yhzx.py[line:348]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 14:16:48,647 selenium58_yhzx.py[line:302]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 14:20:01,492 selenium58_yhzx.py[line:349]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 14:20:06,043 selenium58_yhzx.py[line:303]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 14:32:55,678 selenium58_yhzx.py[line:412]INFO - 2019-10-11检测的时候没有简历投递进来...
+2019-10-11 14:33:52,172 selenium58_yhzx.py[line:414]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:35:37,108 selenium58_yhzx.py[line:414]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:41:19,393 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:42:05,770 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:42:08,746 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','陈洁仪','18680504210','1','采购助理文员五险一金','2','1980-01-01','','10年以上','','','','2','','','','','','','','本人的特点是比较快的去适应新的工作环境，容易投入到新的工作去，且为人平时与同事方面也是相处得比较愉快，工作勤快踏实，能够按时按质完成上级交派的工作，本人任劳任怨，对待工作实事求事，为人诚实，待人有礼，严于律已，同时拥有会计上岗证,打字速度60字/分以上，对于行政，后勤的工作比较熟悉。Excel：熟练7年经验</br>Word：熟练7年经验</br>Photoshop：一般2年经验','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:08,897 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','韦年年','18676626175','1','外贸助理/外贸业务员','2','1981-01-01','','1年以下','','','','2','','','','','','','','my name is susi,is looking for this marketing job.','','1','','','面议','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:08,906 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:42:09,047 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','潘洁','18688888201','1','采购助理文员五险一金','2','1988-01-01','','5-10年','','','','2','','','','','','','','本人已婚已育，具有一定的销售经验。善于与人交流，性格开朗，热情大方，用于接受挑战。希望可以有机会尝试各不同领域的工作。','','1','','','5000-8000元','1','','起止时间:2014-032015-06<br/>公司信息:广州汇禾粮食有限公司<br/>工作内容:跟单:<br/>起止时间:2017-072019-04<br/>公司信息:自营母婴生活馆<br/>工作内容:店长:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:09,213 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','叶绿欣','13602830132','1','跟单文员','2','1984-01-01','','5-10年','','','','2','','','','','','','','本人勤快耐劳，处事灵活，诚实稳重，已婚已育。具多年店面销售及商场营业员经验。曾在两间私营单位做过文员。英语读写基础能力较好，懂一般英语口语，真诚期待与贵公司合作，谢谢！','','1','','','3000-5000元','1','','起止时间:2008-032010-12<br/>公司信息:广州华润万家便利超市<br/>工作内容:营业员:整理干货与生鲜区域的货物充足与整齐，定期检查商品保质期和损耗情况，保持货架与商品卫生清洁。打堆头与调货架也不是问题。同时也懂收银所有操作。为人沉实稳重，灵活勤快，心细耐劳。真诚期待与贵公司合作，谢谢！<br/>起止时间:2005-042007-12<br/>公司信息:广州景田连锁桶装水店<br/>工作内容:电话文员:接听送水电话，分派水工送水。管理库存与店面清洁。电脑操作做单熟练。具多年的收银及客情处理经验，本人处事灵活勤快，心细耐劳。真诚期待与贵公司合作，谢谢！<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:09,370 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','叶丽贞','13760670504','1','外贸助理/外贸业务员','2','1990-01-01','','5-10年','','','','2','','','','','','','','','','1','','','5000-8000元','1','','起止时间:2018-112019-09<br/>公司信息:玛氏箭牌<br/>工作内容:销售部门助理:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:09,522 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','林秋燕','13794429048','1','跟单文员','2','1998-01-01','','1-3年','','','','2','','','','','','','','认真勤奋，有责任心，是一个开朗有上进心的女孩。适应力强，一直坚信努力就会有收获！','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:09,533 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:42:09,683 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','朱云紫','18124280169','1','采购文员/文员/跟单文员','2','1992-01-01','','1-3年','','','','2','','','','','','','','','','1','','','面议','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:09,842 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','杨霞霏','15219287343','1','外贸助理/外贸业务员','2','1999-01-01','','无经验','','','','2','','','','','','','','本人在采购方面暂无经验，之前从事幼教两年，后进入平安学习一段时间，现在想从采购方面进发，我可以外出 希望公司能给我这个机会。','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:09,985 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','司徒嘉宝','13600053950','1','采购文员/文员/跟单文员','2','1990-01-01','','5-10年','','','','2','','','','','','','','','','1','','','5000-8000元','1','','起止时间:2015-022018-05<br/>公司信息:广州摩安珂服饰有限公司<br/>工作内容:导购:<br/>起止时间:2012-112015-11<br/>公司信息:广州赫基服饰有限公司<br/>工作内容:导购:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:10,146 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','莫伟铭','15218334814','1','打包员（跨境电商）','1','1993-01-01','','5-10年','','','','2','','','','','','','','本人品行端正，待人诚恳，不懂就问，有很强的进取精神，有一定的沟通能力，本人乐观，开朗。常以积极主动的态度广泛交友，领悟适应能力强，善于接受学习新事物，能独立处理工作上的事情。','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:10,306 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','何燕凤','13535028435','1','跟单文员','2','1986-01-01','','10年以上','','','','2','','','','','','','','','','1','','','3000-5000元','1','','起止时间:2009-052019-02<br/>公司信息:广州市乐融融食品有限公司<br/>工作内容:文员:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:10,455 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','莫伟铭','15218334814','1','采购文员/文员/跟单文员','1','1993-01-01','','5-10年','','','','2','','','','','','','','本人品行端正，待人诚恳，不懂就问，有很强的进取精神，有一定的沟通能力，本人乐观，开朗。常以积极主动的态度广泛交友，领悟适应能力强，善于接受学习新事物，能独立处理工作上的事情。','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:10,604 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','谭方旭','13881438343','1','采购文员/文员/跟单文员','2','1995-01-01','','3-5年','','','','2','','','','','','','','本人已工作五年
+第一份工作是前台，接待国外客户办理入住退房等手续，查看护照，登记客人信息资料到系统，收银记账等
+第二份工作是童装批发档口店长兼销售，主要与国外客户进行洽谈然后订单，联系仓库发货，与客户或外贸公司联系交货时间与货款安排等
+因工作需要，都与国外客户沟通，所以会简单英语交流，性格活泼开朗，关键是为人诚实嘻嘻','','1','','','3000-5000元','1','','起止时间:2014-072017-07<br/>公司信息:佳缘商务酒店<br/>工作内容:前台:<br/>起止时间:2017-082019-05<br/>公司信息:birthbaby<br/>工作内容:店长:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:10,612 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:42:10,622 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:42:10,631 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:42:10,781 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','林秋燕','13794429048','1','采购文员/文员/跟单文员','2','1998-01-01','','1-3年','','','','2','','','','','','','','认真勤奋，有责任心，是一个开朗有上进心的女孩。适应力强，一直坚信努力就会有收获！','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:42:10,790 selenium58_yhzx.py[line:395]INFO - 沟通的数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:45:29,324 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:45:32,783 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','陈洁仪','18680504210','1','采购助理文员五险一金','2','1980-01-01','','10年以上','','','','2','','','','','','','','本人的特点是比较快的去适应新的工作环境，容易投入到新的工作去，且为人平时与同事方面也是相处得比较愉快，工作勤快踏实，能够按时按质完成上级交派的工作，本人任劳任怨，对待工作实事求事，为人诚实，待人有礼，严于律已，同时拥有会计上岗证,打字速度60字/分以上，对于行政，后勤的工作比较熟悉。Excel：熟练7年经验</br>Word：熟练7年经验</br>Photoshop：一般2年经验','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:45:32,919 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','韦年年','18676626175','1','外贸助理/外贸业务员','2','1981-01-01','','1年以下','','','','2','','','','','','','','my name is susi,is looking for this marketing job.','','1','','','面议','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:45:33,100 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','张燕丽','13144127545','1','内帐会计财务','2','1995-01-01','','1-3年','','','','2','','','','','','','','本人性格热情开朗，为人诚恳，能吃苦耐劳，尽职尽责，有耐心。具有亲和力，平易近人，善于与人沟通，兴趣广泛拥有较强的组织能力和适应能力，愿意和大家一起分享思维的感受。希望贵公司把这个机会给我。','','1','','','3000-5000元','1','','起止时间:2016-092017-10<br/>公司信息:广州绿色医药科技有限公司<br/>工作内容:会计:<br/>起止时间:2017-102019-08<br/>公司信息:广州瀚博展览服务有限公司<br/>工作内容:会计:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:45:33,229 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','潘洁','18688888201','1','采购助理文员五险一金','2','1988-01-01','','5-10年','','','','2','','','','','','','','本人已婚已育，具有一定的销售经验。善于与人交流，性格开朗，热情大方，用于接受挑战。希望可以有机会尝试各不同领域的工作。','','1','','','5000-8000元','1','','起止时间:2014-032015-06<br/>公司信息:广州汇禾粮食有限公司<br/>工作内容:跟单:<br/>起止时间:2017-072019-04<br/>公司信息:自营母婴生活馆<br/>工作内容:店长:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:45:33,363 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','叶绿欣','13602830132','1','跟单文员','2','1984-01-01','','5-10年','','','','2','','','','','','','','本人勤快耐劳，处事灵活，诚实稳重，已婚已育。具多年店面销售及商场营业员经验。曾在两间私营单位做过文员。英语读写基础能力较好，懂一般英语口语，真诚期待与贵公司合作，谢谢！','','1','','','3000-5000元','1','','起止时间:2008-032010-12<br/>公司信息:广州华润万家便利超市<br/>工作内容:营业员:整理干货与生鲜区域的货物充足与整齐，定期检查商品保质期和损耗情况，保持货架与商品卫生清洁。打堆头与调货架也不是问题。同时也懂收银所有操作。为人沉实稳重，灵活勤快，心细耐劳。真诚期待与贵公司合作，谢谢！<br/>起止时间:2005-042007-12<br/>公司信息:广州景田连锁桶装水店<br/>工作内容:电话文员:接听送水电话，分派水工送水。管理库存与店面清洁。电脑操作做单熟练。具多年的收银及客情处理经验，本人处事灵活勤快，心细耐劳。真诚期待与贵公司合作，谢谢！<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:45:33,501 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','叶丽贞','13760670504','1','外贸助理/外贸业务员','2','1990-01-01','','5-10年','','','','2','','','','','','','','','','1','','','5000-8000元','1','','起止时间:2018-112019-09<br/>公司信息:玛氏箭牌<br/>工作内容:销售部门助理:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:45:33,633 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','林秋燕','13794429048','1','跟单文员','2','1998-01-01','','1-3年','','','','2','','','','','','','','认真勤奋，有责任心，是一个开朗有上进心的女孩。适应力强，一直坚信努力就会有收获！','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:45:33,778 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','伍雪冰','13660508530','1','外贸助理/外贸业务员','2','1981-01-01','','10年以上','','','','2','','','','','','','','1 有相关的旅游市场产品、活动策划经验，丰富的酒店、景点、机票采购的相关知识。</br>2 有旅游常见和突发问题的处理经验，具有创新意识、对旅游市场有一定的敏锐度和较强的旅游产品和广告策划能力。</br>3 具有敏锐的市场洞察力、创新能力，富有进取心和激情，具有较强钻研精神。 </br>4有很好的客户服务意识，具备较强的沟通能力、团队合作精神和协调组织能力。</br>5 责任心强, 诚信, 对自己的喜爱的工作总能保持着一份执着和热情。工作过程中总能制定出缜密的工作计划，给公司创造优秀业绩。</br>6.大学英语六级，曾考取导游资格证，领队证，','','1','','','面议','1','','起止时间:2004-012011-06<br/>公司信息:广州东方国际旅行社有限公司<br/>工作内容:出境旅游策划:于广州东方国际旅行社工作,期间任业务主管及导游工作及出入境专线计调，出国领队，旅游销售，国际国内旅游策划等工作，以及广交会期间的对外宾的服务。
+在工作过程中有着丰富的销售经验，期间操作过很多大型出境团队，能很好地处理团队售前,售后事务。
+由于管理能力出色，被公司委任操作部经理一职，在日常工作过程中能够按照总经理的指示执行，并能根据实际工作制定出科学的工作流程；此外，能对下属进行良好沟通协调，辅导，及培训新入职同事，因此积累了丰富的团队管理经验。<br/>起止时间:2012-032017-08<br/>公司信息:广东中国妇女国际旅行社<br/>工作内容:旅游计调:于广东中妇旅做旅游计调工作，开拓维护旅游市场，能根据市场动向策划旅游收客计划和落实团队操作事宜。<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:36,729 selenium58_yhzx.py[line:422]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:47:40,023 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','陈洁仪','18680504210','1','采购助理文员五险一金','2','1980-01-01','','10年以上','','','','2','','','','','','','','本人的特点是比较快的去适应新的工作环境，容易投入到新的工作去，且为人平时与同事方面也是相处得比较愉快，工作勤快踏实，能够按时按质完成上级交派的工作，本人任劳任怨，对待工作实事求事，为人诚实，待人有礼，严于律已，同时拥有会计上岗证,打字速度60字/分以上，对于行政，后勤的工作比较熟悉。Excel：熟练7年经验</br>Word：熟练7年经验</br>Photoshop：一般2年经验','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:40,130 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','韦年年','18676626175','1','外贸助理/外贸业务员','2','1981-01-01','','1年以下','','','','2','','','','','','','','my name is susi,is looking for this marketing job.','','1','','','面议','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:40,253 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','张燕丽','13144127545','1','内帐会计财务','2','1995-01-01','','1-3年','','','','2','','','','','','','','本人性格热情开朗，为人诚恳，能吃苦耐劳，尽职尽责，有耐心。具有亲和力，平易近人，善于与人沟通，兴趣广泛拥有较强的组织能力和适应能力，愿意和大家一起分享思维的感受。希望贵公司把这个机会给我。','','1','','','3000-5000元','1','','起止时间:2016-092017-10<br/>公司信息:广州绿色医药科技有限公司<br/>工作内容:会计:<br/>起止时间:2017-102019-08<br/>公司信息:广州瀚博展览服务有限公司<br/>工作内容:会计:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:40,366 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','潘洁','18688888201','1','采购助理文员五险一金','2','1988-01-01','','5-10年','','','','2','','','','','','','','本人已婚已育，具有一定的销售经验。善于与人交流，性格开朗，热情大方，用于接受挑战。希望可以有机会尝试各不同领域的工作。','','1','','','5000-8000元','1','','起止时间:2014-032015-06<br/>公司信息:广州汇禾粮食有限公司<br/>工作内容:跟单:<br/>起止时间:2017-072019-04<br/>公司信息:自营母婴生活馆<br/>工作内容:店长:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:40,485 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','叶绿欣','13602830132','1','跟单文员','2','1984-01-01','','5-10年','','','','2','','','','','','','','本人勤快耐劳，处事灵活，诚实稳重，已婚已育。具多年店面销售及商场营业员经验。曾在两间私营单位做过文员。英语读写基础能力较好，懂一般英语口语，真诚期待与贵公司合作，谢谢！','','1','','','3000-5000元','1','','起止时间:2008-032010-12<br/>公司信息:广州华润万家便利超市<br/>工作内容:营业员:整理干货与生鲜区域的货物充足与整齐，定期检查商品保质期和损耗情况，保持货架与商品卫生清洁。打堆头与调货架也不是问题。同时也懂收银所有操作。为人沉实稳重，灵活勤快，心细耐劳。真诚期待与贵公司合作，谢谢！<br/>起止时间:2005-042007-12<br/>公司信息:广州景田连锁桶装水店<br/>工作内容:电话文员:接听送水电话，分派水工送水。管理库存与店面清洁。电脑操作做单熟练。具多年的收银及客情处理经验，本人处事灵活勤快，心细耐劳。真诚期待与贵公司合作，谢谢！<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:40,593 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','叶丽贞','13760670504','1','外贸助理/外贸业务员','2','1990-01-01','','5-10年','','','','2','','','','','','','','','','1','','','5000-8000元','1','','起止时间:2018-112019-09<br/>公司信息:玛氏箭牌<br/>工作内容:销售部门助理:<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:40,709 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','林秋燕','13794429048','1','跟单文员','2','1998-01-01','','1-3年','','','','2','','','','','','','','认真勤奋，有责任心，是一个开朗有上进心的女孩。适应力强，一直坚信努力就会有收获！','','1','','','3000-5000元','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:41,127 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','伍雪冰','13660508530','1','外贸助理/外贸业务员','2','1981-01-01','','10年以上','','','','2','','','','','','','','1 有相关的旅游市场产品、活动策划经验，丰富的酒店、景点、机票采购的相关知识。</br>2 有旅游常见和突发问题的处理经验，具有创新意识、对旅游市场有一定的敏锐度和较强的旅游产品和广告策划能力。</br>3 具有敏锐的市场洞察力、创新能力，富有进取心和激情，具有较强钻研精神。 </br>4有很好的客户服务意识，具备较强的沟通能力、团队合作精神和协调组织能力。</br>5 责任心强, 诚信, 对自己的喜爱的工作总能保持着一份执着和热情。工作过程中总能制定出缜密的工作计划，给公司创造优秀业绩。</br>6.大学英语六级，曾考取导游资格证，领队证，','','1','','','面议','1','','起止时间:2004-012011-06<br/>公司信息:广州东方国际旅行社有限公司<br/>工作内容:出境旅游策划:于广州东方国际旅行社工作,期间任业务主管及导游工作及出入境专线计调，出国领队，旅游销售，国际国内旅游策划等工作，以及广交会期间的对外宾的服务。
+在工作过程中有着丰富的销售经验，期间操作过很多大型出境团队，能很好地处理团队售前,售后事务。
+由于管理能力出色，被公司委任操作部经理一职，在日常工作过程中能够按照总经理的指示执行，并能根据实际工作制定出科学的工作流程；此外，能对下属进行良好沟通协调，辅导，及培训新入职同事，因此积累了丰富的团队管理经验。<br/>起止时间:2012-032017-08<br/>公司信息:广东中国妇女国际旅行社<br/>工作内容:旅游计调:于广东中妇旅做旅游计调工作，开拓维护旅游市场，能根据市场动向策划旅游收客计划和落实团队操作事宜。<br/>','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:47:41,230 selenium58_yhzx.py[line:397]INFO - 数据插入详情为:</td></tr></table><b>Database error:</b> Invalid SQL: insert into hr_resume (resume_from,name,mobile_phone,company_dpt,resume_key,gender,date_of_birth,current_residency,years_of_working,hukou,current_salary,politics_status,marital_status,address,zip_code,email,home_telephone,work_phone,personal_home_page,excecutiveneed,self_assessment,i_can_start,employment_type,industry_expected,working_place_expected,salary_expected,job_function_expected,current_situation,word_experience,project_experience,education,honors_awards,practical_experience,training,language,it_skill,certifications,otherinfo,source_file,is_viewed,resume_date,get_type,external_resume_id,resume_logo,update_date,account_from,add_user,Import_type,inform_update_user) VALUES ('4','朱云紫','18124280169','1','采购文员/文员/跟单文员','2','1992-01-01','','1-3年','','','','2','','','','','','','','','','1','','','面议','1','','','','','','','','','','','','','1','0',1,'')<br>
+<b>mysqli Error</b>: 1136 (Column count doesn't match value count at row 1)<br>
+{"error_code":5,"msg":"fail"}
+2019-10-11 14:49:54,850 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:50:22,599 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:51:19,564 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:52:07,977 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:53:18,607 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:53:35,529 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:54:00,998 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:54:32,798 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:55:09,249 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:56:18,133 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:56:19,606 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,616 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,627 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,639 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,650 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,660 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,669 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,680 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,688 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,697 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,707 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,716 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,724 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,732 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:19,742 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,750 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,758 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,766 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:19,774 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:19,783 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,790 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:19,799 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,810 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,819 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,828 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,838 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,848 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,855 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:19,864 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,871 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:19,881 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,889 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,897 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,904 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:19,913 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,923 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,930 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:19,939 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,948 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,957 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,965 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,973 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,982 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:19,989 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:19,995 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:20,004 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:20,011 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:20,019 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:20,029 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:20,037 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:47,872 selenium58_yhzx.py[line:420]INFO - 投递时间：2019-10-10为这天的简历有:1条
+2019-10-11 14:56:49,940 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:49,950 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:49,964 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:49,978 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:49,994 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,006 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,016 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,031 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,041 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,051 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,065 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,076 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,088 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,097 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,111 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,120 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,129 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,153 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,170 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,186 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,202 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,214 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,231 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,244 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,257 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,274 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,284 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,293 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,304 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,312 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:50,326 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,335 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,345 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,354 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,368 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,383 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,393 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,408 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,427 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,441 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,469 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,505 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,517 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,524 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:50,532 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:50,543 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,553 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":6,"msg":"\u8fc7\u6ee4\u638940\u5c81\u4ee5\u4e0a\u7684\u4eba\u5458"}
+2019-10-11 14:56:50,562 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 14:56:50,576 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":3,"msg":"\u6ca1\u6709\u6570\u636e\u63d2\u5165"}
+2019-10-11 14:56:50,586 selenium58_yhzx.py[line:395]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 15:49:01,968 selenium58_yhzx.py[line:359]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 15:49:05,353 selenium58_yhzx.py[line:313]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 15:49:19,288 selenium58_yhzx.py[line:359]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 15:49:23,052 selenium58_yhzx.py[line:313]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 15:51:20,692 selenium58_yhzx.py[line:359]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 15:51:24,194 selenium58_yhzx.py[line:313]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 15:53:34,737 selenium58_yhzx.py[line:362]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 15:53:37,872 selenium58_yhzx.py[line:314]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 15:53:49,487 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 15:55:00,353 selenium58_yhzx.py[line:360]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 15:55:04,272 selenium58_yhzx.py[line:314]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 16:13:46,862 selenium58_yhzx.py[line:361]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 16:13:50,684 selenium58_yhzx.py[line:313]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 16:14:02,433 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:14:13,772 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:14:23,582 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:14:34,933 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:27:04,692 selenium58_yhzx.py[line:364]INFO - 今天日期为2018-12-13,下载任务开始查询...
+2019-10-11 16:27:08,641 selenium58_yhzx.py[line:313]INFO - 当前下载页为:1, 页面数据有4条
+2019-10-11 16:27:20,005 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:27:31,360 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:27:41,252 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:27:52,591 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:28:44,325 selenium58_yhzx.py[line:363]INFO - 今天日期为2018-12-06,下载任务开始查询...
+2019-10-11 16:28:48,647 selenium58_yhzx.py[line:313]INFO - 当前下载页为:1, 页面数据有14条
+2019-10-11 16:29:01,453 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:29:12,779 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:29:22,592 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:29:33,932 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:29:44,065 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:31:24,913 selenium58_yhzx.py[line:364]INFO - 今天日期为2018-12-06,下载任务开始查询...
+2019-10-11 16:31:28,482 selenium58_yhzx.py[line:314]INFO - 当前下载页为:1, 页面数据有14条
+2019-10-11 16:31:39,838 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:31:51,171 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:32:00,958 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:32:12,272 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:32:22,408 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:34:23,937 selenium58_yhzx.py[line:360]INFO - 今天日期为2018-12-06,下载任务开始查询...
+2019-10-11 16:34:31,901 selenium58_yhzx.py[line:310]INFO - 当前下载页为:1, 页面数据有14条
+2019-10-11 16:34:43,937 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:34:55,251 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:35:05,037 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:35:16,357 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:35:26,481 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:35:35,569 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:35:45,812 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:35:54,783 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:36:06,723 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:36:17,757 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:36:29,788 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:36:39,523 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:36:50,876 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:36:59,687 selenium58_yhzx.py[line:87]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:50:25,724 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,732 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,744 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,752 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,762 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,771 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,779 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,787 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,795 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,802 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,809 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,816 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,823 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,830 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,838 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,845 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,852 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,859 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,866 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,874 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,882 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,890 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,897 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,904 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,912 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,920 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,927 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,935 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,944 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:50:25,952 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,960 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,967 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,975 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,983 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,992 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:25,999 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,008 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,016 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,024 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,032 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,042 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,049 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,059 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:50:26,067 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,075 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,083 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}
+2019-10-11 16:50:26,091 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,098 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,106 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":1,"msg":"\u8be5\u7528\u6237\u7684\u7b80\u5386\u5df2\u7ecf\u5b58\u5728\uff01"}
+2019-10-11 16:50:26,115 requests58_yhzx.py[line:90]INFO - 数据插入详情为:{"error_code":0,"msg":"success"}

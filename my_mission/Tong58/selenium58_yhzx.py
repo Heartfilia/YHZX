@@ -72,14 +72,28 @@ class TongCheng(object):
         self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.chrome_port}")  # connect
         self.driver = webdriver.Chrome(options=self.options)
 
-    def post_data_down(self, info):
-        print(info)
+    def post_data_down(self, info_json):
+        if info_json['mobile_phone'].isdigit():
+            info = {
+                'account': python_config.account_from,
+                'data': [info_json]
+            }
+            url = python_config.POST_URL_DOWN
+            try:
+                response = self.session.post(url, json=info)
+            except Exception as e:
+                LOG.error('目标计算机拒绝链接')
+            else:
+                LOG.info(f'数据插入详情为:{response.text}')
+        else:
+            print('解码失败:', info_json)
+
 
     @staticmethod
     def down_compare_img():
         image_dynamic = BASE_DIR + r"\helper\fonts\plt.png"   # 这就是动态的图片,通过前面程序保存的
 
-        print('开始比较图片中...')
+        # print('开始比较图片中...')
         for i in range(10):  # 意思就是识别图片0 到 9
             time.sleep(0.1)
             image1 = BASE_DIR + rf"\helper\fonts\digit_{i}.png"     # 待识别的字符图片
@@ -88,7 +102,7 @@ class TongCheng(object):
             gray_a = cv2.cvtColor(image_a, cv2.COLOR_BGR2GRAY)
             gray_b = cv2.cvtColor(image_b, cv2.COLOR_BGR2GRAY)
             (score, diff) = compare_ssim(gray_a, gray_b, full=True)
-            print(f'当前秒为{time.localtime().tm_sec}:图片比较中...和{i}的相似度为{score:.3f}...')
+            # print(f'当前秒为{time.localtime().tm_sec}:图片比较中...和{i}的相似度为{score:.3f}...')
 
             if score > 0.86:    # 应该这个 魔法 数字比较好用
                 return str(i)   # 返回的就是那个数字
@@ -99,16 +113,16 @@ class TongCheng(object):
     def handle_num(self, key, flag=None):
         key_code = re.findall(r'(&#x.*?);', key)
         if flag:
-            print('是年龄...')
+            # print('是年龄...')
             key_1 = None
             key = key
         else:
             if len(key_code) == 11:
-                print('是手机号....')
+                # print('是手机号....')
                 key_1 = key_code[0]   # 1
                 key = key.replace(f'{key_1};', '1')
             else:
-                print('是薪资....')
+                # print('是薪资....')
                 key_1 = key_code[-1]  # 0
                 key = key.replace(f'{key_1};', '0')
 
@@ -128,12 +142,11 @@ class TongCheng(object):
 
         for each_value in key_code:
             if each_value == key_1:
-                print('跳过了指定字符为:0/1:')
+                # print('跳过了指定字符为:0/1:')
                 continue
             else:
-                print('当前处理剩下的数据...')
                 each_value = each_value.replace('&#x', '')
-                print('当前需要处理的数据为:', each_value)
+                # print('当前需要处理的数据为:', each_value)
                 for v in font_dict:
                     # print('当前的', v, '有跑到这里...')
                     if v == each_value:
@@ -153,9 +166,10 @@ class TongCheng(object):
                         plt.plot(x, y)  # 这里可以额外添加很多属性比如线型,线色('-k')这个表示实线黑色  线宽(linewidth)
                         plt.axis('off')  # 关闭坐标
                         plt.savefig(BASE_DIR + r"\helper\fonts\plt.png")
+                        plt.close()
                         # plt.show()   # 这个和上面那个功能会重置坐标 如果两个都要显示的话 不要放上句前面
 
-                        print('准备比较相似程度...')
+                        # print('准备比较相似程度...')
                         sub_key = self.down_compare_img()
                         # sub_key = main_ocr()   # 调用百度的识别，发现很慢
 
@@ -200,20 +214,19 @@ class TongCheng(object):
             salary = self.handle_num(data['targetSalary']) if '面议' not in data['targetSalary'] else '面议'
 
             age = self.handle_num(data['ageText'], True)
-            print('年龄为:', age)
             try:
                 now_year = time.localtime().tm_year - int(age)
             except Exception as e:
                 now_year = time.localtime().tm_year
 
             json_info = {
-                'name': name,
+                'name': name + '(号码3天有效)',
                 'mobile_phone': phone_num,
-                'company_dpt': 1,   # 不确定写啥
+                'company_dpt': 1,
                 'resume_key': data['expectCateName'],
                 'gender': 2 if gender_judge == '0' else 1,
                 'date_of_birth': f'{now_year}-01-01',
-                'current_residency': data['expectArea'],
+                'current_residency': data['expectArea'] if data['expectArea'] else '广州',
                 'years_of_working': work_year,
                 'hukou': '',
                 'current_salary': '',
@@ -243,14 +256,14 @@ class TongCheng(object):
                 'it_skill': [],
                 'certifications': [],
                 'is_viewed': 1,
-                'resume_date': '',
+                'resume_date': time.strftime("%Y-%m-%d", time.localtime()),
                 'get_type': 2,
                 'external_resume_id': data['resumeid'][-49:],
                 'labeltype': 1,
                 'resume_logo': data['picUrl'],
                 'resume_from': 4,           # 来源
                 'account_from': python_config.account_from,
-                'update_date': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+                'update_date': time.strftime("%Y-%m-%d", time.localtime(int(data['addtime']) / 1000)),
             }
 
             yield json_info
@@ -268,11 +281,8 @@ class TongCheng(object):
                     each_pos_c = self.driver.find_element_by_xpath(
                         f'/html/body/div[2]/div[2]/div[1]/div[4]/div[2]/ul/li[{i}]/div[1]/div[3]/section[1]/a'
                     )
-                    each_pos_c.click()
+                    self.driver.execute_script("arguments[0].click();", each_pos_c)
                     time.sleep(0.3)
-
-                if i == 5:
-                    break
 
     @staticmethod
     def requests_headers(referer_url):
@@ -297,8 +307,10 @@ class TongCheng(object):
         pgs = people_num // 50 + 1
         for pg in range(1, pgs+1):
             LOG.info(f'当前下载页为:{pg}, 页面数据有{people_num}条')
+            page_source = self.driver.page_source
+            font_key = re.findall('var ____json4fe = {fontKey: "(.*?)"', page_source)[0]
             time.sleep(random.uniform(0, 1))
-            now_pg_data = requests.get(self.down_url_api, params={'pageindex': pg}, headers=headers, verify=False)
+            now_pg_data = requests.get(self.down_url_api, params={'pageindex': pg, 'fontKey': font_key}, headers=headers, verify=False)
             new_data = now_pg_data.text.lstrip('(').rstrip(')')
             new_data = json.loads(new_data)
             resume_data = new_data['data']['resumeList']
@@ -309,18 +321,23 @@ class TongCheng(object):
         # /html/body/div[2]/div[2]/div[1]/div[4]/div[2]/ul/li/div[1]/div[1]/div[3]/p[1]/span[1]
         now_page_referer = self.driver.current_url
         pages = today_all_num   # 总共的数量(后面两个调用函数意思不一样)
-        time.sleep(random.uniform(0, 1))
+        time.sleep(random.uniform(1, 2))
         # 下面是好一点的办法,速度快,但是需要处理的地方有点多
         resume_data = self.download_page_all_detail(now_page_referer, pages)  # 这里的pages是该函数拿来确定页数的
+
         tttt1 = time.time()
+        page_source = self.driver.page_source
+        self.handle_font(page_source)
+        time.sleep(0.1)
+
         for each_data in resume_data:
             data_info_down = self.transfer_useful(each_data, pages)   # 这里的pages是用来保留几条数据的
-            for post_data_down in data_info_down:
+
+            for post_data_down in data_info_down:                   # 这里是异步处理
+                time.sleep(0.5)
                 self.post_data_down(post_data_down)
-
         tttt2 = time.time()
-
-        print('总用时:', tttt2 - tttt1)
+        print(f'总用时: {tttt2 - tttt1:.2f}')
 
     @staticmethod
     def handle_font(page_source):
@@ -330,17 +347,18 @@ class TongCheng(object):
         temp_str = base64.b64decode(bs64_str)
         with open(BASE_DIR + '/helper/fonts/b64.woff', 'wb') as fl:
             fl.write(temp_str)
-        time.sleep(0.5)
+            print('数据写入成功...')
+        time.sleep(1)
         font = TTFont(BASE_DIR + '/helper/fonts/b64.woff')
         font.saveXML(BASE_DIR + '/helper/fonts/b64.xml')
 
     def download_page_people(self):
         # 2.这里先判断今天有没有人
         today_tik = time.strftime('%Y-%m-%d', time.localtime())
-        today_tik = '2019-07-06'
+        today_tik = '2018-12-06'
         LOG.info(f'今天日期为{today_tik},下载任务开始查询...')
-        page_source = self.driver.page_source
-        self.handle_font(page_source)
+        # page_source = self.driver.page_source
+        # self.handle_font(page_source)
         try:
             today_all = self.driver.find_elements_by_xpath(
                 f'/html/body/div[2]/div[2]/div[1]/div[4]/div[2]/ul/li/div[1]/div[text()="{today_tik}"]')
@@ -371,10 +389,21 @@ class TongCheng(object):
             self.download_page_people()
 
     # =============================================================== # 上面是关于下载简历的部分,里面的加密暂时还未处理
+    # =============================================================== # 下面的程序已经单独提取变成了非自动化处理
 
     def post_data_auto(self, resume_data):
-        print(resume_data)
-        pass
+        info = {
+            'account': python_config.account_from,
+            'data': [resume_data]
+        }
+        print(info)
+        url = python_config.POST_URL
+        try:
+            response = self.session.post(url, json=info)
+        except Exception as e:
+            LOG.error('目标计算机拒绝链接')
+        else:
+            LOG.info(f'数据插入详情为:{response.text}')
 
     def all_auto_get(self, nums):
         referer_url = self.driver.current_url
@@ -391,7 +420,7 @@ class TongCheng(object):
     def auto_resume(self):
         # 1. 到主动投递的页面去拿到 当天 的简历的数量
         self.driver.get(self.auto_resume_url)
-        today_tic = time.strftime('%Y-%m-%d', time.localtime())
+        today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time() - 86400))
         xpath_today = f'投递时间：{today_tic}'
         time.sleep(0.5)
         all_auto = self.driver.find_elements_by_xpath(f'//span[text()="{xpath_today}"]')
@@ -411,24 +440,23 @@ class TongCheng(object):
         data_s = handled_data
         for _ in range(len(data_s)):
             data = data_s[_]
-            # print('data:', data)
             gender_judge = data['sex']
             work_exp = data['experiences']
             if work_exp:
                 work_experience = []
                 for each_work in work_exp:
                     work_info = {
-                        '起止时间': each_work['startDate'] + each_work['endDate'],
+                        '起止时间': each_work['startDate'] + '-' + each_work['endDate'],
                         '公司信息': each_work['company'],
                         '工作内容': each_work['positionName'] + ":" + each_work['description']
                     }
                     work_experience.append(work_info)
             else:
                 work_experience = []
-            phone_num = self.handle_num(data['mobile'])
+            phone_num = data['mobile']
             name = self.handle_name(data)
-            work_year = self.handle_num(data['workYear'])
-            salary = self.handle_num(data['targetSalary']) if '面议' not in data['targetSalary'] else '面议'
+            work_year = data['workYear']
+            salary = data['targetSalary'] if '面议' not in data['targetSalary'] else '面议'
             age = int(data['age'])
             now_year = int(time.strftime('%Y', time.localtime()))
 
@@ -436,7 +464,7 @@ class TongCheng(object):
                 'name': name,
                 'mobile_phone': phone_num,
                 'company_dpt': 1,  # 不确定写啥
-                'resume_key': data['expectCateName'],
+                'resume_key': data['targetPosition'] if data['targetPosition'] else '',
                 'gender': 2 if gender_judge == '0' else 1,
                 'date_of_birth': f'{now_year - age}-01-01',
                 'current_residency': data['expectArea'],
@@ -469,14 +497,14 @@ class TongCheng(object):
                 'it_skill': [],
                 'certifications': [],
                 'is_viewed': 1,
-                'resume_date': '',
+                'resume_date': time.strftime("%Y-%m-%d", time.localtime()),
                 'get_type': 1,
                 'external_resume_id': data['resumeid'][-49:],
                 'labeltype': 1,
                 'resume_logo': data['picUrl'],
                 'resume_from': 4,  #
                 'account_from': python_config.account_from,
-                'update_date': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+                'update_date': time.strftime("%Y-%m-%d", time.localtime(int(data['updateDate']) / 1000)),
             }
 
             yield json_info
@@ -487,7 +515,7 @@ class TongCheng(object):
         self.download_page()    # 获取下载的简历信息 (涉及到加密,正在处理中)
 
     def run_auto(self):
-        self.auto_resume()   # 获取主动投递的简历信息
+        self.auto_resume()   # 获取主动投递的简历信息,这里的数据就不这里跑了,换另外的地方跑
 
 
 def send_rtx_msg(msg):
@@ -546,12 +574,8 @@ def main():
     time.sleep(10000)
     while True:
         t_down = Thread(target=main_down)
-        t_auto = Thread(target=main_auto)
-
         t_down.start()
-        t_auto.start()
         t_down.join()
-        t_auto.join()
 
 
 if __name__ == '__main__':

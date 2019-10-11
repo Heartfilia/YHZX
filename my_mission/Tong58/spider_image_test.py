@@ -146,7 +146,8 @@ class CompareImage(object):
 
 
 compare_image = CompareImage()
-image1 = BASE_DIR + r"\helper\fonts\digit_1.png"
+# image1 = BASE_DIR + r"\helper\fonts\digit_1.png"
+image1 = BASE_DIR + r"\helper\fonts\plt.png"
 # image2 = BASE_DIR + r"\helper\fonts\digit_9.png"
 image2 = BASE_DIR + r"\helper\fonts\plt.png"
 # compare_image.compare_image(image1, image2)
