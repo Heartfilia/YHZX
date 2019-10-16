@@ -88,12 +88,11 @@ class TongCheng(object):
         else:
             print('解码失败:', info_json)
 
-
     @staticmethod
     def down_compare_img():
         image_dynamic = BASE_DIR + r"\helper\fonts\plt.png"   # 这就是动态的图片,通过前面程序保存的
 
-        # print('开始比较图片中...')
+        print('开始比较图片中...')
         for i in range(10):  # 意思就是识别图片0 到 9
             time.sleep(0.1)
             image1 = BASE_DIR + rf"\helper\fonts\digit_{i}.png"     # 待识别的字符图片
@@ -102,7 +101,7 @@ class TongCheng(object):
             gray_a = cv2.cvtColor(image_a, cv2.COLOR_BGR2GRAY)
             gray_b = cv2.cvtColor(image_b, cv2.COLOR_BGR2GRAY)
             (score, diff) = compare_ssim(gray_a, gray_b, full=True)
-            # print(f'当前秒为{time.localtime().tm_sec}:图片比较中...和{i}的相似度为{score:.3f}...')
+            print(f'当前秒为{time.localtime().tm_sec}:图片比较中...和{i}的相似度为{score:.3f}...')
 
             if score > 0.86:    # 应该这个 魔法 数字比较好用
                 return str(i)   # 返回的就是那个数字
@@ -142,11 +141,11 @@ class TongCheng(object):
 
         for each_value in key_code:
             if each_value == key_1:
-                # print('跳过了指定字符为:0/1:')
+                print('跳过了指定字符为:0/1:')
                 continue
             else:
                 each_value = each_value.replace('&#x', '')
-                # print('当前需要处理的数据为:', each_value)
+                print('当前需要处理的数据为:', each_value)
                 for v in font_dict:
                     # print('当前的', v, '有跑到这里...')
                     if v == each_value:
@@ -169,7 +168,7 @@ class TongCheng(object):
                         plt.close()
                         # plt.show()   # 这个和上面那个功能会重置坐标 如果两个都要显示的话 不要放上句前面
 
-                        # print('准备比较相似程度...')
+                        print('准备比较相似程度...')
                         sub_key = self.down_compare_img()
                         # sub_key = main_ocr()   # 调用百度的识别，发现很慢
 
@@ -297,10 +296,6 @@ class TongCheng(object):
         }
         return headers
 
-    def download_page_each_info(self):
-        # 5. 分析每个数据
-        pass
-
     def download_page_all_detail(self, referer_url, people_num):
         # 4.开始爬基础数据。
         headers = self.requests_headers(referer_url)
@@ -355,7 +350,7 @@ class TongCheng(object):
     def download_page_people(self):
         # 2.这里先判断今天有没有人
         today_tik = time.strftime('%Y-%m-%d', time.localtime())
-        today_tik = '2018-12-06'
+        # today_tik = '2018-12-13'                                             # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         LOG.info(f'今天日期为{today_tik},下载任务开始查询...')
         # page_source = self.driver.page_source
         # self.handle_font(page_source)

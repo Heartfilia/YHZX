@@ -81,7 +81,8 @@ class TongCheng(object):
             'account': python_config.account_from,
             'data': [resume_data]
         }
-        url = python_config.POST_URL_DOWN
+        url = python_config.POST_URL
+        print(info)
         try:
             response = self.session.post(url, json=info)
         except Exception as e:

@@ -5,37 +5,43 @@
 import os
 import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
+import logging
 from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
 
-cwd = os.getcwd()   # »ñÈ¡µ±Ç°ÎÄ¼şµÄÂ·¾¶
+cwd = os.getcwd()   # è·å–å½“å‰æ–‡ä»¶çš„è·¯å¾„
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # ·½·¨Ò»
-BASE_DIR = os.path.dirname(cwd)    # ·½·¨¶ş
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # æ–¹æ³•ä¸€
+BASE_DIR = os.path.dirname(cwd)    # æ–¹æ³•äºŒ
 
 # REQUESTS_DIR = os.path.join(BASE_DIR, 'requests58_yhzx.py')
 REQUESTS_DIR = os.path.join(BASE_DIR, 'spider_image_test.py')
 
 
 def start_auto():
-    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), '³ÌĞò1')
-    os.system(f'python {REQUESTS_DIR}')                 # winÏÂÃæÊÇpythonÄ¬ÈÏ3 linuxÏÂ¿ÉÄÜ»áµ÷ÓÃµ½python2 ĞèÒªĞŞ¸Ä
+    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'ç¨‹åº1')
+    os.system(f'python {REQUESTS_DIR}')                 # winä¸‹é¢æ˜¯pythoné»˜è®¤3 linuxä¸‹å¯èƒ½ä¼šè°ƒç”¨åˆ°python2 éœ€è¦ä¿®æ”¹
 
 
 def start_down():
-    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), '³ÌĞò2')
+    print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'ç¨‹åº2')
     os.system(f'python {REQUESTS_DIR}')
 
 
 def my_listener(event):
     if event.exception:
-        print('ÈÎÎñ³ö´íÁË£¡£¡£¡£¡£¡£¡')
+        print('ä»»åŠ¡å‡ºé”™äº†ï¼ï¼ï¼ï¼ï¼ï¼')
     else:
-        print('ÈÎÎñÕÕ³£ÔËĞĞ...')
+        print('ä»»åŠ¡ç…§å¸¸è¿è¡Œ...')
+
+
+# logging.basicConfig()
+# logging.getLogger('ceshi').setLevel(logging.DEBUG)
 
 
 scheduler = BlockingScheduler()
 # scheduler.add_job(start_auto, 'cron', hour='8,11,17,19,23', minute='30')
 scheduler.add_job(start_down, 'cron', hour='18,19', second='*/10')
-# scheduler.add_listener(my_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)    # Ö»ÄÜ±£Ö¤ÈÎÎñ²»Í£ÏÂ£¬µ«ÊÇ²»ÄÜ²¶»ñ´íÎó
-scheduler.start() 
+# scheduler.add_listener(my_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)    # åªèƒ½ä¿è¯ä»»åŠ¡ä¸åœä¸‹ï¼Œä½†æ˜¯ä¸èƒ½æ•è·é”™è¯¯
+
+scheduler.start()
 

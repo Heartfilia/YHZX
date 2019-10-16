@@ -2,8 +2,6 @@ import datetime
 import json
 import re
 import random
-from threading import Thread
-from functools import wraps
 
 import requests
 from lxml import etree
@@ -15,9 +13,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-API_GET_URL = 'http://hr.gets.com:8989/api/autoGetKeyword.php?type=download'
-POST_URL = 'http://hr.gets.com:8989/api/autoOwnerResumeDownload.php?'
-POST_Search_URL = 'http://hr.gets.com:8989/api/autoInsertResume.php?'
+from Job51.download_today import Job51Down
+
+API_GET_URL = python_config.API_GET_URL
+POST_URL = python_config.POST_URL
+POST_URL_COST = python_config.POST_URL_COST
+POST_Search_URL = python_config.POST_Search_URL
 # 51job简历下载
 receivers = python_config.receivers
 handler = python_config.handler
@@ -39,6 +40,7 @@ class Job51(object):
     """
     自动下载
     """
+
     def __init__(self):
 
         self.search_url = 'https://ehire.51job.com/Candidate/SearchResumeIndexNew.aspx'
@@ -59,7 +61,7 @@ class Job51(object):
         self.driver = webdriver.Chrome(options=self.options)
 
     def get_first_page(self):
-        self.do_search()          # search goal resume
+        self.do_search()  # search goal resume
 
     # ----------------------------- #
     def do_search(self):
@@ -67,11 +69,11 @@ class Job51(object):
         time.sleep(random.uniform(1, 2))
 
         try:
-            self.driver.find_element_by_xpath('//a[@id="search_submit"]').click()   # search at another page
+            self.driver.find_element_by_xpath('//a[@id="search_submit"]').click()  # search at another page
         except Exception as e:
             print('\033[1;45m 处理好错误状态后>点进搜索页面>再开始运行 \033[0m')
             input('>')
-            self.do_search()   # 若长期如此状态，需要重启程序一次
+            self.do_search()  # 若长期如此状态，需要重启程序一次
         else:
             time.sleep(random.uniform(2, 3))
             self.do_input_key()
@@ -157,7 +159,7 @@ class Job51(object):
                 return 'continue'
             except Exception as e:
                 # print('the exception is:', e)
-                print('the progress not found the only one you want')   # although it might not be appeared
+                print('the progress not found the only one you want')  # although it might not be appeared
                 return 'continue'
             else:
                 self.driver.find_element_by_xpath('//td[@class="Common_list_table-id-text"][1]/span/a').click()
@@ -176,9 +178,11 @@ class Job51(object):
                 if flag:
                     try:
                         try:
-                            num = self.driver.find_element_by_xpath('//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]').text
+                            num = self.driver.find_element_by_xpath(
+                                '//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]').text
                         except Exception as e:
-                            num = self.driver.find_element_by_xpath('//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]').text
+                            num = self.driver.find_element_by_xpath(
+                                '//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]').text
 
                         if num.isdigit():
                             print('download resume needs to post')
@@ -299,7 +303,8 @@ class Job51(object):
         # mobile_phone = xpt.xpath(
         #     '//*[@id="divResume"]/tbody/tr/td/table[2]/tbody/tr[2]/td/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]/text()')[
         #     0].strip()
-        mobile_phone = self.driver.find_element_by_xpath('//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]').text
+        mobile_phone = self.driver.find_element_by_xpath(
+            '//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]').text
         company_dpt = 1
         resume_key = ''
         # brief_detail = xpt.xpath('//table[@class="infr"]/tbody/tr[3]/td[1]/text()')[1:]   # middle
@@ -309,8 +314,8 @@ class Job51(object):
         date_of_birth = re.findall(r'(\d{4}年\d{1,2}月\d{1,2}日)', brief_detail)[0]
         c_residency = re.findall(r'现居住.*?(\D+)?\d', brief_detail, re.S)
         current_residency = c_residency[0].strip() if c_residency else \
-        re.findall(r'现居住.*?(\D{2})', brief_detail, re.S)[
-            0].strip()
+            re.findall(r'现居住.*?(\D{2})', brief_detail, re.S)[
+                0].strip()
         y_working = re.findall(r'(\d*?年)工作经验', brief_detail)
         years_of_working = y_working[0] if y_working else '无工作经验'
         hu_kou = re.findall(r'<tr><td.*?class="keys">户口/国籍：.*?class="txt2">(.*?)</td>', html)
@@ -325,7 +330,8 @@ class Job51(object):
         # email = xpt.xpath(
         #     '//*[@id="divResume"]/tbody/tr/td/table[2]/tbody/tr[2]/td/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]/table/tbody/tr/td[2]/a/text()')[
         #     0].strip()
-        email = self.driver.find_element_by_xpath('//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]/table/tbody/tr/td[2]/a')
+        email = self.driver.find_element_by_xpath(
+            '//*[@id="divResume"]/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]/table/tbody/tr/td[2]/a')
         email = email.text if email else ''
         home_telephone = ''
         work_phone = ''
@@ -410,9 +416,9 @@ class Job51(object):
                     f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="txt1"]/text()')
 
                 dic = {
-                    '项目时间': time_info,
-                    '项目名称': pro_name,
-                    '描述': project_details
+                    '项目时间': time_info[0],
+                    '项目名称': ''.join(pro_name),
+                    '描述': ''.join(project_details)
                 }
 
                 project_experience.append(dic)
@@ -495,7 +501,8 @@ class Job51(object):
         source_file = ''  #
         is_viewed = 1  #
         r_date = xpt.xpath('//span[@id="lblResumeUpdateTime"]/b/text()')
-        resume_date = r_date[0] if r_date else ''
+        resume_date = time.strftime("%Y-%m-%d", time.localtime())
+        update_date = r_date[0] if r_date else ''
         get_type = 2
         external_resume_id = ex_id
 
@@ -542,7 +549,8 @@ class Job51(object):
             'is_viewed': is_viewed,
             'resume_date': resume_date,
             'get_type': get_type,
-            'external_resume_id': external_resume_id
+            'external_resume_id': external_resume_id,
+            'update_date': update_date
         }
 
         load_json = {
@@ -600,13 +608,13 @@ class Job51HalfYear(object):
     """
     主动投递信息
     """
+
     def __init__(self):
-        with open('cookies.json', 'r') as f:
-            self.cookies = json.loads(f.read())['cookies']
         self.search_url = 'https://ehire.51job.com/InboxResume/InboxRecentEngine.aspx'
         self.goal_url = 'https://ehire.51job.com/Navigate.aspx'
         self.cart_url = 'https://ehire.51job.com/Candidate/CompanyHrTmpNew.aspx'
         self.position_get = 'https://ehire.51job.com/Jobs/JobSearchPost.aspx'
+        self.download_url = 'https://ehire.51job.com/InboxResume/CompanyHRDefault2.aspx?Page=2'
         self.session = requests.Session()
         self.base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__)))  # E:\Project\Job51_bak\spider
 
@@ -620,30 +628,6 @@ class Job51HalfYear(object):
         self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{chrome_port}")
         # self.options.add_experimental_option('excludeSwitches', ['enable-automation'])
         self.driver = webdriver.Chrome(options=self.options)
-
-    @staticmethod
-    def get_api_cookie(cook):
-        cookie = []
-        for key in cook:
-            dic = dict()
-            dic['domain'] = 'N/A'
-            dic['path'] = 'N/A'
-            dic['name'] = key
-            dic['value'] = cook[key]
-            cookie.append(dic)
-
-        return cookie
-
-    def do_cookies(self, cooki):
-        for cook in cooki:  # 这里是cookies的信息
-            if len(cook) < 6:
-                new = dict(cook, **{
-                    "domain": "N/A",
-                    "path": "N/A",
-                })
-            else:
-                new = cook
-            self.driver.add_cookie(new)
 
     def do_get_some_goal(self):
         # 名字   到期时间   职位数   置顶数   短信数   简历下载数   今日安排  明日安排  本月已经邀请
@@ -662,23 +646,30 @@ class Job51HalfYear(object):
             'account': account_main,
             'data': {
                 # 'hr_account': hr_account,
-                'hr_expire': hr_expire,
+                # 'hr_expire': hr_expire,
                 'applied_for_resume': hr_position_num,  #
-                'hr_position_top': hr_position_top,
-                'hr_message_num': hr_message_num,
+                'remain_refresh_no': hr_position_top,  #
+                # 'hr_message_num': hr_message_num,
                 'remain_downloads': hr_download_num,  #
-                'hr_today': hr_today,
-                'hr_tomorrow': hr_tomorrow,
-                'hr_this_month': hr_this_month,
-                'recent_received_num': '',
-                'hr_put_position': ''
+                # 'hr_today': hr_today,
+                # 'hr_tomorrow': hr_tomorrow,
+                # 'hr_this_month': hr_this_month,
+                'recent_received_num': '',  ###
+                'hr_put_position': '',  #
+                'use_coin': 0,  #
+                'expire_coin': 0,  #
+                'hittotal': 0,
+                'month_browse_no': 0,
+                'posts_available_today': 0,
             }
         }
         return info
 
     def post_to_login(self, info):
-        title = self.driver.title
-        print(f'post_post_post{title}:', info)
+        URL = POST_URL_COST
+        rq = requests.post(URL, json=info)
+        print('info:::::', info)
+        print('每日数据插入:', rq.text)
 
     def get_out_put_position(self, info):
         self.driver.get(self.position_get)
@@ -710,7 +701,7 @@ class Job51HalfYear(object):
         except KeyboardInterrupt:
             LOG.warning('》》》》》》Program interrupt, need to fix《《《《《《')
 
-        self.do_search(info)        # search goal resume
+        self.do_search(info)  # search goal resume
 
     def do_info(self):
         self.driver.get("http://report.ehire.51job.com/report/jobdecrease/index.php")
@@ -732,31 +723,39 @@ class Job51HalfYear(object):
         self.driver.get(self.search_url)
         time.sleep(random.uniform(2, 3))
         self.do_click_each()
+        print('干脆再加一页')
+        self.do_click_each()
+        # print('干脆再加一页')
+        # self.do_click_each()
+        # print('干脆再加一页')
+        # self.do_click_each()
+        # print('干脆再加一页')
+        # self.do_click_each()
 
     def do_click_each(self):
-        # //span[@id="labAllResumes"]      get num
-        # search_click = self.driver.find_element_by_xpath('//a[@id="ctrlSerach_search_submit"]')
-        # self.driver.execute_script("arguments[0].click();", search_click)
-        # time.sleep(random.uniform(1, 2))
+        self.driver.switch_to.window(self.driver.window_handles[0])
         num_info = self.driver.find_element_by_xpath('//span[@id="labAllResumes"]').text
         num = re.findall(r'共(\d*)\+?条', num_info)[0]
-        pg = int(num) // 20   # 共有多少页
+        pg = int(num) // 50  # 共有多少页
+        input('这里回车决定了你要爬第几页的内容,手动大法好>')
         if num == '0':
             return False
         else:
-            for x in range(1, pg+1):
+            for x in range(1, pg + 1):
                 all_id = self.driver.find_elements_by_xpath('//*[@id="form1"]/div[2]/div/div[4]/div[3]/table/tbody/tr')
-                LOG.info(f'当前在第{x}页，页面数据有{len(all_id)//2}条,全部数据有{num}条')
-                for i in range(len(all_id) // 2):
-                    n = i + 1      # 20
+                LOG.info(f'当前在第{x}页，页面数据有{len(all_id) // 2}条,全部数据有{num}条')
+                for i in range(50):
+                    n = i + 1  # 20
                     # window = self.driver.window_handles
                     # self.driver.switch_to.window(self.driver.window_handles[0])
-                    time.sleep(2)
+                    time.sleep(1)
                     try:
                         self.driver.find_element_by_xpath(f'//tr[@id="trBaseInfo_{n}"]/td[3]/ul/li[1]/a').click()
                     except Exception as e:
-                        print('当前页面状态错误，请手动处理页面信息后回车')
-                        self.driver.switch_to.window(self.driver.window_handles[0])
+                        print('恶意投递，跳过继续处理...')
+                        # self.driver.switch_to.window(self.driver.window_handles[1])
+                        # self.driver.close()
+                        # self.driver.switch_to.window(self.driver.window_handles[0])
                         continue
                     # self.driver.execute_script("arguments[0].click();", each_id)
                     time.sleep(random.uniform(3, 5))
@@ -765,8 +764,7 @@ class Job51HalfYear(object):
                     try:
                         flag = self.judge_secret()
                     except Exception as e:
-                        print('当前页面信息检索错误，请回到“当前状态”所在页面后回车')
-                        input('>')
+                        print('页面信息错误，直接跳过了错误信息')
                         continue
                     else:
                         if not flag:
@@ -777,7 +775,9 @@ class Job51HalfYear(object):
 
     def do_next_pg(self, pn=None):
         # self.driver.find_element_by_xpath(f'//a[@id="pagerBottomNew_btnNum{pn}"]').click()
-        self.driver.find_element_by_xpath(f'//*[@id="pagerBottomNew_nextButton"]').click()
+        np = self.driver.find_element_by_xpath(f'//*[@id="pagerBottomNew_nextButton"]')
+        # np.click()
+        self.driver.execute_script("arguments[0].click();", np)
 
     def do_search_page_go_next_page(self):
         try:
@@ -825,16 +825,18 @@ class Job51HalfYear(object):
 """
             send_rtx_msg(msg)
         else:
-            num = num[0]     # 2    4丅
+            num = num[0]  # 2    4丅
             main_node = self.driver.find_element_by_xpath('//div[@class="list-table"]//tbody')
             for i in range(1, int(num) + 1):
-                td = main_node.find_element_by_xpath(f'./tr[{i * 2 - 1 }]/td[2]/span/a').text  # id
-                base_td_show = main_node.find_element_by_xpath(f'//div[@class="list-table"]//tbody/tr[{i * 2 - 1 }]/td[3]/span')  # click to detail
+                td = main_node.find_element_by_xpath(f'./tr[{i * 2 - 1}]/td[2]/span/a').text  # id
+                base_td_show = main_node.find_element_by_xpath(
+                    f'//div[@class="list-table"]//tbody/tr[{i * 2 - 1}]/td[3]/span')  # click to detail
                 self.driver.execute_script("arguments[0].click();", base_td_show)
                 # resume_key
                 resume_key = td
                 # gender
-                gender = '1' if self.driver.find_element_by_xpath(f'//tr[@id="trBaseInfo_{i}"]/td[6]').text == '男' else '2'
+                gender = '1' if self.driver.find_element_by_xpath(
+                    f'//tr[@id="trBaseInfo_{i}"]/td[6]').text == '男' else '2'
                 # address
                 address = self.driver.find_element_by_xpath(f'//tr[@id="trBaseInfo_{i}"]/td[7]').text
                 # years_of_working
@@ -855,26 +857,22 @@ class Job51HalfYear(object):
                     self.driver.switch_to.window(self.driver.window_handles[len(window) - 1])
                     self.judge_secret()
 
-    def judge_secret(self):
+    def judge_secret(self, flag=None):
         # 判断 是否是保密简历
-        time.sleep(0.5)
+        time.sleep(1)
         try:
             self.driver.find_element_by_xpath('//*[@id="tdseekname"]').text
         except:
             return None
         else:
-            # try:
-            #     self.get_xml_info()
-            # except Exception as e:
-            #     print(e)
-            self.get_xml_info()
+            self.get_xml_info(flag)
             self.driver.close()
             self.driver.switch_to.window(self.driver.window_handles[0])
             return True
         # window = self.driver.window_handles
         # self.driver.switch_to.window(self.driver.window_handles[0])
 
-    def get_xml_info(self):
+    def get_xml_info(self, flag=None):
         time.sleep(random.uniform(2, 3))
         html = self.driver.page_source
         xpt = etree.HTML(html)
@@ -918,11 +916,12 @@ class Job51HalfYear(object):
         personal_home_page = ''
         excecutiveneed = ''
         self_assessment = re.findall('<tr><td.*?class="keys">自我评价：.*?class="txt1">(.*?)</td>', html)
+        self_assessment = self_assessment[0] if self_assessment else ''
         i_can_start = ''
         e_type = re.findall('<tr><td.*?class="keys">工作类型：.*?class="txt2">(.*?)</td>', html)[0]
         employment_type = '1' if '全' in e_type else '2'
         industry_expected = re.findall('<tr><td.*?class="keys">行业：.*?class="txt2"><span class="tag">(.*?)</span>', html)
-        industry_expected = industry_expected if industry_expected else ''  # 可能为空
+        industry_expected = industry_expected[0] if industry_expected else ''  # 可能为空
         w_expected = re.findall('<tr><td.*?class="keys">地点：.*?class="txt2"><span class="tag">(.*?)</span>', html)
         working_place_expected = w_expected[0] if w_expected else ''
         s_expected = re.findall('<tr><td.*?class="keys">期望薪资：.*?class="txt2">(.*?)</td>', html)
@@ -940,29 +939,29 @@ class Job51HalfYear(object):
         t_str = re.findall('目前年收入', html)
         table_str = True if t_str else False
         # 个人信息 (当前年收入) 求职意向 工作经验 项目经验 教育经历 在校情况
+        # print('程序已经到达了这里了...')
         try:
             table_num = table_info.index('工作经验')
             if not table_str:
                 table_num += 1
         except Exception as e:
-            # print(e)
             word_experience = []
         else:
             try:
                 tr_info = self.driver.find_elements_by_xpath(
-                    f'//tr[@id="divInfo"]/td/table[{table_num + 1}]/tbody/tr[2]/td/table/tbody/tr')
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="工作经验"]/../../tr/td/table/tbody/tr')
                 word_experience = []
                 tr_num = len(tr_info)
                 for i in range(tr_num):
                     time_info = self.driver.find_element_by_xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]/td/table/tbody/tr[1]/td[@class="time"]').text
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="工作经验"]/../../tr/td/table/tbody/tr[{i + 1}]/td/table/tbody/tr[1]/td[@class="time"]').text
                     comp_name = self.driver.find_element_by_xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//span[@class="bold"]').text
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="工作经验"]/../../tr/td/table/tbody/tr[{i + 1}]//span[@class="bold"]').text
                     do_what = self.driver.find_element_by_xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="rtbox plate_right"]/span[@class="bold"]').text
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="工作经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox plate_right"]/span[@class="bold"]').text
                     work_description = ''
                     work_details = self.driver.find_elements_by_xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="tb1"]//tbody/tr/td[2]')
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="工作经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="tb1"]//tbody/tr/td[2]')
                     for ifo in work_details:
                         work_description += (ifo.text + '\n')
                     if do_what:
@@ -992,21 +991,21 @@ class Job51HalfYear(object):
             # print(e)
             project_experience = []
         else:
-            tr2_info = xpt.xpath(f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr')
+            tr2_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr')
             project_experience = []
             tr2_num = len(tr2_info)
             for i in range(tr2_num):
                 time_info = xpt.xpath(
-                    f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')
                 pro_name = xpt.xpath(
-                    f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')
                 project_details = xpt.xpath(
-                    f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="txt1"]/text()')
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="txt1"]/text()')
 
                 dic = {
-                    '项目时间': time_info,
-                    '项目名称': pro_name,
-                    '描述': project_details
+                    '项目时间': time_info[0],
+                    '项目名称': ''.join(pro_name),
+                    '描述': ''.join(project_details)
                 }
 
                 project_experience.append(dic)
@@ -1020,21 +1019,21 @@ class Job51HalfYear(object):
             education = []
         else:
             try:
-                tr3_info = xpt.xpath(f'//tr[@id="divInfo"]/td/table[{table_num3 + 1}]/tbody/tr[2]/td/table/tbody/tr')
+                tr3_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr')
                 education = []
                 tr3_num = len(tr3_info)
                 for i in range(tr3_num):
                     time_info = xpt.xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num3 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
                         0]
                     school_name = xpt.xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num3 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
                         0]
                     class_rate = xpt.xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num3 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[
                         0]
                     main_major = xpt.xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num3 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]/span/text()')[
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]/span/text()')[
                         1]
                     dic = {
                         '教育时间': time_info,
@@ -1063,15 +1062,15 @@ class Job51HalfYear(object):
             certifications = []
         else:
             try:
-                tr4_info = xpt.xpath(f'//tr[@id="divInfo"]/td/table[{table_num4 + 1}]/tbody/tr[2]/td/table/tbody/tr')
+                tr4_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr')
                 education = []
                 tr4_num = len(tr4_info)
                 for i in range(tr4_num):
                     time_info = xpt.xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num4 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
                         0]
                     certifications_name = xpt.xpath(
-                        f'//tr[@id="divInfo"]/td/table[{table_num4 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
+                        f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
                         0]
                     dic = {
                         '获得时间': time_info,
@@ -1088,9 +1087,11 @@ class Job51HalfYear(object):
         otherinfo = ''  #
         source_file = ''  #
         is_viewed = 1  #
-        time_now = time.time()
-        dateModified = time.strftime('%Y-%m-%d', time.localtime(time_now))
+        time_tic = time.time()
+        dateModified = time.strftime('%Y-%m-%d', time.localtime(time_tic))
         resume_date = dateModified
+        update_date = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+
         get_type = 1
         external_resume_id = re.findall(r'(\d+)', r_key)[0]
 
@@ -1139,10 +1140,12 @@ class Job51HalfYear(object):
             'get_type': get_type,
             'external_resume_id': external_resume_id,
             'resume_logo': '',
+            'update_date': update_date
         }
 
         load_json = {
-            'account': f'{company_name}',
+            'account': f'{python_config.account_from}',
+            'add_user': f'{python_config.account_from}',
             "data": [dic]
         }
 
@@ -1155,9 +1158,10 @@ class Job51HalfYear(object):
         return word_experience, education
 
     def post_resume(self, resume):
-        url = POST_URL
-        # rq = self.session.post(url, json=resume)
-        # LOG.info(f'数据的插入详情为:{rq.text}')
+        url = python_config.POST_URL_AUTO
+        rq = self.session.post(url, json=resume)
+        print(resume)
+        LOG.info(f'数据的插入详情为:{rq.text}')
 
     @staticmethod
     def handle_0(n):
@@ -1185,7 +1189,50 @@ class Job51HalfYear(object):
             f.write(jsn)
         time.sleep(1)
 
+    def all_download_get(self):
+        time.sleep(random.uniform(2, 3))
+        today_info = time.strftime('%Y-%m-%d', time.localtime())
+        try:
+            today_download = self.driver.find_elements_by_xpath(f'//tr/td[text()="{today_info}"]')
+        except Exception as e:
+            today_nums = 0
+        else:
+            today_nums = len(today_download)
+
+        if today_nums == 0:
+            return False
+        else:
+            for n in range(1, today_nums + 1):
+                time.sleep(3)
+                try:
+                    self.driver.find_element_by_xpath(f'//tr[@id="trBaseInfo_{n}"]/td[3]/ul/li[1]/a').click()
+                except Exception as e:
+                    print('当前页面状态错误，请手动处理页面信息后回车')
+                    self.driver.switch_to.window(self.driver.window_handles[0])
+                    continue
+                time.sleep(random.uniform(3, 5))
+                window = self.driver.window_handles
+                self.driver.switch_to.window(self.driver.window_handles[len(window) - 1])
+                try:
+                    flag = self.judge_secret(True)
+                except Exception as e:
+                    print('自动跳过该页面的错误状态...')
+                    continue
+                else:
+                    if not flag:
+                        continue
+            time.sleep(random.uniform(3, 5))
+            if today_nums == 50:
+                print('因为当前页的数据为20条，那么下一页可能也存在数据，尝试跳下一页检索')
+                self.do_next_pg()
+                self.all_download_get()
+
     def run(self):
+        time.sleep(5)
+        self.driver.get(self.download_url)
+        self.all_download_get()
+        # =================== #
+        time.sleep(10)
         self.get_first_page()
 
 
@@ -1193,9 +1240,8 @@ class Job51Send(object):
     """
     发送信息
     """
+
     def __init__(self):
-        with open('cookies.json', 'r') as f:
-            self.cookies = json.loads(f.read())['cookies']
         self.search_url = 'https://ehire.51job.com/InboxResume/InboxRecentEngine.aspx'
         self.goal_url = 'https://ehire.51job.com/Navigate.aspx'
         self.cart_url = 'https://ehire.51job.com/Candidate/CompanyHrTmpNew.aspx'
@@ -1231,7 +1277,7 @@ class Job51Send(object):
         except KeyboardInterrupt:
             LOG.warning('Program interrupt, needs to be fixed')
 
-        self.do_search()        # search goal resume
+        self.do_search()  # search goal resume
 
     def do_search(self):
         self.driver.get(self.search_url)
@@ -1355,9 +1401,8 @@ class Job51Search(object):
     """
     搜索信息
     """
+
     def __init__(self):
-        with open('cookies.json', 'r') as f:
-            self.cookies = json.loads(f.read())['cookies']
         self.search_url = 'https://ehire.51job.com/Candidate/SearchResumeIndexNew.aspx'
         self.goal_url = 'https://ehire.51job.com/Navigate.aspx'
         self.cart_url = 'https://ehire.51job.com/Candidate/CompanyHrTmpNew.aspx'
@@ -1375,55 +1420,9 @@ class Job51Search(object):
         # self.options.add_experimental_option('excludeSwitches', ['enable-automation'])
         self.driver = webdriver.Chrome(options=self.options)
 
-    @staticmethod
-    def get_api_cookie(cook):
-        cookie = []
-        for key in cook:
-            dic = dict()
-            dic['domain'] = 'N/A'
-            dic['path'] = 'N/A'
-            dic['name'] = key
-            dic['value'] = cook[key]
-            cookie.append(dic)
-
-        return cookie
-
-    def do_cookies(self, cooki):
-        for cook in cooki:  # 这里是cookies的信息
-            if len(cook) < 6:
-                new = dict(cook, **{
-                    "domain": "N/A",
-                    "path": "N/A",
-                })
-            else:
-                new = cook
-            self.driver.add_cookie(new)
-
     def get_first_page(self):
         self.driver.get(self.search_url)  # 打开最基本页面注入cookies
-        # self.driver.delete_all_cookies()
-        #
-        # try:
-        #     if type(self.cookies) == dict:
-        #         cooki = self.get_api_cookie(self.cookies)
-        #         self.do_cookies(cooki)
-        #     elif type(self.cookies) == list:
-        #         self.do_cookies(self.cookies)
-        #     time.sleep(5)
-        #     self.driver.get(self.goal_url)  # 访问目标网站
-        # except Exception as e:
-        #     print('error:', e)
-        #     msg = '需要登录刷新cookies'
-        #     send_rtx_msg(receivers, msg)
-        #     WebDriverWait(
-        #         self.driver,
-        #         86400, poll_frequency=15).until(
-        #         EC.presence_of_element_located((
-        #             By.XPATH, '//div[@class="Common_ct clearfix"]/ul/li[1]/a')))
-        #
-        # self.driver.refresh()
-        # time.sleep(2)
-        #
+
         try:
             # 判断是否登录成功还是在登录页面
             # 1.寻找元素在不在 >>> 2.1.不在的话异常，然后异常里面进行阻塞,处理了后接着运行 2.2.存在表明登录成功
@@ -1434,13 +1433,6 @@ class Job51Search(object):
             LOG.warning('*=*=*=*==*=*=*=*=*=*=*=*=*=*==*=*=*=*=*=*=*=*=*=*')
             LOG.warning('*=*=*=** i need help to fresh the cookie **=*=*=*')
             LOG.warning('*=*=*=*==*=*=*=*=*=*=*=*=*=*==*=*=*=*=*=*=*=*=*=*')
-#             msg = f"""
-# ********* HR 数据自动化 *********
-# 负责人：{handler}
-# 状态原因：前程{company_name}发布状态检测程序异常
-# 处理标准：请人为到服务器登陆处理,也可以找相关技术人员协助
-# """
-#             send_rtx_msg(msg)
             WebDriverWait(self.driver, 86400, poll_frequency=30).until(
                 EC.presence_of_element_located(
                     (By.XPATH, '//ul/li/a[@id="MainMenuNew1_HrUName"]'))
@@ -1450,7 +1442,7 @@ class Job51Search(object):
 
         # self.temp_save_cart()   # 处理暂存夹消息
         # self.do_info()
-        self.do_search()        # search goal resume
+        self.do_search()  # search goal resume
 
     # ----------------------------- #
 
@@ -1461,7 +1453,7 @@ class Job51Search(object):
     def do_search(self):
         self.driver.get(self.search_url)
         time.sleep(random.uniform(1, 2))
-        self.driver.find_element_by_xpath('//a[@id="search_submit"]').click()   # search at another page
+        self.driver.find_element_by_xpath('//a[@id="search_submit"]').click()  # search at another page
         time.sleep(random.uniform(2, 3))
         self.input_keyword_and_search()
 
@@ -1473,13 +1465,12 @@ class Job51Search(object):
         self.chose_place()
 
         self.chose_date()
-        for keyword in keywords[33:]:
+        for keyword in keywords:
             try:
                 flag = self.input_content(keyword)
             except Exception as e:
-                print('\033[1;45m 处理好程序状态后再开始运行 \033[0m')
-                input('>>')
-                continue
+                print('\033[1;45m 可能业务频繁所以直接退出是最好的解决方案 \033[0m')
+                break
             if not flag:
                 continue
 
@@ -1535,7 +1526,8 @@ class Job51Search(object):
                     # window = self.driver.window_handles
                     # self.driver.switch_to.window(self.driver.window_handles[0])
                     time.sleep(1)
-                    self.driver.find_element_by_xpath(f'//div[@class="Common_list-table"]/table/tbody/tr[{n}]/td[2]/span/a').click()
+                    self.driver.find_element_by_xpath(
+                        f'//div[@class="Common_list-table"]/table/tbody/tr[{n}]/td[2]/span/a').click()
                     # self.driver.execute_script("arguments[0].click();", each_id)
                     # n += 1
                     time.sleep(random.uniform(0, 1))
@@ -1574,8 +1566,6 @@ class Job51Search(object):
 
             keywords.append(kw)
             k_v[kw] = (receiver, user)
-        # keywords = ['测试']
-        # k_v = {'测试': '系统机器人'}
         return keywords, k_v
 
     def temp_save_cart(self):
@@ -1594,16 +1584,18 @@ class Job51Search(object):
 """
             send_rtx_msg(msg)
         else:
-            num = num[0]     # 2    4丅
+            num = num[0]  # 2    4丅
             main_node = self.driver.find_element_by_xpath('//div[@class="list-table"]//tbody')
             for i in range(1, int(num) + 1):
-                td = main_node.find_element_by_xpath(f'./tr[{i * 2 - 1 }]/td[2]/span/a').text  # id
-                base_td_show = main_node.find_element_by_xpath(f'//div[@class="list-table"]//tbody/tr[{i * 2 - 1 }]/td[3]/span')  # click to detail
+                td = main_node.find_element_by_xpath(f'./tr[{i * 2 - 1}]/td[2]/span/a').text  # id
+                base_td_show = main_node.find_element_by_xpath(
+                    f'//div[@class="list-table"]//tbody/tr[{i * 2 - 1}]/td[3]/span')  # click to detail
                 self.driver.execute_script("arguments[0].click();", base_td_show)
                 # resume_key
                 resume_key = td
                 # gender
-                gender = '1' if self.driver.find_element_by_xpath(f'//tr[@id="trBaseInfo_{i}"]/td[6]').text == '男' else '2'
+                gender = '1' if self.driver.find_element_by_xpath(
+                    f'//tr[@id="trBaseInfo_{i}"]/td[6]').text == '男' else '2'
                 # address
                 address = self.driver.find_element_by_xpath(f'//tr[@id="trBaseInfo_{i}"]/td[7]').text
                 # years_of_working
@@ -1850,7 +1842,8 @@ class Job51Search(object):
         source_file = ''  #
         is_viewed = 1  #
         r_date = xpt.xpath('//span[@id="lblResumeUpdateTime"]/b/text()')
-        resume_date = r_date[0] if r_date else ''
+        resume_date = time.strftime("%Y-%m-%d", time.localtime())
+        update_date = r_date[0] if r_date else ''
         get_type = 2
         e_id = re.findall(r'(\d+)', title)
         external_resume_id = e_id[0]
@@ -1898,7 +1891,8 @@ class Job51Search(object):
             'is_viewed': is_viewed,
             'resume_date': resume_date,
             'get_type': get_type,
-            'external_resume_id': external_resume_id
+            'external_resume_id': external_resume_id,
+            'update_date': update_date
         }
 
         load_json = {
@@ -1937,16 +1931,6 @@ class Job51Search(object):
 
     # ---------------------------- #
 
-    def save_cookies(self, cook):
-        dic = {
-            'fresh_time': time.ctime(time.time()),
-            'cookies': cook
-        }
-        jsn = json.dumps(dic)
-        with open(self.base_dir + r'\cookies.json', 'w') as f:
-            f.write(jsn)
-        time.sleep(1)
-
     def run(self):
         self.get_first_page()
 
@@ -1960,6 +1944,9 @@ def send_rtx_msg(msg, flag=None):
     """
     if flag:
         receivers = handler
+    else:
+        receivers = python_config.receivers
+
     post_data = {
         "sender": "系统机器人",
         "receivers": receivers,
@@ -1969,14 +1956,19 @@ def send_rtx_msg(msg, flag=None):
 
 
 if __name__ == '__main__':
+    app = Job51Down()
+    app.run()
+    print('下载数据已经下载完毕...')
     app = Job51HalfYear()
+    # app.do_click_each()
+    # input('>>>>>')
     app.run()
     print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
     input('>>>')
     while True:
         hour_info = time.strftime('%H', time.localtime())
-        if hour_info in ['00', '01', '02', '03', '04', '05', '06', '07']:
-            time.sleep(60 * 30)
+        if hour_info in [f"0{_}" for _ in range(9)]:
+            time.sleep(60 * 60)
             continue
         time_info = time.strftime('%a', time.localtime())
         if time_info not in ['Sun']:

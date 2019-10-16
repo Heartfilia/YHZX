@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2019/9/17 9:53
 # @Author  : Lodge
@@ -28,6 +28,7 @@ from selenium import webdriver
 from fake_useragent import UserAgent
 # from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
@@ -217,8 +218,8 @@ class BossHello(object):
                     date_of_birth = time.localtime().tm_year
 
                 weixin = data['weixin'] if data['weixin'] else ''
-                phone = data['phone'] if data['phone'] else '123'
-                if phone == '123':
+                phone = data['phone'] if data['phone'] else f'9{int(time.time() * 1000)}'
+                if phone.startswith('9'):
                     if weixin.isdigit():
                         mobile_phone = weixin
                     else:
@@ -231,6 +232,7 @@ class BossHello(object):
                     mobile_phone = phone
 
                 json_info = {
+                    'resumeVisible': data['resumeVisible'],
                     'name': data['name'],
                     'mobile_phone': mobile_phone,
                     'company_dpt': 1,
@@ -267,14 +269,15 @@ class BossHello(object):
                     'it_skill': [],
                     'certifications': [],
                     'is_viewed': 1,
-                    'resume_date': data['addTime'],
-                    'get_type': '',
+                    'resume_date': time.strftime("%Y-%m-%d", time.localtime()),
+                    'get_type': 1,
                     'external_resume_id': data['encryptUid'],
                     'labeltype': 1,
                     'resume_logo': data['largeAvatar'],
                     'resume_from': 3,
                     'account_from': python_config.account_from,
-                    'update_date': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+                    'update_date': data['addTime'],
+                    'source_file': f"3_{data['encryptUid']}.jpg",
                 }
                 return json_info
         except Exception as e:
@@ -325,7 +328,7 @@ class BossHello(object):
                 data.append(dict_chat)
         msg_url = python_config.MSG_URL
         print('聊天信息状态--准备写入聊天信息...')
-        with open('./utils/chat_msg.json', 'a') as file:
+        with open(os.path.join(BASE_DIR, 'utils', 'chat_msg.json'), 'a') as file:
             file.write(json.dumps(base_chat) + ',\n')
             # LOG.info(f'聊天信息--和{name}的聊天信息已经存储.')
 
@@ -351,24 +354,25 @@ class BossHello(object):
     def post_resume(self, base_json, data_uid):
         time.sleep(random.uniform(2, 3))
         # 这里将那个图片转换为Base_64然后准备接下来的事情
-        with open(BASE_DIR + '/Baidu_ocr/base.png', 'rb') as f:
+        with open(os.path.join(BASE_DIR, 'Baidu_ocr', 'base.png'), 'rb') as f:
             base64_data = base64.b64encode(f.read())
             base_img = base64_data.decode()  # 要处理这个base_img
-            # print(f'data:image/png;base64,{base_img}')   # 这里是输出测试
         info = {
             'account': python_config.account,
-            'boss_pic': f'data:image/jpeg;base64,{base_img}',
             'data': [base_json]
         }
         print(info)
         url = python_config.POST_URL   # api not sure
-        mobile_phone = base_json['mobile_phone'] if base_json['mobile_phone'] != '123' else ''
+        mobile_phone = base_json['mobile_phone']
         name = base_json['name']
         e_id = base_json['external_resume_id']
-        if base_json and mobile_phone:
-            # if base_json:
-            with open('./utils/resume_info.txt', 'a') as json_file:
-                json_file.write(str(info) + ',\n')
+        resume_visible = base_json['resumeVisible']
+        if resume_visible == 1:
+            try:
+                with open(os.path.join(BASE_DIR, 'utils', 'resume_info.txt'), 'a') as json_file:
+                    json_file.write(str(info) + ',\n')
+            except Exception as e:
+                pass
             try:
                 response = self.session.post(url, json=info)
             except Exception as e:
@@ -377,6 +381,16 @@ class BossHello(object):
                 LOG.error('目标计算机拒绝链接')
             else:
                 LOG.info(f'沟通的数据插入详情为:{response.text}')
+                boss_pic = base_img
+                purl = f"/var/www/html/upfile/ebay/3_{e_id}.jpg"
+                pic_data = {
+                    'pdata': base64.b64decode(boss_pic),
+                    'filesize': 0,
+                    'purl': purl,
+                    'SUBMIT': 'Send'
+                }
+                requests.post('http://pic.fbeads.cn/curl_phase_cn.php', data=pic_data)
+                print('图片数据插入成功...')
                 if json.loads(response.text)['error_code'] == 0:
                     time.sleep(random.uniform(1, 2))
                     back_chat = self.driver.find_element_by_xpath(
@@ -399,61 +413,65 @@ class BossHello(object):
             LOG.info('reject: 对方还未回复关键信息,简历未能上传')
 
     def parse_detail_page(self, base_json, html_detail):
-        time.sleep(random.uniform(1, 2))
-        parser = etree.HTML(html_detail)
-        self_assessment_xpt = parser.xpath('/html/body/div/div/div[1]/div[2]/div[2]//text()')
-        base_json['self_assessment'] = ''.join(self_assessment_xpt)
-        resume_key_xpt = parser.xpath('/html/body/div/div/div[2]/div/div/span[1]/text()')[0]
-        base_json['resume_key'] = resume_key_xpt
+        if html_detail:
+            time.sleep(random.uniform(1, 2))
+            parser = etree.HTML(html_detail)
+            self_assessment_xpt = parser.xpath('/html/body/div/div/div[1]/div[2]/div[2]//text()')
+            base_json['self_assessment'] = ''.join(self_assessment_xpt)
+            resume_key_xpt = parser.xpath('/html/body/div/div/div[2]/div/div/span[1]/text()')
+            if resume_key_xpt:
+                base_json['resume_key'] = resume_key_xpt[0]
+            else:
+                base_json['resume_key'] = '未知'
 
-        work_experience_xpt = parser.xpath('/html/body/div/div/div[3]/div/div/div')
-        if work_experience_xpt:
-            num_of_wex = len(work_experience_xpt)
-            for i in range(1, num_of_wex+1):
-                work_time_range = parser.xpath(f'/html/body/div/div/div[3]/div/div/div[{i}]/span/text()')[0]
-                company_and_skill = parser.xpath(f'/html/body/div/div/div[3]/div/div/div[{i}]/h4//text()')
-                company_info = ''.join(company_and_skill).replace(' ', '').strip()
-                do_what = parser.xpath(f'/html/body/div/div/div[3]/div/div/div[{i}]/div/div//text()')
-                do_what_info = ''.join(do_what).replace(' ', '').strip()
-                work_info_one = {
-                    '起止时间': work_time_range,
-                    '公司信息': company_info,
-                    '工作内容': do_what_info
-                }
-                base_json['word_experience'].append(work_info_one)
-
-        if '项目经验' in html_detail:
-            edu_code = 5
-            project_experience_xpt = parser.xpath('/html/body/div/div/div[4]/div/div/div')
-            if project_experience_xpt:
-                num_of_pe = len(project_experience_xpt)
-                for x in range(1, num_of_pe+1):
-                    project_time_range = parser.xpath(f'/html/body/div/div/div[4]/div/div/div[{x}]/span/text()')[0]
-                    project_and_skill = parser.xpath(f'/html/body/div/div/div[4]/div/div/div[{x}]/h4//text()')
-                    project_info = ''.join(project_and_skill).replace(' ', '').strip()
-                    done_what = parser.xpath(f'/html/body/div/div/div[4]/div/div/div[{x}]/div/div//text()')
-                    done_what_info = ''.join(done_what).replace(' ', '').strip()
-                    project_info_one = {
-                        '起止时间': project_time_range,
-                        '项目信息': project_info,
-                        '项目内容': done_what_info
+            work_experience_xpt = parser.xpath('/html/body/div/div/div[3]/div/div/div')
+            if work_experience_xpt:
+                num_of_wex = len(work_experience_xpt)
+                for i in range(1, num_of_wex+1):
+                    work_time_range = parser.xpath(f'/html/body/div/div/div[3]/div/div/div[{i}]/span/text()')[0]
+                    company_and_skill = parser.xpath(f'/html/body/div/div/div[3]/div/div/div[{i}]/h4//text()')
+                    company_info = ''.join(company_and_skill).replace(' ', '').strip()
+                    do_what = parser.xpath(f'/html/body/div/div/div[3]/div/div/div[{i}]/div/div//text()')
+                    do_what_info = ''.join(do_what).replace(' ', '').strip()
+                    work_info_one = {
+                        '起止时间': work_time_range,
+                        '公司信息': company_info,
+                        '工作内容': do_what_info
                     }
-                    base_json['project_experience'].append(project_info_one)
-        else:
-            edu_code = 4
+                    base_json['word_experience'].append(work_info_one)
 
-        education_xpt = parser.xpath(f'/html/body/div/div/div[{edu_code}]/div/div/div/span')
-        if education_xpt:
-            education_time_range = parser.xpath(f'/html/body/div/div/div[{edu_code}]/div/div/div[1]/span/text()')[0]
-            school_and_class = parser.xpath(f'/html/body/div/div/div[{edu_code}]/div/div/div[1]/h4//text()')
-            school_and_class_info = ''.join(school_and_class).replace(' ', '').strip()
-            education_info = {
-                '起止时间': education_time_range,
-                '学校学历': school_and_class_info
-            }
-            base_json['education'].append(education_info)
+            if '项目经验' in html_detail:
+                edu_code = 5
+                project_experience_xpt = parser.xpath('/html/body/div/div/div[4]/div/div/div')
+                if project_experience_xpt:
+                    num_of_pe = len(project_experience_xpt)
+                    for x in range(1, num_of_pe+1):
+                        project_time_range = parser.xpath(f'/html/body/div/div/div[4]/div/div/div[{x}]/span/text()')[0]
+                        project_and_skill = parser.xpath(f'/html/body/div/div/div[4]/div/div/div[{x}]/h4//text()')
+                        project_info = ''.join(project_and_skill).replace(' ', '').strip()
+                        done_what = parser.xpath(f'/html/body/div/div/div[4]/div/div/div[{x}]/div/div//text()')
+                        done_what_info = ''.join(done_what).replace(' ', '').strip()
+                        project_info_one = {
+                            '起止时间': project_time_range,
+                            '项目信息': project_info,
+                            '项目内容': done_what_info
+                        }
+                        base_json['project_experience'].append(project_info_one)
+            else:
+                edu_code = 4
 
-        self.go_resume(base_json)
+            education_xpt = parser.xpath(f'/html/body/div/div/div[{edu_code}]/div/div/div/span')
+            if education_xpt:
+                education_time_range = parser.xpath(f'/html/body/div/div/div[{edu_code}]/div/div/div[1]/span/text()')[0]
+                school_and_class = parser.xpath(f'/html/body/div/div/div[{edu_code}]/div/div/div[1]/h4//text()')
+                school_and_class_info = ''.join(school_and_class).replace(' ', '').strip()
+                education_info = {
+                    '起止时间': education_time_range,
+                    '学校学历': school_and_class_info
+                }
+                base_json['education'].append(education_info)
+
+            self.go_resume(base_json)
 
     def go_resume(self, base_json):
         """
@@ -463,28 +481,33 @@ class BossHello(object):
         resume_extra = self.driver.find_element_by_xpath(
             '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[1]/div[2]/span[3]'
         )
-        attribute = resume_extra.get_attribute('class')
-        if 'gray' in attribute:
+        # attribute = resume_extra.get_attribute('class')
+        resume_visible = base_json['resumeVisible']
+
+        if resume_visible == 0:
             print('没有获取到附加简历...')
             return
         else:
-            print('拿到了简历...')
+            print('拿到了简历...处理中...')
             time.sleep(2)
             self.driver.execute_script("arguments[0].click();", resume_extra)
+            time.sleep(5)
+            self.driver.save_screenshot(os.path.join(BASE_DIR, 'Baidu_ocr', 'base.png'))
             time.sleep(2)
-            self.driver.save_screenshot(BASE_DIR + '/Baidu_ocr/base.png')
-            time.sleep(2)
-            img = self.driver.find_element_by_xpath(
-                '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[4]/div/div/img')
+            try:
+                img = self.driver.find_element_by_xpath(
+                    '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[4]/div/div/img')
+            except Exception as e:
+                return
             location = img.location
             left = location['x']
             top = location['y']
             right = left + 860
             bottom = top + 650
 
-            img = Image.open(BASE_DIR + '/Baidu_ocr/base.png')
+            img = Image.open(os.path.join(BASE_DIR, 'Baidu_ocr', 'base.png'))
             im = img.crop((left, top, right, bottom))
-            im.save(BASE_DIR + '/Baidu_ocr/base.png')
+            im.save(os.path.join(BASE_DIR, 'Baidu_ocr', 'base.png'))
             time.sleep(1)
             try:
                 app_email = client.main()
@@ -598,6 +621,8 @@ class BossHello(object):
                 base_json = self.request_base_info(data_uid)      # return json-format dict file
                 if base_json:
                     html_detail = self.request_detail_info(data_eid)
+                    messages = self.request_chat_msg(data_eid)
+
                     self.parse_detail_page(base_json, html_detail)
 
                     self.post_resume(base_json, data_uid)
@@ -636,9 +661,9 @@ class BossHello(object):
             print('拿到了简历...')
             time.sleep(2)
             self.driver.execute_script("arguments[0].click();", resume_extra)
+            time.sleep(5)
+            self.driver.save_screenshot(os.path.join(BASE_DIR, 'Baidu_ocr', 'base.png'))
             time.sleep(2)
-            self.driver.save_screenshot(BASE_DIR + '/Baidu_ocr/base.png')
-            time.sleep(4)
             img = self.driver.find_element_by_xpath(
                 '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[4]/div/div/img')
             location = img.location
@@ -647,9 +672,9 @@ class BossHello(object):
             right = left + 650
             bottom = top + 700
 
-            img = Image.open(BASE_DIR + '/Baidu_ocr/base.png')
+            img = Image.open(os.path.join(BASE_DIR, 'Baidu_ocr', 'base.png'))
             im = img.crop((left, top, right, bottom))
-            im.save(BASE_DIR + '/Baidu_ocr/base.png')
+            im.save(os.path.join(BASE_DIR, 'Baidu_ocr', 'base.png'))
             time.sleep(1)
 
     # ===================================================================================== #
@@ -709,7 +734,7 @@ class CallForNiu(object):
             time.sleep(random.uniform(1, 2))
             self.driver.switch_to.frame('syncFrame')
             self.select_salary_range()
-            for _ in range(10):
+            for _ in range(2):
                 self.driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
                 time.sleep(random.uniform(2, 4))
             all_people = self.driver.find_elements_by_xpath('//*[@id="recommend-list"]/div/ul/li')[1:]
@@ -830,7 +855,7 @@ class CallForPosition(object):
 
     def __init__(self):
         self.base_url = 'https://www.zhipin.com'
-        self.position_url = self.base_url + '/chat/im?mu=%2Fbossweb%2Fjobedit%2F0.html'
+        self.position_url = self.base_url + '/chat/im?mu=%2Fbossweb%2Fjoblist.html'
         self.local_class = self.__class__.__name__
         self.options = webdriver.ChromeOptions()
         self.options.add_argument("--no-sandbox")
@@ -841,8 +866,112 @@ class CallForPosition(object):
 
         # ===================================================================================== #
 
+    def go_post_position(self):
+        self.driver.get(self.position_url)
+        # 接下来就是切换子框架
+        time.sleep(random.uniform(0, 1))
+        self.driver.switch_to.frame('frameContainer')
+        time.sleep(random.uniform(0, 1))
+        self.judge_now_status()   # 判断当前页面状态
+        time.sleep(random.uniform(1, 2))
+        self.go_to_post()
+
+    def go_to_post(self):
+        self.driver.switch_to.frame('frameContainer')
+        time.sleep(random.uniform(0, 1))
+        # 这里要从api里面拿取需要处理的信息
+        position_data = requests.get(python_config.POSITION_URL).text
+        # print(position_data)
+        local_account = python_config.phone_num.replace('-', '')
+        position_data = json.loads(position_data)
+        for each_pos in position_data:
+            each_id = each_pos['id']
+            account = each_pos['account']
+
+            if account == local_account:
+                position_name = each_pos['job_name']
+                position_type = each_pos['job_type']
+                exp_info = each_pos['experience']
+                edu_info = each_pos['edu']
+                salary_low = int(each_pos['salary_min'])
+                salary_high = int(each_pos['salary_max']) - salary_low
+                position_desc = each_pos['job_desc']
+                position_key = each_pos['job_keywords'].split(',')
+
+                b_name = self.driver.find_element_by_xpath('//*[@id="container"]/div[1]/form/div[3]/div[2]/span/input')
+                b_name.clear()
+                b_name.send_keys(position_name)
+
+                b_type = self.driver.find_element_by_xpath('//*[@id="container"]/div[1]/form/div[4]/div[2]/span/input[1]')
+                b_type.click()
+                time.sleep(1)
+                b_type_b = self.driver.find_element_by_xpath('/html/body/div[3]/div[2]/div[1]/h3/div/div[1]/input')
+                b_type_b.send_keys(position_type)
+                time.sleep(1)
+                b_type_b_c = self.driver.find_element_by_xpath('/html/body/div[3]/div[2]/div[1]/h3/div/div[2]/div[1]/ul/li')
+                b_type_b_c.click()
+
+                exp_class = self.driver.find_element_by_xpath(
+                    f'//*[@id="container"]/div[1]/form/div[9]/div[2]/div[1]/div/ul/li[{exp_info}]'
+                )
+                time.sleep(0.5)
+                self.driver.execute_script("arguments[0].click();", exp_class)
+
+                edu_class = self.driver.find_element_by_xpath(
+                    f'//*[@id="container"]/div[1]/form/div[9]/div[2]/div[2]/div/ul/li[{edu_info}]')
+                self.driver.execute_script("arguments[0].click();", edu_class)
+                time.sleep(0.5)
+
+                salary_l = self.driver.find_element_by_xpath(
+                    f'//*[@id="container"]/div[1]/form/div[10]/div[2]/div[1]/div/ul/li[{salary_low}]')
+                self.driver.execute_script("arguments[0].click();", salary_l)
+                time.sleep(0.5)
+
+                salary_h = self.driver.find_element_by_xpath(
+                    f'//*[@id="container"]/div[1]/form/div[10]/div[2]/div[2]/div/ul/li[{salary_high}]')
+                self.driver.execute_script("arguments[0].click();", salary_h)
+                time.sleep(0.5)
+
+                position_d = self.driver.find_element_by_xpath(
+                    '//*[@id="container"]/div[1]/form/div[13]/div[2]/div/textarea')
+                position_d.send_keys(position_desc)
+                time.sleep(1)
+
+                key_p = self.driver.find_element_by_xpath(
+                    '//*[@id="container"]/div[1]/form/div[14]/div[2]/div/span/div/input')
+                for pk in position_key:
+                    key_p.send_keys(pk)
+                    key_p.send_keys(Keys.ENTER)
+                    time.sleep(0.5)
+
+                post_position = self.driver.find_element_by_xpath(
+                    '//*[@id="container"]/div[1]/form/div[15]/div[2]/button'
+                )
+                time.sleep(0.5)
+                self.driver.execute_script("arguments[0].click();", post_position)
+
+                time.sleep(1)
+                try:
+                    self.driver.switch_to.parent_frame()
+                    self.driver.find_element_by_xpath('/html/body/div[5]/div[2]/div[2]/div[1]/div[1]/h3')
+                except Exception as e:
+                    requests.get(python_config.POSITION_URL_CLEAR + each_id)
+                    LOG.info('职位发布成功, 现在消除的id为:', each_id)
+                else:
+                    requests.get(python_config.POSITION_FAIL_CLEAR + each_id)
+                    LOG.error('职位发布失败, 现在消除的id为:', each_id)
+                finally:
+                    self.driver.refresh()
+
+    def judge_now_status(self):
+        time.sleep(1)
+        pos_btn = self.driver.find_element_by_xpath('//*[@id="container"]/div[1]/div/div[1]/div/a')
+        pos_btn.click()
+        time.sleep(random.uniform(1, 2))
+        self.driver.refresh()   # 这里是保证页面有咩有数据都清除一下
+
     def run(self):
-        pass
+        self.go_post_position()
 
 
 # ========================================================================================== #
@@ -857,9 +986,12 @@ def write_exception(e, local_def, local_class):
     # local_def = sys._getframe().f_code.co_name
     # self.local_class = self.__class__.__name__
     # write_exception(e, local_def, self.local_class)
-    with open('./utils/error_log.txt', 'a', encoding='utf-8') as fl:
-        t_now = time.strftime('%m-%d %H:%M:%S', time.localtime())
-        fl.write(f'{t_now}:{local_class}>{local_def}::{str(e)}')
+    try:
+        with open(os.path.join(BASE_DIR, 'utils', 'error_log.txt'), 'a', encoding='utf-8') as fl:
+            t_now = time.strftime('%m-%d %H:%M:%S', time.localtime())
+            fl.write(f'{t_now}:{local_class}>{local_def}::{str(e)}')
+    except Exception as e:
+        pass
 
 
 def send_rtx_msg(msg):
@@ -1002,6 +1134,8 @@ def development_mode():
     # time.sleep(100)  # 等待功能三
     # niu_app = CallForNiu()
     # niu_app.run()
+    # position_app = CallForPosition()
+    # position_app.run()
 
 
 def main():
@@ -1010,20 +1144,20 @@ def main():
     :return: 不返回
     """
     development_mode()
-    print('调试的时候 要卡在这里...')
-    time.sleep(10000)
-    while True:
-        hello_t = Thread(target=thread_one_hello)
-        clear_t = Thread(target=thread_two_clear)
-        call_t = Thread(target=thread_three_niu)
-
-        hello_t.start()
-        clear_t.start()
-        call_t.start()
-
-        hello_t.join()
-        clear_t.join()
-        call_t.join()
+    # print('调试的时候 要卡在这里...')
+    # time.sleep(10000)
+    # while True:
+    #     hello_t = Thread(target=thread_one_hello)
+    #     clear_t = Thread(target=thread_two_clear)
+    #     call_t = Thread(target=thread_three_niu)
+    #
+    #     hello_t.start()
+    #     clear_t.start()
+    #     call_t.start()
+    #
+    #     hello_t.join()
+    #     clear_t.join()
+    #     call_t.join()
 
 
 if __name__ == '__main__':

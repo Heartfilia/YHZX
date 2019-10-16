@@ -217,8 +217,8 @@ class BossHello(object):
                     date_of_birth = time.localtime().tm_year
 
                 weixin = data['weixin'] if data['weixin'] else ''
-                phone = data['phone'] if data['phone'] else '123'
-                if phone == '123':
+                phone = data['phone'] if data['phone'] else ''
+                if not phone:
                     if weixin.isdigit():
                         mobile_phone = weixin
                     else:
@@ -327,10 +327,10 @@ class BossHello(object):
         print('聊天信息状态--准备写入聊天信息...')
         with open('./utils/chat_msg.json', 'a') as file:
             file.write(json.dumps(base_chat) + ',\n')
-            # LOG.info(f'聊天信息--和{name}的聊天信息已经存储.')
+            LOG.info(f'聊天信息--和{name}的聊天信息已经存储.')
 
-        status = self.session.post(msg_url, json=base_chat)
-        LOG.info(f'聊天信息--和{name}的聊天信息存储状态为{status.text}.')
+        self.session.post(msg_url, json=base_chat)
+        LOG.info(f'聊天信息--和{name}的聊天信息已经存储.')
 
     def request_chat_msg(self, gid):
         time.sleep(random.uniform(1, 3))
@@ -354,19 +354,17 @@ class BossHello(object):
         with open(BASE_DIR + '/Baidu_ocr/base.png', 'rb') as f:
             base64_data = base64.b64encode(f.read())
             base_img = base64_data.decode()  # 要处理这个base_img
-            # print(f'data:image/png;base64,{base_img}')   # 这里是输出测试
+            # print(f'data:image/jpeg;base64,{base_img}')   # 这里是输出测试
         info = {
             'account': python_config.account,
-            'boss_pic': f'data:image/jpeg;base64,{base_img}',
+            'boss_pic': base_img,
             'data': [base_json]
         }
-        print(info)
         url = python_config.TEST_POST_URL   # api not sure
-        mobile_phone = base_json['mobile_phone'] if base_json['mobile_phone'] != '123' else ''
+        mobile_phone = base_json['mobile_phone']
         name = base_json['name']
         e_id = base_json['external_resume_id']
         if base_json and mobile_phone:
-            # if base_json:
             with open('./utils/resume_info.txt', 'a') as json_file:
                 json_file.write(str(info) + ',\n')
             try:
@@ -378,13 +376,6 @@ class BossHello(object):
             else:
                 LOG.info(f'沟通的数据插入详情为:{response.text}')
                 if json.loads(response.text)['error_code'] == 0:
-                    time.sleep(random.uniform(1, 2))
-                    back_chat = self.driver.find_element_by_xpath(
-                        '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[1]/div[2]/span[1]'
-                    )
-                    self.driver.execute_script("arguments[0].click();", back_chat)
-                    back_chat.click()
-                    time.sleep(1)
                     msg_box = self.driver.find_element_by_xpath(
                         '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[2]/div[2]/div[2]')
                     msg_box.send_keys(python_config.get_and_reply)
@@ -466,7 +457,7 @@ class BossHello(object):
         attribute = resume_extra.get_attribute('class')
         if 'gray' in attribute:
             print('没有获取到附加简历...')
-            return
+            pass
         else:
             print('拿到了简历...')
             time.sleep(2)
@@ -479,8 +470,8 @@ class BossHello(object):
             location = img.location
             left = location['x']
             top = location['y']
-            right = left + 860
-            bottom = top + 650
+            right = left + 704
+            bottom = top + 645
 
             img = Image.open(BASE_DIR + '/Baidu_ocr/base.png')
             im = img.crop((left, top, right, bottom))
@@ -495,13 +486,7 @@ class BossHello(object):
                 if app_email:
                     base_json['email'] = app_email
 
-            # resume_chat = self.driver.find_element_by_xpath(
-            #     '//*[@id="container"]/div[1]/div[2]/div[4]/div[2]/div[1]/div[2]/span[1]'
-            # )
-            # time.sleep(2)
-            # self.driver.execute_script("arguments[0].click();", resume_chat)
-
-        time.sleep(3)
+        time.sleep(5)
 
     def do_judge_who_is_last_one(self, gid):
         # False : 在需要发消息的情况里面非关键字的情况下 不需要发送信息
@@ -644,13 +629,20 @@ class BossHello(object):
             location = img.location
             left = location['x']
             top = location['y']
-            right = left + 650
-            bottom = top + 700
+            right = left + 700
+            bottom = top + 645
 
             img = Image.open(BASE_DIR + '/Baidu_ocr/base.png')
             im = img.crop((left, top, right, bottom))
             im.save(BASE_DIR + '/Baidu_ocr/base.png')
             time.sleep(1)
+            # try:
+            #     app_email = client.main()
+            # except Exception as e:
+            #     LOG.error('图片识别转码网络连接超时...')
+            #     write_exception(e, 'go_resume', 'BossHelll')
+            # else:
+            #     print(app_email)
 
     # ===================================================================================== #
 
@@ -823,26 +815,11 @@ class ClearAllChat(object):
 
 
 # ========================================================================================== #
-class CallForPosition(object):
+class CallForSend(object):
     """
-    发布职位的位置
+    这里是可能会用来发送邀请信息的，现在没有先关业务，但是可以先留着
     """
-
-    def __init__(self):
-        self.base_url = 'https://www.zhipin.com'
-        self.position_url = self.base_url + '/chat/im?mu=%2Fbossweb%2Fjobedit%2F0.html'
-        self.local_class = self.__class__.__name__
-        self.options = webdriver.ChromeOptions()
-        self.options.add_argument("--no-sandbox")
-        self.options.add_argument('--disable-gpu')
-        # chrome.exe --remote-debugging-port=8055 --user-data-dir="C:\selenium_boss\AutomationProfile"   # start chrome
-        self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.chrome_port}")  # connect
-        self.driver = webdriver.Chrome(options=self.options)
-
-        # ===================================================================================== #
-
-    def run(self):
-        pass
+    pass
 
 
 # ========================================================================================== #
@@ -968,22 +945,6 @@ def thread_three_niu():
     try:
         niu_app = CallForNiu()
         niu_app.run()
-    except Exception as e:
-        write_exception(e, 'thread_three_niu', '需要重新登录')
-        msg = f"********* HR 数据自动化 *********\n负责人：{python_config.handler}\n状态原因：其它地方登录,程序已经离线" \
-              f"\n处理标准：请重新登录账号,并替换本地的cookie"
-        send_rtx_msg(msg)
-
-
-@hello_timer(['02:00'])
-def thread_four_position():
-    """
-        专门开了第四个线程来处理职位发布信息
-        :return: 不返回
-        """
-    try:
-        post_app = CallForPosition()
-        post_app.run()
     except Exception as e:
         write_exception(e, 'thread_three_niu', '需要重新登录')
         msg = f"********* HR 数据自动化 *********\n负责人：{python_config.handler}\n状态原因：其它地方登录,程序已经离线" \

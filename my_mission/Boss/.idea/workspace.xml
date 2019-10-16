@@ -19,11 +19,12 @@
   <component name="ProjectId" id="1QtnTd0eUzvhN10ZmKHoNG96BNF" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Boss_ssm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\Boss_llfs" />
       <recent name="E:\Project\HR\Boss\utils" />
     </key>
   </component>
@@ -39,7 +40,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.boss_test">
+  <component name="RunManager" selected="Python.crawl">
     <configuration name="Selenium_call_find" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Boss" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,27 +84,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="boss_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Boss" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boss_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Boss" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -125,7 +105,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ocr" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="crawl" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Boss" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -133,11 +113,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Baidu_ocr/aip" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spider" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Baidu_ocr/aip/ocr.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider/crawl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Boss" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.boss_test" />
-        <item itemvalue="Python.client" />
-        <item itemvalue="Python.base64_test" />
+        <item itemvalue="Python.crawl" />
         <item itemvalue="Python.Selenium_call_find" />
-        <item itemvalue="Python.ocr" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.base64_test" />
+        <item itemvalue="Python.client" />
       </list>
     </recent_temporary>
   </component>
