@@ -3,7 +3,7 @@
 # @Time    : 2019/10/14 16:45
 # @Author  : Lodge
 import os
-import re
+# import re
 import sys
 import time
 import json
@@ -119,46 +119,52 @@ class HenXin(object):
         for each_data in all_data:
             resume_id = each_data.get('resumeId')
             position_id = each_data.get('positionId', None)
-            yield (resume_id, position_id)
+            position_name = each_data.get('positionName', None)
+            yield (resume_id, position_id, position_name)
 
-    def transfer_useful(self, json_info, flag=None, inner=None):
+    def transfer_useful(self, json_info, flag=None, inner=None, position_name=None):
         # flag 的状态量 True 的话是    下载的简历
         #             None(默认值)    主动投递的简历
         #             False          搜索的简历
         #             xxx            程序下载的简历
         data = json.loads(json_info).get('data').get('resume')
-        name = data['name']
+        name = data.get('name', None)
+        if not name:
+            print("not name::", data)
+            return
         phone_num = data.get('mobileNum', '')
         resume_key = data.get('hopeWork', '')
         salary_info = {
             '-1': '不限',
-            '1': "0 - 1000元",
-            '2': "1000 - 1500元",
-            '3': "1500 - 2000元",
-            '4': "2000 - 2500元",
-            '5': "2500 - 3000元",
-            '6': "3000 - 3500元",
-            '7': "3500 - 4000元",
-            '8': "4500 - 5000元",
-            '10': "5000 - 6000元",
-            '12': "6000 - 7000元",
-            '14': "7000 - 8000元",
-            '16': "8000 - 12000元",
-            '24': "12000 - 15000元",
-            '30': "15000 - 20000元",
-            '40': "20000 - 25000元",
-            '50': "25000 - 30000元",
+            '1': "0-1000元",
+            '2': "1000-1500元",
+            '3': "1500-2000元",
+            '4': "2000-2500元",
+            '5': "2500-3000元",
+            '6': "3000-3500元",
+            '7': "3500-4000元",
+            '8': "4500-5000元",
+            '10': "5000-6000元",
+            '12': "6000-7000元",
+            '14': "7000-8000元",
+            '16': "8000-12000元",
+            '24': "12000-15000元",
+            '30': "15000-20000元",
+            '40': "20000-25000元",
+            '50': "25000-30000元",
             '60': "30000元以上"
         }
 
         work_exps = data.get('workExps', None)
         work_experience = []
+        if position_name:
+            work_experience.append({'应聘岗位': position_name})
         if work_exps:
             for each_work in work_exps:
                 dic = {
                     '公司信息': each_work.get('companyName', ''),
-                    '起止时间': f"{each_work.get('startDate'), ''}"
-                    f"-{each_work['endDate'] if each_work.get('endDate', None) else '至今'}",
+                    '起止时间': f"{each_work.get('startDate', '')}"
+                            f"-{each_work['endDate'] if each_work.get('endDate', None) else '至今'}",
                     '工作标题': each_work.get('positionName', ''),
                     '工作内容': each_work.get('description', ''),
                 }
@@ -206,15 +212,15 @@ class HenXin(object):
             'mobile_phone': phone_num,
             'company_dpt': 2,
             'resume_key': resume_key,
-            'gender': data.get('sex', '保密'),
-            'date_of_birth': data.get('birthday', '保密'),
-            'current_residency': data.get('living', '私密'),
+            'gender': data.get('sex') if data.get('sex') != 0 else 1,
+            'date_of_birth': data.get('birthday', ''),
+            'current_residency': data.get('living', '保密'),
             'years_of_working': data.get('exp', 0),
-            'hukou': data.get('birthplace', '私密'),
-            'current_salary': '私密',
+            'hukou': data.get('birthplace', '保密'),
+            'current_salary': '保密',
             'politics_status': '',
             'marital_status': 2,
-            'address': f'{data.get("living", "私密")}',
+            'address': f'{data.get("living", "保密")}',
             'zip_code': '',
             'email': '',
             'home_telephone': '',
@@ -225,7 +231,7 @@ class HenXin(object):
             'employment_type': 1,
             'industry_expected': '',
             'working_place_expected': data.get('hopeDistrict', '') + data.get('hopeStreet', ''),
-            'salary_expected': salary_info.get(str(data['hopeSalary'])),
+            'salary_expected': salary_info.get(str(data.get('hopeSalary', -1))),
             'job_function_expected': 1,
             'current_situation': '',
             'word_experience': work_experience,
@@ -248,8 +254,11 @@ class HenXin(object):
             'update_date': data.get('modifyDate'),
         }
 
-        if phone_num:
+        if flag is False:
             self.post_resume(json_info, flag, inner)
+        else:
+            if phone_num:
+                self.post_resume(json_info, flag, inner)
 
     def post_resume(self, json_info, flag, inner=None):
         info = {
@@ -257,6 +266,7 @@ class HenXin(object):
             'add_user': python_config.EN_ACCOUNT,
             'data': [json_info]
         }
+        # print(f'flag:{flag},info:{info}')
         if flag:
             if flag == 'DOWN':
                 info['noneDlivery_resume_id'] = inner
@@ -275,26 +285,29 @@ class HenXin(object):
                 except Exception as e:
                     LOG.error('目标计算机拒绝链接')
                 else:
-                    LOG.info(f'数据的插入详情为:{rq.text}')
+                    LOG.info(f'主动下载数据的插入详情为:{rq.text}')
         else:
             if flag is False:
+                info['add_user'] = python_config.DOWNLOAD_USER
                 print('主动搜索:', info)
                 try:
                     rq = self.session.post(python_config.POST_URL_SEARCH, json=info)
                 except Exception as e:
                     LOG.error('目标计算机拒绝链接')
                 else:
-                    LOG.info(f'数据的插入详情为:{rq.text}')
+                    LOG.info(f'主动搜索数据的插入详情为:{rq.text}')
             else:
+                job_name = json_info.get('word_experience', ['不限'])[0]
+                info['job_name'] = job_name.get('应聘岗位', '不限')
                 print('主动投递:', info)
                 try:
                     rq = self.session.post(python_config.POST_URL, json=info)
                 except Exception as e:
                     LOG.error('目标计算机拒绝链接')
                 else:
-                    LOG.info(f'数据的插入详情为:{rq.text}')
+                    LOG.info(f'主动投递数据的插入详情为:{rq.text}')
 
-    def get_each_resume(self, resume_id, position_id, token, flag=None, inner=None):
+    def get_each_resume(self, resume_id, position_id, position_name, token, flag=None, inner=None):
         # flag 标志量 默认是空进行普通的下载简历和主动投递
         #            True 的时候是通过内部状态下载的简历
         time.sleep(random.uniform(1, 2))
@@ -313,14 +326,14 @@ class HenXin(object):
         else:
             if position_id:
                 each_one_resume = self.session.get(request_each_url, params=data, headers=verify_headers)
-                self.transfer_useful(each_one_resume.text)               # 这里是主动投递的简历
+                self.transfer_useful(each_one_resume.text, position_name=position_name)               # 这里是主动投递的简历
             else:
                 each_one_resume = self.session.get(request_each_url, params=data, headers=verify_headers)
                 self.transfer_useful(each_one_resume.text, True)         # 这里是主动下载的简历
 
     def handle_each_resume(self, resume_info, token):
-        for resume_id, position_id in resume_info:
-            self.get_each_resume(resume_id, position_id, token)
+        for resume_id, position_id, position_name in resume_info:
+            self.get_each_resume(resume_id, position_id, position_name, token)
 
     def handle_resume_interest(self, token, action, pg=1):
         print(f'感兴趣的简历中当前页数为:{pg}页...')
@@ -344,7 +357,7 @@ class HenXin(object):
         for each_data in all_data:
             resume_id = each_data.get('resumeId')
             position_id = each_data.get('positionId', None)
-            yield (resume_id, position_id)
+            yield (resume_id, position_id, '')
 
         if all_pg > pg:
             for p in range(pg+1, all_pg+1):
@@ -353,101 +366,107 @@ class HenXin(object):
 
     # ========================================================== #
 
-    def search_each(self, all_resume_search, token):
-        verify_headers = {
-            'Authorization': token
-        }
-        request_each_url = 'http://hr.91job.com/api/position/resume/getDetail?'
-        for each_resume in all_resume_search:
-            user_id = each_resume.get('userId', None)
-            if user_id:
-                t = int(time.time() * 1000)
-                data = {
-                    'resumeId': user_id,
-                    'positionId': '',
-                    't': t
-                }
-                each_data = self.session.get(request_each_url, params=data, headers=verify_headers)
-                self.transfer_useful(each_data, False)
-
-    def search(self, token):
-        search_url = self.base_url + '/api/search/resume/core/list'
-        verify_headers = {
-            'Authorization': token
-        }
-        for each_pos in python_config.SEARCH_KEYS:
-            data = {
-                'hopeDistrict': '义乌市',
-                'pageNo': 1,
-                'keyword': each_pos,
-                'pageSize': 20      # 这里数据好像想写多少写多少，我就写20把 # 每天会跑3次数据,就是60条了。
-            }
-            time.sleep(random.uniform(1, 2))
-            data_list = self.session.post(search_url, json=data, headers=verify_headers)
-            response_data = json.loads(data_list.text)
-            all_data = response_data.get('data').get('rows')
-            yield all_data
-
-    def go_to_search(self, token):
-        every_position_all = self.search(token)
-        for each_position_resume_all in every_position_all:
-            self.search_each(each_position_resume_all, token)
+    # def search_each(self, all_resume_search, token):
+    #     verify_headers = {
+    #         'Authorization': token
+    #     }
+    #     request_each_url = 'http://hr.91job.com/api/position/resume/getDetail?'
+    #     for each_resume in all_resume_search:
+    #         user_id = each_resume.get('userId', None)
+    #         if user_id:
+    #             t = int(time.time() * 1000)
+    #             data = {
+    #                 'resumeId': user_id,
+    #                 'positionId': '',
+    #                 't': t
+    #             }
+    #             time.sleep(random.uniform(0, 1))
+    #             each_data = self.session.get(request_each_url, params=data, headers=verify_headers)
+    #             self.transfer_useful(each_data.text, False)
+    #
+    # def search(self, token):
+    #     search_url = self.base_url + '/api/search/resume/core/list'
+    #     verify_headers = {
+    #         'Authorization': token
+    #     }
+    #     for each_pos in python_config.SEARCH_KEYS:
+    #         data = {
+    #             'hopeDistrict': '义乌市',
+    #             'pageNo': 1,
+    #             'keyword': each_pos,
+    #             'pageSize': 20      # 这里数据好像想写多少写多少，我就写20把 # 每天会跑3次数据,就是60条了。
+    #         }
+    #         time.sleep(random.uniform(1, 2))
+    #         data_list = self.session.post(search_url, json=data, headers=verify_headers)
+    #         response_data = json.loads(data_list.text)
+    #         all_data = response_data.get('data').get('rows')
+    #         yield all_data
+    #
+    # def go_to_search(self, token):
+    #     every_position_all = self.search(token)
+    #     for each_position_resume_all in every_position_all:
+    #         self.search_each(each_position_resume_all, token)
 
     # ========================================================== #
 
-    @staticmethod
-    def get_resume_id_from_api():
-        all_need_return = []
-        api_get = requests.get(python_config.DOWN_RESUME_KEY)
-        api_resume = json.loads(api_get.text)
-        for each in api_resume:
-            download_user = each.get('download_user', None)
-            if download_user == python_config.DOWNLOAD_USER:
-                external_resume_id = re.findall(r'91_(\d+)_', each.get('external_resume_id'))
-                inner_resume_id = each.get('resume_id', '')
-                one_resume = (external_resume_id, inner_resume_id)
-                all_need_return.append(one_resume)
+    # @staticmethod
+    # def get_resume_id_from_api():
+    #     all_need_return = []
+    #     api_get = requests.get(python_config.DOWN_RESUME_KEY)
+    #     api_resume = json.loads(api_get.text)
+    #     for each in api_resume:
+    #         download_user = each.get('download_user', None)
+    #         if download_user == python_config.DOWNLOAD_USER:
+    #             external_resume_id = re.findall(r'91_(\d+)_', each.get('external_resume_id'))
+    #             inner_resume_id = each.get('resume_id', '')
+    #             one_resume = (external_resume_id, inner_resume_id)
+    #             all_need_return.append(one_resume)
+    #
+    #     return all_need_return
 
-        return all_need_return
+    # def down_and_post_resume(self, ex_id, in_id, token):
+    #     # 1. down
+    #     down_url = f'http://hr.91job.com/api/position/resume/download/{ex_id}?recmd=0'
+    #     verify_headers = {
+    #         'Authorization': token
+    #     }
+    #     data = {
+    #         'id': ex_id,
+    #         'recmd': 0
+    #     }
+    #     response = self.session.post(down_url, json=data, headers=verify_headers).text
+    #     response = json.loads(response)
+    #     status = response.get('status', '500')
+    #     phone_num = response.get('data', None)
+    #     if (int(status) == 200) and phone_num:
+    #         LOG.info(f'简历外部号为:91_{ex_id}_({phone_num},内部简历号为:{in_id}的简历下载成功...')
+    #         self.get_each_resume(ex_id, '', token, True, in_id)
 
-    def down_and_post_resume(self, ex_id, in_id, token):
-        # 1. down
-        down_url = f'http://hr.91job.com/api/position/resume/download/{ex_id}?recmd=0'
-        verify_headers = {
-            'Authorization': token
-        }
-        data = {
-            'id': ex_id,
-            'recmd': 0
-        }
-        response = self.session.post(down_url, json=data, headers=verify_headers).text
-        response = json.loads(response)
-        status = response.get('status', '500')
-        phone_num = response.get('data', None)
-        if (int(status) == 200) and phone_num:
-            LOG.info(f'简历外部号为:91_{ex_id}_({phone_num},内部简历号为:{in_id}的简历下载成功...')
-            self.get_each_resume(ex_id, '', token, True, in_id)
-
-    def go_to_down_resume(self, token):
-        all_need_down = self.get_resume_id_from_api()
-        for ex_id, in_id in all_need_down:
-            self.down_and_post_resume(ex_id, in_id, token)
+    # def go_to_down_resume(self, token):
+    #     all_need_down = self.get_resume_id_from_api()
+    #     if all_need_down:
+    #         LOG.info('开始处理下载的简历...')
+    #         for ex_id, in_id in all_need_down:
+    #             self.down_and_post_resume(ex_id, in_id, token)
 
     def run(self):
-        token = self.get_token()    # 1,第一步获取到token尤为重要
-        self.handle_fresh(token)    # 2 刷新职位
+        # token = self.get_token()    # 1,第一步获取到token尤为重要
+        # self.handle_fresh(token)    # 2 刷新职位
         time.sleep(random.uniform(2, 3))
-        resume_info = self.handle_resume(token, '2')   # 3 主动投递的简历导入--获取一页的id来进行下一步获取
-        self.handle_each_resume(resume_info, token)  # 4 处理好了主动投递后包括上传
-        time.sleep(random.uniform(3, 5))
-        resume_info_down = self.handle_resume(token, '3')  # 5 这里是下载的简历
-        self.handle_each_resume(resume_info_down, token)   # 6 处理了下载的简历
-        time.sleep(random.uniform(3, 5))
-        resume_info_interest = self.handle_resume_interest(token, '0')   # 7 这里是对我感兴趣的简历
-        self.handle_each_resume(resume_info_interest, token)             # 感兴趣的已经处理完毕
-        time.sleep(random.uniform(3, 5))
-        self.go_to_search(token)      # 8 这里处理搜索的简历
-        self.go_to_down_resume(token)    # 9 这里是处理下载的简历
+        #
+        # resume_info = self.handle_resume(token, '2')   # 3 主动投递的简历导入--获取一页的id来进行下一步获取
+        # self.handle_each_resume(resume_info, token)  # 4 处理好了主动投递后包括上传
+        #
+        # time.sleep(random.uniform(3, 5))
+        # resume_info_down = self.handle_resume(token, '3')  # 5 这里是下载的简历
+        # self.handle_each_resume(resume_info_down, token)   # 6 处理了下载的简历
+        # time.sleep(random.uniform(3, 5))
+        # resume_info_interest = self.handle_resume_interest(token, '0')   # 7 这里是对我感兴趣的简历
+        # self.handle_each_resume(resume_info_interest, token)             # 感兴趣的已经处理完毕
+
+        # time.sleep(random.uniform(3, 5))
+        # self.go_to_search(token)      # 8 这里处理搜索的简历, 已经切换到搜索简历那边
+        # self.go_to_down_resume(token)    # 9 这里是处理下载的简历, 已经切换到发消息那边
 
 
 def run():
