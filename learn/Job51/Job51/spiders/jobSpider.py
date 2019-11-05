@@ -70,6 +70,6 @@ class JobspiderSpider(scrapy.Spider):
 
     @staticmethod
     def get_pos():
-        pos = ['python', 'php', 'amazon', 'aliexpress', 'ebay', 'joom', 'shop']
+        pos = ['python', 'php']
         for i in pos:
             yield i

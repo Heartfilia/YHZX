@@ -1,1 +1,94 @@
-test file 1
+{
+	'job_name': 'Python开发工程师（广州）',
+	'account': 'ling',
+	'add_user': 'ling',
+	'data': [{
+		'resume_from': 1,
+		'name': '',
+		'mobile_phone': '',
+		'company_dpt': 1,
+		'resume_key': '',
+		'gender': '1',
+		'date_of_birth': '1990年6月5日',
+		'current_residency': '广州|',
+		'years_of_working': '6年',
+		'hukou': '广州',
+		'current_salary': '',
+		'politics_status': '普通公民',
+		'marital_status': '2',
+		'address': '广州|',
+		'zip_code': '',
+		'email': '',
+		'home_telephone': '',
+		'work_phone': '',
+		'personal_home_page': '',
+		'excecutiveneed': '',
+		'self_assessment': '',
+		'i_can_start': '',
+		'employment_type': '1',
+		'industry_expected': '',
+		'working_place_expected': '北京\u2003上海\u2003广州\u2003深圳',
+		'salary_expected': '15000-35000元/月',
+		'job_function_expected': '',
+		'current_situation': '目前正在找工作',
+		'work_experience': [{
+			'应聘职位': 'Python开发工程师（广州）'
+		}, {
+			'起止时间': '2016/7-2019/4',
+			'公司信息': '建顺资讯科技有限公司',
+			'工作内容': '建顺资讯科技有限公司',
+			'描述': '1. 负责数据平台的开发\n2. 负责SnippetMedia爬虫平台的搭建\n3. 负责其他数据同步和脚本项目\n'
+		}, {
+			'起止时间': '2015/10-2015/12',
+			'公司信息': '有米科技股份有限公司',
+			'工作内容': '有米科技股份有限公司',
+			'描述': '负责广告投放系统的开发和部署\n'
+		}, {
+			'起止时间': '2014/8-2015/6',
+			'公司信息': '深圳优洛人生商务咨询服务有限公司',
+			'工作内容': '深圳优洛人生商务咨询服务有限公司',
+			'描述': '负责API和CMS的开发\n'
+		}],
+		'project_experience': [{
+			'项目时间': '2018/6-2019/4',
+			'项目名称': '分布式流计算平台',
+			'描述': '建顺资讯科技有限公司项目使用的架构为Kafka+Zookeeper+Flink+Redis+RocksDB, Scala实现流计算任务, Websocket推送结果, 同时提供相应的API.    流计算平台实现了数据更新从分钟级向秒级的提升,减少冗余数据, 使运营部门能获取实时Dashboard数据.- 对流计算进行了解和调研- 部署Kafka和Zookeeper- 部署Flink- 完成实时Dashboard流计算任务(Scala + sbt)- 实现Websocket服务推送计算数据(Scala + Python)- 提供相应的数据API(Falcon)- 确保流计算平台满足项目所需的吞吐量- 确保流计算平台的数据完整性和准确性'
+		}, {
+			'项目时间': '2018/1-2019/4',
+			'项目名称': '离线数据计算平台',
+			'描述': '建顺资讯科技有限公司定时任务调度服务: APScheduler(定时任务) + Falcon(API) + Kazoo + Zookeeper(实现主备模式)API: Falcon(Restful API) + MeinHeld(Greenlet Worker) +Gunicorn(Web Server)使用的数据库为HBase(统计数据) + Redis(缓存数据) + MySQL(数据源).平台为项目组提供了一整套的可视化和监控方案, 方便开发人员部署修改计算任务以及对计算任务的排查和优化.该平台为其他项目组提供了高性能的API服务, 满足不同项目组的数据查询需要.- 定时任务调度服务 1. HTTP API接口 2. 定时任务的CRUD功能 3. 使用Zookeeper实现主备模式, 实现多节点可用- 数据平台API, 优化API的访问速度- 离线数据计算服务1. 提供任务注册2. 支持DAG任务执行和DAG节点的CRUD功能3. 提供计算服务的实时监控和异常情况的消息通知- 数据平台CMS1. 任务调度的可视化操作界面2. 计算任务DAG节点的可视化操作界面3. 数据平台API文档界面- 满足分区高可用和可伸缩的需要'
+		}, {
+			'项目时间': '2016/7-2018/1',
+			'项目名称': '爬虫平台',
+			'描述': '建顺资讯科技有限公司任务调度: APScheduler(定时任务) + Falcon(API)爬虫: Scrapyd(爬虫部署) + Scrapy(爬虫)图片下载: Requests(HTTP请求) + Gevent(协程)页面模拟访问: PhantomJS WebServer模块 + Selenium Python代理池: Scrapy(Proxy爬虫)项目部署后, 承担了每天上千个爬虫数十万次的爬虫任务执行, 并提供了稳定高效的爬虫服务. 在页面可访问且网络畅通的情况下, 可实现页面秒级更新到CMS后台, 其图片下载基本维持在毫秒级以内.- 爬虫定时调度服务1. API接口2. 定时任务的CRUD3. 对爬虫任务实现负载均衡- 爬虫服务1. 源网页下载服务和网页解析服务2. 爬虫链接排重, 随机User Agent, 随机访问入口链接3. 反爬虫所需的IP代理池, 并保持每个代理的可用性和新鲜度- 图片下载服务1. 提供增量下载和重试的功能2.提供图片下载反爬虫功能- 爬虫数据统计服务1. 收集每个爬虫的执行数据, 并统计每个/全部爬虫的24小时/48小时/7天/30天的数据统计和可视化界面2. 生成每日统计报表并发送邮件, 供运营参考- 实现反爬虫所需的模拟访问页面服务, 并返回访问页面后得到的Cookie, 并提供API接口供爬虫服务调用- 确保整个平台的高可用性和可伸缩性- 将整个平台向Docker迁移'
+		}, {
+			'项目时间': '2015/10-2015/12',
+			'项目名称': '广告投放系统',
+			'描述': '有米科技股份有限公司nginx/tornado/celery/rabbitmq/mysql/supervisord项目部署后, 能如期将旧投放系统平滑的过渡到新的投放系统, 能够在比较紧张的开发进度中完成预期的需求, API服务能满足较高的并发量.- 开发广告投放系统的CMS服务, 供运营部门使用- 开发广告投放系统的API服务- 实现广告投放系统的消息推送'
+		}, {
+			'项目时间': '2014/8-2015/6',
+			'项目名称': '微信公众号',
+			'描述': '深圳优洛人生商务咨询服务有限公司bottle/protobuf/zeromq/redis/mongodb/uwsgi数据接口重构后, 代码的可维护性和可维护性有了较大提升, 代码量减少20%, 部分数据接口性能提升50%.- 开发微信平台数据API, 同时对已有的数据接口的代码进行了重构和优化- 开发CMS, 供运营部门使用'
+		}],
+		'education': [{
+			'教育时间': '2009/9-2013/7',
+			'学校名称': '湖北工业大学',
+			'专业等级': '本科',
+			'主研专业': '数字媒体'
+		}],
+		'honors_awards': '',
+		'practical_experience': '',
+		'training': '',
+		'language': '',
+		'otherinfo': '',
+		'source_file': '',
+		'it_skill': '',
+		'certifications': [],
+		'is_viewed': 1,
+		'resume_date': '2019-10-23',
+		'get_type': 1,
+		'external_resume_id': '678397671',
+		'resume_logo': '',
+		'update_date': '2019-10-23'
+	}]
+}
