@@ -1,0 +1,375 @@
+2019-07-16 00:34:14,699 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 00:34:16,890 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 00:40:06,855 - INFO - place_order_us_pool.py[:380] - [taskid: 2618] 等待超时,或者元素位未完全加载导致定位出错!
+2019-07-16 00:40:06,857 - INFO - place_order_us_pool.py[:381] - [taskid: 2618] 关闭当前浏览器，结束当前线程！
+2019-07-16 00:40:06,857 - INFO - place_order_us_pool.py[:382] - [taskid: 2618] 系统会自动生成新的线程来执行下单任务！
+2019-07-16 00:40:12,258 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 00:40:15,844 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 00:45:51,941 - INFO - place_order_us_pool.py[:1258] - [taskid: 2618] 账户登录日志已成功插入！
+2019-07-16 00:45:52,870 - INFO - place_order_us_pool.py[:1264] - [taskid: 2618] 对应账户的header和cookies字段已成功修改!
+2019-07-16 00:46:06,608 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:46:06,609 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:46:06,610 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:46:29,599 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第1列表搜索页没找到目标商品，正在跳转到第2列表搜索页...
+2019-07-16 00:46:43,057 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:46:43,058 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:46:43,058 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:46:47,964 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第2列表搜索页没找到目标商品，正在跳转到第3列表搜索页...
+2019-07-16 00:47:01,438 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:47:01,439 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:47:01,439 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:47:28,820 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第3列表搜索页没找到目标商品，正在跳转到第4列表搜索页...
+2019-07-16 00:47:42,589 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:47:42,598 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:47:42,599 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:48:09,321 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第4列表搜索页没找到目标商品，正在跳转到第5列表搜索页...
+2019-07-16 00:48:22,861 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:48:22,862 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:48:22,863 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:48:37,682 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第5列表搜索页没找到目标商品，正在跳转到第6列表搜索页...
+2019-07-16 00:48:51,033 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:48:51,034 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:48:51,034 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:49:27,017 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第6列表搜索页没找到目标商品，正在跳转到第7列表搜索页...
+2019-07-16 00:49:40,669 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:49:40,670 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:49:40,670 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:49:46,889 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第7列表搜索页没找到目标商品，正在跳转到第8列表搜索页...
+2019-07-16 00:50:00,390 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:50:00,391 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:50:00,392 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:50:17,805 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第8列表搜索页没找到目标商品，正在跳转到第9列表搜索页...
+2019-07-16 00:50:31,241 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:50:31,242 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:50:31,243 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:50:49,137 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第9列表搜索页没找到目标商品，正在跳转到第10列表搜索页...
+2019-07-16 00:51:02,663 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 00:51:02,664 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 00:51:02,664 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 00:51:43,027 - INFO - place_order_us_pool.py[:321] - [taskid: 2618] 第10列表搜索页没找到目标商品，正在跳转到第11列表搜索页...
+2019-07-16 00:51:56,512 - INFO - place_order_us_pool.py[:401] - [taskid: 2618] 目标商品的详情链接是：https://www.aliexpress.com/item/Autumn-Spring-Sweartshirts-Casual-Pullovers-Hoodies-Sweatshirt-Men-Loose-Solid-Color-Plus-Sizes-Pocket-Siamese-Cap/33046447111.html?ws_ab_test=searchweb0_0,searchweb201602_3_10065_10130_10068_10547_319_10546_317_10548_10545_10696_10084_453_454_10083_10618_10307_537_536_10059_10884_10887_321_322_10103,searchweb201603_52,ppcSwitch_0&algo_expid=8a58a9f5-e592-400b-a04b-3b2785ec6e20-11&algo_pvid=8a58a9f5-e592-400b-a04b-3b2785ec6e20&transAbTest=ae803_4
+2019-07-16 00:51:57,866 - INFO - place_order_us_pool.py[:1293] - [taskid: 2618] 更新商品排名成功!
+2019-07-16 00:52:36,470 - INFO - place_order_us_pool.py[:565] - [taskid: 2618] 目标商品已成功添加到购物车！
+2019-07-16 00:53:50,025 - INFO - place_order_us_pool.py[:567] - [taskid: 2618] 非目标商品已成功添加到购物车！
+2019-07-16 00:56:48,107 - INFO - place_order_us_pool.py[:370] - [taskid: 2618] This is a new cart！
+2019-07-16 00:56:50,473 - INFO - place_order_us_pool.py[:881] - [taskid: 2618] 点击OK,确认删除非目标商品！
+2019-07-16 00:56:50,475 - INFO - place_order_us_pool.py[:882] - [taskid: 2618] 非目标商品已从购物车中删除！
+2019-07-16 00:57:00,747 - INFO - place_order_us_pool.py[:916] - [taskid: 2618] 删除非目标商品后，购物车中查看到的待支付金额：21.68
+2019-07-16 00:57:39,642 - INFO - place_order_us_pool.py[:940] - [taskid: 2618] 走下单流程！准备进入个人信息和支付信息的填写流程...
+2019-07-16 00:57:57,762 - INFO - place_order_us_pool.py[:974] - [taskid: 2618] 该用户已有默认收货信息！
+2019-07-16 00:57:57,763 - INFO - place_order_us_pool.py[:1073] - [taskid: 2618] 正在创建支付信息...
+2019-07-16 00:58:06,554 - INFO - place_order_us_pool.py[:1107] - [taskid: 2618] 完成支付信息的创建！
+2019-07-16 00:58:11,766 - INFO - place_order_us_pool.py[:987] - [taskid: 2618] 点击了确认支付的按钮!
+2019-07-16 00:58:11,768 - INFO - place_order_us_pool.py[:995] - [taskid: 2618] 同时创建了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2618.txt
+2019-07-16 00:58:41,456 - INFO - place_order_us_pool.py[:1004] - [taskid: 2618] 下单成功！
+2019-07-16 00:59:44,560 - INFO - place_order_us_pool.py[:1199] - [taskid: 2618] 确认订单已成功支付，正在获取订单的相关信息，更新刷单状态...
+2019-07-16 00:59:44,613 - INFO - place_order_us_pool.py[:1201] - [taskid: 2618] 订单号为：103876604296190
+2019-07-16 00:59:44,660 - INFO - place_order_us_pool.py[:1205] - [taskid: 2618] 订单总价：21.68
+2019-07-16 00:59:44,663 - INFO - place_order_us_pool.py[:1207] - [taskid: 2618] 下单时间：2019-07-16 00:59:44
+2019-07-16 00:59:52,075 - INFO - place_order_us_pool.py[:1274] - [taskid: 2618] 刷单状态更新成功！
+2019-07-16 01:00:10,434 - INFO - place_order_us_pool.py[:1283] - [taskid: 2618] 新增刷单操作日志成功!
+2019-07-16 01:00:10,436 - INFO - place_order_us_pool.py[:1226] - [taskid: 2618] 删除了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2618.txt
+2019-07-16 01:00:13,632 - INFO - place_order_us_pool.py[:377] - [taskid: 2618] 当前账户操作完毕，关闭当前浏览器！
+2019-07-16 01:00:15,906 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 01:00:16,409 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 01:10:21,853 - INFO - place_order_us_pool.py[:1334] - 成功获取到2条待刷单的数据！
+2019-07-16 01:15:26,150 - INFO - place_order_us_pool.py[:380] - [taskid: 2632] 等待超时,或者元素位未完全加载导致定位出错!
+2019-07-16 01:15:26,155 - INFO - place_order_us_pool.py[:381] - [taskid: 2632] 关闭当前浏览器，结束当前线程！
+2019-07-16 01:15:26,155 - INFO - place_order_us_pool.py[:382] - [taskid: 2632] 系统会自动生成新的线程来执行下单任务！
+2019-07-16 01:15:30,525 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 01:15:32,453 - INFO - place_order_us_pool.py[:1334] - 成功获取到2条待刷单的数据！
+2019-07-16 01:16:51,612 - INFO - place_order_us_pool.py[:1258] - [taskid: 2632] 账户登录日志已成功插入！
+2019-07-16 01:16:51,621 - INFO - place_order_us_pool.py[:1258] - [taskid: 2622] 账户登录日志已成功插入！
+2019-07-16 01:16:53,587 - INFO - place_order_us_pool.py[:1264] - [taskid: 2632] 对应账户的header和cookies字段已成功修改!
+2019-07-16 01:16:55,608 - INFO - place_order_us_pool.py[:1264] - [taskid: 2622] 对应账户的header和cookies字段已成功修改!
+2019-07-16 01:17:20,372 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 01:17:20,373 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 01:17:20,373 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 01:17:29,453 - INFO - place_order_us_pool.py[:321] - [taskid: 2632] 第1列表搜索页没找到目标商品，正在跳转到第2列表搜索页...
+2019-07-16 01:17:42,924 - INFO - place_order_us_pool.py[:401] - [taskid: 2632] 目标商品的详情链接是：https://www.aliexpress.com/item/Sparkle-High-Waist-Leggings-Pants-Embellished-Mesh-Diamante-Wide-Leg-Pants-Women-See-Through-Transparent-Trousers/33050025331.html?ws_ab_test=searchweb0_0,searchweb201602_10_10065_10130_10068_10547_319_10546_317_10548_10545_10696_10084_453_454_10083_10618_10307_537_536_10059_10884_10887_321_322_10103,searchweb201603_52,ppcSwitch_0&algo_expid=952fe8f6-024a-4d70-9825-36c83b6276e9-14&algo_pvid=952fe8f6-024a-4d70-9825-36c83b6276e9&transAbTest=ae803_5
+2019-07-16 01:17:44,299 - INFO - place_order_us_pool.py[:1293] - [taskid: 2632] 更新商品排名成功!
+2019-07-16 01:18:14,951 - INFO - place_order_us_pool.py[:494] - [taskid: 2632] Click on the Collection Goods!
+2019-07-16 01:18:26,720 - INFO - place_order_us_pool.py[:527] - [taskid: 2632] Click on the Collection Store!
+2019-07-16 01:18:39,197 - INFO - place_order_us_pool.py[:565] - [taskid: 2632] 目标商品已成功添加到购物车！
+2019-07-16 01:19:24,210 - INFO - place_order_us_pool.py[:567] - [taskid: 2632] 非目标商品已成功添加到购物车！
+2019-07-16 01:19:46,251 - INFO - place_order_us_pool.py[:350] - [taskid: 2622] 前15个搜索页中没有找到目标商品，停止刷单！
+2019-07-16 01:19:53,343 - INFO - place_order_us_pool.py[:1274] - [taskid: 2622] 刷单状态更新成功！
+2019-07-16 01:19:55,726 - INFO - place_order_us_pool.py[:1283] - [taskid: 2622] 新增刷单操作日志成功!
+2019-07-16 01:20:00,978 - INFO - place_order_us_pool.py[:370] - [taskid: 2632] This is a new cart！
+2019-07-16 01:20:02,591 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000A78CAD8828>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/03f0ef233ad0c5ea93e649a470ef335a/source
+2019-07-16 01:20:03,387 - INFO - place_order_us_pool.py[:881] - [taskid: 2632] 点击OK,确认删除非目标商品！
+2019-07-16 01:20:03,389 - INFO - place_order_us_pool.py[:882] - [taskid: 2632] 非目标商品已从购物车中删除！
+2019-07-16 01:20:03,595 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000A78CAFC358>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/03f0ef233ad0c5ea93e649a470ef335a/source
+2019-07-16 01:20:04,599 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000A78CCFF198>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/03f0ef233ad0c5ea93e649a470ef335a/source
+2019-07-16 01:20:13,714 - INFO - place_order_us_pool.py[:916] - [taskid: 2632] 删除非目标商品后，购物车中查看到的待支付金额：15.45
+2019-07-16 01:20:25,401 - INFO - place_order_us_pool.py[:940] - [taskid: 2632] 走下单流程！准备进入个人信息和支付信息的填写流程...
+2019-07-16 01:20:42,581 - INFO - place_order_us_pool.py[:976] - [taskid: 2632] 该用户无默认收货信息，正在创建收货信息...
+2019-07-16 01:21:03,099 - INFO - place_order_us_pool.py[:1069] - [taskid: 2632] 完成收货地址信息的填写！
+2019-07-16 01:21:03,101 - INFO - place_order_us_pool.py[:1073] - [taskid: 2632] 正在创建支付信息...
+2019-07-16 01:21:13,328 - INFO - place_order_us_pool.py[:1107] - [taskid: 2632] 完成支付信息的创建！
+2019-07-16 01:21:18,601 - INFO - place_order_us_pool.py[:987] - [taskid: 2632] 点击了确认支付的按钮!
+2019-07-16 01:21:18,603 - INFO - place_order_us_pool.py[:995] - [taskid: 2632] 同时创建了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2632.txt
+2019-07-16 01:21:51,726 - INFO - place_order_us_pool.py[:1004] - [taskid: 2632] 下单成功！
+2019-07-16 01:22:09,473 - INFO - place_order_us_pool.py[:1199] - [taskid: 2632] 确认订单已成功支付，正在获取订单的相关信息，更新刷单状态...
+2019-07-16 01:22:09,554 - INFO - place_order_us_pool.py[:1201] - [taskid: 2632] 订单号为：103877723317110
+2019-07-16 01:22:09,605 - INFO - place_order_us_pool.py[:1205] - [taskid: 2632] 订单总价：15.45
+2019-07-16 01:22:09,607 - INFO - place_order_us_pool.py[:1207] - [taskid: 2632] 下单时间：2019-07-16 01:22:09
+2019-07-16 01:22:10,612 - INFO - place_order_us_pool.py[:1274] - [taskid: 2632] 刷单状态更新成功！
+2019-07-16 01:22:12,854 - INFO - place_order_us_pool.py[:1283] - [taskid: 2632] 新增刷单操作日志成功!
+2019-07-16 01:22:12,856 - INFO - place_order_us_pool.py[:1226] - [taskid: 2632] 删除了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2632.txt
+2019-07-16 01:22:15,077 - INFO - place_order_us_pool.py[:377] - [taskid: 2632] 当前账户操作完毕，关闭当前浏览器！
+2019-07-16 01:22:17,286 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 01:22:19,924 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 01:28:03,886 - INFO - place_order_us_pool.py[:380] - [taskid: 2633] 等待超时,或者元素位未完全加载导致定位出错!
+2019-07-16 01:28:03,886 - INFO - place_order_us_pool.py[:381] - [taskid: 2633] 关闭当前浏览器，结束当前线程！
+2019-07-16 01:28:03,886 - INFO - place_order_us_pool.py[:382] - [taskid: 2633] 系统会自动生成新的线程来执行下单任务！
+2019-07-16 01:28:08,294 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 01:28:10,357 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 01:29:33,191 - INFO - place_order_us_pool.py[:1258] - [taskid: 2633] 账户登录日志已成功插入！
+2019-07-16 01:29:33,977 - INFO - place_order_us_pool.py[:1264] - [taskid: 2633] 对应账户的header和cookies字段已成功修改!
+2019-07-16 01:30:03,697 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 01:30:03,698 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 01:30:03,699 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 01:30:13,107 - INFO - place_order_us_pool.py[:321] - [taskid: 2633] 第1列表搜索页没找到目标商品，正在跳转到第2列表搜索页...
+2019-07-16 01:30:26,898 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 01:30:26,905 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 01:30:26,905 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 01:30:34,036 - INFO - place_order_us_pool.py[:321] - [taskid: 2633] 第2列表搜索页没找到目标商品，正在跳转到第3列表搜索页...
+2019-07-16 01:30:37,384 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 01:30:37,384 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 01:30:37,386 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 01:30:42,257 - INFO - place_order_us_pool.py[:321] - [taskid: 2633] 第3列表搜索页没找到目标商品，正在跳转到第4列表搜索页...
+2019-07-16 01:30:55,869 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 01:30:55,869 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 01:30:55,870 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 01:31:01,321 - INFO - place_order_us_pool.py[:321] - [taskid: 2633] 第4列表搜索页没找到目标商品，正在跳转到第5列表搜索页...
+2019-07-16 01:31:14,808 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 01:31:14,809 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 01:31:14,809 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 01:31:20,329 - INFO - place_order_us_pool.py[:321] - [taskid: 2633] 第5列表搜索页没找到目标商品，正在跳转到第6列表搜索页...
+2019-07-16 01:31:33,995 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 01:31:33,996 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 01:31:33,997 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 01:31:39,243 - INFO - place_order_us_pool.py[:321] - [taskid: 2633] 第6列表搜索页没找到目标商品，正在跳转到第7列表搜索页...
+2019-07-16 01:31:52,789 - INFO - place_order_us_pool.py[:401] - [taskid: 2633] 目标商品的详情链接是：https://www.aliexpress.com/item/Women-Maxi-Dresses-Plus-Size-High-Waist-Long-Sleeve-Irregular-Ruffles-Style-Front-Short-Back-Long/33042305067.html?ws_ab_test=searchweb0_0,searchweb201602_3_10065_10130_10068_10547_319_10546_317_10548_10545_10696_10084_453_454_10083_10618_10307_537_536_10059_10884_10887_321_322_10103,searchweb201603_55,ppcSwitch_0&algo_expid=dd4832d3-22df-4874-a02b-4df8b0e6feae-29&algo_pvid=dd4832d3-22df-4874-a02b-4df8b0e6feae&transAbTest=ae803_5
+2019-07-16 01:31:53,763 - INFO - place_order_us_pool.py[:1293] - [taskid: 2633] 更新商品排名成功!
+2019-07-16 01:32:27,510 - INFO - place_order_us_pool.py[:494] - [taskid: 2633] Click on the Collection Goods!
+2019-07-16 01:32:38,164 - INFO - place_order_us_pool.py[:527] - [taskid: 2633] Click on the Collection Store!
+2019-07-16 01:32:51,894 - INFO - place_order_us_pool.py[:565] - [taskid: 2633] 目标商品已成功添加到购物车！
+2019-07-16 01:33:39,691 - INFO - place_order_us_pool.py[:567] - [taskid: 2633] 非目标商品已成功添加到购物车！
+2019-07-16 01:34:20,799 - INFO - place_order_us_pool.py[:370] - [taskid: 2633] This is a new cart！
+2019-07-16 01:34:23,364 - INFO - place_order_us_pool.py[:881] - [taskid: 2633] 点击OK,确认删除非目标商品！
+2019-07-16 01:34:23,365 - INFO - place_order_us_pool.py[:882] - [taskid: 2633] 非目标商品已从购物车中删除！
+2019-07-16 01:34:33,741 - INFO - place_order_us_pool.py[:916] - [taskid: 2633] 删除非目标商品后，购物车中查看到的待支付金额：17.56
+2019-07-16 01:34:47,081 - INFO - place_order_us_pool.py[:940] - [taskid: 2633] 走下单流程！准备进入个人信息和支付信息的填写流程...
+2019-07-16 01:35:02,325 - INFO - place_order_us_pool.py[:976] - [taskid: 2633] 该用户无默认收货信息，正在创建收货信息...
+2019-07-16 01:35:25,303 - INFO - place_order_us_pool.py[:1069] - [taskid: 2633] 完成收货地址信息的填写！
+2019-07-16 01:35:25,304 - INFO - place_order_us_pool.py[:1073] - [taskid: 2633] 正在创建支付信息...
+2019-07-16 01:35:35,875 - INFO - place_order_us_pool.py[:1107] - [taskid: 2633] 完成支付信息的创建！
+2019-07-16 01:35:41,109 - INFO - place_order_us_pool.py[:987] - [taskid: 2633] 点击了确认支付的按钮!
+2019-07-16 01:35:41,112 - INFO - place_order_us_pool.py[:995] - [taskid: 2633] 同时创建了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2633.txt
+2019-07-16 01:36:14,556 - INFO - place_order_us_pool.py[:1004] - [taskid: 2633] 下单成功！
+2019-07-16 01:36:30,506 - INFO - place_order_us_pool.py[:1199] - [taskid: 2633] 确认订单已成功支付，正在获取订单的相关信息，更新刷单状态...
+2019-07-16 01:36:30,561 - INFO - place_order_us_pool.py[:1201] - [taskid: 2633] 订单号为：103878364355619
+2019-07-16 01:36:30,605 - INFO - place_order_us_pool.py[:1205] - [taskid: 2633] 订单总价：17.56
+2019-07-16 01:36:30,606 - INFO - place_order_us_pool.py[:1207] - [taskid: 2633] 下单时间：2019-07-16 01:36:30
+2019-07-16 01:36:31,661 - INFO - place_order_us_pool.py[:1274] - [taskid: 2633] 刷单状态更新成功！
+2019-07-16 01:36:33,902 - INFO - place_order_us_pool.py[:1283] - [taskid: 2633] 新增刷单操作日志成功!
+2019-07-16 01:36:33,904 - INFO - place_order_us_pool.py[:1226] - [taskid: 2633] 删除了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2633.txt
+2019-07-16 01:36:37,296 - INFO - place_order_us_pool.py[:377] - [taskid: 2633] 当前账户操作完毕，关闭当前浏览器！
+2019-07-16 01:36:39,581 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 01:36:40,044 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 01:46:40,507 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 01:56:40,965 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 02:06:45,608 - INFO - place_order_us_pool.py[:1334] - 成功获取到2条待刷单的数据！
+2019-07-16 02:08:04,803 - INFO - place_order_us_pool.py[:1258] - [taskid: 2621] 账户登录日志已成功插入！
+2019-07-16 02:08:07,481 - INFO - place_order_us_pool.py[:1264] - [taskid: 2621] 对应账户的header和cookies字段已成功修改!
+2019-07-16 02:08:45,957 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 02:08:45,958 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 02:08:45,959 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 02:08:55,139 - INFO - place_order_us_pool.py[:321] - [taskid: 2621] 第1列表搜索页没找到目标商品，正在跳转到第2列表搜索页...
+2019-07-16 02:09:08,678 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 02:09:08,679 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 02:09:08,679 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 02:09:17,224 - INFO - place_order_us_pool.py[:321] - [taskid: 2621] 第2列表搜索页没找到目标商品，正在跳转到第3列表搜索页...
+2019-07-16 02:09:30,756 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 02:09:30,757 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 02:09:30,758 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 02:09:42,609 - INFO - place_order_us_pool.py[:321] - [taskid: 2621] 第3列表搜索页没找到目标商品，正在跳转到第4列表搜索页...
+2019-07-16 02:09:45,959 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 02:09:45,960 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 02:09:45,960 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 02:09:57,149 - INFO - place_order_us_pool.py[:321] - [taskid: 2621] 第4列表搜索页没找到目标商品，正在跳转到第5列表搜索页...
+2019-07-16 02:10:10,434 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 02:10:10,441 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 02:10:10,441 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 02:10:19,655 - INFO - place_order_us_pool.py[:321] - [taskid: 2621] 第5列表搜索页没找到目标商品，正在跳转到第6列表搜索页...
+2019-07-16 02:10:33,238 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 02:10:33,239 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 02:10:33,240 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 02:10:50,498 - INFO - place_order_us_pool.py[:321] - [taskid: 2621] 第6列表搜索页没找到目标商品，正在跳转到第7列表搜索页...
+2019-07-16 02:11:03,890 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 02:11:03,892 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 02:11:03,892 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 02:11:14,512 - INFO - place_order_us_pool.py[:321] - [taskid: 2621] 第7列表搜索页没找到目标商品，正在跳转到第8列表搜索页...
+2019-07-16 02:11:22,595 - INFO - place_order_us_pool.py[:380] - [taskid: 2623] 等待超时,或者元素位未完全加载导致定位出错!
+2019-07-16 02:11:22,596 - INFO - place_order_us_pool.py[:381] - [taskid: 2623] 关闭当前浏览器，结束当前线程！
+2019-07-16 02:11:22,596 - INFO - place_order_us_pool.py[:382] - [taskid: 2623] 系统会自动生成新的线程来执行下单任务！
+2019-07-16 02:11:28,008 - INFO - place_order_us_pool.py[:401] - [taskid: 2621] 目标商品的详情链接是：https://www.aliexpress.com/item/Wholesale-Jewelry-Box-Ring-Organizer-Box-Cardboard-gold-red-purple-Round-Ring-Box-For-Women-Wedding/32829237809.html?ws_ab_test=searchweb0_0,searchweb201602_10_10065_10130_10068_10547_319_10546_317_10548_10545_10696_10084_453_454_10083_10618_10307_537_536_10059_10884_10887_321_322_10103,searchweb201603_53,ppcSwitch_0&algo_expid=2cd9b39f-4247-449f-9e0d-f99d353f7928-10&algo_pvid=2cd9b39f-4247-449f-9e0d-f99d353f7928&transAbTest=ae803_4
+2019-07-16 02:11:28,541 - INFO - place_order_us_pool.py[:1293] - [taskid: 2621] 更新商品排名成功!
+2019-07-16 02:12:04,251 - INFO - place_order_us_pool.py[:565] - [taskid: 2621] 目标商品已成功添加到购物车！
+2019-07-16 02:12:49,464 - INFO - place_order_us_pool.py[:567] - [taskid: 2621] 非目标商品已成功添加到购物车！
+2019-07-16 02:13:14,282 - INFO - place_order_us_pool.py[:370] - [taskid: 2621] This is a new cart！
+2019-07-16 02:13:16,666 - INFO - place_order_us_pool.py[:881] - [taskid: 2621] 点击OK,确认删除非目标商品！
+2019-07-16 02:13:16,667 - INFO - place_order_us_pool.py[:882] - [taskid: 2621] 非目标商品已从购物车中删除！
+2019-07-16 02:13:26,979 - INFO - place_order_us_pool.py[:916] - [taskid: 2621] 删除非目标商品后，购物车中查看到的待支付金额：9.99
+2019-07-16 02:13:41,802 - INFO - place_order_us_pool.py[:940] - [taskid: 2621] 走下单流程！准备进入个人信息和支付信息的填写流程...
+2019-07-16 02:13:59,355 - INFO - place_order_us_pool.py[:976] - [taskid: 2621] 该用户无默认收货信息，正在创建收货信息...
+2019-07-16 02:14:20,004 - INFO - place_order_us_pool.py[:1069] - [taskid: 2621] 完成收货地址信息的填写！
+2019-07-16 02:14:20,006 - INFO - place_order_us_pool.py[:1073] - [taskid: 2621] 正在创建支付信息...
+2019-07-16 02:14:29,863 - INFO - place_order_us_pool.py[:1107] - [taskid: 2621] 完成支付信息的创建！
+2019-07-16 02:14:35,101 - INFO - place_order_us_pool.py[:987] - [taskid: 2621] 点击了确认支付的按钮!
+2019-07-16 02:14:35,103 - INFO - place_order_us_pool.py[:995] - [taskid: 2621] 同时创建了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2621.txt
+2019-07-16 02:15:09,856 - INFO - place_order_us_pool.py[:1004] - [taskid: 2621] 下单成功！
+2019-07-16 02:15:27,191 - INFO - place_order_us_pool.py[:1199] - [taskid: 2621] 确认订单已成功支付，正在获取订单的相关信息，更新刷单状态...
+2019-07-16 02:15:27,236 - INFO - place_order_us_pool.py[:1201] - [taskid: 2621] 订单号为：103953099175927
+2019-07-16 02:15:27,276 - INFO - place_order_us_pool.py[:1205] - [taskid: 2621] 订单总价：9.99
+2019-07-16 02:15:27,277 - INFO - place_order_us_pool.py[:1207] - [taskid: 2621] 下单时间：2019-07-16 02:15:27
+2019-07-16 02:15:29,023 - INFO - place_order_us_pool.py[:1274] - [taskid: 2621] 刷单状态更新成功！
+2019-07-16 02:15:31,529 - INFO - place_order_us_pool.py[:1283] - [taskid: 2621] 新增刷单操作日志成功!
+2019-07-16 02:15:31,531 - INFO - place_order_us_pool.py[:1226] - [taskid: 2621] 删除了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2621.txt
+2019-07-16 02:15:33,814 - INFO - place_order_us_pool.py[:377] - [taskid: 2621] 当前账户操作完毕，关闭当前浏览器！
+2019-07-16 02:15:36,033 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 02:15:37,628 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 02:17:17,427 - INFO - place_order_us_pool.py[:1258] - [taskid: 2623] 账户登录日志已成功插入！
+2019-07-16 02:17:18,399 - INFO - place_order_us_pool.py[:1264] - [taskid: 2623] 对应账户的header和cookies字段已成功修改!
+2019-07-16 02:20:12,966 - INFO - place_order_us_pool.py[:350] - [taskid: 2623] 前15个搜索页中没有找到目标商品，停止刷单！
+2019-07-16 02:20:13,873 - INFO - place_order_us_pool.py[:1274] - [taskid: 2623] 刷单状态更新成功！
+2019-07-16 02:20:16,522 - INFO - place_order_us_pool.py[:1283] - [taskid: 2623] 新增刷单操作日志成功!
+2019-07-16 02:20:23,865 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000B8D8BE8828>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/3fbbe0ed80149e89cf470b046b731fe8/source
+2019-07-16 02:20:24,885 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000B8D8C0C048>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/3fbbe0ed80149e89cf470b046b731fe8/source
+2019-07-16 02:20:25,886 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000B8D8C0C358>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/3fbbe0ed80149e89cf470b046b731fe8/source
+2019-07-16 02:20:29,158 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 02:20:29,595 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 02:30:29,971 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 02:40:30,335 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 02:50:31,100 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 03:00:31,633 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 03:10:36,638 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 03:12:03,113 - INFO - place_order_us_pool.py[:1258] - [taskid: 2625] 账户登录日志已成功插入！
+2019-07-16 03:12:04,552 - INFO - place_order_us_pool.py[:1264] - [taskid: 2625] 对应账户的header和cookies字段已成功修改!
+2019-07-16 03:14:59,519 - INFO - place_order_us_pool.py[:350] - [taskid: 2625] 前15个搜索页中没有找到目标商品，停止刷单！
+2019-07-16 03:15:02,025 - INFO - place_order_us_pool.py[:1274] - [taskid: 2625] 刷单状态更新成功！
+2019-07-16 03:15:05,659 - INFO - place_order_us_pool.py[:1283] - [taskid: 2625] 新增刷单操作日志成功!
+2019-07-16 03:15:12,606 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000000BCFD68828>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/e237a206bf5d7908073dce9d2b82c6d4/source
+2019-07-16 03:15:13,615 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000000BCFD89DD8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/e237a206bf5d7908073dce9d2b82c6d4/source
+2019-07-16 03:15:14,639 - WARNING - connectionpool.py[:662] - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000000BCFD890F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',)': /session/e237a206bf5d7908073dce9d2b82c6d4/source
+2019-07-16 03:15:17,831 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 03:15:18,227 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 03:25:18,873 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 03:35:19,310 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 03:45:20,087 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 03:55:20,494 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 04:05:20,865 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 04:15:22,432 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 04:25:22,940 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 04:35:23,304 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 04:45:23,695 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 04:55:24,160 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 05:05:27,024 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 05:11:01,690 - INFO - place_order_us_pool.py[:1258] - [taskid: 2627] 账户登录日志已成功插入！
+2019-07-16 05:11:06,267 - INFO - place_order_us_pool.py[:1264] - [taskid: 2627] 对应账户的header和cookies字段已成功修改!
+2019-07-16 05:12:08,753 - INFO - place_order_us_pool.py[:401] - [taskid: 2627] 目标商品的详情链接是：https://www.aliexpress.com/item/100pcs-5mm-Arabic-Numerals-Silver-Bronze-Tone-Beads-Loose-Spacer-Bead-for-Jewelry-Making-DIY-Necklace/33040421314.html?ws_ab_test=searchweb0_0,searchweb201602_4_10065_10130_10068_10547_319_10546_317_10548_10545_10696_10084_453_454_10083_10618_10307_537_536_10059_10884_10887_321_322_10103,searchweb201603_60,ppcSwitch_0&algo_expid=55de3954-5506-47dc-b4e5-c287229208dc-20&algo_pvid=55de3954-5506-47dc-b4e5-c287229208dc&transAbTest=ae803_5
+2019-07-16 05:12:09,817 - INFO - place_order_us_pool.py[:1293] - [taskid: 2627] 更新商品排名成功!
+2019-07-16 05:17:26,229 - INFO - place_order_us_pool.py[:380] - [taskid: 2627] 等待超时,或者元素位未完全加载导致定位出错!
+2019-07-16 05:17:26,230 - INFO - place_order_us_pool.py[:381] - [taskid: 2627] 关闭当前浏览器，结束当前线程！
+2019-07-16 05:17:26,231 - INFO - place_order_us_pool.py[:382] - [taskid: 2627] 系统会自动生成新的线程来执行下单任务！
+2019-07-16 05:17:31,702 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 05:17:33,066 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 05:18:46,764 - INFO - place_order_us_pool.py[:1258] - [taskid: 2627] 账户登录日志已成功插入！
+2019-07-16 05:18:47,580 - INFO - place_order_us_pool.py[:1264] - [taskid: 2627] 对应账户的header和cookies字段已成功修改!
+2019-07-16 05:19:20,383 - INFO - place_order_us_pool.py[:401] - [taskid: 2627] 目标商品的详情链接是：https://www.aliexpress.com/item/100pcs-5mm-Arabic-Numerals-Silver-Bronze-Tone-Beads-Loose-Spacer-Bead-for-Jewelry-Making-DIY-Necklace/33040421314.html?ws_ab_test=searchweb0_0,searchweb201602_6_10065_10130_10068_10547_319_10546_317_10548_10545_10696_10084_453_454_10083_10618_10307_537_536_10059_10884_10887_321_322_10103,searchweb201603_52,ppcSwitch_0&algo_expid=ecb6559f-9091-4a84-a05d-e86304151ea2-19&algo_pvid=ecb6559f-9091-4a84-a05d-e86304151ea2
+2019-07-16 05:19:20,870 - INFO - place_order_us_pool.py[:1293] - [taskid: 2627] 更新商品排名成功!
+2019-07-16 05:19:55,383 - INFO - place_order_us_pool.py[:565] - [taskid: 2627] 目标商品已成功添加到购物车！
+2019-07-16 05:20:46,204 - INFO - place_order_us_pool.py[:567] - [taskid: 2627] 非目标商品已成功添加到购物车！
+2019-07-16 05:21:08,609 - INFO - place_order_us_pool.py[:370] - [taskid: 2627] This is a new cart！
+2019-07-16 05:21:11,127 - INFO - place_order_us_pool.py[:881] - [taskid: 2627] 点击OK,确认删除非目标商品！
+2019-07-16 05:21:11,130 - INFO - place_order_us_pool.py[:882] - [taskid: 2627] 非目标商品已从购物车中删除！
+2019-07-16 05:21:21,447 - INFO - place_order_us_pool.py[:916] - [taskid: 2627] 删除非目标商品后，购物车中查看到的待支付金额：8.06
+2019-07-16 05:21:35,294 - INFO - place_order_us_pool.py[:940] - [taskid: 2627] 走下单流程！准备进入个人信息和支付信息的填写流程...
+2019-07-16 05:21:50,326 - INFO - place_order_us_pool.py[:976] - [taskid: 2627] 该用户无默认收货信息，正在创建收货信息...
+2019-07-16 05:22:09,864 - INFO - place_order_us_pool.py[:1069] - [taskid: 2627] 完成收货地址信息的填写！
+2019-07-16 05:22:09,867 - INFO - place_order_us_pool.py[:1073] - [taskid: 2627] 正在创建支付信息...
+2019-07-16 05:22:21,122 - INFO - place_order_us_pool.py[:1107] - [taskid: 2627] 完成支付信息的创建！
+2019-07-16 05:22:26,345 - INFO - place_order_us_pool.py[:987] - [taskid: 2627] 点击了确认支付的按钮!
+2019-07-16 05:22:26,353 - INFO - place_order_us_pool.py[:995] - [taskid: 2627] 同时创建了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2627.txt
+2019-07-16 05:23:06,068 - INFO - place_order_us_pool.py[:1004] - [taskid: 2627] 下单成功！
+2019-07-16 05:23:30,952 - INFO - place_order_us_pool.py[:1199] - [taskid: 2627] 确认订单已成功支付，正在获取订单的相关信息，更新刷单状态...
+2019-07-16 05:23:31,002 - INFO - place_order_us_pool.py[:1201] - [taskid: 2627] 订单号为：104249354055176
+2019-07-16 05:23:31,044 - INFO - place_order_us_pool.py[:1205] - [taskid: 2627] 订单总价：8.06
+2019-07-16 05:23:31,045 - INFO - place_order_us_pool.py[:1207] - [taskid: 2627] 下单时间：2019-07-16 05:23:31
+2019-07-16 05:23:32,768 - INFO - place_order_us_pool.py[:1274] - [taskid: 2627] 刷单状态更新成功！
+2019-07-16 05:23:35,944 - INFO - place_order_us_pool.py[:1283] - [taskid: 2627] 新增刷单操作日志成功!
+2019-07-16 05:23:35,946 - INFO - place_order_us_pool.py[:1226] - [taskid: 2627] 删除了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2627.txt
+2019-07-16 05:23:39,148 - INFO - place_order_us_pool.py[:377] - [taskid: 2627] 当前账户操作完毕，关闭当前浏览器！
+2019-07-16 05:23:41,399 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 05:23:43,822 - INFO - place_order_us_pool.py[:1334] - 成功获取到1条待刷单的数据！
+2019-07-16 05:24:45,538 - INFO - place_order_us_pool.py[:1258] - [taskid: 2635] 账户登录日志已成功插入！
+2019-07-16 05:24:46,185 - INFO - place_order_us_pool.py[:1264] - [taskid: 2635] 对应账户的header和cookies字段已成功修改!
+2019-07-16 05:25:00,738 - INFO - place_order_us_pool.py[:314] - ==============
+2019-07-16 05:25:00,739 - INFO - place_order_us_pool.py[:315] - 下一页 => 旧按钮
+2019-07-16 05:25:00,739 - INFO - place_order_us_pool.py[:316] - ==============
+2019-07-16 05:25:04,926 - INFO - place_order_us_pool.py[:321] - [taskid: 2635] 第1列表搜索页没找到目标商品，正在跳转到第2列表搜索页...
+2019-07-16 05:25:18,383 - INFO - place_order_us_pool.py[:401] - [taskid: 2635] 目标商品的详情链接是：https://www.aliexpress.com/item/Multifunctional-Plastic-Tree-Shape-Jewelry-Display-Necklace-Bracelet-Earring-Holder-Pink-White-Tree-Branch-Stand-Rack/32947355452.html?ws_ab_test=searchweb0_0,searchweb201602_8_10065_10130_10068_10547_319_10546_317_10548_10545_10696_10084_453_454_10083_10618_10307_537_536_10059_10884_10887_321_322_10103,searchweb201603_52,ppcSwitch_0&algo_expid=2909368e-b6a8-4fa9-a8ea-5c6ee0bc21be-43&algo_pvid=2909368e-b6a8-4fa9-a8ea-5c6ee0bc21be&transAbTest=ae803_5
+2019-07-16 05:25:19,669 - INFO - place_order_us_pool.py[:1293] - [taskid: 2635] 更新商品排名成功!
+2019-07-16 05:25:55,907 - INFO - place_order_us_pool.py[:565] - [taskid: 2635] 目标商品已成功添加到购物车！
+2019-07-16 05:26:48,628 - INFO - place_order_us_pool.py[:567] - [taskid: 2635] 非目标商品已成功添加到购物车！
+2019-07-16 05:27:04,216 - INFO - place_order_us_pool.py[:370] - [taskid: 2635] This is a new cart！
+2019-07-16 05:27:06,685 - INFO - place_order_us_pool.py[:881] - [taskid: 2635] 点击OK,确认删除非目标商品！
+2019-07-16 05:27:06,686 - INFO - place_order_us_pool.py[:882] - [taskid: 2635] 非目标商品已从购物车中删除！
+2019-07-16 05:27:16,977 - INFO - place_order_us_pool.py[:916] - [taskid: 2635] 删除非目标商品后，购物车中查看到的待支付金额：7.43
+2019-07-16 05:27:26,361 - INFO - place_order_us_pool.py[:940] - [taskid: 2635] 走下单流程！准备进入个人信息和支付信息的填写流程...
+2019-07-16 05:27:40,312 - INFO - place_order_us_pool.py[:976] - [taskid: 2635] 该用户无默认收货信息，正在创建收货信息...
+2019-07-16 05:28:01,539 - INFO - place_order_us_pool.py[:1069] - [taskid: 2635] 完成收货地址信息的填写！
+2019-07-16 05:28:01,540 - INFO - place_order_us_pool.py[:1073] - [taskid: 2635] 正在创建支付信息...
+2019-07-16 05:28:11,722 - INFO - place_order_us_pool.py[:1107] - [taskid: 2635] 完成支付信息的创建！
+2019-07-16 05:28:16,931 - INFO - place_order_us_pool.py[:987] - [taskid: 2635] 点击了确认支付的按钮!
+2019-07-16 05:28:16,933 - INFO - place_order_us_pool.py[:995] - [taskid: 2635] 同时创建了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2635.txt
+2019-07-16 05:28:47,478 - INFO - place_order_us_pool.py[:1004] - [taskid: 2635] 下单成功！
+2019-07-16 05:29:01,724 - INFO - place_order_us_pool.py[:1199] - [taskid: 2635] 确认订单已成功支付，正在获取订单的相关信息，更新刷单状态...
+2019-07-16 05:29:01,771 - INFO - place_order_us_pool.py[:1201] - [taskid: 2635] 订单号为：104086384975120
+2019-07-16 05:29:01,822 - INFO - place_order_us_pool.py[:1205] - [taskid: 2635] 订单总价：7.43
+2019-07-16 05:29:01,823 - INFO - place_order_us_pool.py[:1207] - [taskid: 2635] 下单时间：2019-07-16 05:29:01
+2019-07-16 05:29:03,118 - INFO - place_order_us_pool.py[:1274] - [taskid: 2635] 刷单状态更新成功！
+2019-07-16 05:29:05,097 - INFO - place_order_us_pool.py[:1283] - [taskid: 2635] 新增刷单操作日志成功!
+2019-07-16 05:29:05,099 - INFO - place_order_us_pool.py[:1226] - [taskid: 2635] 删除了一个文件：C:\aliexpress_order\confirm_pay_files/taskid_2635.txt
+2019-07-16 05:29:08,302 - INFO - place_order_us_pool.py[:377] - [taskid: 2635] 当前账户操作完毕，关闭当前浏览器！
+2019-07-16 05:29:10,490 - INFO - place_order_us_pool.py[:1340] - ****************************pool sleep 2s************************
+2019-07-16 05:29:10,943 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 05:39:11,548 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 05:49:12,308 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 05:59:13,533 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 06:09:13,906 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 06:19:14,277 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 06:29:14,689 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 06:39:15,063 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 06:49:15,442 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 06:59:15,810 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 07:09:16,184 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 07:19:16,654 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 07:29:17,015 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 07:39:17,380 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 07:49:17,738 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 07:59:18,117 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 08:09:18,884 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 08:19:19,656 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 08:29:20,020 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 08:39:20,399 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 08:49:21,024 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 08:59:21,558 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 09:09:21,934 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 09:19:22,414 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 09:26:20,009 - INFO - place_order_us_pool.py[:1329] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 09:29:22,826 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 09:36:20,485 - INFO - place_order_us_pool.py[:1329] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
+2019-07-16 09:39:23,201 - INFO - place_order_us_pool.py[:1325] - 任务系统未获取到当前时间的任务，程序[sleep 10m]...
