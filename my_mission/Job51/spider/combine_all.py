@@ -614,7 +614,7 @@ class Job51HalfYear(object):
         self.goal_url = 'https://ehire.51job.com/Navigate.aspx'
         self.cart_url = 'https://ehire.51job.com/Candidate/CompanyHrTmpNew.aspx'
         self.position_get = 'https://ehire.51job.com/Jobs/JobSearchPost.aspx'
-        self.download_url = 'https://ehire.51job.com/InboxResume/CompanyHRDefault2.aspx?Page=2'
+        self.download_url = 'https://ehire.51job.com/InboxResume/TalentCandidateList.aspx?Page=2&Folder=BAK'
         self.session = requests.Session()
         self.base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__)))  # E:\Project\Job51_bak\spider
 
@@ -715,10 +715,12 @@ class Job51HalfYear(object):
         self.get_out_put_position(info)
 
     def do_search(self, info):
-        self.driver.get(self.search_url)
-        time.sleep(random.uniform(1, 2))
-        self.do_other_info(info)
-        time.sleep(5)
+
+        # self.driver.get(self.search_url)
+        # time.sleep(random.uniform(1, 2))
+        # self.do_other_info(info)
+        # time.sleep(5)
+
         # self.driver.find_element_by_xpath('//a[@id="search_submit"]').click()   # search at another page
         self.driver.get(self.search_url)
         time.sleep(random.uniform(2, 3))
@@ -746,6 +748,10 @@ class Job51HalfYear(object):
                 LOG.info(f'当前在第{x}页，页面数据有{len(all_id) // 2}条,全部数据有{num}条')
                 for i in range(50):
                     n = i + 1  # 20
+
+                    # if n < 18:
+                    #     continue
+
                     # window = self.driver.window_handles
                     # self.driver.switch_to.window(self.driver.window_handles[0])
                     time.sleep(1)
@@ -873,7 +879,12 @@ class Job51HalfYear(object):
         # self.driver.switch_to.window(self.driver.window_handles[0])
 
     def get_xml_info(self, flag=None):
-        time.sleep(random.uniform(2, 3))
+        # time.sleep(random.uniform(0, 1))
+        for h in range(3):
+            self.driver.execute_script(
+                "window.scrollTo({a}, {b}); var lenOfPage=document.body.scrollHeight; return lenOfPage;".format(
+                    a=800 * h, b=800 * (h + 1)))
+            time.sleep(1)
         html = self.driver.page_source
         xpt = etree.HTML(html)
         ne = self.driver.find_element_by_xpath('//td[@id="tdseekname"]').text.strip()
@@ -941,6 +952,13 @@ class Job51HalfYear(object):
         # 个人信息 (当前年收入) 求职意向 工作经验 项目经验 教育经历 在校情况
         # print('程序已经到达了这里了...')
         try:
+            aply_positon = self.driver.find_element_by_xpath('//*[@id="applyJob"]')
+        except Exception as e:
+            apply_positon = ''
+        else:
+            apply_positon = aply_positon.text
+
+        try:
             table_num = table_info.index('工作经验')
             if not table_str:
                 table_num += 1
@@ -980,8 +998,9 @@ class Job51HalfYear(object):
 
                     word_experience.append(dic)
             except Exception as e:
-                # print(e)
                 word_experience = []
+
+        word_experience.insert(0, {'应聘职位': apply_positon})
 
         try:
             table_num2 = table_info.index('项目经验')
@@ -1010,42 +1029,30 @@ class Job51HalfYear(object):
 
                 project_experience.append(dic)
 
+        education = []
         try:
-            table_num3 = table_info.index('教育经历')
-            if not table_str:
-                table_num3 += 1
+            tr3_info = self.driver.find_elements_by_xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr')
+            tr3_num = len(tr3_info)
+            for i in range(tr3_num):
+                time_info = self.driver.find_element_by_xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]').text
+                school_name = self.driver.find_element_by_xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]').text
+                class_rate = xpt.xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[0]
+                main_major = xpt.xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[2]
+                dic = {
+                    '教育时间': time_info,
+                    '学校名称': school_name,
+                    '专业等级': class_rate,
+                    '主研专业': main_major
+                }
+                education.append(dic)
+
         except Exception as e:
             # print(e)
-            education = []
-        else:
-            try:
-                tr3_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr')
-                education = []
-                tr3_num = len(tr3_info)
-                for i in range(tr3_num):
-                    time_info = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
-                        0]
-                    school_name = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
-                        0]
-                    class_rate = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[
-                        0]
-                    main_major = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]/span/text()')[
-                        1]
-                    dic = {
-                        '教育时间': time_info,
-                        '学校名称': school_name,
-                        '专业等级': class_rate,
-                        '主研专业': main_major
-                    }
-                    education.append(dic)
-
-            except Exception as e:
-                # print(e)
-                education = []
+            pass
 
         honors_awards = ''
         practical_experience = ''
@@ -1054,43 +1061,35 @@ class Job51HalfYear(object):
         it_skill = ''
         certifications = []
         try:
-            table_num4 = table_info.index('技能特长')
-            if not table_str:
-                table_num4 += 1
+            tr4_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr')
+            tr4_num = len(tr4_info)
+            for i in range(tr4_num):
+                time_info = xpt.xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
+                    0]
+                certifications_name = xpt.xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
+                    0]
+                dic = {
+                    '获得时间': time_info,
+                    '名称': certifications_name,
+                }
+
+                certifications.append(dic)
         except Exception as e:
             # print(e)
-            certifications = []
-        else:
-            try:
-                tr4_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr')
-                education = []
-                tr4_num = len(tr4_info)
-                for i in range(tr4_num):
-                    time_info = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
-                        0]
-                    certifications_name = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
-                        0]
-                    dic = {
-                        '获得时间': time_info,
-                        '名称': certifications_name,
-                    }
-
-                    certifications.append(dic)
-            except Exception as e:
-                # print(e)
-                education = []
+            pass
 
             # print("certifications:", education)
         # //tr[@id="divInfo"]/td/table[6]/tbody/tr[2]/td/table/tbody/tr[2]//tbody/tr[4]//td[@class="time"]/text()
         otherinfo = ''  #
         source_file = ''  #
         is_viewed = 1  #
-        time_tic = time.time()
-        dateModified = time.strftime('%Y-%m-%d', time.localtime(time_tic))
-        resume_date = dateModified
-        update_date = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+        # time_tic = time.time()
+        # dateModified = time.strftime('%Y-%m-%d', time.localtime(time_tic))
+        dateModified = self.driver.find_element_by_xpath('//*[@id="applyUpdateTime"]').text.strip()
+        resume_date = time.strftime('%Y-%m-%d', time.localtime())
+        update_date = dateModified
 
         get_type = 1
         external_resume_id = re.findall(r'(\d+)', r_key)[0]
@@ -1144,6 +1143,7 @@ class Job51HalfYear(object):
         }
 
         load_json = {
+            'job_name': apply_positon,
             'account': f'{python_config.account_from}',
             'add_user': f'{python_config.account_from}',
             "data": [dic]
@@ -1203,7 +1203,7 @@ class Job51HalfYear(object):
             return False
         else:
             for n in range(1, today_nums + 1):
-                time.sleep(3)
+                time.sleep(4)
                 try:
                     self.driver.find_element_by_xpath(f'//tr[@id="trBaseInfo_{n}"]/td[3]/ul/li[1]/a').click()
                 except Exception as e:
@@ -1956,13 +1956,14 @@ def send_rtx_msg(msg, flag=None):
 
 
 if __name__ == '__main__':
-    app = Job51Down()
-    app.run()
-    print('下载数据已经下载完毕...')
+    # app = Job51Down()
+    # app.run()
+    # print('下载数据已经下载完毕...')
     app = Job51HalfYear()
     # app.do_click_each()
     # input('>>>>>')
-    app.run()
+    # app.run()
+    app.do_search(None)
     print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
     input('>>>')
     while True:

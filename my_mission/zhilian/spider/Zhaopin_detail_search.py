@@ -7,8 +7,9 @@ import urllib3
 from utils.logger import *
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-# 银河在线cookies
-from spider import python_config
+
+from helper import python_config
+
 receivers = python_config.receivers
 company_name = python_config.company_name
 handler = python_config.handler
@@ -229,11 +230,10 @@ class Detail(object):
                     Salary = Sly[:5] + '~' + Sly[5:]
 
                 dic = {
-                    '公司名': ifo['CompanyName'],
-                    '开始时间': ifo['DateStart'],
-                    '结束时间': ifo['DateEnd'] if ifo['DateEnd'] else '',
+                    '公司信息': ifo['CompanyName'],
+                    '起止时间': ifo['DateStart'] + '-' + (ifo['DateEnd'] if ifo['DateEnd'] else ''),
                     '工作标题': ifo['JobTitle'],
-                    '工作描述': ifo['WorkDescription'],
+                    '工作内容': ifo['WorkDescription'],
                     '薪资范围': Salary
                 }
                 word_experience.append(dic)
@@ -283,6 +283,7 @@ class Detail(object):
         resume_date = dateModified
         get_type = 1
         external_resume_id = data['resumeNumber'][:-4]
+        resume_logo = candidate['photo']
 
         resume['name'] = name
         resume['mobile_phone'] = mobile_phone
@@ -325,6 +326,7 @@ class Detail(object):
         resume['get_type'] = get_type
         resume['external_resume_id'] = external_resume_id
         resume['labeltype'] = jobResume['labeltype']    # 1 待处理 2 有意向 3 已发面试 4 不合适
+        resume['resume_logo'] = resume_logo
 
         return resume, account
 
@@ -415,10 +417,10 @@ class Detail(object):
                 self.run2(json.loads(information.text))
 
     def run(self):
-        # pg = self.first_time()
-        # print(pg)
-        # LOG.info(f'获取页面数据有{pg}页,每页最多100条数据')
-        # self.stabilization(pg)
+        pg = self.first_time()
+        print(pg)
+        LOG.info(f'获取页面数据有{pg}页,每页最多100条数据')
+        self.stabilization(pg)
 
         print(self.response_get())
 

@@ -7,7 +7,8 @@ import requests
 import datetime
 import urllib3
 from utils.logger import *
-from spider import python_config
+from helper import python_config
+
 receivers = python_config.receivers
 company_name = python_config.company_name
 handler = python_config.handler
@@ -142,6 +143,7 @@ class Detail(object):
         # with open(f'info0812{filename}.json', 'r', encoding='utf-8') as f:
         #     resume = f.read()
         lists = inno["data"]["dataList"]
+
         li = []
         for i in lists:
             d = i["id"]
@@ -387,7 +389,7 @@ class Detail(object):
         # with open('ttt.txt', 'w', encoding='utf-8') as f:
         #     f.write(str(info))
         # print('info:', info)
-        url = 'http://newhr.gets.com/api/autoOwnerResumeDownload.php?'
+        url = 'http://hr.gets.com:8989/api/autoOwnerResumeDownload.php?'
         if jr:
             try:
                 rq = self.session.post(url, json=info)
@@ -399,20 +401,36 @@ class Detail(object):
 
     def run2(self, info):
         resume_lists = self.get_resume(info)   # (id, number)
-        print(resume_lists)
         LOG.info(f'当前页数据获取成功，页面数据为{len(resume_lists)}条')
 
         for i in resume_lists:
             time.sleep(random.uniform(2, 3))
-            info = self.response_get(i[0])
+            try:
+                info = self.response_get(i[0])
+                if info['code'] != 0:
+                    raise Exception
+            except Exception:
+                print('2处理后再回车')
+                input('>')
+                continue
 
-            log = self.response_log(i[1])
+            try:
+                log = self.response_log(i[1])
+                # print('log::::', log)
+            except:
+                print('log2:error')
+                input('>')
+                continue
+            else:
+                # logs = log['data']['logs']
+                try:
+                    initialData = log['data']['initialData'][0]
+                    staffName = initialData['staffName']
+                except:
+                    staffName = python_config.account_from
 
-            initialData = log['data']['initialData'][0]
-            staffName = initialData['staffName']
-
-            json_resume = self.deal_info(info)
-            self.post_resume_with_user(json_resume, '0', staffName)
+                json_resume = self.deal_info(info)
+                self.post_resume_with_user(json_resume, '0', staffName)
 
     def params_pg_get(self, i):
         t = time.time()
@@ -447,7 +465,7 @@ class Detail(object):
             "_": f"{node}",
             "x-zp-page-request-id": f"{front[random.randint(0, max_len)]}-{node - random.randint(50, 1000)}-{random.randint(200000, 800000)}",
             "x-zp-client-id": "e5cc6ae7-13f9-4f11-ac17-f37439ae1de5",
-            "S_CreateDate": f"190923,190923",
+            "S_CreateDate": f"190915,190920",
             # "S_CreateDate": f"{yesterday_info},{today_info}",
             "S_HrId": '""',
             "S_ResumeSource": "2",                              # 只查询待处理的信息
@@ -482,27 +500,67 @@ class Detail(object):
             # time.sleep(11)
             try:
                 information = self.session.post(self.url, json=params, headers=headers, verify=False)
-                print(information.text)
                 code = json.loads(information.text).get('code')
                 if code != 0:
                     raise Exception
-            except Exception as e:
+            except:
                 LOG.error(f'第{x+1}页数据获取错误！！！')
+                print('请替换cookie后按回车')
+                input('>')
                 continue
             else:
+                # print(f'第{x+1}页:', information.text)
                 self.run2(json.loads(information.text))
 
     def run(self):
-        pg, m = self.first_time()
-        LOG.info(f'获取页面数据有{pg}页, 数据总共有{m}条')
+        # pg, m = self.first_time()
+        # LOG.info(f'获取页面数据有{pg}页, 数据总共有{m}条')
         # self.stabilization(pg)
-        # try:
-        #     pg, m = self.first_time()
-        #     LOG.info(f'获取页面数据有{pg}页, 数据总共有{m}条')
-        #     self.stabilization(pg)
-        # except Exception as e:
-        #     LOG.warning('cookies 失效::' + str(e))
-        #     input('>')
+        try:
+            pg, m = self.first_time()
+            LOG.info(f'获取页面数据有{pg}页, 数据总共有{m}条')
+            # self.stabilization(pg)
+        except Exception:
+            LOG.warning('cookies 失效！')
+            msg = f"""
+********* HR 数据自动化 *********
+负责人：{handler}
+状态原因：智联{company_name}每日下载简历数据信息导入程序异常
+处理标准：请人为到服务器登陆处理验证码或者替换cookie,也可以找相关技术人员协助
+"""
+            send_rtx_msg(msg)
+            print('大处理完毕后按回车')
+            input('>')
+
+
+def send_rtx_msg(msg):
+    """
+    rtx 提醒
+    :param receivers:
+    :param msg:
+    :return:
+    """
+    post_data = {
+        "sender": "系统机器人",
+        "receivers": receivers,
+        "msg": msg,
+    }
+    # requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+
+
+def timer(set_time):
+    def work_time(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            if set_time not in ['Sun']:
+                t = time.strftime("%H:%M", time.localtime())
+                if t in ['05:20', '11:59', '20:20']:
+                    func(*args, **kwargs)
+                else:
+                    print(f'\r{t}', end='')
+        return wrapper
+    return work_time
+
 
 
 def main():
@@ -512,4 +570,15 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
+    input('>>>')
+    while True:
+        try:
+            main()
+        except Exception as e:
+            print('程序错误， 等待重启')
+            break
+        else:
+            for _ in range(60):
+                time.sleep(1)
 

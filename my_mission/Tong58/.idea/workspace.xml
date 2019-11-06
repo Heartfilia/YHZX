@@ -166,9 +166,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.crawl" />
         <item itemvalue="Python.requests58_yhzx" />
         <item itemvalue="Python.selenium58_yhzx" />
-        <item itemvalue="Python.crawl" />
         <item itemvalue="Python.spider_image_test" />
         <item itemvalue="Python.python_config" />
       </list>
@@ -194,6 +194,10 @@
       <workItem from="1571014931202" duration="523000" />
       <workItem from="1571015497926" duration="6456000" />
       <workItem from="1571124487694" duration="400000" />
+      <workItem from="1571369291803" duration="7009000" />
+      <workItem from="1571811712215" duration="12765000" />
+      <workItem from="1571997163614" duration="644000" />
+      <workItem from="1572324591593" duration="599000" />
     </task>
     <servers />
   </component>
@@ -204,9 +208,9 @@
     <SUITE FILE_PATH="coverage/Tong58$spider_58_request.coverage" NAME="spider_58_request Coverage Results" MODIFIED="1570703663173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tong58$test.coverage" NAME="test Coverage Results" MODIFIED="1570496935576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tong58$client.coverage" NAME="client Coverage Results" MODIFIED="1570610346632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper/Baidu_ocr" />
-    <SUITE FILE_PATH="coverage/Tong58$crawl.coverage" NAME="crawl Coverage Results" MODIFIED="1570788758813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spider" />
-    <SUITE FILE_PATH="coverage/Tong58$requests58_yhzx.coverage" NAME="requests58_yhzx Coverage Results" MODIFIED="1571124719491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Tong58$selenium58_yhzx.coverage" NAME="selenium58_yhzx Coverage Results" MODIFIED="1571021511049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tong58$requests58_yhzx.coverage" NAME="requests58_yhzx Coverage Results" MODIFIED="1571370684272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tong58$crawl.coverage" NAME="crawl Coverage Results" MODIFIED="1571376942439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spider" />
+    <SUITE FILE_PATH="coverage/Tong58$selenium58_yhzx.coverage" NAME="selenium58_yhzx Coverage Results" MODIFIED="1571380418402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tong58$python_config.coverage" NAME="python_config Coverage Results" MODIFIED="1570776997108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
     <SUITE FILE_PATH="coverage/Tong58$spider_image_test.coverage" NAME="spider_image_test Coverage Results" MODIFIED="1570788432819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

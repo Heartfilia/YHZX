@@ -2,9 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/spider/ZhiLian.py" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/spider/ZhiLian.py" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/spider/cookies.json" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/spider/information.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/spider/page_source.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/spider/resume.txt" charset="GBK" />
   </component>
 </project>

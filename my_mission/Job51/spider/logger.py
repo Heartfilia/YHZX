@@ -14,8 +14,8 @@ LOG.setLevel(logging.DEBUG)  # Change the level of logging::
 
 # You can modify the following code to change the location::
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-this_month = time.strftime('%Y%m', time.localtime())
-filename = BASE_DIR + f'/{this_month}.log'
+today_tic = time.strftime('%Y%m', time.localtime())
+filename = BASE_DIR + f'/{today_tic}.log'
 
 formatter = logging.Formatter(
         "%(asctime)s %(filename)s[line:%(lineno)d]%(levelname)s - %(message)s"

@@ -23,7 +23,7 @@ account_main = python_config.account_main
 
 
 def do_post():
-    data = {'account': 'gzwb537', 'data': {'applied_for_resume': '250', 'remain_refresh_no': '1', 'remain_downloads': '1059', 'recent_received_num': '9452', 'hr_put_position': '', 'use_coin': 0, 'expire_coin': 0, 'hittotal': 0, 'month_browse_no': 0, 'posts_available_today': 0, 'publish_posts_no': '43'}}
+    data = {'account': 'yhzx151', 'data': {'applied_for_resume': '626', 'remain_refresh_no': '2', 'remain_downloads': '397', 'recent_received_num': '4113', 'hr_put_position': '', 'use_coin': 0, 'expire_coin': 0, 'hittotal': 0, 'month_browse_no': 0, 'posts_available_today': 0, 'publish_posts_no': '32'}}
     URL = POST_URL
     rq = session.post(URL, json=data)
     print(rq.text)

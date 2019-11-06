@@ -2,10 +2,8 @@
 # auto crawl download resume
 # __author__ = 'lodge'
 # done_time = '22/08/2019' -- d/m/y
-import datetime
 import importlib
 import json
-import re
 import random
 import requests
 from utils.logger import *    # includes logging infos
@@ -25,7 +23,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Here are locally stored cookies. If it is in the selenium format, you don't need to use them
 # In the case of the standard large dictionary pattern, you can hand it by self.get_api_cookie()
-from spider import python_config
+from helper import python_config
+
 receivers = python_config.receivers
 company_name = python_config.company_name
 handler = python_config.handler
@@ -195,12 +194,12 @@ class ResumeDownloader(object):
         except Exception as e:
             pass
         else:
-            time.sleep(8)
+            time.sleep(2)
             window = self.driver.window_handles
             self.driver.switch_to.window(self.driver.window_handles[len(window)-1])
             page_source = self.driver.page_source
-            if '面试时间' in page_source:
-                print('已经邀约了......')
+            if '面试时间'in page_source:
+                print(f'{e_id}:已经邀约了......')
                 self.session.post(
                     f'http://hr.gets.com:8989/api/autoGetInterview.php?type=setInterview&external_resume_id={e_id}')
                 self.driver.close()
@@ -215,6 +214,7 @@ class ResumeDownloader(object):
             self.input_invite_detail(e_id)
 
     def input_invite_detail(self, e_id):
+        time.sleep(10)
         tomorrow_week = time.strftime('%a', time.localtime(time.time() + 86400))
         if tomorrow_week == 'Sun':
             tomorrow_info = time.strftime('%Y-%m-%d', time.localtime(time.time() + 86400 * 2))
@@ -359,7 +359,7 @@ class ResumeDownloader(object):
             "receivers": receivers,
             "msg": msg,
         }
-        self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+        # self.session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
     def save_cookies(self, cook):
         dic = {
@@ -396,6 +396,8 @@ class ResumeDownloader(object):
 
 
 def main():
+    # app1 = ResumeDownloader()
+    # app1.run()
     while True:
         print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
         input('>>>')

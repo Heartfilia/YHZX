@@ -3,10 +3,8 @@
 import json
 import re
 import random
-from threading import Thread
 import requests
 import pymysql
-from urllib.request import quote
 from utils.logger import *    # includes logging infos
 from selenium import webdriver
 # from selenium.common.exceptions import TimeoutException
@@ -15,14 +13,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from multiprocessing import Queue
-from helper.Our_company import o_comp   # 导入我们公司的信息 list
 # from helper.Positions import POS        # 导入需要关注排行的位置的信息
 from helper.company import competitor   # 导入竞争者的信息
-from spider import Message
 from helper.mysql_config import *
-from lxml import etree
 
-from spider import python_config
+from helper import python_config
+
 receivers = python_config.receivers
 company_name = python_config.company_name
 handler = python_config.handler
@@ -30,11 +26,13 @@ handler = python_config.handler
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
 ip_info = "http://192.168.1.112:8000/api/"
 # 本处内容均可以重构 不用自动化，但是没时间优化了，就这样吧 反正也不要速度
+base_dir = os.path.dirname(os.getcwd())
+cookie_dir = os.path.join(base_dir, 'spider', 'cookies.json')
 
 
 class ZhiLian(object):
     def __init__(self):
-        with open('cookies.json', 'r') as f:
+        with open(cookie_dir, 'r') as f:
             self.cookies = json.loads(f.read())['cookies']
         self.base_url = 'https://www.zhaopin.com/'
         self.goal_url = 'https://rd5.zhaopin.com/job/manage'
@@ -691,6 +689,8 @@ def main():
 """
         send_rtx_msg(msg)
 
+    # time.sleep(random.randint(5, 10))   # 因为没有用代理，所以这两个页面其实是同源的，防止ip被封，休息一段时间，反正也不急嘛
+
 
 def send_rtx_msg(msg):
     """
@@ -708,13 +708,15 @@ def send_rtx_msg(msg):
 
 
 if __name__ == '__main__':
-    print('等待第二天中...')
-    time.sleep(1100)
-    while True:
-        main()
-        for _ in range(86400):
-            n = int(_ / 1728 * 50)
-            # print(f'\rloading: {n * ">"} + {(50 - n) * "="}', end="")
-            time.sleep(1)
+    main()
+    # print('等待第二天中...')
+    # time.sleep(40201)
+    # while True:
+    #     main()
+    #     print('等待第二天...')
+    #     for _ in range(86400):
+    #         n = int(_ / 1728 * 50)
+    #         # print(f'\rloading: {(50 - n) * "="}', end="")
+    #         time.sleep(1)
 
 

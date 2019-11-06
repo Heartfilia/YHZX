@@ -7,7 +7,8 @@ import requests
 import datetime
 import urllib3
 from utils.logger import *
-from spider import python_config
+from helper import python_config
+
 receivers = python_config.receivers
 company_name = python_config.company_name
 handler = python_config.handler
@@ -387,7 +388,7 @@ class Detail(object):
         }
         # with open('ttt.txt', 'w', encoding='utf-8') as f:
         #     f.write(str(info))
-        print('info:', info)
+        # print('info:', info)
         url = 'http://hr.gets.com:8989/api/autoOwnerResumeDownload.php?'
         if jr:
             try:
@@ -524,11 +525,11 @@ class Detail(object):
 ********* HR 数据自动化 *********
 负责人：{handler}
 状态原因：智联{company_name}每日下载简历数据信息导入程序异常
-处理标准：请人为到服务器登陆处理验证码或者替换cookie,也可以找相关技术人员协助
+处理标准：请在自己账号上面处理验证码,或者cookie也可以找相关技术人员协助
 """
             send_rtx_msg(msg)
-            print('大处理完毕后按回车')
-            input('>')
+            # print('大处理完毕后按回车')
+            # input('>')
 
 
 def send_rtx_msg(msg):
@@ -548,11 +549,17 @@ def send_rtx_msg(msg):
 
 def timer(set_time):
     def work_time(func):
+        # 下面是废了的 不过懒得改了 毕竟标准的我存档了
         @wraps(func)
         def wrapper(*args, **kwargs):
+            t = time.strftime("%H:%M", time.localtime())
             if set_time not in ['Sun']:
-                t = time.strftime("%H:%M", time.localtime())
-                if t in ['11:59', '22:59']:
+                if t in ['11:55', '23:30', '08:20', '16:20', '19:00']:
+                    func(*args, **kwargs)
+                else:
+                    print(f'\r{t}', end='')
+            else:
+                if t in ['11:55', '22:30', '08:20', '16:20', '19:00']:
                     func(*args, **kwargs)
                 else:
                     print(f'\r{t}', end='')
@@ -560,22 +567,23 @@ def timer(set_time):
     return work_time
 
 
-@timer(time.strftime('%a', time.localtime()))
+# @timer(time.strftime('%a', time.localtime()))
 def main():
     app = Detail()
     app.run()
 
 
 if __name__ == '__main__':
-    print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
-    input('>>>')
-    while True:
-        try:
-            main()
-        except Exception as e:
-            print('程序错误， 等待重启')
-            break
-        else:
-            for _ in range(60):
-                time.sleep(1)
+    main()
+    # print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
+    # input('>>>')
+    # while True:
+    #     try:
+    #         main()
+    #     except Exception as e:
+    #         print('程序错误， 等待重启')
+    #         break
+    #     else:
+    #         for _ in range(60):
+    #             time.sleep(1)
 

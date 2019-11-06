@@ -1,6 +1,0 @@
-2019-09-24 11:33:51,305 combine_all.py[line:748]INFO - 当前在第1页，页面数据有0条,全部数据有32条
-2019-09-25 16:03:53,916 combine_all.py[line:746]INFO - 当前在第1页，页面数据有20条,全部数据有318条
-2019-09-25 16:04:04,268 combine_all.py[line:1156]INFO - 数据的插入详情为:{"error_code":0,"msg":"success"}
-2019-09-25 16:04:15,666 combine_all.py[line:1156]INFO - 数据的插入详情为:{"error_code":0,"msg":"success"}
-2019-09-25 16:15:29,337 combine_all.py[line:1195]INFO - 今天没有简历...
-2019-09-25 16:16:03,148 combine_all.py[line:746]INFO - 当前在第1页，页面数据有20条,全部数据有324条

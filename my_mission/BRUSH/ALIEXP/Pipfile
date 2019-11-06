@@ -1,0 +1,15 @@
+[[source]]
+name = "pypi"
+url = "http://pypi.douban.com/simple/"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+selenium = "*"
+requests = "*"
+apscheduler = "*"
+lxml = "*"
+
+[requires]
+python_version = "3.7"

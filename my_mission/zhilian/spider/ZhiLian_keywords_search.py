@@ -6,7 +6,6 @@ import json
 import re
 import random
 import requests
-import pymysql
 # from urllib.request import quote
 from utils.logger import *    # includes logging infos
 from selenium import webdriver
@@ -25,7 +24,8 @@ urllib3.disable_warnings()
 # 如果是标准的大字典模式，就可以交给self.get_api_cookie()来处理
 ip_info = "http://192.168.1.112:8000/api/"
 # 其实这个搜索也只需要一个人的账号就好了 不用其它账号了
-from spider import python_config
+from helper import python_config
+
 receivers = python_config.receivers
 company_name = python_config.company_name
 handler = python_config.handler
@@ -644,7 +644,7 @@ class ZhiLian(object):
 
         resume['name'] = name
         resume['mobile_phone'] = mobile_phone
-        resume['company_dpt'] = 1  # 广州 义乌 但是这个表肯能不传这个信息
+        resume['company_dpt'] = 1                          # 广州 义乌 但是这个表肯能不传这个信息
         resume['resume_key'] = resume_key
         resume['gender'] = gender
         resume['date_of_birth'] = date_of_birth
@@ -801,7 +801,8 @@ class ZhiLian(object):
 
     def chose_date(self):
         time.sleep(2)
-        optional = self.driver.find_element_by_xpath('//div[@class="k-form-item resume-filter-item resume-filter-item__search-apply-date"]//div[@class="k-select is-block"]//span/i[1]')
+        optional = self.driver.find_element_by_xpath(
+            '//div[@class="k-form-item resume-filter-item resume-filter-item__search-apply-date"]//div[@class="k-select is-block"]//span/i[1]')
         self.driver.execute_script("arguments[0].click();", optional)
         try:
             time.sleep(3)

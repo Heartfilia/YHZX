@@ -37,7 +37,7 @@ class NotDownloadError(Exception):
 
 class Job51Down(object):
     def __init__(self):
-        self.down_url = 'https://ehire.51job.com/InboxResume/CompanyHRDefault2.aspx?Page=2'
+        self.down_url = 'https://ehire.51job.com/InboxResume/TalentCandidateList.aspx?Page=2&Folder=BAK'
         self.session = requests.Session()
         self.base_dir = os.path.dirname(os.path.abspath(os.path.abspath(__file__)))  # E:\Project\Job51_bak\spider
         self.options = webdriver.ChromeOptions()
@@ -52,7 +52,10 @@ class Job51Down(object):
         self.do_click_search()
 
     def do_click_search(self):
-        today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time() - 86400))
+        today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+        # today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time() - 86400))
+        # today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time() - 86400 * 2))
+        # today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time() - 86400 * 3))
         time.sleep(random.uniform(0, 1))
         chose_btn = self.driver.find_element_by_xpath('//*[@id="form1"]/div[4]/div/div[4]/div[2]/ul[2]/li[4]/select')
         chose_btn.click()
@@ -76,6 +79,8 @@ class Job51Down(object):
             return False
         else:
             for i in range(1, tic_num + 1):
+            # for i in range(1, 51):
+            #     if i == 37:
                 self.driver.switch_to.window(self.driver.window_handles[0])
                 time.sleep(1)
                 try:
@@ -88,25 +93,25 @@ class Job51Down(object):
                 window = self.driver.window_handles
                 self.driver.switch_to.window(self.driver.window_handles[len(window) - 1])
 
-                current_url = self.driver.current_url
-                e_id = re.findall(r'hidSeqID=(\d+)&?', current_url)
-                if e_id:
-                    e_id = e_id[0]
-                else:
-                    continue
+                # current_url = self.driver.current_url
+                # e_id = re.findall(r'hidSeqID=(\d+)&?', current_url)
+                # if e_id:
+                #     e_id = e_id[0]
+                # else:
+                #     continue
 
-                self.get_xml_info(e_id)
+                self.get_xml_info()
                 self.driver.close()
 
-    def get_xml_info(self, ex_id):
+    def get_xml_info(self):
         time.sleep(random.uniform(2, 3))
         html = self.driver.page_source
+        # print(html)
         xpt = etree.HTML(html)
         ne = self.driver.find_element_by_xpath('//td[@id="tdseekname"]').text.strip()
-        name = re.findall(r'(\S*)', ne)[0]
-        mobile_phone = self.driver.find_element_by_xpath(
-            '//*[@id="divResume"]/tbody/tr/td/table[2]/tbody/tr[2]/td/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]'
-        ).text.strip()
+        name = re.findall(r'(.*?)和Ta聊聊标签', ne)[0]
+        mobile_phone = re.findall(r'phone.png"></td><td valign="top">(.*?)</td>', html)
+        mobile_phone = mobile_phone[0] if mobile_phone else ''
         company_dpt = 1
         resume_key = ''
         all_detail = self.driver.find_elements_by_xpath('//table[@class="infr"]/tbody/tr[3]/td[1]')
@@ -131,7 +136,12 @@ class Job51Down(object):
         try:
             email = self.driver.find_element_by_xpath('//*[@id="divResume"]/tbody/tr/td/table[2]/tbody/tr[2]/td/table[2]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]/table/tbody/tr/td[2]/a')
         except Exception as e:
-            email = ''
+            try:
+                email = self.driver.find_element_by_xpath('//*[@id="divResume"]/table[1]/tbody/tr/td/table[1]/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[6]/div/a')
+            except Exception as e:
+                email = ''
+            else:
+                email = email.text
         else:
             email = email.text
         home_telephone = ''
@@ -199,68 +209,102 @@ class Job51Down(object):
             except Exception as e:
                 word_experience = []
 
+        # try:
+        #     tr2_info = self.driver.find_elements_by_xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr')
+        #     project_experience = []
+        #     tr2_num = len(tr2_info)
+        # except Exception as e:
+        #     project_experience = []
+        # else:
+        #     try:
+        #         for i in range(tr2_num):
+        #             time_info = self.driver.find_element_by_xpath(
+        #                 f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]').text
+        #             pro_name = self.driver.find_elements_by_xpath(
+        #                 f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]').text
+        #             project_details = self.driver.find_elements_by_xpath(
+        #                 f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="txt1"]').text
+        #
+        #             dic = {
+        #                 '项目时间': time_info,
+        #                 '项目名称': ''.join(pro_name),
+        #                 '描述': ''.join(project_details)
+        #             }
+        #
+        #             project_experience.append(dic)
+        #     except Exception as e:
+        #         for i in range(tr2_num):
+        #             time_info = self.driver.find_element_by_xpath(
+        #                 f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]').text
+        #             pro_name = self.driver.find_elements_by_xpath(
+        #                 f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]').text
+        #             project_details = self.driver.find_elements_by_xpath(
+        #                 f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="txt1"]').text
+        #
+        #             dic = {
+        #                 '项目时间': time_info,
+        #                 '项目名称': ''.join(pro_name),
+        #                 '描述': ''.join(project_details)
+        #             }
+        #
+        #             project_experience.append(dic)
+
         try:
             table_num2 = table_info.index('项目经验')
             if not table_str:
                 table_num2 += 1
         except Exception as e:
+            # print(e)
             project_experience = []
         else:
-            tr2_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr')
+            tr2_info = xpt.xpath(f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr')
             project_experience = []
             tr2_num = len(tr2_info)
             for i in range(tr2_num):
                 time_info = xpt.xpath(
-                    f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')
+                    f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')
                 pro_name = xpt.xpath(
-                    f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')
+                    f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')
                 project_details = xpt.xpath(
-                    f'//*[@id="divInfo"]//tbody/tr/td[text()="项目经验"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="txt1"]/text()')
+                    f'//tr[@id="divInfo"]/td/table[{table_num2 + 1}]/tbody/tr[2]/td/table/tbody/tr[{i + 1}]//td[@class="txt1"]/text()')
 
                 dic = {
                     '项目时间': time_info[0],
-                    '项目名称': ''.join(pro_name),
-                    '描述': ''.join(project_details)
+                    '项目名称': pro_name[0],
+                    '描述': project_details[0] if project_details else ''
                 }
 
                 project_experience.append(dic)
 
+        education = []
+
         try:
-            table_num3 = table_info.index('教育经历')
-            if not table_str:
-                table_num3 += 1
+            tr3_info = self.driver.find_elements_by_xpath(
+                f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr')
+            tr3_num = len(tr3_info)
+            for i in range(tr3_num):
+                time_info = self.driver.find_element_by_xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]').text
+                school_name = self.driver.find_element_by_xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]').text
+                class_rate = xpt.xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[
+                    0]
+                main_major = xpt.xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[
+                    2]
+                dic = {
+                    '教育时间': time_info,
+                    '学校名称': school_name,
+                    '专业等级': class_rate,
+                    '主研专业': main_major
+                }
+                education.append(dic)
+
         except Exception as e:
             # print(e)
-            education = []
-        else:
-            try:
-                tr3_info = xpt.xpath(
-                    f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr')
-                education = []
-                tr3_num = len(tr3_info)
-                for i in range(tr3_num):
-                    time_info = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[0]
-                    school_name = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
-                        0]
-                    class_rate = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]//text()')[
-                        0]
-                    main_major = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="教育经历"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="phd tb1"]/span/text()')[
-                        1]
-                    dic = {
-                        '教育时间': time_info,
-                        '学校名称': school_name,
-                        '专业等级': class_rate,
-                        '主研专业': main_major
-                    }
-                    education.append(dic)
+            pass
 
-            except Exception as e:
-                # print(e)
-                education = []
 
         honors_awards = ''
         practical_experience = ''
@@ -269,43 +313,32 @@ class Job51Down(object):
         it_skill = ''
         certifications = []
         try:
-            table_num4 = table_info.index('技能特长')
-            if not table_str:
-                table_num4 += 1
+            tr4_info = xpt.xpath(f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr')
+            tr4_num = len(tr4_info)
+            for i in range(tr4_num):
+                time_info = self.driver.find_element_by_xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()').text
+                certifications_name = self.driver.find_element_by_xpath(
+                    f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()').text
+                dic = {
+                    '获得时间': time_info,
+                    '名称': certifications_name,
+                }
+
+                certifications.append(dic)
         except Exception as e:
             # print(e)
-            certifications = []
-        else:
-            try:
-                tr4_info = xpt.xpath(
-                    f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr')
-                education = []
-                tr4_num = len(tr4_info)
-                for i in range(tr4_num):
-                    time_info = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="time"]/text()')[
-                        0]
-                    certifications_name = xpt.xpath(
-                        f'//*[@id="divInfo"]//tbody/tr/td[text()="技能特长"]/../../tr/td/table/tbody/tr[{i + 1}]//td[@class="rtbox"]//text()')[
-                        0]
-                    dic = {
-                        '获得时间': time_info,
-                        '证书名称': certifications_name,
-                    }
-
-                    certifications.append(dic)
-            except Exception as e:
-                # print(e)
-                education = []
+            pass
 
         otherinfo = ''  #
         source_file = ''  #
         is_viewed = 1  #
-        r_date = xpt.xpath('//span[@id="lblResumeUpdateTime"]/b/text()')
-        resume_date = time.strftime("%Y-%m-%d", time.localtime())
-        update_date = r_date[0] if r_date else ''
+        update_date = self.driver.find_element_by_xpath('//*[@id="applyUpdateTime"]').text.strip()
+        resume_date = time.strftime("%Y-%m-%d", time.localtime(time.time()))
         get_type = 2
-        external_resume_id = ex_id
+        ex_id = re.findall(r'RefreshResumeList\((\d+)\)"><img', html)
+        # print(ex_id)
+        external_resume_id = ex_id[0] if ex_id else ''
 
         dic = {
             'resume_from': 1,
@@ -356,16 +389,17 @@ class Job51Down(object):
         }
 
         load_json = {
-            'add_user': python_config.account_main,
+            'add_user': python_config.download_user,
             'account': python_config.download_user,
             "data": [dic]
         }
 
-        self.post_resume(load_json)
+        if mobile_phone and external_resume_id:
+            self.post_resume(load_json)
 
     def post_resume(self, resume):
-        resume2 = json.dumps(resume)
-        print('resume:', resume2)
+        # resume2 = json.dumps(resume)
+        print('resume:', resume)
         url = POST_URL
         rq = self.session.post(url, json=resume)
         LOG.info(f'数据的插入详情为:{rq.text}')
@@ -393,10 +427,12 @@ def send_rtx_msg(msg, flag=None):
         "receivers": receivers,
         "msg": msg,
     }
-    # requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+    requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
 if __name__ == '__main__':
     app = Job51Down()
     app.run()
+    # app.do_click_search()
+    # app.post_resume(1)
     print('\033[1;45m 程序结束 \033[0m')

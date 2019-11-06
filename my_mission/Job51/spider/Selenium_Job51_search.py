@@ -12,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # test cookie
-POST_Search_URL = 'http://hr.gets.com:8989/api/autoInsertResume.php?'
+POST_URL = 'http://hr.gets.com:8989/api/autoInsertResume.php?'
 # 前程 关键字搜索 简历
 receivers = python_config.receivers
 handler = python_config.handler
@@ -20,7 +20,7 @@ company_name = python_config.company_name
 chrome_port = python_config.chrome_port
 
 
-class Job51Search(object):
+class Job51(object):
     def __init__(self):
         with open('cookies.json', 'r') as f:
             self.cookies = json.loads(f.read())['cookies']
@@ -583,7 +583,7 @@ class Job51Search(object):
     def post_resume(self, resume):
         resume2 = json.dumps(resume)
         print('resume:', resume2)
-        url = POST_Search_URL
+        url = POST_URL
         rq = self.session.post(url, json=resume)
         LOG.info(f'数据的插入详情为:{rq.text}')
 
@@ -641,7 +641,7 @@ if __name__ == '__main__':
             search_time = time.strftime('%H', time.localtime())
             if search_time in ['10']:
                 try:
-                    app = Job51Search()
+                    app = Job51()
                     app.run()
                 except Exception as e:
                     msg = f"""

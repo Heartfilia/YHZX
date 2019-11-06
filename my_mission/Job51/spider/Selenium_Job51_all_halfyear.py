@@ -20,7 +20,7 @@ company_name = python_config.company_name
 chrome_port = python_config.chrome_port
 
 
-class Job51HalfYear(object):
+class Job51(object):
     def __init__(self):
         with open('cookies.json', 'r') as f:
             self.cookies = json.loads(f.read())['cookies']
@@ -608,7 +608,7 @@ def send_rtx_msg(msg):
         "receivers": receivers,
         "msg": msg,
     }
-    Job51HalfYear().session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+    Job51().session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
 if __name__ == '__main__':
@@ -619,7 +619,7 @@ if __name__ == '__main__':
         if time_info in ['Sun']:
             sure_time = time.strftime('%H:%M', time.localtime())
             if sure_time in ['09:30']:
-                app = Job51HalfYear()
+                app = Job51()
                 app.run()
 
         for _ in range(60):

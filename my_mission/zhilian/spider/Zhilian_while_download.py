@@ -7,7 +7,6 @@ import importlib
 import json
 import re
 import random
-from functools import wraps
 import requests
 from utils.logger import *    # includes logging infos
 from selenium import webdriver
@@ -26,7 +25,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Here are locally stored cookies. If it is in the selenium format, you don't need to use them
 # In the case of the standard large dictionary pattern, you can hand it by self.get_api_cookie()
-from spider import python_config
+from helper import python_config
+
 receivers = python_config.receivers
 company_name = python_config.company_name
 handler = python_config.handler

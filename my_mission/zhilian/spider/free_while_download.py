@@ -17,6 +17,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from fake_useragent import UserAgent
 # =================================== #
+from helper import python_config
 import urllib3
 ua = UserAgent()
 
@@ -26,9 +27,10 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Here are locally stored cookies. If it is in the selenium format, you don't need to use them
 # In the case of the standard large dictionary pattern, you can hand it by self.get_api_cookie()
+
 receivers = "系统机器人"
-company_name = '时时美'
-handler = '陈淼灵'
+company_name = python_config.company_name
+handler = python_config.handler
 
 
 class ResumeDownloader(object):
@@ -181,7 +183,7 @@ class ResumeDownloader(object):
         self.options.add_argument("--no-sandbox")
         self.options.add_argument('--disable-gpu')
         # self.options.add_argument('lang=zh-CN,zh,zh-TW,en-US,en')
-        self.options.add_experimental_option("debuggerAddress", "127.0.0.1:9221")
+        self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.CHROME_PORT}")
         # self.options.add_experimental_option('excludeSwitches', ['enable-automation'])
         self.driver = webdriver.Chrome(options=self.options)
 
@@ -332,24 +334,33 @@ class ResumeDownloader(object):
             list_dict = json.loads(list_dict.text)
             if list_dict:
                 # extract content to search and download deliver then send to api_post
+                down_list = []
+                down_account = python_config.DOWN_ACCOUNT
                 for ld in list_dict:
                     window = self.driver.window_handles
                     self.driver.switch_to.window(window[0])         # make sure that it was in search window
                     external_resume_id = ld['external_resume_id']   # this is keyword, i need to search deliver by this
                     if external_resume_id.isdigit():
                         continue
-                    resume_id = ld['resume_id']                   # i need to change this name to noneDlivery_resume_id
-                    download_user = ld['download_user']           # who download
+                    if down_account in ld['account']:
+                        down_list.append({
+                            "external_resume_id": ld['external_resume_id'],
+                            "resume_id": ld['resume_id']
+                        })
+
+                for ld in down_list:
+                    # resume_id = ld['resume_id']                   # i need to change this name to noneDlivery_resume_id
+                    # download_user = ld['download_user']           # who download
                     input_box = self.driver.find_element_by_xpath('//div[@id="form-item-54"]/div/input')
                     input_box.clear()
-                    input_box.send_keys(external_resume_id)
+                    input_box.send_keys(ld['external_resume_id'])
                     time.sleep(0.5)
                     search = self.driver.find_element_by_xpath(
                         '//*[@id="resume-filter-form"]/div/div/div[2]/div/button[2]')
                     self.driver.execute_script("arguments[0].click();", search)
                     time.sleep(1)
 
-                    flag = self.do_get_only_one(resume_id, download_user)  # Not do 1
+                    flag = self.do_get_only_one(ld['resume_id'])  # Not do 1
                     if flag == 'continue':
                         continue
                     elif flag == 'pass':
@@ -366,7 +377,7 @@ class ResumeDownloader(object):
             else:
                 # sleep random time and then requests again
                 quarter_hour = time.localtime(time.time()).tm_min
-                if quarter_hour in [0, 15, 30, 45]:
+                if quarter_hour in [0, 30]:
                     # each quarter_hour to refresh this site to keep session alive
                     print('every half an hour, make fresh')
                     self.driver.refresh()
@@ -386,7 +397,7 @@ class ResumeDownloader(object):
                         print(f'\rThe Program is waiting :{x}', end='', flush=True)
                         time.sleep(1)
 
-    def do_get_only_one(self, resume_id, download_user):
+    def do_get_only_one(self, resume_id):
         """
         try to search this unique resume and download it
         :return:
@@ -399,7 +410,7 @@ class ResumeDownloader(object):
                     (By.XPATH, '//*[@id="root"]/div[1]/div[4]/div[3]/table/tbody/tr[1]/td[2]/div/a'))
             )
         except Exception as e:
-            print('>> continue')
+            print('>> 没有搜到,这个账号不能搜到这个简历')
             return 'continue'
         else:
             try:
@@ -421,6 +432,13 @@ class ResumeDownloader(object):
                 print('the progress not found the only one you want')   # although it might not be appeared
                 return 'continue'
             else:
+                last_down_num = self.driver.find_element_by_xpath('//*[@id="root"]/div[1]/div[2]/div[2]/span').text
+                if int(last_down_num) == 0:
+                    print('这个账号没有下载次数了,消除了吧')
+                    clear_url = 'http://hr.gets.com:8989/api/autoGetKeyword.php?type=download_fail&resume_id='
+                    requests.get(clear_url + resume_id)
+                    return 'continue'
+
                 name_button = self.driver.find_element_by_xpath('//tbody[@class="k-table__body"]/tr[1]/td[2]/div/a')
                 self.driver.execute_script("arguments[0].click();", name_button)
                 time.sleep(2)
@@ -433,7 +451,8 @@ class ResumeDownloader(object):
                 flag = self.do_judge_whether_down()
 
                 if flag:
-                    down_key = self.driver.find_element_by_xpath('//div[@class="affix-top"]/ul/li[1]/a')
+                    down_key = self.driver.find_element_by_xpath(
+                        '//*[@id="resume-detail-wrapper"]/div[1]/div[2]/div/div[1]/div[2]/a[2]')
                     if '收藏' in down_key.text:
                         print('this resume has been already downloaded')
                     else:
@@ -443,17 +462,17 @@ class ResumeDownloader(object):
                         time.sleep(1)
                         page_source = self.driver.page_source
                         self.do_chose_right_position(page_source)
-                        self.do_pop_box_info_and_down(page_source, resume_id, download_user)
+                        self.do_pop_box_info_and_down(page_source, resume_id)
                 else:
                     print('Upload_again')
                     time.sleep(1)
                     page_source = self.driver.page_source
-                    self.do_pop_box_info_and_down(page_source, resume_id, download_user, True)
+                    self.do_pop_box_info_and_down(page_source, resume_id, True)
 
                 time.sleep(2)
                 return 'pass'
 
-    def do_pop_box_info_and_down(self, page_source, resume_id, download_user, value=None):
+    def do_pop_box_info_and_down(self, page_source, resume_id, value=None):
         """
         get account info and download
         :return:
@@ -472,7 +491,7 @@ class ResumeDownloader(object):
             resume = self.deal_info(info)
 
             if resume:
-                self.post_resume(resume, resume_id, download_user)
+                self.post_resume(resume, resume_id)
         else:
             try:
                 WebDriverWait(self.driver, 10, poll_frequency=0.5).until(
@@ -502,12 +521,11 @@ class ResumeDownloader(object):
                 _resumeNo_ = url.split('?')[1].split('&')[2].split('=')[1]
                 info = self.do_get_requests_detail(_resumeNo_)
                 if info['code'] == 1:
-                    # print('链接已失效')
                     self.driver.close()
                 else:
                     resume = self.deal_info(info)
                     if resume:
-                        self.post_resume(resume, resume_id, download_user)
+                        self.post_resume(resume, resume_id)
 
                     time.sleep(1)
                 self.driver.switch_to.window(self.driver.window_handles[0])
@@ -515,7 +533,7 @@ class ResumeDownloader(object):
         self.driver.switch_to.window(self.driver.window_handles[0])
 
     def do_chose_right_position(self, page_source):
-        keywords = ['ebay', 'amazon', 'ali', 'python', 'php', 'HR', '行政', '采购', '财务', '外贸', 'shopify', '阿里']
+        keywords = ['python', 'php', 'HR', '行政', '采购', '财务', '外贸', '销售', '阿里']
         for key in keywords:
             regx = re.findall(key, page_source)
             print("regx:", regx)
@@ -552,13 +570,35 @@ class ResumeDownloader(object):
 
     def do_judge_whether_down(self):
         # key_status = self.driver.find_element_by_xpath('//div[@class="resume-content__status-box"]/p').text
-        try:
-            WebDriverWait(self.driver, 3).until(
-                EC.presence_of_element_located((
-                    By.XPATH,
-                    '//*[@id="resume-detail-wrapper"]/div[1]/div[2]/div/div[1]/div[1]/span[2]'))
-            )
-        except Exception as e:
+        # try:
+        #     WebDriverWait(self.driver, 3).until(
+        #         EC.presence_of_element_located((
+        #             By.XPATH,
+        #             '//*[@id="resume-detail-wrapper"]/div[1]/div[2]/div/div[1]/div[2]/a[1]'))
+        #     )
+        # except Exception as e:
+        #     key_status = re.findall('收费|付费', self.driver.page_source)
+        #     print('current fee status:', key_status if key_status else 'None')
+        #     # return False
+        #     time.sleep(1)
+        #     # self.driver.close()
+        #     if key_status:
+        #         # now, the status is not downloaded >> to do download
+        #         print('do_judge_whether_down: return True')
+        #         return True
+        #     else:
+        #         print('do_judge_whether_down: return False')
+        #         return False
+        # else:
+        #     LOG.info('金领简历，已经跳过')
+        #     return False
+
+        text_label = self.driver.find_element_by_xpath(
+            '//*[@id="resume-detail-wrapper"]/div[1]/div[2]/div/div[1]/div[2]/a[1]').text
+        if '下载' in text_label:
+            LOG.info('金领简历，已经跳过')
+            return False
+        else:
             key_status = re.findall('收费|付费', self.driver.page_source)
             print('current fee status:', key_status if key_status else 'None')
             # return False
@@ -571,20 +611,15 @@ class ResumeDownloader(object):
             else:
                 print('do_judge_whether_down: return False')
                 return False
-        else:
-            LOG.info('金领简历，已经跳过')
-            return False
 
-    def post_resume(self, jr, resume_id, download_user):
+    def post_resume(self, jr, resume_id):
         info = {
             'noneDlivery_resume_id': resume_id,
-            'add_user': download_user,
+            'add_user': python_config.staffName,
+            'account': python_config.account_from,
             'data': [jr]
         }
-        # with open('ttt.txt', 'w', encoding='utf-8') as f:
-        #     f.write(str(info))
         print('info:', info)
-        # url = 'http://testhr.gets.com:8989/api/autoOwnerResumeDownload.php?'  # here is the post api
         url = 'http://hr.gets.com:8989/api/autoOwnerResumeDownload.php?'
         if jr:
             try:
@@ -608,7 +643,7 @@ class ResumeDownloader(object):
         # account = resume_id  # job['orgName']
 
         name = candidate['userName']
-        mobile_phone = candidate['mobilePhone'] if candidate['mobilePhone'] else f'001234{random.randint(1000,9999)}'  # 如果为金领简历 那么电话号码就会变成这样
+        mobile_phone = candidate['mobilePhone'] if candidate['mobilePhone'] else f''
         company_dpt = 1
         resume_key = ''
         gender = detail['Gender']
@@ -962,6 +997,7 @@ class ResumeDownloader(object):
 def main():
     app1 = ResumeDownloader()
     app1.run()
+    # app1.search_page()
 #     while True:
 #         print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
 #         input('>>>')

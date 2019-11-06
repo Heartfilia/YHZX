@@ -21,7 +21,7 @@ company_name = python_config.company_name
 chrome_port = python_config.chrome_port
 
 
-class Job51Send(object):
+class Job51(object):
     def __init__(self):
         with open('cookies.json', 'r') as f:
             self.cookies = json.loads(f.read())['cookies']
@@ -185,18 +185,18 @@ def send_rtx_msg(msg, flag=None):
         "receivers": receivers,
         "msg": msg,
     }
-    Job51Send().session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
+    Job51().session.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
 if __name__ == '__main__':
-    app = Job51Send()
+    app = Job51()
     app.run()
     print('\033[1;45m 在此输入任意字符后程序再开始运行 \033[0m')
     input('>>>')
     while True:
         time_info = time.strftime('%a', time.localtime())
         if time_info not in ['Sun']:
-            app = Job51Send()
+            app = Job51()
             app.run()
 
         for _ in range(60):

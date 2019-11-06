@@ -18,19 +18,19 @@
   <component name="ProjectId" id="1PMN5sX3fQvpYJXHHs3TYNA0jiu" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Job51" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\Job51_yhzx" />
+      <recent name="C:\Users\Administrator\Desktop\Job51_yhzx\Job51" />
+      <recent name="C:\Users\Administrator\Desktop\Job51_yhzx\spider" />
+      <recent name="C:\Users\Administrator\Desktop\Job51_yhzx\spider\helper" />
+      <recent name="C:\Users\Administrator\Desktop\Job51_bak\spider" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\BAK\Job51_bak\spider" />
       <recent name="E:\BAK\Job51_bak\Job51" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\Job51_ssm\Job51" />
-      <recent name="C:\Users\Administrator\Desktop\Job51_ssm\spider" />
-      <recent name="C:\Users\Administrator\Desktop\Job51_2\spider" />
-      <recent name="C:\Users\Administrator\Desktop\Job51_bak\spider" />
-      <recent name="E:\Project\Job51_bak\spider" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -45,49 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.combine_all">
-    <configuration name="Selenium_Job51_all_halfyear" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Job51_bak" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spider" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider/Selenium_Job51_all_halfyear.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Selenium_Job51_send" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Job51_bak" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spider" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider/Selenium_Job51_send.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.detail_and_down">
     <configuration name="combine_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Job51_bak" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +59,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider/combine_all.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cost_much_detect_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Job51_bak" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Job51" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Job51/cost_much_detect_all.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="detail_and_down" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Job51_bak" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Job51" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Job51/detail_and_down.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -130,7 +130,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="free_Job51_search" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="free_Job51_download" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Job51_bak" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -142,7 +142,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider/free_Job51_search.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider/free_Job51_download.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.detail_and_down" />
         <item itemvalue="Python.combine_all" />
         <item itemvalue="Python.download_today" />
-        <item itemvalue="Python.Selenium_Job51_all_halfyear" />
-        <item itemvalue="Python.Selenium_Job51_send" />
-        <item itemvalue="Python.free_Job51_search" />
+        <item itemvalue="Python.cost_much_detect_all" />
+        <item itemvalue="Python.free_Job51_download" />
       </list>
     </recent_temporary>
   </component>

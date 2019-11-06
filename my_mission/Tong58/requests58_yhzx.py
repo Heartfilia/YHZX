@@ -79,6 +79,7 @@ class TongCheng(object):
     def post_data_auto(self, resume_data):
         info = {
             'account': python_config.account_from,
+            'job_name': resume_data.get('resume_key', ''),
             'data': [resume_data]
         }
         url = python_config.POST_URL
@@ -94,11 +95,13 @@ class TongCheng(object):
         referer_url = 'https://employer.58.com/resumereceive?'
         headers = self.requests_headers(referer_url)
         for pg in range(1, 2):      # 这里是自定义爬取多少页，每页50条，反正50条才请求一次，bomb
+            print(f'当前页为{pg}页...')
             time.sleep(random.uniform(1, 2))
-            now_pg_data = requests.get(self.auto_resume_api, params={'pageindex': pg}, headers=headers, verify=False)
+            now_pg_data = requests.get(self.auto_resume_api, params={'pageindex': pg}, headers=headers)
             new_data = now_pg_data.text.lstrip('(').rstrip(')')
             new_data = json.loads(new_data)
             resume_data = new_data['data']['resumeList']
+            print(resume_data)
             yield resume_data
 
     def auto_resume(self):
@@ -116,7 +119,9 @@ class TongCheng(object):
             gender_judge = data['sex']
             work_exp = data['experiences']
             if work_exp:
-                work_experience = []
+                work_experience = [{'应聘岗位': data['targetPosition']}]
+                job_name = data['targetPosition'] if data['targetPosition'] else ''
+                work_experience.append({"应聘岗位": job_name})
                 for each_work in work_exp:
                     work_info = {
                         '起止时间': each_work['startDate'] + '-' + each_work['endDate'],
@@ -136,7 +141,7 @@ class TongCheng(object):
             json_info = {
                 'name': name,
                 'mobile_phone': phone_num,
-                'company_dpt': 1,  # 不确定写啥
+                'company_dpt': 2,  # 不确定写啥
                 'resume_key': data['targetPosition'] if data['targetPosition'] else '',
                 'gender': 2 if gender_judge == '0' else 1,
                 'date_of_birth': f'{now_year - age}-01-01',
@@ -197,48 +202,12 @@ def send_rtx_msg(msg):
         "receivers": python_config.receivers,
         "msg": msg,
     }
-    # requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
-
-
-def clear_timer(set_time):
-    """
-    一个简单地定时器装置, 放入的 set_time 必须为集合, 列表, 元组。 里面的元素必须为字符串::方便设置指定的时间比如('18:21')
-    :param set_time: 设定的触发时间: 全称: 小时。
-    :return:
-    """
-
-    def work_time(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            now_time = time.strftime("%H:%M", time.localtime())
-            if now_time in set_time:
-                print()
-                func(*args, **kwargs)
-                print('\r这个程序停了,正在休眠中...', end='')
-                time.sleep(60)
-            else:
-                print('\r这个程序停了,继续休眠中...', end='')
-                time.sleep(60)
-
-        return wrapper
-    return work_time
-
-
-@clear_timer(['09:00', '11:30', '16:00', '18:30', '23:55'])
-def main_auto():
-    app = TongCheng()
-    app.run_auto()
+    requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
 def main():
     app = TongCheng()
     app.run_auto()
-    print('调试的时候卡死在这里')
-    time.sleep(10000)
-    while True:
-        t_auto = Thread(target=main_auto)
-        t_auto.start()
-        t_auto.join()
 
 
 if __name__ == '__main__':

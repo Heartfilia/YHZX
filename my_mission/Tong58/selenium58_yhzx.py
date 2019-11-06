@@ -4,7 +4,7 @@
 # @Author  : Lodge
 import os
 import re
-from threading import Thread
+# from threading import Thread
 
 import cv2
 import sys
@@ -15,7 +15,7 @@ import random
 import logging
 import urllib3
 import importlib
-from functools import wraps
+# from functools import wraps
 from logging import getLogger
 import matplotlib.pyplot as plt
 from fontTools.ttLib import TTFont
@@ -79,6 +79,7 @@ class TongCheng(object):
                 'data': [info_json]
             }
             url = python_config.POST_URL_DOWN
+            print('info:', info)
             try:
                 response = self.session.post(url, json=info)
             except Exception as e:
@@ -92,7 +93,7 @@ class TongCheng(object):
     def down_compare_img():
         image_dynamic = BASE_DIR + r"\helper\fonts\plt.png"   # 这就是动态的图片,通过前面程序保存的
 
-        print('开始比较图片中...')
+        # print('开始比较图片中...')
         for i in range(10):  # 意思就是识别图片0 到 9
             time.sleep(0.1)
             image1 = BASE_DIR + rf"\helper\fonts\digit_{i}.png"     # 待识别的字符图片
@@ -101,7 +102,7 @@ class TongCheng(object):
             gray_a = cv2.cvtColor(image_a, cv2.COLOR_BGR2GRAY)
             gray_b = cv2.cvtColor(image_b, cv2.COLOR_BGR2GRAY)
             (score, diff) = compare_ssim(gray_a, gray_b, full=True)
-            print(f'当前秒为{time.localtime().tm_sec}:图片比较中...和{i}的相似度为{score:.3f}...')
+            # print(f'当前秒为{time.localtime().tm_sec}:图片比较中...和{i}的相似度为{score:.3f}...')
 
             if score > 0.86:    # 应该这个 魔法 数字比较好用
                 return str(i)   # 返回的就是那个数字
@@ -168,7 +169,7 @@ class TongCheng(object):
                         plt.close()
                         # plt.show()   # 这个和上面那个功能会重置坐标 如果两个都要显示的话 不要放上句前面
 
-                        print('准备比较相似程度...')
+                        # print('准备比较相似程度...')
                         sub_key = self.down_compare_img()
                         # sub_key = main_ocr()   # 调用百度的识别，发现很慢
 
@@ -221,7 +222,7 @@ class TongCheng(object):
             json_info = {
                 'name': name + '(号码3天有效)',
                 'mobile_phone': phone_num,
-                'company_dpt': 1,
+                'company_dpt': 2,
                 'resume_key': data['expectCateName'],
                 'gender': 2 if gender_judge == '0' else 1,
                 'date_of_birth': f'{now_year}-01-01',
@@ -272,6 +273,7 @@ class TongCheng(object):
         if num != 0:
             time.sleep(0.2)
             for i in range(1, num+1):
+                time.sleep(0.2)
                 each_pos = self.driver.find_element_by_xpath(
                     f'/html/body/div[2]/div[2]/div[1]/div[4]/div[2]/ul/li[{i}]/div[1]/div[3]/section[1]'
                 )
@@ -281,7 +283,14 @@ class TongCheng(object):
                         f'/html/body/div[2]/div[2]/div[1]/div[4]/div[2]/ul/li[{i}]/div[1]/div[3]/section[1]/a'
                     )
                     self.driver.execute_script("arguments[0].click();", each_pos_c)
-                    time.sleep(0.3)
+                    time.sleep(0.2)
+                    try:
+                        click_sure = self.driver.find_element_by_xpath(
+                            '/html/body/div[14]/div[2]/div/div[2]/div/div/a[2]')
+                    except Exception as e:
+                        pass
+                    else:
+                        self.driver.execute_script("arguments[0].click();", click_sure)
 
     @staticmethod
     def requests_headers(referer_url):
@@ -301,15 +310,24 @@ class TongCheng(object):
         headers = self.requests_headers(referer_url)
         pgs = people_num // 50 + 1
         for pg in range(1, pgs+1):
-            LOG.info(f'当前下载页为:{pg}, 页面数据有{people_num}条')
+            LOG.info(f'当前下载页为:{pg}(请求次数), 页面数据有{people_num}条')
             page_source = self.driver.page_source
             font_key = re.findall('var ____json4fe = {fontKey: "(.*?)"', page_source)[0]
             time.sleep(random.uniform(0, 1))
-            now_pg_data = requests.get(self.down_url_api, params={'pageindex': pg, 'fontKey': font_key}, headers=headers, verify=False)
-            new_data = now_pg_data.text.lstrip('(').rstrip(')')
-            new_data = json.loads(new_data)
-            resume_data = new_data['data']['resumeList']
-            yield resume_data
+            try:
+                now_pg_data = requests.get(self.down_url_api,
+                                           params={'pageindex': pg,
+                                                   'fontKey': font_key},
+                                           headers=headers)
+            except Exception as e:
+                print(e)
+                msg = '***** 58 程序自动化 *****\n触发原因: cookie失效\n处理标准: 重新处理页面状态'
+                send_rtx_msg(msg)
+            else:
+                new_data = now_pg_data.text.lstrip('(').rstrip(')')
+                new_data = json.loads(new_data)
+                resume_data = new_data['data']['resumeList']
+                yield resume_data
 
     def download_page_people_each(self, today_all_num):
         # 3.这里是点击每一个人 然后...
@@ -374,143 +392,145 @@ class TongCheng(object):
         # 1.只是去下载页面而已
         self.driver.get(self.down_url)
         try:
-            WebDriverWait(self.driver, 7200, poll_frequency=10).until(
+            WebDriverWait(self.driver, 86400, poll_frequency=10).until(
                 expected_conditions.presence_of_element_located((
                     By.XPATH, '/html/body/div[2]/div[2]/div[1]/div[4]/div[2]/ul/li[1]/div[1]/div[1]/div[3]/p[1]/span[1]'
                 )))
         except Exception as e:
             print(e)
+            msg = '******* 58数据自动化 *******\n触发原因: 账号登录状态过期\n处理标准: 重新登录处理,存入新的cookie\n触发账号: 银河在线'
+            send_rtx_msg(msg)
         else:
             self.download_page_people()
 
     # =============================================================== # 上面是关于下载简历的部分,里面的加密暂时还未处理
     # =============================================================== # 下面的程序已经单独提取变成了非自动化处理
 
-    def post_data_auto(self, resume_data):
-        info = {
-            'account': python_config.account_from,
-            'data': [resume_data]
-        }
-        print(info)
-        url = python_config.POST_URL
-        try:
-            response = self.session.post(url, json=info)
-        except Exception as e:
-            LOG.error('目标计算机拒绝链接')
-        else:
-            LOG.info(f'数据插入详情为:{response.text}')
-
-    def all_auto_get(self, nums):
-        referer_url = self.driver.current_url
-        headers = self.requests_headers(referer_url)
-        pgs = nums // 50 + 1
-        for pg in range(1, pgs+1):
-            time.sleep(random.uniform(1, 3))
-            now_pg_data = requests.get(self.auto_resume_api, params={'pageindex': pg}, headers=headers, verify=False)
-            new_data = now_pg_data.text.lstrip('(').rstrip(')')
-            new_data = json.loads(new_data)
-            resume_data = new_data['data']['resumeList']
-            yield resume_data
-
-    def auto_resume(self):
-        # 1. 到主动投递的页面去拿到 当天 的简历的数量
-        self.driver.get(self.auto_resume_url)
-        today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time() - 86400))
-        xpath_today = f'投递时间：{today_tic}'
-        time.sleep(0.5)
-        all_auto = self.driver.find_elements_by_xpath(f'//span[text()="{xpath_today}"]')
-        all_nums_auto = len(all_auto)
-        if all_nums_auto == 0:
-            LOG.info(f'{today_tic}检测的时候没有简历投递进来...')
-        else:
-            LOG.info(f'{xpath_today}为这天的简历有:{all_nums_auto}条')
-            auto_resume_data = self.all_auto_get(all_nums_auto)
-            for each_data in auto_resume_data:
-                need_post = self.transfer_useful_auto(each_data)
-                for post_resume in need_post:
-                    self.post_data_auto(post_resume)
-
-    def transfer_useful_auto(self, handled_data):
-        # 这里是最后要处理数据的地方，在这之前还有很多地方的数据需要处理（解码为主）
-        data_s = handled_data
-        for _ in range(len(data_s)):
-            data = data_s[_]
-            gender_judge = data['sex']
-            work_exp = data['experiences']
-            if work_exp:
-                work_experience = []
-                for each_work in work_exp:
-                    work_info = {
-                        '起止时间': each_work['startDate'] + '-' + each_work['endDate'],
-                        '公司信息': each_work['company'],
-                        '工作内容': each_work['positionName'] + ":" + each_work['description']
-                    }
-                    work_experience.append(work_info)
-            else:
-                work_experience = []
-            phone_num = data['mobile']
-            name = self.handle_name(data)
-            work_year = data['workYear']
-            salary = data['targetSalary'] if '面议' not in data['targetSalary'] else '面议'
-            age = int(data['age'])
-            now_year = int(time.strftime('%Y', time.localtime()))
-
-            json_info = {
-                'name': name,
-                'mobile_phone': phone_num,
-                'company_dpt': 1,  # 不确定写啥
-                'resume_key': data['targetPosition'] if data['targetPosition'] else '',
-                'gender': 2 if gender_judge == '0' else 1,
-                'date_of_birth': f'{now_year - age}-01-01',
-                'current_residency': data['expectArea'],
-                'years_of_working': work_year,
-                'hukou': '',
-                'current_salary': '',
-                'politics_status': '',
-                'marital_status': 2,
-                'address': '',
-                'zip_code': '',
-                'email': '',
-                'home_telephone': '',
-                'personal_home_page': '',
-                'excecutiveneed': '',
-                'self_assessment': data['letter'],
-                'i_can_start': '',
-                'employment_type': 1,
-                'industry_expected': '',
-                'working_place_expected': data['expectArea'],
-                'salary_expected': salary,
-                'job_function_expected': 1,
-                'current_situation': '',
-                'word_experience': work_experience,
-                'project_experience': [],
-                'education': [],
-                'honors_awards': [],
-                'practical_experience': [],
-                'training': '',
-                'language': [],
-                'it_skill': [],
-                'certifications': [],
-                'is_viewed': 1,
-                'resume_date': time.strftime("%Y-%m-%d", time.localtime()),
-                'get_type': 1,
-                'external_resume_id': data['resumeid'][-49:],
-                'labeltype': 1,
-                'resume_logo': data['picUrl'],
-                'resume_from': 4,  #
-                'account_from': python_config.account_from,
-                'update_date': time.strftime("%Y-%m-%d", time.localtime(int(data['updateDate']) / 1000)),
-            }
-
-            yield json_info
+    # def post_data_auto(self, resume_data):
+    #     info = {
+    #         'account': python_config.account_from,
+    #         'data': [resume_data]
+    #     }
+    #     print(info)
+    #     url = python_config.POST_URL
+    #     try:
+    #         response = self.session.post(url, json=info)
+    #     except Exception as e:
+    #         LOG.error('目标计算机拒绝链接')
+    #     else:
+    #         LOG.info(f'数据插入详情为:{response.text}')
+    #
+    # def all_auto_get(self, nums):
+    #     referer_url = self.driver.current_url
+    #     headers = self.requests_headers(referer_url)
+    #     pgs = nums // 50 + 1
+    #     for pg in range(1, pgs+1):
+    #         time.sleep(random.uniform(1, 3))
+    #         now_pg_data = requests.get(self.auto_resume_api, params={'pageindex': pg}, headers=headers, verify=False)
+    #         new_data = now_pg_data.text.lstrip('(').rstrip(')')
+    #         new_data = json.loads(new_data)
+    #         resume_data = new_data['data']['resumeList']
+    #         yield resume_data
+    #
+    # def auto_resume(self):
+    #     # 1. 到主动投递的页面去拿到 当天 的简历的数量
+    #     self.driver.get(self.auto_resume_url)
+    #     today_tic = time.strftime('%Y-%m-%d', time.localtime(time.time() - 86400))
+    #     xpath_today = f'投递时间：{today_tic}'
+    #     time.sleep(0.5)
+    #     all_auto = self.driver.find_elements_by_xpath(f'//span[text()="{xpath_today}"]')
+    #     all_nums_auto = len(all_auto)
+    #     if all_nums_auto == 0:
+    #         LOG.info(f'{today_tic}检测的时候没有简历投递进来...')
+    #     else:
+    #         LOG.info(f'{xpath_today}为这天的简历有:{all_nums_auto}条')
+    #         auto_resume_data = self.all_auto_get(all_nums_auto)
+    #         for each_data in auto_resume_data:
+    #             need_post = self.transfer_useful_auto(each_data)
+    #             for post_resume in need_post:
+    #                 self.post_data_auto(post_resume)
+    #
+    # def transfer_useful_auto(self, handled_data):
+    #     # 这里是最后要处理数据的地方，在这之前还有很多地方的数据需要处理（解码为主）
+    #     data_s = handled_data
+    #     for _ in range(len(data_s)):
+    #         data = data_s[_]
+    #         gender_judge = data['sex']
+    #         work_exp = data['experiences']
+    #         if work_exp:
+    #             work_experience = []
+    #             for each_work in work_exp:
+    #                 work_info = {
+    #                     '起止时间': each_work['startDate'] + '-' + each_work['endDate'],
+    #                     '公司信息': each_work['company'],
+    #                     '工作内容': each_work['positionName'] + ":" + each_work['description']
+    #                 }
+    #                 work_experience.append(work_info)
+    #         else:
+    #             work_experience = []
+    #         phone_num = data['mobile']
+    #         name = self.handle_name(data)
+    #         work_year = data['workYear']
+    #         salary = data['targetSalary'] if '面议' not in data['targetSalary'] else '面议'
+    #         age = int(data['age'])
+    #         now_year = int(time.strftime('%Y', time.localtime()))
+    #
+    #         json_info = {
+    #             'name': name,
+    #             'mobile_phone': phone_num,
+    #             'company_dpt': 1,  # 不确定写啥
+    #             'resume_key': data['targetPosition'] if data['targetPosition'] else '',
+    #             'gender': 2 if gender_judge == '0' else 1,
+    #             'date_of_birth': f'{now_year - age}-01-01',
+    #             'current_residency': data['expectArea'],
+    #             'years_of_working': work_year,
+    #             'hukou': '',
+    #             'current_salary': '',
+    #             'politics_status': '',
+    #             'marital_status': 2,
+    #             'address': '',
+    #             'zip_code': '',
+    #             'email': '',
+    #             'home_telephone': '',
+    #             'personal_home_page': '',
+    #             'excecutiveneed': '',
+    #             'self_assessment': data['letter'],
+    #             'i_can_start': '',
+    #             'employment_type': 1,
+    #             'industry_expected': '',
+    #             'working_place_expected': data['expectArea'],
+    #             'salary_expected': salary,
+    #             'job_function_expected': 1,
+    #             'current_situation': '',
+    #             'word_experience': work_experience,
+    #             'project_experience': [],
+    #             'education': [],
+    #             'honors_awards': [],
+    #             'practical_experience': [],
+    #             'training': '',
+    #             'language': [],
+    #             'it_skill': [],
+    #             'certifications': [],
+    #             'is_viewed': 1,
+    #             'resume_date': time.strftime("%Y-%m-%d", time.localtime()),
+    #             'get_type': 1,
+    #             'external_resume_id': data['resumeid'][-49:],
+    #             'labeltype': 1,
+    #             'resume_logo': data['picUrl'],
+    #             'resume_from': 4,  #
+    #             'account_from': python_config.account_from,
+    #             'update_date': time.strftime("%Y-%m-%d", time.localtime(int(data['updateDate']) / 1000)),
+    #         }
+    #
+    #         yield json_info
 
     # ================================================================ #
 
     def run_down(self):
         self.download_page()    # 获取下载的简历信息 (涉及到加密,正在处理中)
 
-    def run_auto(self):
-        self.auto_resume()   # 获取主动投递的简历信息,这里的数据就不这里跑了,换另外的地方跑
+    # def run_auto(self):
+    #     self.auto_resume()   # 获取主动投递的简历信息,这里的数据就不这里跑了,换另外的地方跑
 
 
 def send_rtx_msg(msg):
@@ -524,53 +544,12 @@ def send_rtx_msg(msg):
         "receivers": python_config.receivers,
         "msg": msg,
     }
-    # requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
-
-
-def clear_timer(set_time):
-    """
-    一个简单地定时器装置, 放入的 set_time 必须为集合, 列表, 元组。 里面的元素必须为字符串::方便设置指定的时间比如('18:21')
-    :param set_time: 设定的触发时间: 全称: 小时。
-    :return:
-    """
-
-    def work_time(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            now_time = time.strftime("%H:%M", time.localtime())
-            if now_time in set_time:
-                print()
-                func(*args, **kwargs)
-                print('\r这个程序停了,正在休眠中...', end='')
-                time.sleep(60)
-            else:
-                print('\r这个程序停了,继续休眠中...', end='')
-                time.sleep(60)
-
-        return wrapper
-    return work_time
-
-
-# @clear_timer(['21:00'])
-def main_down():
-    app = TongCheng()
-    app.run_down()
-
-
-@clear_timer(['09:00', '11:30', '16:00', '18:30', '23:55'])
-def main_auto():
-    app = TongCheng()
-    app.run_auto()
+    requests.Session().post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
 def main():
-    main_down()
-    print('调试的时候卡死在这里')
-    time.sleep(10000)
-    while True:
-        t_down = Thread(target=main_down)
-        t_down.start()
-        t_down.join()
+    app = TongCheng()
+    app.run_down()
 
 
 if __name__ == '__main__':

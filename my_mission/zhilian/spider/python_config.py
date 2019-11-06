@@ -1,6 +1,7 @@
-handler = '陈淼灵'
-receivers = '聂清娜;陈镇泉;陈淼灵'
-company_name = '广州时时美电子商务有限公司'
-account_main = '52606463_uBOI'
-staffName = '2114'
-account_from = 'Linda'
+handler = '张子珏'
+receivers = '聂清娜;张子珏;朱建坤'
+company_name = '广州银河在线饰品有限公司'
+account_main = 'wwet67827992'
+account_from = 'shelly'
+en_account = account_from
+staffName = '2215'
