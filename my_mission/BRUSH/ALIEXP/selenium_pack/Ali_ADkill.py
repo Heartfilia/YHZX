@@ -1,14 +1,10 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2019/11/1 11:24
 # @Author  : Lodge
-import os
 import re
-import sys
 import time
-import logging
 import urllib3
-from logging import getLogger
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -21,7 +17,7 @@ from helper import python_config, exe_js, tools
 LOG = tools.log('Ali_ADkill')
 urllib3.disable_warnings()   # disabled requests' verify warning
 # ========================================================================================== #
-LOG.info('测试信息...')
+
 
 
 class AliAdKill(object):

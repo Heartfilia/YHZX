@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2019/11/4 16:17
 # @Author  : Lodge
@@ -37,6 +37,11 @@ def send_rtx_info(msg, receivers=python_config.RECEIVERS):
 
 
 def log(name, std_level=logging.INFO, file_level=logging.INFO):
+    """
+    日志信息
+    :param name: 日志的名字
+    :param std_level: 日志的报告的等级(客户端设置) ==> log.error('')【不用在里面写了,在前面写就好了】
+    :param file_level: 日志的插入等级(达到预定等级才会插入日志)  ==> 此处debug等级不会插入
     file_name_date = time.strftime('%Y%m', time.localtime())
     full_name = f'{name}_{file_name_date}.log'
     # def logger(name, std_level=logging.INFO, file_level=logging.DEBUG):
