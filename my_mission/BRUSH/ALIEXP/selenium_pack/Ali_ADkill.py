@@ -1,11 +1,15 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2019/11/1 11:24
+# @Time    : 2019/11/11 11:24
 # @Author  : Lodge
 import re
+import json
 import time
+import random
 import urllib3
+import requests
 from selenium import webdriver
+from multiprocessing import Pool
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -15,23 +19,25 @@ from helper import python_config, exe_js, tools
 
 
 LOG = tools.log('Ali_ADkill')
+
 urllib3.disable_warnings()   # disabled requests' verify warning
 # ========================================================================================== #
 
 
-
 class AliAdKill(object):
-    def __init__(self):
-        self.base_url = 'https://www.aliexpress.com'
-        self.chat_url = self.base_url + ''
+    def __init__(self, items, killer):
+        self.items = items
+        self.killer = killer
+        if self.items:
+            self.base_url = 'https://www.aliexpress.com'
+            self.chat_url = self.base_url + ''
+            self.options = webdriver.ChromeOptions()
 
-        self.options = webdriver.ChromeOptions()
-
-        self.options.add_argument("--no-sandbox")
-        # self.options.add_argument('--headless')
-        self.options.add_argument('--disable-gpu')
-        # self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.CHROME_PORT}")  # connect
-        self.driver = webdriver.Chrome(options=self.options)
+            self.options.add_argument("--no-sandbox")
+            # self.options.add_argument('--headless')
+            self.options.add_argument('--disable-gpu')
+            # self.options.add_experimental_option("debuggerAddress", f"127.0.0.1:{python_config.CHROME_PORT}")
+            self.driver = webdriver.Chrome(options=self.options)
 
     def search_keyword(self, items):
         time.sleep(0.5)
@@ -59,28 +65,45 @@ class AliAdKill(object):
                 pass
 
     def go_to_login(self):
-        # 下面所有的内容都是用密码登录的,以后会改成cookie登录
-        sign_in = self.driver.find_element_by_xpath('//*[@id="nav-user-account"]/div/div/p[3]/a[2]')
-        self.driver.execute_script("arguments[0].click();", sign_in)
-        time.sleep(5)
-        self.driver.switch_to.frame('alibaba-login-box')
+        # ========= 下面所有的内容都是用密码登录的 ======== #
+        # sign_in = self.driver.find_element_by_xpath('//*[@id="nav-user-account"]/div/div/p[3]/a[2]')
+        # self.driver.execute_script("arguments[0].click();", sign_in)
+        # time.sleep(5)
+        # self.driver.switch_to.frame('alibaba-login-box')
 
-        try:
-            WebDriverWait(self.driver, 10).until(
-                expected_conditions.presence_of_element_located((By.XPATH, '//*[@id="fm-login-id"]')))
-        except Exception as e:
-            # 登录的窗口还是没有在规定的等待时间出来
-            print('登录窗口的内容还不可以进行下一步操作...')
-        else:
-            print('登陆的窗口是可以进行下一步操作了...')
-            account = self.driver.find_element_by_xpath('//*[@id="fm-login-id"]')
-            account.send_keys('KiokoeJanaee160@nineboy.vip')
-            time.sleep(0.2)
-            password = self.driver.find_element_by_xpath('//*[@id="fm-login-password"]')
-            password.send_keys('ZhanShen001')
+        # try:
+        #     WebDriverWait(self.driver, 10).until(
+        #         expected_conditions.presence_of_element_located((By.XPATH, '//*[@id="fm-login-id"]')))
+        # except Exception as e:
+        #     # 登录的窗口还是没有在规定的等待时间出来
+        #     print('登录窗口的内容还不可以进行下一步操作...')
+        # else:
+        #     print('登陆的窗口是可以进行下一步操作了...')
+        #     account = self.driver.find_element_by_xpath('//*[@id="fm-login-id"]')
+        #     account.send_keys('KiokoeJanaee160@nineboy.vip')
+        #     time.sleep(0.2)
+        #     password = self.driver.find_element_by_xpath('//*[@id="fm-login-password"]')
+        #     password.send_keys('ZhanShen001')
+        #     time.sleep(0.3)
+        #     password.send_keys(Keys.ENTER)
+        #     self.driver.switch_to.parent_frame()
+
+        # ========================================================== #
+        account_info = tools.get_killer()
+        account_id = account_info.get("id", None)
+        if account_id:
+            account = account_info.get("account")
+            password = account_info.get("password")
+            header = account_info.get("header")
+            cookies = account_info.get("cookies")
+            register_city = account_info.get("register_city")
+
+            for cookie in cookies:
+                self.driver.add_cookie(cookie)
+
             time.sleep(0.3)
-            password.send_keys(Keys.ENTER)
-            self.driver.switch_to.parent_frame()
+            self.driver.refresh()
+            time.sleep(random.uniform(3, 5))
 
     def judge_whether_in(self, keyword):
         # 判断是否搜索成功
@@ -108,7 +131,7 @@ class AliAdKill(object):
         self.go_to_login()            # 现在是用账号密码,以后改成用cookie
 
         try:
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, 30).until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, '//*[@id="nav-user-account"]/div/div/div/p/b')
                     # (By.XPATH, '//*[@id="header-categories"]')  # 这条为测试数据，不作任何验证效果，主要是为了忽略异常
@@ -254,27 +277,19 @@ class AliAdKill(object):
                     finally:
                         pg += 1
 
-    @staticmethod
-    def get_goal_items():
-        # 这里要从api拿数据,现在模拟一些数据
-        items = [
-            {'keyword': 'coat women autumn',
-             'data': [
-                 {'asin': '32962923195', 'page': 1},
-             ]},
-        ]
-
-        return items
-
     def run(self):
-        items = self.get_goal_items()
-        self.go_to_homepage(items)
+        if self.items:
+            self.go_to_homepage(self.items)
         # self.driver.quit()
 
 
 def main():
-    ad_app = AliAdKill()
-    # ad_app.run()
+    items = tools.get_goal_items()
+    killers = tools.get_killer()
+    pool = Pool(processes=python_config.PROCESS_NUM)
+    for killer in killers:
+        ad_app = AliAdKill(items, killer)
+        ad_app.run()
 
 
 if __name__ == '__main__':
