@@ -14,9 +14,9 @@ def timer(goaltime):
 			second_info = time.strftime('%S', now_local)
 			if int(second_info) == 0:
 				if int(min_info) == 0:
-					if hour_info in str(goaltime):
+					if str(int(hour_info)) in str(goaltime):
 						print('定时器启动')
-						func()
+						func(*args, **kwargs)
 					else:
 						print('时: 准备休眠的时为:', 1)
 						time.sleep(3600)
@@ -47,7 +47,7 @@ def send_rtx_info(msg, receivers='郭伟冲;陈毅;朱建坤'):
 	requests.post("http://rtx.fbeads.cn:8012/sendInfo.php", data=post_data)
 
 
-@timer(['10', '16'])
+@timer([10, 16])
 def run():
 	s = requests.Session()
 
