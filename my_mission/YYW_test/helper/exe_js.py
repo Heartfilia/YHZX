@@ -35,11 +35,10 @@ JS_SCROLL = "window.scrollTo(%d, %d);"
 JS_LAST_SCROLL = "window.scrollTo(%d, document.body.scrollHeight);"
 
 # 下面的不用处理，调用也可以不调用
-JS_ALERT_STATUS = '''() => {
-    alert (
-        window.navigator.webdriver
-    )
-}'''
+JS_ADD_TO_CART = '''
+document.querySelector("#proInfo_f > div:nth-child(9) > div.ruler_pic_left > div.proBtnbuy.ow > p.mt5 > a").click()'''
+
+JS_CHOSE_DOLLAR = '''document.querySelector("#conversionContainer > div.modalWrapper.modalWrapperAnimation > div.modalContainer > form > xo-currency-conversion-lightbox-options > div > div > ul > li:nth-child(3) > div > label").click()'''
 
 JS_CLICK_AD = '''
 document.querySelector("body > div.next-overlay-wrapper.opened > div.next-overlay-inner.next-dialog-container > div > a").click()

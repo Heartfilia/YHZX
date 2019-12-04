@@ -1,0 +1,25 @@
+2019-12-04 14:29:37,075=INFO=homepage_test.py[line:33]=>现在测试主页以及登录注册状态任务开始,启动的驱动为:Chrome.
+2019-12-04 14:29:56,753=INFO=homepage_test.py[line:133]=>Chrome:进入主页面的时间统计为:16.03 s
+2019-12-04 14:30:04,884=INFO=tools.py[line:231]=>注册信息为:{'register_time': '2019-12-04 14:30:04', 'first_name': 'Crystala', 'last_name': 'Austinec', 'email': 'Dvhtspuj024@zaful.xyz', 'password': 'tyni0,*X%yi', 'country': 'default country', 'telephone': '3119483926500497881', 'cost_time': '4.60', 'status': True, 'error_info': {'password': '', 'email': ''}}
+2019-12-04 14:30:14,884=INFO=homepage_test.py[line:44]=>正在检验是否注册账号成功
+2019-12-04 14:30:14,888=INFO=homepage_test.py[line:50]=>注册账号:(成功),当前的注册信息为:{'register_time': '2019-12-04 14:30:04', 'first_name': 'Crystala', 'last_name': 'Austinec', 'email': 'Dvhtspuj024@zaful.xyz', 'password': 'tyni0,*X%yi', 'country': 'default country', 'telephone': '3119483926500497881', 'cost_time': '4.60', 'status': True, 'error_info': {'password': '', 'email': ''}}
+2019-12-04 14:30:14,888=INFO=homepage_test.py[line:66]=>Chrome:时间统计==>注册:8.13 s
+2019-12-04 14:30:21,721=INFO=tools.py[line:306]=>浏览器的信息已经恢复为未登录的状态,然后回到了主页,会停留10秒钟.
+2019-12-04 14:30:36,697=INFO=homepage_test.py[line:117]=>Chrome:时间统计==>登录:4.98 s
+2019-12-04 14:30:48,780=INFO=homepage_test.py[line:103]=>Chrome:注册的账号登录状态为:成功,id为:450338
+2019-12-04 14:30:48,780=INFO=homepage_test.py[line:137]=>Chrome:准备去到主页测试页面功能流程
+2019-12-04 14:30:56,199=INFO=homepage_test.py[line:144]=>Chrome:浏览数据的情况图片已经截图...
+2019-12-04 14:30:57,204=INFO=homepage_test.py[line:149]=>Chrome:选择第1类进入查看信息
+2019-12-04 14:31:08,260=INFO=homepage_test.py[line:159]=>Chrome:点击操作的时候的截图,状态信息为:{'driver': 'Chrome', 'time': '2019-12-04 14:31:07', 'status': '成功'}
+2019-12-04 14:31:08,260=INFO=homepage_test.py[line:149]=>Chrome:选择第2类进入查看信息
+2019-12-04 14:31:18,908=INFO=homepage_test.py[line:159]=>Chrome:点击操作的时候的截图,状态信息为:{'driver': 'Chrome', 'time': '2019-12-04 14:31:18', 'status': '成功'}
+2019-12-04 14:31:18,908=INFO=homepage_test.py[line:149]=>Chrome:选择第3类进入查看信息
+2019-12-04 14:31:30,329=INFO=homepage_test.py[line:159]=>Chrome:点击操作的时候的截图,状态信息为:{'driver': 'Chrome', 'time': '2019-12-04 14:31:29', 'status': '成功'}
+2019-12-04 14:31:30,329=INFO=homepage_test.py[line:149]=>Chrome:选择第4类进入查看信息
+2019-12-04 14:31:40,451=INFO=homepage_test.py[line:159]=>Chrome:点击操作的时候的截图,状态信息为:{'driver': 'Chrome', 'time': '2019-12-04 14:31:39', 'status': '成功'}
+2019-12-04 14:31:40,451=INFO=homepage_test.py[line:149]=>Chrome:选择第5类进入查看信息
+2019-12-04 14:31:50,785=INFO=homepage_test.py[line:159]=>Chrome:点击操作的时候的截图,状态信息为:{'driver': 'Chrome', 'time': '2019-12-04 14:31:50', 'status': '成功'}
+2019-12-04 14:31:50,787=INFO=homepage_test.py[line:149]=>Chrome:选择第6类进入查看信息
+2019-12-04 14:32:53,352=INFO=homepage_test.py[line:159]=>Chrome:点击操作的时候的截图,状态信息为:{'driver': 'Chrome', 'time': '2019-12-04 14:32:52', 'status': '成功'}
+2019-12-04 14:32:53,352=INFO=homepage_test.py[line:149]=>Chrome:选择第7类进入查看信息
+2019-12-04 14:33:12,844=INFO=homepage_test.py[line:159]=>Chrome:点击操作的时候的截图,状态信息为:{'driver': 'Chrome', 'time': '2019-12-04 14:33:12', 'status': '成功'}

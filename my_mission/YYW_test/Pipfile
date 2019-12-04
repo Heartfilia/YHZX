@@ -12,6 +12,8 @@ selenium = "*"
 pymysql = "*"
 pandas = "*"
 unittest = "*"
+flask = "*"
+scrapy = "*"
 
 [requires]
 python_version = "3.7"

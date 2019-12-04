@@ -1,0 +1,19 @@
+2019-12-04 10:23:16,406=INFO=personal_page.py[line:23]=>现在测试个人中心状态任务开始,启动的驱动为:Chrome.
+2019-12-04 10:23:28,254=INFO=personal_page.py[line:55]=>名字信息更换成功,等待验证中...
+2019-12-04 10:23:31,455=INFO=personal_page.py[line:62]=>修改个人信息==>成功
+2019-12-04 10:23:34,839=INFO=personal_page.py[line:81]=>尝试修改邮箱中...
+2019-12-04 10:23:39,920=INFO=personal_page.py[line:86]=>修改密码的状态原因为:Sorry, there is no need to update data!
+2019-12-04 10:23:43,518=INFO=personal_page.py[line:105]=>尝试修改密码中...
+2019-12-04 10:23:47,243=INFO=personal_page.py[line:116]=>修改密码的状态原因为:Change password successfully. 新的密码为:test_info
+2019-12-04 10:23:51,393=INFO=tools.py[line:290]=>已经设置了收货地址信息,不用再次验证...
+2019-12-04 10:23:51,393=INFO=personal_page.py[line:161]=>设置地址信息的情况是:{'driver': 'Chrome', 'time': '2019-12-04 10:23:51', 'address_status': True}
+2019-12-04 10:23:53,172=INFO=personal_page.py[line:176]=>当前已经存在了愿望单,不用再添加了.
+2019-12-04 10:24:21,411=INFO=personal_page.py[line:211]=>添加到愿望单成功,{'item_name': 'Polyester Sexy Harness Bra Solid black Sold By PC', 'item_no': '160709024039', 'item_price': '$0.75/PC'},等待下一步验证.
+2019-12-04 10:24:34,423=INFO=personal_page.py[line:226]=>指定商品添加==>成功
+2019-12-04 10:24:40,960=INFO=personal_page.py[line:241]=>删除指定商品成功.
+2019-12-04 10:24:46,359=INFO=personal_page.py[line:256]=>tickets 查找到的数据为 6条.
+2019-12-04 10:24:50,790=INFO=personal_page.py[line:271]=>Orders 查到了的数据为 0条
+2019-12-04 10:24:55,475=INFO=personal_page.py[line:287]=>Finance 查询到的数据条数为:0条, 账户信用为:US$ 0.
+2019-12-04 10:24:59,556=INFO=personal_page.py[line:302]=>Arrive 查询到的数据条数为:0条.
+2019-12-04 10:25:05,505=INFO=personal_page.py[line:324]=>查询优惠券功能正常,本次随机查询的数据为:Error code..
+2019-12-04 10:25:18,980=INFO=personal_page.py[line:366]=>support 当前有1条主题信息.

@@ -121,10 +121,23 @@ EMAIL = random.choice(Upper_Letter_List) + ''.join(random.sample(Lower_Letter_Li
 
 # 列出一些特殊情况的密码
 PASSWORD = {
-    'normal': ''.join(random.sample(((Upper_Letter_List + Lower_Letter_List + Digit_List) * 2), random.randint(6, 20))),
+    'normal': ''.join(random.sample(((Upper_Letter_List + Lower_Letter_List + Digit_List) * 2), random.randint(7, 16))),
     'hard': ''.join(random.sample(((Upper_Letter_List + Lower_Letter_List + Digit_List + Char_list) * 2),
-                                  random.randint(6, 20)))
+                                  random.randint(7, 16)))
 }
 
 # 随机数据来当做手机号
 PHONE = ''.join(random.sample(Digit_List * 5, random.randint(1, 20)))
+
+# 随机商品数据搜索集
+RANDOM_GOODS_ITEM = ['clothes', 'Shirt', 'hat', 'bra', 'swimwear',
+                     'sleeve', 'bags', 'wallet', 'dress', 'tops',
+                     'Lingerie', 'luggage', 'tees', 'backpack']
+
+
+# RANDOM_ITEM_NUM = '1' + str(random.randint(10000000000, 9999999999999))
+RANDOM_ITEM_NUM = ['170719040153', '19101502032767220', '170904022015', '180530011059',
+                   '180718091402', '170616014314', '170428020304', '170718105716', '170908095700',
+                   '180410055422', '171222055119', '180427065613', '161212020555', '180703054835',
+                   '171113024216', '180429091341', '180601035409', '180602055236', '171020081432']
+

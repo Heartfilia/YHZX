@@ -1,0 +1,8 @@
+2019-12-04 10:06:55,084=INFO=pay_order_test.py[line:25]=>现在测试主页订单购买以及支付任务开始,启动的驱动为:Chrome.
+2019-12-04 10:07:06,734=INFO=tools.py[line:224]=>注册信息为:{'register_time': '2019-12-04 10:07:06', 'first_name': 'Rame', 'last_name': 'Hunterc', 'email': 'Ccloxezp960@zaful.net.cn', 'password': 'c1qfNtlR', 'country': 'default country', 'telephone': '64322183436587', 'cost_time': '4.86', 'status': True, 'error_info': {'password': '', 'email': ''}}
+2019-12-04 10:07:11,322=INFO=tools.py[line:288]=>地址信息设置成功
+2019-12-04 10:13:36,319=INFO=pay_order_test.py[line:25]=>现在测试主页订单购买以及支付任务开始,启动的驱动为:Chrome.
+2019-12-04 10:13:51,105=INFO=tools.py[line:224]=>注册信息为:{'register_time': '2019-12-04 10:13:51', 'first_name': 'Flectiea', 'last_name': 'Lele', 'email': 'Krhexktn307@anker.work', 'password': 'UTryO2nqN', 'country': 'default country', 'telephone': '53219479', 'cost_time': '6.08', 'status': True, 'error_info': {'password': '', 'email': ''}}
+2019-12-04 10:13:56,542=INFO=tools.py[line:288]=>地址信息设置成功
+2019-12-04 10:15:00,069=INFO=pay_order_test.py[line:205]=>当前购物车的金额为:US$ 13.09.
+2019-12-04 10:15:23,447=ERROR=pay_order_test.py[line:217]=>当前状态不为已有PayPal账号,现在验证第二种情况..

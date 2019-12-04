@@ -18,15 +18,16 @@
   <component name="ProjectId" id="1TeBzhR5u9nHw83J3fnqDqd1NZn" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../HR/zhilian_wbdz/spider/ZhiLian.py" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Hyb" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Project\OT\YYW_test" />
       <recent name="E:\Project\OT\YYW_test\helper" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Project\OT\YYW_test\utils" />
       <recent name="E:\Project\OT\YYW_test\helper" />
-      <recent name="E:\Project\OT\YYW_test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -41,8 +42,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.range_config">
-    <configuration name="crawl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.homepage_test">
+    <configuration name="detect_score" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YYW_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -50,12 +51,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/timer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/google_aly" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/timer/crawl.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/google_aly/detect_score.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,7 +87,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="range_config" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="pay_order_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YYW_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -94,12 +95,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/helper" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/selenium_test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/helper/range_config.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/selenium_test/pay_order_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,7 +109,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tools" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="personal_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YYW_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,12 +117,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/helper" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/selenium_test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/helper/tools.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/selenium_test/personal_page.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="search_item_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="YYW_test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/selenium_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/selenium_test/search_item_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,10 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.range_config" />
-        <item itemvalue="Python.tools" />
         <item itemvalue="Python.homepage_test" />
-        <item itemvalue="Python.crawl" />
+        <item itemvalue="Python.detect_score" />
+        <item itemvalue="Python.search_item_test" />
+        <item itemvalue="Python.personal_page" />
+        <item itemvalue="Python.pay_order_test" />
       </list>
     </recent_temporary>
   </component>
@@ -151,17 +175,61 @@
       <updated>1573810944377</updated>
       <workItem from="1573810956458" duration="4842000" />
       <workItem from="1574066162047" duration="7277000" />
-      <workItem from="1574301969296" duration="23394000" />
+      <workItem from="1574301969296" duration="44224000" />
+      <workItem from="1574415983771" duration="16259000" />
+      <workItem from="1574643537352" duration="71337000" />
+      <workItem from="1575248311228" duration="19250000" />
+      <workItem from="1575334513923" duration="5306000" />
+      <workItem from="1575340511792" duration="6715000" />
+      <workItem from="1575354629602" duration="14766000" />
+      <workItem from="1575424867766" duration="8166000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/selenium_test/pay_order_test.py</url>
+          <line>233</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="search_btn.click()" />
+        <watch expression="alert.accept()" />
+        <watch expression="from selenium.webdriver.common.alert import Alert" />
+        <watch expression="alert = Alert(self.driver)" />
+        <watch expression="alert.accept()" />
+        <watch expression="if not os.path.exists(log_dir_view):" />
+        <watch expression="os.mkdir(log_dir_view)" />
+        <watch expression="os.path.exists(log_dir_view)" />
+        <watch expression="os.mkdir(log_dir_view)" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/YYW_test$crawl.coverage" NAME="crawl Coverage Results" MODIFIED="1574317821296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/timer" />
-    <SUITE FILE_PATH="coverage/YYW_test$range_config.coverage" NAME="range_config Coverage Results" MODIFIED="1574331729089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
-    <SUITE FILE_PATH="coverage/YYW_test$tools.coverage" NAME="tools Coverage Results" MODIFIED="1574329157331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
-    <SUITE FILE_PATH="coverage/YYW_test$homepage_test.coverage" NAME="homepage_test Coverage Results" MODIFIED="1574327976629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/selenium_test" />
+    <SUITE FILE_PATH="coverage/YYW_test$crawl.coverage" NAME="crawl Coverage Results" MODIFIED="1575421667402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/timer" />
+    <SUITE FILE_PATH="coverage/YYW_test$pay_order_test.coverage" NAME="pay_order_test Coverage Results" MODIFIED="1575425615928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/selenium_test" />
+    <SUITE FILE_PATH="coverage/YYW_test$range_config.coverage" NAME="range_config Coverage Results" MODIFIED="1574491659617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
+    <SUITE FILE_PATH="coverage/YYW_test$detect_score.coverage" NAME="detect_score Coverage Results" MODIFIED="1575426385297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/google_aly" />
+    <SUITE FILE_PATH="coverage/YYW_test$main_page_view.coverage" NAME="main_page_view Coverage Results" MODIFIED="1575425001740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/selenium_test" />
+    <SUITE FILE_PATH="coverage/YYW_test$personal_page.coverage" NAME="personal_page Coverage Results" MODIFIED="1575426195985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/selenium_test" />
+    <SUITE FILE_PATH="coverage/YYW_test$tools.coverage" NAME="tools Coverage Results" MODIFIED="1575423224480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
+    <SUITE FILE_PATH="coverage/YYW_test$search_item_test.coverage" NAME="search_item_test Coverage Results" MODIFIED="1575426331700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/selenium_test" />
+    <SUITE FILE_PATH="coverage/YYW_test$test.coverage" NAME="test Coverage Results" MODIFIED="1575279052139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/requests_test" />
+    <SUITE FILE_PATH="coverage/YYW_test$homepage_test.coverage" NAME="homepage_test Coverage Results" MODIFIED="1575440976717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/selenium_test" />
   </component>
 </project>

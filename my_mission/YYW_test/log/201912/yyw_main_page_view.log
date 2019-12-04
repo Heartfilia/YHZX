@@ -1,0 +1,19 @@
+2019-12-04 10:03:22,384=INFO=main_page_view.py[line:20]=>现在测试分类页状态任务开始,启动的驱动为:Chrome.
+2019-12-04 10:03:41,539=INFO=main_page_view.py[line:67]=>Chrome: 进入主页时间统计为15.99s
+2019-12-04 10:03:54,596=INFO=main_page_view.py[line:50]=>Dress and Skirt:加载出来的商品数量有22个
+2019-12-04 10:03:54,596=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:03:54', 'status': True, 'category': 'Dress and Skirt', 'goods_num': 22}
+2019-12-04 10:04:06,305=INFO=main_page_view.py[line:50]=>Tops & Tees:加载出来的商品数量有19个
+2019-12-04 10:04:06,305=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:04:06', 'status': True, 'category': 'Tops & Tees', 'goods_num': 19}
+2019-12-04 10:04:19,452=INFO=main_page_view.py[line:50]=>Lingerie & Intimates:加载出来的商品数量有43个
+2019-12-04 10:04:19,452=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:04:19', 'status': True, 'category': 'Lingerie & Intimates', 'goods_num': 43}
+2019-12-04 10:04:30,394=INFO=main_page_view.py[line:50]=>Fashion Swimwear:加载出来的商品数量有18个
+2019-12-04 10:04:30,394=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:04:30', 'status': True, 'category': 'Fashion Swimwear', 'goods_num': 18}
+2019-12-04 10:04:41,719=INFO=main_page_view.py[line:50]=>Women's Bags and Luggage:加载出来的商品数量有18个
+2019-12-04 10:04:41,720=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:04:41', 'status': True, 'category': "Women's Bags and Luggage", 'goods_num': 18}
+2019-12-04 10:04:55,060=INFO=main_page_view.py[line:50]=>Promotion:加载出来的商品数量有40个
+2019-12-04 10:04:55,060=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:04:55', 'status': True, 'category': 'Promotion', 'goods_num': 40}
+2019-12-04 10:05:05,947=INFO=main_page_view.py[line:50]=>New Arrival:加载出来的商品数量有40个
+2019-12-04 10:05:05,948=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:05:05', 'status': True, 'category': 'New Arrival', 'goods_num': 40}
+2019-12-04 10:05:21,313=INFO=main_page_view.py[line:50]=>Clear Stock:加载出来的商品数量有98个
+2019-12-04 10:05:21,313=INFO=main_page_view.py[line:77]=>当前页面的产品信息为:{'driver': 'Chrome', 'time': '2019-12-04 10:05:21', 'status': True, 'category': 'Clear Stock', 'goods_num': 98}
+2019-12-04 10:05:30,345=INFO=tools.py[line:299]=>浏览器的信息已经恢复为未登录的状态,然后回到了主页,会停留10秒钟.
